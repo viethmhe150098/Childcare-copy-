@@ -23,6 +23,25 @@ public class Customer {
     private int status;
     private String address;
     
+    public Customer(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Customer(int cID, String first_name, String last_name, int gendet, String email, String tel, String username, String password, int age, int status, String address) {
+        this.cID = cID;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gendet = gendet;
+        this.email = email;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.status = status;
+        this.address = address;
+    }
+    
     public int getcID() {
         return cID;
     }

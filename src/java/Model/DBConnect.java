@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author Viet
  */
 public class DBConnect {
-        Connection con = null;
+        public Connection con = null;
 
     public DBConnect(String URL, String username, String pass) {
         try {
