@@ -112,7 +112,7 @@ public class DAOCustomer {
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
-        if (dao.login("trung", "123456") != null) {
+        if (dao.login2("viet", "1234567") != null) {
             System.out.println("ok");
         } else {
             System.out.println("not ok");

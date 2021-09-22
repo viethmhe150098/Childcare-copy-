@@ -10,6 +10,7 @@ import DAO.DAOauth;
 import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -76,27 +77,27 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("adUser");
+        String password = request.getParameter("adPass");
         DBConnect dbconn = new DBConnect();
 
         DAOauth auth = new DAOauth();
-        if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[a]")) {
-            //true admin
-        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[m]")) {
-
-        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[s]")) {
-
-        } else {
+//        if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[a]")) {
+//            //true admin
+//        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[m]")) {
+//
+//        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[s]")) {
+//
+//        } else {
             //user
             DAOCustomer daocus = new DAOCustomer(dbconn);
             if (daocus.login2(username, password) != null) {
                 response.sendRedirect("Susscess.jsp");
 
             } else {
-                response.sendRedirect("Login.jsp");
+                
             }
-        }
+//        }
 
         //HttpSession session = request.getSession();
         //daocus.login(username, password);

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Login
-    Created on : Sep 22, 2021, 10:35:29 AM
-    Author     : DO THANH TRUNG
+    Document   : Login.jsp
+    Created on : Sep 22, 2021, 2:50:02 PM
+    Author     : Viet
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,11 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Login form</h1>
-        <form action="login" method="post">
-            username: <input type="text" name="username"/><br>
-            password: <input type="text" name="password "/><br>
-            <input type="submit" value="login"/>
+        <h1>Login Form</h1>
+        <form action="login" method="POST">
+            Username<input type="text" name="adUser" value="" />
+            Password<input type="password" name="adPass" value="" />
+            <input type="submit" value="" />
         </form>
     </body>
 </html>
