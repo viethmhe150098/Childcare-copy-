@@ -5,6 +5,9 @@
  */
 package Controller;
 
+import DAO.DAOCustomer;
+import DAO.DAOauth;
+import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,7 +38,7 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Servlet login</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
@@ -56,7 +59,9 @@ public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        request.getRequestDispatcher("Login.jsp").forward(request, response);
+
     }
 
     /**
@@ -70,9 +75,59 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        DBConnect dbconn = new DBConnect();
+
+        DAOauth auth = new DAOauth();
+        if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[a]")) {
+            //true admin
+        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[m]")) {
+
+        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[s]")) {
+
+        } else {
+            //user
+            DAOCustomer daocus = new DAOCustomer(dbconn);
+            if (daocus.login2(username, password) != null) {
+                response.sendRedirect("Susscess.jsp");
+
+            } else {
+                response.sendRedirect("Login.jsp");
+            }
+        }
+
+        //HttpSession session = request.getSession();
+        //daocus.login(username, password);
+//        ArrayList<Customer> arr = daocus.getAllCustomer();
+//        for (Customer cus : arr) {
+//            if (cus.getUsername().equalsIgnoreCase(username)) {
+//                if (cus.getPassword().equals(password)) {
+//                    session.setAttribute("username", username);
+//                    //dispatch(request, response, "/Success.jsp");
+//                    response.sendRedirect("Susscess.jsp");
+//                } else {
+//                    request.setAttribute("alert", "Wrong Password!");
+//                    dispatch(request, response, "/Login.jsp");
+//                    //response.sendRedirect("Login.jsp");
+//                }
+//            }
+////                        response.sendRedirect("Login.jsp");
+//            dispatch(request, response, "/Login.jsp");
+        //} 
     }
 
+//    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
+//        RequestDispatcher dis = request.getRequestDispatcher(URL);
+//        try {
+//            dis.forward(request, response);
+//        } catch (ServletException ex) {
+//            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     /**
      * Returns a short description of the servlet.
      *
