@@ -115,4 +115,12 @@ public class DAOService {
         }
         return list;
     }
+     public static void main(String[] args) {
+          DAOService dao = new DAOService();
+           List<Service> list = dao.getAllProduct();
+           List<Service> list1 = dao.searchByName("ducmanh");
+           for(Service o : list1 ){
+               System.out.println(o);
+           }
+     }
 }
