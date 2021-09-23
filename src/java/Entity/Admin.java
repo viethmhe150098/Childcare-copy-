@@ -18,6 +18,19 @@ public class Admin {
     public Admin() {
     }
 
+    public Admin(int aID, String username, String password, String name) {
+        this.aID = aID;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+    }
+
+    public Admin(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    
+
     public int getaID() {
         return aID;
     }
@@ -49,5 +62,11 @@ public class Admin {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" + "aID=" + aID + ", username=" + username + ", password=" + password + ", name=" + name + '}';
+    }
+
     
 }

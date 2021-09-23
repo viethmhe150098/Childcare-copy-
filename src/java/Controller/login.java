@@ -5,7 +5,10 @@
  */
 package Controller;
 
+import DAO.DAOAdmin;
 import DAO.DAOCustomer;
+import DAO.DAOManager;
+import DAO.DAOStaff;
 import DAO.DAOauth;
 import Model.DBConnect;
 import java.io.IOException;
@@ -15,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -82,53 +86,57 @@ public class login extends HttpServlet {
         DBConnect dbconn = new DBConnect();
 
         DAOauth auth = new DAOauth();
-//        if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[a]")) {
-//            //true admin
-//        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[m]")) {
-//
-//        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[s]")) {
-//
-//        } else {
+        if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[a]")) {
+            //admin
+            DAOAdmin daoad = new DAOAdmin(dbconn);
+            if (daoad.loginAdmin(username, password) == null) {
+                request.setAttribute("mess", "Wrong user or password");
+                response.sendRedirect("Login.jsp");
+            } else {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("admin_account", daoad.loginAdmin(username, password));
+                //response.sendRedirect("homepage");
+                response.sendRedirect("Susscess.jsp");
+            }
+        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[m]")) {
+            //manager
+            DAOManager daoma = new DAOManager(dbconn);
+            if (daoma.loginManager(username, password) == null) {
+                request.setAttribute("mess", "Wrong user or password");
+                response.sendRedirect("Login.jsp");
+            } else {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("manager_account", daoma.loginManager(username, password));
+                //response.sendRedirect("homepage");
+                response.sendRedirect("Susscess.jsp");
+            }
+        } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[s]")) {
+            //staff
+            DAOStaff daosta = new DAOStaff(dbconn);
+            if (daosta.loginStaff(username, password) == null) {
+                request.setAttribute("mess", "Wrong user or password");
+                response.sendRedirect("Login.jsp");
+            } else {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("staff_account", daosta.loginStaff(username, password));
+                //response.sendRedirect("homepage");
+                response.sendRedirect("Susscess.jsp");
+            }
+        } else {
             //user
             DAOCustomer daocus = new DAOCustomer(dbconn);
-            if (daocus.login2(username, password) != null) {
-                response.sendRedirect("Susscess.jsp");
-
+            if (daocus.loginCustomer(username, password) == null) {
+                request.setAttribute("mess", "Wrong user or password");
+                response.sendRedirect("Login.jsp");
             } else {
-                
+                HttpSession session = request.getSession(true);
+                session.setAttribute("customer_account", daocus.loginCustomer(username, password));
+                //response.sendRedirect("homepage");
+                response.sendRedirect("Susscess.jsp");
             }
-//        }
-
-        //HttpSession session = request.getSession();
-        //daocus.login(username, password);
-//        ArrayList<Customer> arr = daocus.getAllCustomer();
-//        for (Customer cus : arr) {
-//            if (cus.getUsername().equalsIgnoreCase(username)) {
-//                if (cus.getPassword().equals(password)) {
-//                    session.setAttribute("username", username);
-//                    //dispatch(request, response, "/Success.jsp");
-//                    response.sendRedirect("Susscess.jsp");
-//                } else {
-//                    request.setAttribute("alert", "Wrong Password!");
-//                    dispatch(request, response, "/Login.jsp");
-//                    //response.sendRedirect("Login.jsp");
-//                }
-//            }
-////                        response.sendRedirect("Login.jsp");
-//            dispatch(request, response, "/Login.jsp");
-        //} 
+        }
     }
 
-//    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
-//        RequestDispatcher dis = request.getRequestDispatcher(URL);
-//        try {
-//            dis.forward(request, response);
-//        } catch (ServletException ex) {
-//            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IOException ex) {
-//            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
     /**
      * Returns a short description of the servlet.
      *

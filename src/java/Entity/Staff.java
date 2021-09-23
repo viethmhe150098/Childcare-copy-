@@ -10,5 +10,102 @@ package Entity;
  * @author Viet
  */
 public class Staff {
+    private String first_name;
+    private int aID;
+    private String last_name;
+    private int role;
+    private String username;
+    private String password;
+    private String image;
+    private String address;
+
+    public Staff() {
+    }
+
+    public Staff(String first_name, int aID, String last_name, int role, String username, String password, String image, String address) {
+        this.first_name = first_name;
+        this.aID = aID;
+        this.last_name = last_name;
+        this.role = role;
+        this.username = username;
+        this.password = password;
+        this.image = image;
+        this.address = address;
+    }
+
+    public Staff(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public int getaID() {
+        return aID;
+    }
+
+    public void setaID(int aID) {
+        this.aID = aID;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Staff{" + "first_name=" + first_name + ", aID=" + aID + ", last_name=" + last_name + ", role=" + role + ", username=" + username + ", password=" + password + ", image=" + image + ", address=" + address + '}';
+    }
+    
     
 }

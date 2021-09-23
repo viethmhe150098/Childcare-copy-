@@ -5,9 +5,8 @@
  */
 package DAO;
 
-import Entity.Customer;
+import Entity.Staff;
 import Model.DBConnect;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,30 +14,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author DO THANH TRUNG
  */
-public class DAOCustomer {
+public class DAOStaff {
 
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     DBConnect dbconn = null;
 
-    public DAOCustomer(DBConnect dbconn) {
+    public DAOStaff(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbconn = dbconn;
     }
 
-    public Customer loginCustomer(String username, String password) {
+    public Staff loginStaff(String username, String password) {
         try {
-            String sql = "select * from Customer where username = ? and password = ?";
+            String sql = "select * from Staff where username = ? and password = ?";
 
             ps = conn.prepareStatement(sql);
             ps.setString(1, username);
@@ -46,38 +41,44 @@ public class DAOCustomer {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Customer cus = new Customer(rs.getString(1), rs.getString(2));
-                return cus;
+                Staff sta = new Staff(rs.getString(1), rs.getString(2));
+                return sta;
             }
         } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DAOStaff.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
-    public ArrayList<Customer> getAllCustomer() {
-        ArrayList<Customer> arr = new ArrayList<Customer>();
-        String sql = "select * from Customer";
+    public ArrayList<Staff> getAllStaff() {
+        ArrayList<Staff> arr = new ArrayList<Staff>();
+        String sql = "select * from Staff";
         ResultSet rs = dbconn.getData(sql);
         try {
             while (rs.next()) {
-                Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
+                Staff sta = new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
                         rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
-                arr.add(cus);
+                        rs.getString(8));
+                arr.add(sta);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOStaff.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arr;
     }
 
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
-        DAOCustomer dao = new DAOCustomer(dbconn);
-        ArrayList<Customer> list = dao.getAllCustomer();
+        DAOStaff dao = new DAOStaff(dbconn);
+        ArrayList<Staff> list = dao.getAllStaff();
         for (Object o : list) {
             System.out.println(o);
+        }
+
+        if(dao.loginStaff("huy@s", "123456")==null){
+            System.out.println("not ok");
+        }else{
+            System.out.println("ok");
         }
     }
 }
