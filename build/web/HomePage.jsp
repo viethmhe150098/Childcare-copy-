@@ -1,3 +1,10 @@
+<%-- 
+    Document   : HomePage
+    Created on : Sep 24, 2021, 1:15:52 PM
+    Author     : ADMIN
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -194,7 +201,7 @@
             
             <!-- end row -->
             <hr class="hr1">
-            <div class="row">
+            <div class="row">            
                <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="service-widget">
                      <div class="post-media wow fadeIn">
@@ -239,8 +246,11 @@
             <!-- end row -->
          </div>
          <!-- end container -->
+           <c:forEach items="${listS}" var ="o">
          <section id="home" class="home">
+            
             <div class="home__container">
+                
                 <div class="slide slide-1">
                     <img src="./images/cloud.png" alt="" class="img-cloud active">
                     <div class="slide__container">
@@ -249,12 +259,13 @@
                             <img src="./images/content-image-1.png" alt="" class="img-rocket">
                         </div>
                         <div class="home-content">
-                            <h2 class="content-h2">Digital Marketing Agency</h2>
+                            <h2 class="content-h2">${o.sname}</h2>
                             <p class="content-title">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>
                             <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
                         </div>
                     </div>
                 </div>
+               
                 <div class="slide slide-2">
                     <img src="./images/cloud.png" alt="" class="img-cloud">
                     <div class="slide__container">
@@ -262,7 +273,7 @@
                             <img src="./images/content-image-5.png" alt="" class="img-content">
                         </div>
                         <div class="home-content">
-                            <h2 class="content-h2">What is seo & how can it help my buiseness grow?</h2>
+                            <h2 class="content-h2">${o.sname}</h2>
                             <p class="content-title">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>
                             <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
                         </div>
@@ -287,8 +298,11 @@
                     <div class="next-btn"><i class="fas fa-chevron-right next"></i></div>
                 </div>
             </div>
+                        
         </section>
+                    </c:forEach>
       </div>
+            
       
       <div id="service" class="services wow fadeIn">
          <div class="container">     
@@ -844,3 +858,4 @@
  
    </body>
 </html>
+

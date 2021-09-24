@@ -135,7 +135,7 @@ var prevAuto = function() {
 }
 var auto
 var repeat = function() {
-    auto = setInterval(nextAuto, 10000)
+    auto = setInterval(nextAuto, 15000)
 }
 repeat()
 next.addEventListener('click', function() {
