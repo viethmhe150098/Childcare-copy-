@@ -5,6 +5,7 @@
     position: relative;
     width: 100%;
     min-height: 150vh;
+    margin-top: 2rem;
     .slide {
         position: absolute;
         top: 0;
@@ -119,7 +120,7 @@
 .next-btn {
     z-index: 999;
     font-size: 1.1em;
-    color: var(--white-color);
+    color : var(--white-color);
     background:red;
     width: 25px;
     height: 150px;
