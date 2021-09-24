@@ -91,7 +91,9 @@ public class login extends HttpServlet {
             DAOAdmin daoad = new DAOAdmin(dbconn);
             if (daoad.loginAdmin(username, password) == null) {
                 request.setAttribute("mess", "Wrong user or password");
-                response.sendRedirect("Login.jsp");
+//                response.sendRedirect("Login.jsp");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("admin_account", daoad.loginAdmin(username, password));
@@ -103,7 +105,9 @@ public class login extends HttpServlet {
             DAOManager daoma = new DAOManager(dbconn);
             if (daoma.loginManager(username, password) == null) {
                 request.setAttribute("mess", "Wrong user or password");
-                response.sendRedirect("Login.jsp");
+//                response.sendRedirect("Login.jsp");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("manager_account", daoma.loginManager(username, password));
@@ -115,7 +119,9 @@ public class login extends HttpServlet {
             DAOStaff daosta = new DAOStaff(dbconn);
             if (daosta.loginStaff(username, password) == null) {
                 request.setAttribute("mess", "Wrong user or password");
-                response.sendRedirect("Login.jsp");
+//                response.sendRedirect("Login.jsp");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("staff_account", daosta.loginStaff(username, password));
@@ -127,7 +133,9 @@ public class login extends HttpServlet {
             DAOCustomer daocus = new DAOCustomer(dbconn);
             if (daocus.loginCustomer(username, password) == null) {
                 request.setAttribute("mess", "Wrong user or password");
-                response.sendRedirect("Login.jsp");
+                //response.sendRedirect("Login.jsp");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("customer_account", daocus.loginCustomer(username, password));
