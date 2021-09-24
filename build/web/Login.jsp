@@ -47,7 +47,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/service.css">
         <!-- [if lt IE 9] -->
-        
+
         <link rel="stylesheet" href="./css/login.css">
     </head>
 
@@ -138,17 +138,20 @@
             <h2 class="title">Login Form</h2>
             <form action="login" method="post">
                 <p class="text-danger">${mess}</p>
-                Username: <input placeholder="Enter your username" type="text" name="adUser"><br>
-                <div class="pass">
-                    Password: <input id="pass" placeholder="Enter your password" type="password" name="adPass">
-                    <img onclick="myFunction()" src="images/eye.jpg" width="30" height="30">
+                <div class="enter">
+                    <img src="images/user.png">
+                    <input placeholder="Enter your username" type="text" name="adUser">
+                    <br>
+                </div>	
+                <div class="enter">
+                    <img src="images/pass.png">
+                    <input id="pass" placeholder="Enter your password" type="password" name="adPass">
+                    <img onclick="myFunction()" src="images/eye1.jpg" width="30" height="30">
                     <br>
                 </div>
                 <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
                 <div style="text-align: center; margin: 10 auto"><a href="register">register account</a></div>
-                <!--<input type="submit" value="Login">-->
                 <button>Login</button>
-
             </form>
         </div>
 
@@ -238,7 +241,7 @@
                             if (x) {
                                 document.getElementById('pass').type = "text";
                                 x = false;
-                            }else{
+                            } else {
                                 document.getElementById('pass').type = "password";
                                 x = true;
                             }

@@ -38,3 +38,24 @@ h2{
 .login button:hover{
     font-size: 20px;
 }
+
+.enter{
+    width: 250px;
+    height: auto;
+    border-color: 1px solid grey;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.enter img{
+    height: 40px;
+    width: 20px;
+    vertical-align: middle;
+}
+
+.enter input{
+    height: 50px;
+}
