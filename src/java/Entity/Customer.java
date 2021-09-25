@@ -14,7 +14,7 @@ public class Customer {
     private int cID;
     private String first_name;
     private String last_name;
-    private String gendet;
+    private String gender;
     private String email;
     private String tel;
     private String username;
@@ -28,10 +28,10 @@ public class Customer {
         this.password = password;
     }
 
-    public Customer(String first_name, String last_name, String gendet, String email, String tel, String username, String password, String address) {
+    public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String address) {
         this.first_name = first_name;
         this.last_name = last_name;
-        this.gendet = gendet;
+        this.gender = gender;
         this.email = email;
         this.tel = tel;
         this.username = username;
@@ -39,10 +39,10 @@ public class Customer {
         this.address = address;
     }
 
-    public Customer(String first_name, String last_name, String gendet, String email, String tel, String username, String password, String age, String status, String address) {
+    public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String status, String address) {
         this.first_name = first_name;
         this.last_name = last_name;
-        this.gendet = gendet;
+        this.gender = gender;
         this.email = email;
         this.tel = tel;
         this.username = username;
@@ -54,11 +54,11 @@ public class Customer {
        
     
     
-    public Customer(int cID, String first_name, String last_name, String gendet, String email, String tel, String username, String password, String age, String status, String address) {
+    public Customer(int cID, String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String status, String address) {
         this.cID = cID;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.gendet = gendet;
+        this.gender = gender;
         this.email = email;
         this.tel = tel;
         this.username = username;
@@ -92,12 +92,12 @@ public class Customer {
         this.last_name = last_name;
     }
 
-    public String getGendet() {
-        return gendet;
+    public String getGender() {
+        return gender;
     }
 
-    public void setGendet(String gendet) {
-        this.gendet = gendet;
+    public void setGender(String gendet) {
+        this.gender = gendet;
     }
 
     public String getEmail() {
@@ -158,7 +158,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" + "cID=" + cID + ", first_name=" + first_name + ", last_name=" + last_name + ", gendet=" + gendet + ", email=" + email + ", tel=" + tel + ", username=" + username + ", password=" + password + ", age=" + age + ", status=" + status + ", address=" + address + '}';
+        return "Customer{" + "cID=" + cID + ", first_name=" + first_name + ", last_name=" + last_name + ", gender=" + gender + ", email=" + email + ", tel=" + tel + ", username=" + username + ", password=" + password + ", age=" + age + ", status=" + status + ", address=" + address + '}';
     }
     
 }

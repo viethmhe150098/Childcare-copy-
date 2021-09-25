@@ -81,7 +81,7 @@ public class DAOCustomer {
             ps = conn.prepareStatement(sql);
             ps.setString(1, cus.getFirst_name());
             ps.setString(2, cus.getLast_name());
-            ps.setString(3, cus.getGendet());
+            ps.setString(3, cus.getGender());
             ps.setString(4, cus.getEmail());
             ps.setString(5, cus.getTel());
             ps.setString(6, cus.getUsername());
