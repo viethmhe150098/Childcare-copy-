@@ -14,13 +14,13 @@ public class Customer {
     private int cID;
     private String first_name;
     private String last_name;
-    private int gendet;
+    private String gendet;
     private String email;
     private String tel;
     private String username;
     private String password;
-    private int age;
-    private int status;
+    private String age;
+    private String status;
     private String address;
     
     public Customer(String username, String password) {
@@ -28,7 +28,33 @@ public class Customer {
         this.password = password;
     }
 
-    public Customer(int cID, String first_name, String last_name, int gendet, String email, String tel, String username, String password, int age, int status, String address) {
+    public Customer(String first_name, String last_name, String gendet, String email, String tel, String username, String password, String address) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gendet = gendet;
+        this.email = email;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.address = address;
+    }
+
+    public Customer(String first_name, String last_name, String gendet, String email, String tel, String username, String password, String age, String status, String address) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gendet = gendet;
+        this.email = email;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.status = status;
+        this.address = address;
+    }
+       
+    
+    
+    public Customer(int cID, String first_name, String last_name, String gendet, String email, String tel, String username, String password, String age, String status, String address) {
         this.cID = cID;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -66,11 +92,11 @@ public class Customer {
         this.last_name = last_name;
     }
 
-    public int getGendet() {
+    public String getGendet() {
         return gendet;
     }
 
-    public void setGendet(int gendet) {
+    public void setGendet(String gendet) {
         this.gendet = gendet;
     }
 
@@ -106,19 +132,19 @@ public class Customer {
         this.password = password;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
