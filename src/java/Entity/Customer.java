@@ -22,6 +22,7 @@ public class Customer {
     private String age;
     private String status;
     private String address;
+    private String code;
     
     public Customer(String username, String password) {
         this.username = username;
@@ -67,6 +68,22 @@ public class Customer {
         this.status = status;
         this.address = address;
     }
+
+    public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String status, String address, String code) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.email = email;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.status = status;
+        this.address = address;
+        this.code = code;
+    }
+    
+    
     
     public int getcID() {
         return cID;
@@ -154,6 +171,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     

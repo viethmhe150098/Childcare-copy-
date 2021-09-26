@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.DAOCustomer;
+import DAO.SendMail;
 import Entity.Customer;
 import Model.DBConnect;
 import java.io.IOException;
@@ -99,9 +100,19 @@ public class register extends HttpServlet {
             DAOCustomer daocus = new DAOCustomer(dbconn);                                   
             daocus.insertCus(cus);
 
-            Customer c = daocus.loginCustomer(username, password);
-            session.setAttribute("account", c);
-            response.sendRedirect("homepage");
+//            Customer c = daocus.loginCustomer(username, password);
+//            session.setAttribute("account", c);
+//            response.sendRedirect("homepage");
+
+//            SendMail sm = new SendMail();
+//            String code = sm.getRandom();
+//            Customer cus = new Customer(firstname, lastname, gender, email,phonenumber, username, password, age, status, address, code);
+//            
+//            boolean test = sm.sendEmail(cus);
+//            if(test){
+//                session.setAttribute("suthcode", cus);
+//                response.sendRedirect("Verify.jsp");
+//            }
         }
     }
 
