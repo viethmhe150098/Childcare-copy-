@@ -250,7 +250,7 @@
          <section id="service" class="home">
             
             <div class="home__container">
-                 <c:forEach items="${listS}" begin="0" end="0" var ="o">
+                 <c:forEach items="${listC}" begin="0" end="0" var ="o">
                 <div class="slide slide-1">
                     <img src="./images/cloud.png" alt="" class="img-cloud active">
                     <div class="slide__container">
@@ -259,17 +259,19 @@
                             <img src="./images/content-image-1.png" alt="" class="img-rocket">
                         </div>
                         <div class="home-content">
-                            <h2 class="content-h2">${o.sname}</h2>
-                            <p class="content-title">${o.sprice}</p>
-                                                        <p class="content-title">${o.maxquantity}</p>
-
+                            <h2 class="content-h2 text-center">${o.scCateName}</h2>
+<div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
+                     <p style = "text-decoration: underline;
+  text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
+                     <p style="text-align: center"> Sale :50$</p>
+                     </div>
                             
-                            <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
+                            <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt hàng ngay</a> </button>
                         </div>
                     </div>
                 </div>
                  </c:forEach>
-                 <c:forEach items="${listS}" begin="1" end="1" var ="o">
+                 <c:forEach items="${listC}" begin="1" end="1" var ="o">
                 <div class="slide slide-2">
                     <img src="./images/cloud.png" alt="" class="img-cloud">
                     <div class="slide__container">
@@ -277,15 +279,20 @@
                             <img src="./images/content-image-5.png" alt="" class="img-content">
                         </div>
                         <div class="home-content">
-                            <h2 class="content-h2">${o.sname}</h2>
-                            <p class="content-title">${o.sprice}</p>
-                                                        <p class="content-title">${o.maxquantity}</p>
+                            <h2 class="content-h2 text-center">${o.scCateName}</h2>
+                          
+                                               <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
+                     <p style = "text-decoration: underline;
+  text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
+                     <p style="text-align: center"> Sale :50$</p>
+                     </div>        
 
-                            <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
+                            <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt hàng ngay</a> </button>
                         </div>
                     </div>
                 </div>
                  </c:forEach>
+                 <c:forEach items="${listC}" begin="2" end="2" var ="o">
                 <div class="slide slide-3">
                     <img src="./images/cloud.png" alt="" class="img-cloud active">
                     <div class="slide__container">
@@ -293,13 +300,17 @@
                             <img src="./images/content-image-6.png" alt="" class="img-content active">
                         </div>
                         <div class="home-content">
-                            <h2 class="content-h2">Digital Agency That help You To Go Ahead</h2>
-                            <p class="content-title">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>
-                            <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
+                            <h2 class="content-h2 text-center">${o.scCateName}</h2>
+                            <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
+                     <p style = "text-decoration: underline;
+  text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
+                     <p style="text-align: center"> Sale :50$</p>
+                     </div>
+                            <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt hàng ngay</a> </button>
                         </div>
                     </div>
                 </div>
-
+ </c:forEach>
                 <div class="navigation">
                     <div class="prev-btn"><i class="fas fa-chevron-left prev"></i></div>
                     <div class="next-btn"><i class="fas fa-chevron-right next"></i></div>
@@ -311,21 +322,19 @@
       </div>
             
       
-      <div id="" class="services wow fadeIn">
+      <div id="Apply" class="services wow fadeIn">
          <div class="container">     
             
                 <div class="dropdown">
-                    <div class="dropdown__select" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">
+                    <div class="dropdown__select">
                     <span class="dropdown__selected">Category of Service</span>
                     <i class="fa fa-caret-down dropdown__caret"></i>
                   </div>
                      
-                    <ul class="dropdown__list" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">
+                    <ul class="dropdown__list">
                       <c:forEach items="${listC}"  var ="o">
                     <li class="dropdown__item">
-                      <a  href="https://www.google.com/" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
+                      <a  href="CategoryControl?cid=${o.scID}" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
                       <i class="fa fa-plus-circle dropdown__icon"></i>
                     </li>
                      </c:forEach>
@@ -338,52 +347,31 @@
     background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Send</button>
        </div>
             <div class="row">
+               
                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                   <div class="inner-services">
+                       <c:forEach items="${listS}"  var ="o">
                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
-                           <h4>PREMIUM FACILITIES</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                           <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>            
+                            <p class="card-title show_txt"><a href="detail?sid=${o.sID}" title="View Product">${o.sname}</a></p>
+                           <p>${o.description}</p>
+                                                      <p>${o.sprice}</p>
+                           <p>${o.maxquantity}</p>
+
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
-                           <h4>LARGE LABORATORY</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
-                           <h4>DETAILED SPECIALIST</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
-                           <h4>CHILDREN CARE CENTER</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
-                           <h4>FINE INFRASTRUCTURE</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
-                           <h4>ANYTIME BLOOD BANK</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
+                             </c:forEach>
+                 
+                     
+                     
+                    
+                     
                   </div>
+                          
                </div>
+                           
+                   
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                   <div class="appointment-form">
                      <h3><span>+</span> Book Appointment</h3>

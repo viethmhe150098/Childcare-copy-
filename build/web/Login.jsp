@@ -165,7 +165,7 @@
                     <form action="login" method="post">
                         <p class="text-danger">${mess}</p>
                         <input class="text" type="text" name="adUser" placeholder="Username" required="">
-                        <input class="text" type="password" name="adPass" minlength="8" placeholder="Password" required="">
+                        <input id="pass" class="text" type="password" name="adPass" minlength="8" placeholder="Password" required=""><img onclick="myFunction()" src="images/eye2.jpg" width="30" height="30">
                         <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
                         <div style="text-align: center; margin: 10 auto"><a href="register">register account</a></div>
                         
