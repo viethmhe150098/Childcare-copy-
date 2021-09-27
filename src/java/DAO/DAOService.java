@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Entity.SerCate;
 import Entity.Service;
 import Model.DBConnect;
 import java.sql.Connection;
@@ -115,11 +116,26 @@ public class DAOService {
         }
         return list;
     }
+    public List<SerCate> getAllCateSer() {
+        List<SerCate> list = new ArrayList<>();
+        String query = "select * from SerCate";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new SerCate(rs.getString(1),rs.getString(2)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
      public static void main(String[] args) {
           DAOService dao = new DAOService();
            List<Service> list = dao.getAllProduct();
            List<Service> list1 = dao.searchByName("ducmanh");
-           for(Service o : list1 ){
+           List<SerCate> listC = dao.getAllCateSer();
+           for(SerCate o : listC ){
                System.out.println(o);
            }
      }
