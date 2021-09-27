@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/src/java/DAO/DAOService.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/src/java/Entity/SerCate.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/src/java/Controller/ServiceControl.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/src/java/Controller/login.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/src/java/Controller/CategoryControl.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/src/java/Entity/Service.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/ProjectSWP/web/HomePage.jsp</file>
         </group>
     </open-files>
 </project-private>
