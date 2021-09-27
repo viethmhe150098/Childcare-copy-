@@ -146,7 +146,7 @@
                 <div class="enter">
                     <img src="images/pass.png">
                     <input id="pass" placeholder="Enter your password" type="password" minlength="8" name="adPass">
-                    <img onclick="myFunction()" src="images/eye1.jpg" width="30" height="30">
+                    <img onclick="myFunction()" src="images/eye2.jpg" width="30" height="30">
                     <br>
                 </div>
                 <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
