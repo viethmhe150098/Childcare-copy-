@@ -48,7 +48,9 @@
         <link rel="stylesheet" href="./css/service.css">
         <!-- [if lt IE 9] -->
 
-        <link rel="stylesheet" href="./css/login.css">
+        <!--<link rel="stylesheet" href="./css/login.css">-->
+        <link rel="stylesheet" href="./css/register.css">
+
     </head>
 
     <body>
@@ -134,26 +136,43 @@
             <!-- end container -->
         </div>
 
-        <div class="login">
-            <h2 class="title">Login Form</h2>
-            <form action="login" method="post">
-                <p class="text-danger">${mess}</p>
-                <div class="enter">
-                    <img src="images/user.png">
-                    <input placeholder="Enter your username" type="text" name="adUser">
-                    <br>
-                </div>	
-                <div class="enter">
-                    <img src="images/pass.png">
-                    <input id="pass" placeholder="Enter your password" type="password" minlength="8" name="adPass">
-                    <img onclick="myFunction()" src="images/eye2.jpg" width="30" height="30">
-                    <br>
+        <!--        <div class="login">
+                    <h2 class="title">Login Form</h2>
+                    <form action="login" method="post">
+                        <p class="text-danger">${mess}</p>
+                        <div class="enter">
+                            <img src="images/user.png">
+                            <input placeholder="Enter your username" type="text" name="adUser">
+                            <br>
+                        </div>	
+                        <div class="enter">
+                            <img src="images/pass.png">
+                            <input id="pass" placeholder="Enter your password" type="password" minlength="8" name="adPass">
+                            <img onclick="myFunction()" src="images/eye2.jpg" width="30" height="30">
+                            <br>
+                        </div>
+                        <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
+                        <div style="text-align: center; margin: 10 auto"><a href="register">register account</a></div>
+                        <button>Login</button>
+                        <input onclick="send()" type="button" value="Submit">
+                    </form>
+                </div>-->
+
+        <div class="main-w3layouts wrapper">
+            <h1>Login Form</h1>
+            <div class="main-agileinfo">
+                <div class="agileits-top">
+                    <form action="login" method="post">
+                        <p class="text-danger">${mess}</p>
+                        <input class="text" type="text" name="adUser" placeholder="Username" required="">
+                        <input class="text" type="password" name="adPass" minlength="8" placeholder="Password" required="">
+                        <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
+                        <div style="text-align: center; margin: 10 auto"><a href="register">register account</a></div>
+                        
+                        <input type="submit" value="LOGIN">
+                    </form>
                 </div>
-                <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
-                <div style="text-align: center; margin: 10 auto"><a href="register">register account</a></div>
-                <button>Login</button>
-                <!--<input onclick="send()" type="button" value="Submit">-->
-            </form>
+            </div>
         </div>
 
         <footer id="footer" class="footer-area wow fadeIn">
@@ -237,16 +256,16 @@
         <script src="./js/main.js"></script>
 
         <script type="text/javascript">
-                        var x = true;
-                        function myFunction() {
-                            if (x) {
-                                document.getElementById('pass').type = "text";
-                                x = false;
-                            } else {
-                                document.getElementById('pass').type = "password";
-                                x = true;
-                            }
-                        }
+            var x = true;
+            function myFunction() {
+                if (x) {
+                    document.getElementById('pass').type = "text";
+                    x = false;
+                } else {
+                    document.getElementById('pass').type = "password";
+                    x = true;
+                }
+            }
         </script>
     </body>
 </html>
