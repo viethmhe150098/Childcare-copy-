@@ -11,7 +11,7 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items_end_begin;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -20,11 +20,11 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_forEach_var_items_end_begin = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_forEach_var_items_end_begin.release();
+    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -250,11 +250,27 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            \n");
       out.write("            <!-- end row -->\n");
       out.write("            <hr class=\"hr1\">\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                ");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
-        return;
-      out.write("\n");
+      out.write("            <div class=\"row\">            \n");
+      out.write("               <div class=\"col-md-3 col-sm-6 col-xs-12\">\n");
+      out.write("                  <div class=\"service-widget\">\n");
+      out.write("                     <div class=\"post-media wow fadeIn\">\n");
+      out.write("                        <a href=\"images/clinic_01.jpg\" data-rel=\"prettyPhoto[gal]\" class=\"hoverbutton global-radius\"><i class=\"flaticon-unlink\"></i></a>\n");
+      out.write("                        <img src=\"images/clinic_01.jpg\" alt=\"\" class=\"img-responsive\">\n");
+      out.write("                     </div>\n");
+      out.write("                     <h3>Digital Control Center</h3>\n");
+      out.write("                  </div>\n");
+      out.write("                  <!-- end service -->\n");
+      out.write("               </div>\n");
+      out.write("               <div class=\"col-md-3 col-sm-6 col-xs-12\">\n");
+      out.write("                  <div class=\"service-widget\">\n");
+      out.write("                     <div class=\"post-media wow fadeIn\">\n");
+      out.write("                        <a href=\"images/clinic_02.jpg\" data-rel=\"prettyPhoto[gal]\" class=\"hoverbutton global-radius\"><i class=\"flaticon-unlink\"></i></a>\n");
+      out.write("                        <img src=\"images/clinic_02.jpg\" alt=\"\" class=\"img-responsive\">\n");
+      out.write("                     </div>\n");
+      out.write("                     <h3>Hygienic Operating Room</h3>\n");
+      out.write("                  </div>\n");
+      out.write("                  <!-- end service -->\n");
+      out.write("               </div>\n");
       out.write("               <div class=\"col-md-3 col-sm-6 col-xs-12\">\n");
       out.write("                  <div class=\"service-widget\">\n");
       out.write("                     <div class=\"post-media wow fadeIn\">\n");
@@ -279,56 +295,12 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!-- end row -->\n");
       out.write("         </div>\n");
       out.write("         <!-- end container -->\n");
-      out.write("         <section id=\"home\" class=\"home\">\n");
-      out.write("            <div class=\"home__container\">\n");
-      out.write("                <div class=\"slide slide-1\">\n");
-      out.write("                    <img src=\"./images/cloud.png\" alt=\"\" class=\"img-cloud active\">\n");
-      out.write("                    <div class=\"slide__container\">\n");
-      out.write("                        <div class=\"slide-img\">\n");
-      out.write("                            <img src=\"./images/content-image-2.png\" alt=\"\" class=\"img-content\">\n");
-      out.write("                            <img src=\"./images/content-image-1.png\" alt=\"\" class=\"img-rocket\">\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"home-content\">\n");
-      out.write("                            <h2 class=\"content-h2\">Digital Marketing Agency</h2>\n");
-      out.write("                            <p class=\"content-title\">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>\n");
-      out.write("                            <button type=\"button\" class='btn-content'>Explore Now <span><i class=\"fa fa-play\" aria-hidden=\"true\"></i></span></button>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"slide slide-2\">\n");
-      out.write("                    <img src=\"./images/cloud.png\" alt=\"\" class=\"img-cloud\">\n");
-      out.write("                    <div class=\"slide__container\">\n");
-      out.write("                        <div class=\"slide-img\">\n");
-      out.write("                            <img src=\"./images/content-image-5.png\" alt=\"\" class=\"img-content\">\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"home-content\">\n");
-      out.write("                            <h2 class=\"content-h2\">What is seo & how can it help my buiseness grow?</h2>\n");
-      out.write("                            <p class=\"content-title\">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>\n");
-      out.write("                            <button type=\"button\" class='btn-content'>Explore Now <span><i class=\"fa fa-play\" aria-hidden=\"true\"></i></span></button>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"slide slide-3\">\n");
-      out.write("                    <img src=\"./images/cloud.png\" alt=\"\" class=\"img-cloud active\">\n");
-      out.write("                    <div class=\"slide__container\">\n");
-      out.write("                        <div class=\"slide-img\">\n");
-      out.write("                            <img src=\"./images/content-image-6.png\" alt=\"\" class=\"img-content active\">\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"home-content\">\n");
-      out.write("                            <h2 class=\"content-h2\">Digital Agency That help You To Go Ahead</h2>\n");
-      out.write("                            <p class=\"content-title\">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>\n");
-      out.write("                            <button type=\"button\" class='btn-content'>Explore Now <span><i class=\"fa fa-play\" aria-hidden=\"true\"></i></span></button>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
+      out.write("           ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
       out.write("\n");
-      out.write("                <div class=\"navigation\">\n");
-      out.write("                    <div class=\"prev-btn\"><i class=\"fas fa-chevron-left prev\"></i></div>\n");
-      out.write("                    <div class=\"next-btn\"><i class=\"fas fa-chevron-right next\"></i></div>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </section>\n");
       out.write("      </div>\n");
+      out.write("            \n");
       out.write("      \n");
       out.write("      <div id=\"service\" class=\"services wow fadeIn\">\n");
       out.write("         <div class=\"container\">     \n");
@@ -903,12 +875,10 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
     _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listS}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setBegin(0);
-    _jspx_th_c_forEach_0.setEnd(0);
     _jspx_th_c_forEach_0.setVar("o");
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
@@ -916,29 +886,64 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("               <div class=\"col-md-3 col-sm-6 col-xs-12\">\n");
-          out.write("                  <div class=\"service-widget\">\n");
-          out.write("                     <div class=\"post-media wow fadeIn\">\n");
-          out.write("                        <a href=\"images/clinic_01.jpg\" data-rel=\"prettyPhoto[gal]\" class=\"hoverbutton global-radius\"><i class=\"flaticon-unlink\"></i></a>\n");
-          out.write("                        <img src=\"images/clinic_01.jpg\" alt=\"\" class=\"img-responsive\">\n");
-          out.write("                     </div>\n");
-          out.write("                     <h3>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${o.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</h3>\n");
-          out.write("                  </div>\n");
-          out.write("                  <!-- end service -->\n");
-          out.write("               </div>\n");
-          out.write("               <div class=\"col-md-3 col-sm-6 col-xs-12\">\n");
-          out.write("                  <div class=\"service-widget\">\n");
-          out.write("                     <div class=\"post-media wow fadeIn\">\n");
-          out.write("                        <a href=\"images/clinic_02.jpg\" data-rel=\"prettyPhoto[gal]\" class=\"hoverbutton global-radius\"><i class=\"flaticon-unlink\"></i></a>\n");
-          out.write("                        <img src=\"images/clinic_02.jpg\" alt=\"\" class=\"img-responsive\">\n");
-          out.write("                     </div>\n");
-          out.write("                     <h3>Hygienic Operating Room</h3>\n");
-          out.write("                  </div>\n");
-          out.write("                  <!-- end service -->\n");
-          out.write("               </div>\n");
-          out.write("               ");
+          out.write("         <section id=\"home\" class=\"home\">\n");
+          out.write("            \n");
+          out.write("            <div class=\"home__container\">\n");
+          out.write("                \n");
+          out.write("                <div class=\"slide slide-1\">\n");
+          out.write("                    <img src=\"./images/cloud.png\" alt=\"\" class=\"img-cloud active\">\n");
+          out.write("                    <div class=\"slide__container\">\n");
+          out.write("                        <div class=\"slide-img\">\n");
+          out.write("                            <img src=\"./images/content-image-2.png\" alt=\"\" class=\"img-content\">\n");
+          out.write("                            <img src=\"./images/content-image-1.png\" alt=\"\" class=\"img-rocket\">\n");
+          out.write("                        </div>\n");
+          out.write("                        <div class=\"home-content\">\n");
+          out.write("                            <h2 class=\"content-h2\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${o.sname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h2>\n");
+          out.write("                            <p class=\"content-title\">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>\n");
+          out.write("                            <button type=\"button\" class='btn-content'>Explore Now <span><i class=\"fa fa-play\" aria-hidden=\"true\"></i></span></button>\n");
+          out.write("                        </div>\n");
+          out.write("                    </div>\n");
+          out.write("                </div>\n");
+          out.write("               \n");
+          out.write("                <div class=\"slide slide-2\">\n");
+          out.write("                    <img src=\"./images/cloud.png\" alt=\"\" class=\"img-cloud\">\n");
+          out.write("                    <div class=\"slide__container\">\n");
+          out.write("                        <div class=\"slide-img\">\n");
+          out.write("                            <img src=\"./images/content-image-5.png\" alt=\"\" class=\"img-content\">\n");
+          out.write("                        </div>\n");
+          out.write("                        <div class=\"home-content\">\n");
+          out.write("                            <h2 class=\"content-h2\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${o.sname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h2>\n");
+          out.write("                            <p class=\"content-title\">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>\n");
+          out.write("                            <button type=\"button\" class='btn-content'>Explore Now <span><i class=\"fa fa-play\" aria-hidden=\"true\"></i></span></button>\n");
+          out.write("                        </div>\n");
+          out.write("                    </div>\n");
+          out.write("                </div>\n");
+          out.write("                <div class=\"slide slide-3\">\n");
+          out.write("                    <img src=\"./images/cloud.png\" alt=\"\" class=\"img-cloud active\">\n");
+          out.write("                    <div class=\"slide__container\">\n");
+          out.write("                        <div class=\"slide-img\">\n");
+          out.write("                            <img src=\"./images/content-image-6.png\" alt=\"\" class=\"img-content active\">\n");
+          out.write("                        </div>\n");
+          out.write("                        <div class=\"home-content\">\n");
+          out.write("                            <h2 class=\"content-h2\">Digital Agency That help You To Go Ahead</h2>\n");
+          out.write("                            <p class=\"content-title\">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>\n");
+          out.write("                            <button type=\"button\" class='btn-content'>Explore Now <span><i class=\"fa fa-play\" aria-hidden=\"true\"></i></span></button>\n");
+          out.write("                        </div>\n");
+          out.write("                    </div>\n");
+          out.write("                </div>\n");
+          out.write("\n");
+          out.write("                <div class=\"navigation\">\n");
+          out.write("                    <div class=\"prev-btn\"><i class=\"fas fa-chevron-left prev\"></i></div>\n");
+          out.write("                    <div class=\"next-btn\"><i class=\"fas fa-chevron-right next\"></i></div>\n");
+          out.write("                </div>\n");
+          out.write("            </div>\n");
+          out.write("                        \n");
+          out.write("        </section>\n");
+          out.write("                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -953,7 +958,7 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doCatch(_jspx_exception);
     } finally {
       _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_0);
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
     return false;
   }
