@@ -201,9 +201,10 @@
                         <input class="text" type="text" name="fname" placeholder="First Name" required="">
                         <input class="text" type="text" name="lname" placeholder="Last Name" required="">
                         <input class="text" type="text" name="username" placeholder="Username" required="">
-                        <input class="text" type="password" name="password" minlength="8" placeholder="Password" required="">
-                        <input class="text w3lpass" type="password" name="confirm" minlength="8" placeholder="Confirm Password" required="">
-
+                        <input id="pass" class="text" type="password" name="password" minlength="8" placeholder="Password" required="">
+                        <img onclick="myFunction1()" src="images/eye2.jpg" width="30" height="30">
+                        <input id="pass1"  type="password" name="confirm" minlength="8" placeholder="Confirm Password" required="">
+                        <img onclick="myFunction2()" src="images/eye2.jpg" width="30" height="30">
                         <div class="enter">
                             <label class="label">Gender</label>
                             <div class="p-t-10">
@@ -217,8 +218,7 @@
                                 </label>
                             </div>
                         </div>
-
-                        <input class="text email" type="email" name="email" placeholder="Email" required="">
+                        <input class="text " type="email" name="email" placeholder="Email" required="">
                         <input class="text" type="text" name="phonenumber" placeholder="Phone Number" required="">
                         <input class="text" type="text" name="age" placeholder="Age" required="">
                         <input class="text" type="text" name="status" placeholder="Status" required="">
@@ -318,16 +318,16 @@
         <script src="./js/main.js"></script>
 
         <script type="text/javascript">
-            var x = true;
-            function myFunction1() {
-                if (x) {
-                    document.getElementById('pass').type = "text";
-                    x = false;
-                } else {
-                    document.getElementById('pass').type = "password";
-                    x = true;
-                }
-            }
+    var x = true;
+    function myFunction1() {
+        if (x) {
+            document.getElementById('pass').type = "text";
+            x = false;
+        } else {
+            document.getElementById('pass').type = "password";
+            x = true;
+        }
+    }
         </script>
         <script type="text/javascript">
             var x = true;
