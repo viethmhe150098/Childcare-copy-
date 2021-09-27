@@ -246,11 +246,11 @@
             <!-- end row -->
          </div>
          <!-- end container -->
-          
-         <section id="service" class="home">
+           <c:forEach items="${listS}" var ="o">
+         <section id="home" class="home">
             
             <div class="home__container">
-                 <c:forEach items="${listS}" begin="0" end="0" var ="o">
+                
                 <div class="slide slide-1">
                     <img src="./images/cloud.png" alt="" class="img-cloud active">
                     <div class="slide__container">
@@ -260,16 +260,12 @@
                         </div>
                         <div class="home-content">
                             <h2 class="content-h2">${o.sname}</h2>
-                            <p class="content-title">${o.sprice}</p>
-                                                        <p class="content-title">${o.maxquantity}</p>
-
-                            
+                            <p class="content-title">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>
                             <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
                         </div>
                     </div>
                 </div>
-                 </c:forEach>
-                 <c:forEach items="${listS}" begin="1" end="1" var ="o">
+               
                 <div class="slide slide-2">
                     <img src="./images/cloud.png" alt="" class="img-cloud">
                     <div class="slide__container">
@@ -278,14 +274,11 @@
                         </div>
                         <div class="home-content">
                             <h2 class="content-h2">${o.sname}</h2>
-                            <p class="content-title">${o.sprice}</p>
-                                                        <p class="content-title">${o.maxquantity}</p>
-
+                            <p class="content-title">Provide all kind of seo Services and help to improve seo ranking. Globally incubate standards compliant</p>
                             <button type="button" class='btn-content'>Explore Now <span><i class="fa fa-play" aria-hidden="true"></i></span></button>
                         </div>
                     </div>
                 </div>
-                 </c:forEach>
                 <div class="slide slide-3">
                     <img src="./images/cloud.png" alt="" class="img-cloud active">
                     <div class="slide__container">
@@ -307,35 +300,39 @@
             </div>
                         
         </section>
-                  
+                    </c:forEach>
       </div>
             
       
-      <div id="" class="services wow fadeIn">
+      <div id="service" class="services wow fadeIn">
          <div class="container">     
-            
                 <div class="dropdown">
-                    <div class="dropdown__select" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">
-                    <span class="dropdown__selected">Category of Service</span>
+                  <div class="dropdown__select">
+                    <span class="dropdown__selected">Call to action</span>
                     <i class="fa fa-caret-down dropdown__caret"></i>
                   </div>
-                     
-                    <ul class="dropdown__list" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">
-                      <c:forEach items="${listC}"  var ="o">
+                  <ul class="dropdown__list">
                     <li class="dropdown__item">
-                      <a  href="https://www.google.com/" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
+                      <span class="dropdown__text">New project</span>
                       <i class="fa fa-plus-circle dropdown__icon"></i>
                     </li>
-                     </c:forEach>
+                    <li class="dropdown__item">
+                      <span class="dropdown__text">View profile</span>
+                      <i class="fa fa-user dropdown__icon"></i>
+                    </li>
+                    <li class="dropdown__item">
+                      <span class="dropdown__text">Settings</span>
+                      <i class="fa fa-cog dropdown__icon"></i>
+                    </li>
+                    <li class="dropdown__item">
+                      <span class="dropdown__text">Logout</span>
+                      <i class="fa fa-circle dropdown__icon"></i>
+                    </li>
                   </ul>
-                    
                 </div>
        <div class="search1">
          <input type="text" placeholder="Type your search :" />
-         <button style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Send</button>
+         <button>Send</button>
        </div>
             <div class="row">
                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">

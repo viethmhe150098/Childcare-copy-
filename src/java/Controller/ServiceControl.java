@@ -6,7 +6,6 @@
 package Controller;
 
 import DAO.DAOService;
-import Entity.SerCate;
 import Entity.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,9 +37,7 @@ public class ServiceControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
          DAOService dao = new DAOService();
          List<Service> listS = dao.getAllProduct();
-         List<SerCate> listC = dao.getAllCateSer();
           request.setAttribute("listS", listS);
-                    request.setAttribute("listC", listC);
            request.getRequestDispatcher("HomePage.jsp").forward(request, response);
          
          
