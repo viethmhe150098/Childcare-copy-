@@ -354,7 +354,7 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="serv">
                            <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>            
-                            <p class="card-title show_txt"><a href="detail?sid=${o.sID}" title="View Product">${o.sname}</a></p>
+                            <p class="card-title show_txt"><a href="ServiceDetail?sid=${o.sID}" title="View Product">${o.sname}</a></p>
                            <p>${o.description}</p>
                                                       <p>${o.sprice}</p>
                            <p>${o.maxquantity}</p>
