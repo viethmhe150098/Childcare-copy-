@@ -93,6 +93,22 @@ public class DAOService {
         }
         return null;
     }
+    
+    public SerCate getServiceCateByscID(String scID) {
+        String query = "select * from SerCate\n"
+                + "where scID = ?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, scID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new SerCate(rs.getString(1), rs.getString(2));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
     public List<Service> searchByName(String txtSearch) {
         List<Service> list = new ArrayList<>();
@@ -162,8 +178,11 @@ public class DAOService {
         List<Service> list1 = dao.searchByName("kham phoi");
         List<Service> list2 = dao.getServiceByCID("1");
         List<SerCate> listC = dao.getAllCateSer();
-        for (Service o : list2) {
-            System.out.println(o);
-        }
+        
+        SerCate sercate = dao.getServiceCateByscID("1");
+        System.out.println(sercate);
+//        for (SerCate o : sercate) {
+//            System.out.println(o);
+//        }
     }
 }
