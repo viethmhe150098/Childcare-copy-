@@ -16,6 +16,10 @@
         <servlet-name>verify</servlet-name>
         <servlet-class>Controller.verify</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>validateCustomer</servlet-name>
+        <servlet-class>Controller.validateCustomer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>verify</servlet-name>
         <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>validateCustomer</servlet-name>
+        <url-pattern>/validateCustomer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
