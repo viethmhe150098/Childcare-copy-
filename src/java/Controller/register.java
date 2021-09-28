@@ -102,7 +102,7 @@ public class register extends HttpServlet {
 
 //            Customer c = daocus.loginCustomer(username, password);
 //            session.setAttribute("account", c);
-//            response.sendRedirect("homepage");
+//            response.sendRedirect("Homepage");
 
 //            SendMail sm = new SendMail();
 //            String code = sm.getRandom();

@@ -97,7 +97,7 @@ public class login extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("admin_account", daoad.loginAdmin(username, password));
-                //response.sendRedirect("homepage");
+                //response.sendRedirect("Homepage");
                 response.sendRedirect("Susscess.jsp");
             }
         } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[m]")) {
@@ -111,7 +111,7 @@ public class login extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("manager_account", daoma.loginManager(username, password));
-                //response.sendRedirect("homepage");
+                //response.sendRedirect("Homepage");
                 response.sendRedirect("Susscess.jsp");
             }
         } else if (auth.AdAuth(username, "[a-zA-Z][a-zA-Z0-9]+@[s]")) {
@@ -125,7 +125,7 @@ public class login extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("staff_account", daosta.loginStaff(username, password));
-                //response.sendRedirect("homepage");
+                //response.sendRedirect("Homepage");
                 response.sendRedirect("Susscess.jsp");
             }
         } else {
@@ -139,7 +139,7 @@ public class login extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("customer_account", daocus.loginCustomer(username, password));
-                //response.sendRedirect("homepage");
+                //response.sendRedirect("Homepage");
                 response.sendRedirect("Susscess.jsp");
             }
         }

@@ -6,23 +6,20 @@
 package Controller;
 
 import DAO.DAOService;
-import Entity.SerCate;
 import Entity.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ADMIN
+ * @author DO THANH TRUNG
  */
-@WebServlet(name = "ServiceControl", urlPatterns = {"/ServiceControl"})
-public class ServiceControl extends HttpServlet {
+public class ServiceDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,13 +33,19 @@ public class ServiceControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAOService dao = new DAOService();
-        List<Service> listS = dao.getAllProduct();
-        List<SerCate> listC = dao.getAllCateSer();
-        request.setAttribute("listS", listS);
-        request.setAttribute("listC", listC);
-        request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+//            request.getRequestDispatcher("Detail.jsp").forward(request, response);
 
+        String sid = request.getParameter("sid");
+        DAOService dao = new DAOService();
+//        List<Service> items = dao.getServiceByCID(sid);
+        
+        Service items1 = dao.getServiceByCID1(sid);
+//        request.setAttribute("Sdetail", items);
+        request.setAttribute("Sdetail1", items1);
+        request.getRequestDispatcher("Detail.jsp").forward(request, response);
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,6 +61,7 @@ public class ServiceControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
@@ -72,6 +76,11 @@ public class ServiceControl extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+//        String sid = request.getParameter("sid");
+//        DAOService dao = new DAOService();
+//        List<Service> items = dao.getServiceByCID(sid);
+//        request.setAttribute("Sdetail", items);
+//        request.getRequestDispatcher("Detail.jsp").forward(request, response);
     }
 
     /**

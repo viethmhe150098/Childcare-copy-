@@ -37,15 +37,14 @@ public class CategoryControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String cateID = request.getParameter("cid");
-         DAOService dao = new DAOService();
-         List<Service> list = dao.getProductByCID(cateID);
-          List<SerCate> listC = dao.getAllCateSer();
-            request.setAttribute("listC", listC);
-            
-                     request.setAttribute("listS", list);
-                      request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+        DAOService dao = new DAOService();
+        List<Service> list = dao.getServiceByCID(cateID);
+        List<SerCate> listC = dao.getAllCateSer();
+        request.setAttribute("listC", listC);
 
-         
+        request.setAttribute("listS", list);
+        request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

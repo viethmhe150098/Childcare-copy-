@@ -1,9 +1,9 @@
 <%-- 
     Document   : Detail
     Created on : Sep 23, 2021, 3:00:40 PM
-    Author     : ADMIN
+    Author     : DO THANH TRUNG
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -143,32 +143,36 @@
                     <h2>The Detail Service</h2>
                 </div>
                 <!-- end title -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="message-box">
-                            <!--<h4>What We Do</h4>-->
-                            <h2>Service Name</h2>
-                            <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                                <p style = "text-decoration: underline;
-                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center"> Original price</p>
-                                <p style="text-align: center"> Sale Price</p>
+
+                <%--<c:forEach items="${Sdetail1}"  var ="o">--%>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="message-box">
+                                <!--<h4>What We Do</h4>-->
+                                <h2>${Sdetail1.sname}</h2>
+                                <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                                    <p style = "text-decoration: underline;
+                                       text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
+                                    <p style="text-align: center">Sale Price</p>
+                                </div>
+                                <p class="lead">${Sdetail1.maxquantity}</p>
+                                <p>${Sdetail1.description}</p>
+                                <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Contact</a>
                             </div>
-                            <p class="lead">Max quantity</p>
-                            <p>DESCRIPTION</p>
-                            <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Contact</a>
+                            <!-- end messagebox -->
                         </div>
-                        <!-- end messagebox -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-md-6">
-                        <div class="post-media wow fadeIn">
-                            <img src="images/about_03.jpg" alt="" class="img-responsive">
-                            <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                        <!-- end col -->
+                        <div class="col-md-6">
+                            <div class="post-media wow fadeIn">
+                                <img src="images/${Sdetail1.ser_image}" alt="" class="img-responsive">
+                                <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                            </div>
+                            <!-- end media -->
                         </div>
-                        <!-- end media -->
+                        <!-- end col -->
                     </div>
-                    <!-- end col -->
-                </div>
+                <%--</c:forEach>--%>        
+
             </div>
             <!-- end row -->
             <footer id="footer" class="footer-area wow fadeIn">
