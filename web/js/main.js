@@ -3,6 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+function Redirect(a){
+   
+  
+  
+   window.location="http://localhost:63270/ChildCare/CategoryControl?cid="+a+"#Apply";
+   
+   
+}
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
