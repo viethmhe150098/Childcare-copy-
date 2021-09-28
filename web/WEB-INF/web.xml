@@ -5,6 +5,14 @@
         <servlet-class>Controller.login</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CategoryControl</servlet-name>
+        <servlet-class>Controller.CategoryControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServiceControl</servlet-name>
+        <servlet-class>Controller.ServiceControl</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>register</servlet-name>
         <servlet-class>Controller.register</servlet-class>
     </servlet>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>ServiceDetail</servlet-name>
         <url-pattern>/ServiceDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryControl</servlet-name>
+        <url-pattern>/CategoryControl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServiceControl</servlet-name>
+        <url-pattern>/ServiceControl</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

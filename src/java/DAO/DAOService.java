@@ -75,7 +75,7 @@ public class DAOService {
     
     public Service getServiceByCID1(String cid) {
         String query = "select * from Service\n"
-                + "where scID = ?";
+                + "where sID = ?";
         try {
             conn = new DBConnect().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
