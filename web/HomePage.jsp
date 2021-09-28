@@ -329,6 +329,17 @@
                 <div class="dropdown__select">
                     <span class="dropdown__selected">Category of Service</span>
                     <i class="fa fa-caret-down dropdown__caret"></i>
+                  </div>
+                     
+                    <ul class="dropdown__list">
+                      <c:forEach items="${listC}"  var ="o">
+                    <li class="dropdown__item">
+                        <a  onmousedown="Redirect(${o.scID})" href="CategoryControl?cid=${o.scID}" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
+                      <i class="fa fa-plus-circle dropdown__icon"></i>
+                    </li>
+                     </c:forEach>
+                  </ul>
+                    
                 </div>
 
                 <ul class="dropdown__list">
