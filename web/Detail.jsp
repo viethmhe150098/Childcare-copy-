@@ -75,8 +75,77 @@
                             </div>
                             <div class="info-inner">
                                 <ul class="list-main">
-                                    <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
-                                    <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                    <!--                                    <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>-->
+
+                                    <c:choose>
+                                        <c:when test= "${sessionScope.customer_account == null}">
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.customer_account.username}</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose >
+                                            <c:when test = "${sessionScope.customer_account == null}">
+                                            <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
+                                                </c:otherwise>
+                                            </c:choose>
+
+
+                                    <%--<c:choose>
+                                        <c:when test= "${sessionScope.admin_account == null}">
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.admin_account.name}</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose >
+                                            <c:when test = "${sessionScope.admin_account == null}">
+                                            <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
+                                                </c:otherwise>
+                                            </c:choose>--%>
+
+                                    <%--<c:choose>
+                                        <c:when test= "${sessionScope.manager_account == null}">
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.manager_account.username}</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose >
+                                            <c:when test = "${sessionScope.manager_account == null}">
+                                            <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
+                                                </c:otherwise>
+                                            </c:choose>--%>
+
+                                    <%--<c:choose>
+                                        <c:when test= "${sessionScope.staff_account == null}">
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.staff_account.first_name}</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose >
+                                            <c:when test = "${sessionScope.staff_account == null}">
+                                            <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
+                                                </c:otherwise>
+                                            </c:choose>--%>
                                 </ul>
                             </div>
                         </div>
@@ -145,32 +214,32 @@
                 <!-- end title -->
 
                 <%--<c:forEach items="${Sdetail1}"  var ="o">--%>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="message-box">
-                                <!--<h4>What We Do</h4>-->
-                                <h2>${Sdetail1.sname}</h2>
-                                <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                                    <p style = "text-decoration: underline;
-                                       text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
-                                    <p style="text-align: center">Sale Price</p>
-                                </div>
-                                <p class="lead">${Sdetail1.maxquantity}</p>
-                                <p>${Sdetail1.description}</p>
-                                <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Contact</a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="message-box">
+                            <!--<h4>What We Do</h4>-->
+                            <h2>${Sdetail1.sname}</h2>
+                            <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                                <p style = "text-decoration: underline;
+                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
+                                <p style="text-align: center">Sale Price</p>
                             </div>
-                            <!-- end messagebox -->
+                            <p class="lead">${Sdetail1.maxquantity}</p>
+                            <p>${Sdetail1.description}</p>
+                            <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Contact</a>
                         </div>
-                        <!-- end col -->
-                        <div class="col-md-6">
-                            <div class="post-media wow fadeIn">
-                                <img src="images/${Sdetail1.ser_image}" alt="" class="img-responsive">
-                                <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
-                            </div>
-                            <!-- end media -->
-                        </div>
-                        <!-- end col -->
+                        <!-- end messagebox -->
                     </div>
+                    <!-- end col -->
+                    <div class="col-md-6">
+                        <div class="post-media wow fadeIn">
+                            <img src="images/${Sdetail1.ser_image}" alt="" class="img-responsive">
+                            <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                </div>
                 <%--</c:forEach>--%>        
 
             </div>

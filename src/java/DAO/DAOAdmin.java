@@ -25,7 +25,7 @@ public class DAOAdmin {
     PreparedStatement ps = null;
     ResultSet rs = null;
     DBConnect dbconn = null;
-    
+
     public DAOAdmin(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbconn = dbconn;
@@ -41,7 +41,7 @@ public class DAOAdmin {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Admin ad = new Admin(rs.getString(1), rs.getString(2));
+                Admin ad = new Admin(rs.getInt(4), rs.getString(1), rs.getString(2), rs.getString(3));
                 return ad;
             }
         } catch (SQLException ex) {
@@ -65,7 +65,7 @@ public class DAOAdmin {
         }
         return arr;
     }
-    
+
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOAdmin dao = new DAOAdmin(dbconn);
@@ -73,11 +73,12 @@ public class DAOAdmin {
 //        for (Object o : list) {
 //            System.out.println(o);
 //        }
-        
-        if(dao.loginAdmin("manh", "123456")==null){
-            System.out.println("not ok");
-        }else{
-            System.out.println("ok");
-        }
+
+//        if(dao.loginAdmin("manh", "123456")==null){
+//            System.out.println("not ok");
+//        }else{
+//            System.out.println("ok");
+//        }
+        System.out.println(dao.loginAdmin("trung@a", "12345678"));
     }
 }
