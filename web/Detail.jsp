@@ -218,6 +218,7 @@
                     <div class="col-md-6">
                         <div class="message-box">
                             <!--<h4>What We Do</h4>-->
+                            <h1>${Sdetail2.scCateName}</h1>
                             <h2>${Sdetail1.sname}</h2>
                             <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
                                 <p style = "text-decoration: underline;

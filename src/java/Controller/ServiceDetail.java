@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.DAOService;
+import Entity.SerCate;
 import Entity.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,12 +38,15 @@ public class ServiceDetail extends HttpServlet {
 //            request.getRequestDispatcher("Detail.jsp").forward(request, response);
 
         String sid = request.getParameter("sid");
+        String scID = request.getParameter("scID");
         DAOService dao = new DAOService();
 //        List<Service> items = dao.getServiceByCID(sid);
         
         Service items1 = dao.getServiceByCID1(sid);
+        SerCate items2 = dao.getSerCateByscID(scID);
 //        request.setAttribute("Sdetail", items);
         request.setAttribute("Sdetail1", items1);
+        request.setAttribute("Sdetail2", items2);
         request.getRequestDispatcher("Detail.jsp").forward(request, response);
 
         }
