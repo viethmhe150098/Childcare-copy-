@@ -46,7 +46,11 @@ public class DAOCustomer {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Customer cus = new Customer(rs.getString(1), rs.getString(2));
+//                Customer cus = new Customer(rs.getString(1), rs.getString(2));
+                Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), 
+                        rs.getString(7), rs.getString(8), rs.getString(9),
+                        rs.getString(10), rs.getString(11));
                 return cus;
             }
         } catch (SQLException ex) {
@@ -99,10 +103,13 @@ public class DAOCustomer {
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
-        ArrayList<Customer> list = dao.getAllCustomer();
-        for (Object o : list) {
-            System.out.println(o);
-        }
+//        ArrayList<Customer> list = dao.getAllCustomer();
+//        for (Object o : list) {
+//            System.out.println(o);
+//        }
+        
+        System.out.println(dao.loginCustomer("trung", "12345678"));
+        
 //        dao.insertCus(new Customer("gia", "phu", "1", "phu@gmail.com", "086342623", "phu", "12345678", "20", "1", "ha noi"));
     }
 }

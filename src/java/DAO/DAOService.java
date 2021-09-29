@@ -93,6 +93,23 @@ public class DAOService {
         }
         return null;
     }
+    
+    public SerCate getSerCateByscID(String scID) {
+        String query = "select * from SerCate\n"
+                + "where scID = ?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, scID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new SerCate(rs.getString(1),
+                        rs.getString(2));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
     public List<Service> searchByName(String txtSearch) {
         List<Service> list = new ArrayList<>();
