@@ -337,7 +337,7 @@
                     <ul class="dropdown__list">
                       <c:forEach items="${listC}"  var ="o">
                     <li class="dropdown__item">
-                        <a  onmousedown="Redirect(${o.scID})" href="CategoryControl?cid=${o.scID}" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
+                        <a   href="CategoryControl?cid=${o.scID}#Apply" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
                       <i class="fa fa-plus-circle dropdown__icon"></i>
                     </li>
                      </c:forEach>
