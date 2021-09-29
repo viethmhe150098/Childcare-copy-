@@ -18,10 +18,6 @@ public class SerCate {
         this.scCateName = scCateName;
     }
 
-    public SerCate() {
-    }
-    
-
     public String getScID() {
         return scID;
     }
