@@ -60,7 +60,7 @@ public class validateCustomer extends HttpServlet {
 //        processRequest(request, response);
         HttpSession session = request.getSession(true);
         session.invalidate();
-        response.sendRedirect("homepage");
+        response.sendRedirect("ServiceControl");
     }
 
     /**

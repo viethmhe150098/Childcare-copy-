@@ -41,7 +41,9 @@ public class DAOStaff {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Staff sta = new Staff(rs.getString(1), rs.getString(2));
+                Staff sta = new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
+                        rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8));
                 return sta;
             }
         } catch (SQLException ex) {
@@ -71,14 +73,16 @@ public class DAOStaff {
         DBConnect dbconn = new DBConnect();
         DAOStaff dao = new DAOStaff(dbconn);
         ArrayList<Staff> list = dao.getAllStaff();
-        for (Object o : list) {
-            System.out.println(o);
-        }
+//        for (Object o : list) {
+//            System.out.println(o);
+//        }
+//
+//        if(dao.loginStaff("huy@s", "123456")==null){
+//            System.out.println("not ok");
+//        }else{
+//            System.out.println("ok");
+//        }
 
-        if(dao.loginStaff("huy@s", "123456")==null){
-            System.out.println("not ok");
-        }else{
-            System.out.println("ok");
-        }
+        System.out.println(dao.loginStaff("huy@s", "12345678"));
     }
 }

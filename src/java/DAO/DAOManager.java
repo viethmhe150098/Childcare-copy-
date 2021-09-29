@@ -40,7 +40,9 @@ public class DAOManager {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Manager mana = new Manager(rs.getString(1), rs.getString(2));
+                Manager mana = new Manager(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                        rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(10));
                 return mana;
             }
         } catch (SQLException ex) {
@@ -70,14 +72,15 @@ public class DAOManager {
         DBConnect dbconn = new DBConnect();
         DAOManager dao = new DAOManager(dbconn);
         ArrayList<Manager> list = dao.getAllManager();
-        for (Object o : list) {
-            System.out.println(o);
-        }
+//        for (Object o : list) {
+//            System.out.println(o);
+//        }
         
 //        if(dao.loginManager("thanh", "123456")==null){
 //            System.out.println("not ok");
 //        }else{
 //            System.out.println("ok");
 //        }
+            System.out.println(dao.loginManager("thanh@m", "12345678"));
     }
 }
