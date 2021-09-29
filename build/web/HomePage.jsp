@@ -266,7 +266,10 @@
                      <p style="text-align: center"> Sale :50$</p>
                      </div>
                             
-                            <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt hàng ngay</a> </button>
+                            <!-- <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt lịch ngay</a> </button>
+                            -->
+                            
+                            <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                         </div>
                     </div>
                 </div>
@@ -287,7 +290,7 @@
                      <p style="text-align: center"> Sale :50$</p>
                      </div>        
 
-                            <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt hàng ngay</a> </button>
+                     <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                         </div>
                     </div>
                 </div>
@@ -306,7 +309,7 @@
   text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
                      <p style="text-align: center"> Sale :50$</p>
                      </div>
-                            <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt hàng ngay</a> </button>
+                     <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                         </div>
                     </div>
                 </div>
@@ -341,10 +344,13 @@
                   </ul>
                     
                 </div>
-       <div class="search1">
-         <input type="text" placeholder="Type your search :" />
-         <button style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Send</button>
+                <form action="Searching" method="post">
+                  <div class="search1">
+                     <input type="text" value="${txtS}" name="txt" placeholder="Type your search :" />
+                     <button  type="submit" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
+                background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
+                </form>
+     
        </div>
             <div class="row">
                

@@ -150,11 +150,27 @@
   line-height: normal;
 }
 
-.apply-button {
-  padding: 10px;
-  width: 100%;
+.link {
+  display: inline-block;
   background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
   background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.slide a {
+  opacity: 0.7;
+}
+
+.slide a:hover {
+  color: #fff !important;
 }
 
 .header {

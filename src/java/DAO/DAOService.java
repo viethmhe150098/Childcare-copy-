@@ -162,7 +162,8 @@ public class DAOService {
         List<Service> list1 = dao.searchByName("kham phoi");
         List<Service> list2 = dao.getServiceByCID("1");
         List<SerCate> listC = dao.getAllCateSer();
-        for (Service o : list2) {
+        List<Service> list4 = dao.searchByName("khám");
+        for (Service o : list4) {
             System.out.println(o);
         }
     }
