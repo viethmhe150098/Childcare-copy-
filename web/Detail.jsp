@@ -224,7 +224,7 @@
                                    text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
                                 <p style="text-align: center">Sale Price</p>
                             </div>
-                            <p class="lead">${Sdetail1.maxquantity}</p>
+                            <p class="lead">max quantity: ${Sdetail1.maxquantity} people/turn</p>
                             <p>${Sdetail1.description}</p>
                             <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Contact</a>
                         </div>
@@ -234,7 +234,7 @@
                     <div class="col-md-6">
                         <div class="post-media wow fadeIn">
                             <img src="images/${Sdetail1.ser_image}" alt="" class="img-responsive">
-                            <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                            <!--<a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>-->
                         </div>
                         <!-- end media -->
                     </div>
