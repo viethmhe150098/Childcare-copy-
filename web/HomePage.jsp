@@ -78,7 +78,7 @@
 
                                 <c:choose>
                                     <c:when test= "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                         </c:when>
                                         <c:otherwise>
                                         <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.customer_account.username}</a></li>
