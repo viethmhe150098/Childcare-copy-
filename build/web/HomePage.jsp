@@ -14,7 +14,7 @@
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- Site Metas --> <!-- Site Metas -->
+    <!-- Site Metas -->
     <title>Life Care - Responsive HTML5 Multi Page Template</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/versions.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- Custom CSS --><!-- Custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
@@ -78,7 +78,7 @@
 
                                 <c:choose>
                                     <c:when test= "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                         </c:when>
                                         <c:otherwise>
                                         <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.customer_account.username}</a></li>
@@ -435,7 +435,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                        <div class="serv">
                           <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>            
-                           <p class="card-title show_txt"><a href="ServiceDetail?sid=${o.sID}" title="View Product">${o.sname}</a></p>
+                           <p class="card-title show_txt"><a href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
                           <p>${o.description}</p>
                                                      <p>${o.sprice}</p>
                           <p>${o.maxquantity}</p>

@@ -74,7 +74,7 @@
                             </div>
                             <div class="info-inner">
                                 <ul class="list-main">
-                                    <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                    <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                     <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
                                 </ul>
                             </div>
