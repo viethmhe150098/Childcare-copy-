@@ -35,6 +35,10 @@ public class DAOCustomer {
         conn = dbconn.con;
         this.dbconn = dbconn;
     }
+    
+    
+    public DAOCustomer() {
+    }
 
     public Customer loginCustomer(String username, String password) {
         try {
