@@ -38,8 +38,8 @@ public class CustomerControl extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             DAOCustomer cusDAO = new DAOCustomer();
             if (request.getParameter("type1") != null) {
-//                int id = Integer.parseInt(request.getParameter("id"));
-//                Customer c = new Customer();
+               int id = Integer.parseInt(request.getParameter("id"));
+               Customer c = new Customer();
             } else {
                 ArrayList<Customer> cus = new ArrayList<>();
                 cus = cusDAO.getAllCustomer();
