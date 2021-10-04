@@ -97,9 +97,9 @@ public class register extends HttpServlet {
             request.getRequestDispatcher("Register.jsp").forward(request, response);
         } else {
             Customer cus = new Customer(firstname, lastname, gender, email, phonenumber, username, password, age, status, address);
-            DAOCustomer daocus = new DAOCustomer(dbconn);                                   
+            DAOCustomer daocus = new DAOCustomer(dbconn);
             daocus.insertCus(cus);
-
+            response.sendRedirect("login");
 //            Customer c = daocus.loginCustomer(username, password);
 //            session.setAttribute("account", c);
 //            response.sendRedirect("Homepage");
