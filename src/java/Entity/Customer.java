@@ -25,6 +25,11 @@ public class Customer {
     private int role;
 //    private String code;
     
+       public Customer(String password) {
+        this.password = password;
+    }
+    
+    
     public Customer(String username, String password) {
         this.username = username;
         this.password = password;
