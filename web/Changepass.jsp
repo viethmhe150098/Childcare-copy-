@@ -12,6 +12,25 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+         <form action="CustomerControl?type2=done" method="POST">
+        <table >
+            
+            <tbody>
+                <tr>
+                    <td>Old Password:</td>
+                    <td><input type="password" name="old" value="" /></td>
+                </tr>
+                <tr>
+                    <td>New Password:</td>
+                    <td><input type="password" name="new" value="" /></td>
+                </tr>
+                <tr>
+                    <td>New Password again:</td>
+                    <td><input type="password" name="newa" value="" /></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        </form>
     </body>
 </html>
