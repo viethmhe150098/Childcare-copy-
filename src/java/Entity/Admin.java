@@ -14,7 +14,7 @@ public class Admin {
     public String username;
     public String password;
     public String name;
-
+    public int role;
     public Admin() {
     }
 
@@ -28,6 +28,14 @@ public class Admin {
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
     
 

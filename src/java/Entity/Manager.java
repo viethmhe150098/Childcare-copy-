@@ -20,7 +20,15 @@ public class Manager {
     private String password;
     private String image;
     private String address;
+    private int role;
 
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
     public Manager() {
     }
 
