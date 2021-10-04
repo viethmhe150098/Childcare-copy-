@@ -93,6 +93,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a class="active" href="index.html">Home</a></li>
                                 <li><a data-scroll href="#about">About us</a></li>
+                                <li><a data-scroll href="#blogs">Blogs</a></li>
                                 <li><a data-scroll href="#service">Services</a></li>
                                 <li><a data-scroll href="#doctors">Doctors</a></li>
                                 <li><a data-scroll href="#price">Price</a></li>
@@ -168,7 +169,7 @@
                         <input id="pass" class="text" type="password" name="adPass" minlength="8" placeholder="Password" required=""><img onclick="myFunction()" src="images/eye2.jpg" width="30" height="30">
                         <div style="text-align: center; margin: 10 auto"><a href="#">forgot your password?</a></div>
                         <div style="text-align: center; margin: 10 auto"><a href="register">register account</a></div>
-                        
+
                         <input type="submit" value="LOGIN">
                     </form>
                 </div>
@@ -256,16 +257,16 @@
         <script src="./js/main.js"></script>
 
         <script type="text/javascript">
-            var x = true;
-            function myFunction() {
-                if (x) {
-                    document.getElementById('pass').type = "text";
-                    x = false;
-                } else {
-                    document.getElementById('pass').type = "password";
-                    x = true;
-                }
-            }
+                            var x = true;
+                            function myFunction() {
+                                if (x) {
+                                    document.getElementById('pass').type = "text";
+                                    x = false;
+                                } else {
+                                    document.getElementById('pass').type = "password";
+                                    x = true;
+                                }
+                            }
         </script>
     </body>
 </html>

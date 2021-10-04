@@ -18,7 +18,7 @@ public class Staff {
     private String password;
     private String image;
     private String address;
-
+    
     public Staff() {
     }
 

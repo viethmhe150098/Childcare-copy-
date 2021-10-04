@@ -22,7 +22,13 @@ public class Customer {
     private String age;
     private String status;
     private String address;
+    private int role;
 //    private String code;
+    
+       public Customer(String password) {
+        this.password = password;
+    }
+    
     
     public Customer(String username, String password) {
         this.username = username;
@@ -38,6 +44,10 @@ public class Customer {
         this.username = username;
         this.password = password;
         this.address = address;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String status, String address) {

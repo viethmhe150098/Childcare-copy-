@@ -79,7 +79,25 @@ public class DAOCustomer {
         }
         return arr;
     }
+   public Customer getPass(String username) {
+        try {
+            String sql = "select password from Customer where username = ?";
 
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+           
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+//                Customer cus = new Customer(rs.getString(1), rs.getString(2));
+                Customer cus = new Customer( rs.getString(1));
+                return cus;
+            }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public int insertCus(Customer cus) {
         int n = 0;
         try {
