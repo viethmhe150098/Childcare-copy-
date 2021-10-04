@@ -44,7 +44,7 @@ public class CustomerControl extends HttpServlet {
                 ArrayList<Customer> cus = new ArrayList<>();
                 cus = cusDAO.getAllCustomer();
                 request.setAttribute("cs", cus);
-                RequestDispatcher d = request.getRequestDispatcher("viewCustomer.jsp");
+                RequestDispatcher d = request.getRequestDispatcher("Userprofile.jsp");
                 d.forward(request, response);
             }
         }
