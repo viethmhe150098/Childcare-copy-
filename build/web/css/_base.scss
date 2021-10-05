@@ -148,4 +148,29 @@
 transform:scale(1.1);
 transition: all 0.5s ease;
 }
+.img-service:hover {
+  transform:scale(1.1);
+transition: all 0.5s ease;
+}
+.name_service {
+  opacity: 0.8 !important;
+  font-size:2.2rem !important;
+}
+.name_service:hover {
+  color:#fff !important;
+  opacity: 1;
+}
+.service-price1 {
+  background-color:#c74237;
+  padding:0.5rem 3.5rem;
+  border-radius : 10px
+
+}
+.service-quantity {
+  background-color:#c74237;
+
+  padding:0.5rem 4rem;
+  border-radius : 10px
+
+}
 
