@@ -327,35 +327,37 @@
 
             <div class="home__container">
                 <c:forEach items="${listC}" begin="0" end="0" var ="o">
-                    <div class="slide slide-1">
-                        <img src="./images/cloud.png" alt="" class="img-cloud active">
-                        <div class="slide__container">
-                            <div class="slide-img">
-                                <img src="./images/content-image-2.png" alt="" class="img-content">
-                                <img src="./images/content-image-1.png" alt="" class="img-rocket">
-                            </div>
-                            <div class="home-content">
-                                <h2 class="content-h2 text-center">${o.scCateName}</h2>
-                                <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
-                                    <p style = "text-decoration: underline;
-                                       text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                                    <p style="text-align: center"> Sale :50$</p>
-                                </div>
 
-                                <!-- <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt lịch ngay</a> </button>
-                                -->
-
-                                <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
+                <div class="slide slide-1">
+                    <img src="./images/cloud.png" alt="" class="img-cloud">
+                    <div class="slide__container">
+                        <div class="slide-img">
+                            <img src="images/clinic_01.jpg" alt="" class="img-content">
+                            <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
+                        </div>
+                        <div class="home-content">
+                            <h2 class="content-h2 text-center">${o.scCateName}</h2>
+                            <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
+                                <p style = "text-decoration: underline;
+                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
+                                <p style="text-align: center"> Sale :50$</p>
                             </div>
+
+                            <!-- <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt lịch ngay</a> </button>
+                            -->
+
+                            <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                         </div>
                     </div>
-                </c:forEach>
+                </div>
+            </c:forEach>
                 <c:forEach items="${listC}" begin="1" end="1" var ="o">
                     <div class="slide slide-2">
                         <img src="./images/cloud.png" alt="" class="img-cloud">
                         <div class="slide__container">
                             <div class="slide-img">
-                                <img src="./images/content-image-5.png" alt="" class="img-content">
+                                <img src="images/clinic_02.jpg" alt="" class="img-content">
+                                <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
                             <div class="home-content">
                                 <h2 class="content-h2 text-center">${o.scCateName}</h2>
@@ -376,7 +378,8 @@
                         <img src="./images/cloud.png" alt="" class="img-cloud active">
                         <div class="slide__container">
                             <div class="slide-img">
-                                <img src="./images/content-image-6.png" alt="" class="img-content active">
+                                <img src="images/clinic_03.jpg" alt="" class="img-content">
+                            <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
                             <div class="home-content">
                                 <h2 class="content-h2 text-center">${o.scCateName}</h2>
@@ -411,6 +414,10 @@
                  </div>
                     
                    <ul class="dropdown__list">
+                    <li class="dropdown__item">
+                        <a  href="ServiceControl#Apply" class="dropdown__text" style="color:#fff;">TẤT CẢ CÁC LOẠI DỊCH VỤ</a>
+                      <i class="fa fa-plus-circle dropdown__icon"></i>
+                    </li>
                      <c:forEach items="${listC}"  var ="o">
                    <li class="dropdown__item">
                        <a  href="CategoryControl?cid=${o.scID}#Apply" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
@@ -435,11 +442,15 @@
                       <c:forEach items="${listS}"  var ="o">
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                        <div class="serv">
-                          <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>            
-                           <p class="card-title show_txt"><a href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
-                          <p>${o.description}</p>
-                                                     <p>${o.sprice}</p>
-                          <p>${o.maxquantity}</p>
+                          <span class="icon-service"><img  class="img-service"src="images/clinic_03.jpg" alt="#"  style="width: 220px;height:220px;border-radius: 10px;"/></span>            
+                           <p class="card-title show_txt"><a class="name_service" href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
+                          <p>${o.description}</p>   
+                          
+                            <span class="service-price1">${o.sprice}$</span>
+                           <span class="service-quantity">${o.maxquantity}</span>
+                                     
+                           
+                           
 
                        </div>
                     </div>

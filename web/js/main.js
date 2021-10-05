@@ -127,7 +127,7 @@ var prevAuto = function() {
             content_h2[slide].classList.add('active')
             content_title[slide].classList.add('active')
             btn_content[slide].classList.add('active')
-            if (slide == 0) {
+            if (slide == 0 ) {
                 img_rocket.classList.add('active')
             }
         }, 1500)

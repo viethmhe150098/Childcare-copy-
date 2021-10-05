@@ -92,6 +92,7 @@
         max-width: 100%;
         left: -7%;
         top: 0;
+        border-radius:25px;
     }
     .img-content.active {
         opacity: 1;
@@ -108,9 +109,11 @@
         visibility: 0;
         transform: translateY(100%);
         transition: all .3s ease-in-out 1.2s;
+        width:20%;
     }
     .img-rocket.active {
         left: 30%;
+        width:20%;
         opacity: 1;
         visibility: 1;
         transform: translateY(0%);
