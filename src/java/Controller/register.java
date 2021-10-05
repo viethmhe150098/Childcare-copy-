@@ -6,7 +6,6 @@
 package Controller;
 
 import DAO.DAOCustomer;
-import DAO.SendMail;
 import Entity.Customer;
 import Model.DBConnect;
 import java.io.IOException;

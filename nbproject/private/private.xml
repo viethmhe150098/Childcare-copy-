@@ -2,11 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+
         <group>
             <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/Controller/ServiceControl.java</file>
-            <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/Controller/register.java</file>
             <file>file:/D:/SWP_Project_Trung/ChildCare/web/HomePage.jsp</file>
-            <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/Controller/SeurityFilter.java</file>
+            <file>file:/D:/SWP_Project_Trung/ChildCare/web/Login.jsp</file>
         </group>
     </open-files>
 </project-private>
