@@ -83,6 +83,7 @@
         <div class="wrapper">
             <form action="login" method="post">
                 <h1>LOGIN</h1>
+                <p class="text-danger">${mess}</p>
                 <input placeholder="USERNAME" type="text" name="adUser"/>
                 <input placeholder="PASSWORD" type="password" name="adPass" minlength="8"/>
                 <button>LOGIN</button>
