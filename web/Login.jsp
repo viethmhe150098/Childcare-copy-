@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
     <style>
         .contain {
             height: 100vh;
@@ -74,19 +75,19 @@
             cursor: pointer;
         }
     </style>
-    <title>Document</title>
+    <title>Login Page</title>
 </head>
 
 <body>
     <div class="contain">
         <div class="wrapper">
-            <form>
-                <h1>SIGN IN</h1>
-                <input placeholder="USERNAME" type="text" />
-                <input placeholder="PASSWORD" type="password" />
+            <form action="login" method="post">
+                <h1>LOGIN</h1>
+                <input placeholder="USERNAME" type="text" name="adUser"/>
+                <input placeholder="PASSWORD" type="password" name="adPass" minlength="8"/>
                 <button>LOGIN</button>
-                <a>DO NOT YOU REMEMBER THE PASSWORD?</a>
-                <a>CREATE A NEW ACCOUNT</a>
+                <a>DO NOT REMEMBER THE PASSWORD?</a>
+                <a href="register">CREATE A NEW ACCOUNT</a>
             </form>
         </div>
     </div>
