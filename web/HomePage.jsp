@@ -81,7 +81,7 @@
                                         <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                         </c:when>
                                         <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.customer_account.username}</a></li>
+                                        <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose >
