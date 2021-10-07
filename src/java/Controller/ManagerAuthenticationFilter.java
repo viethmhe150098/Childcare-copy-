@@ -16,7 +16,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,11 +23,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Viet
  */
-@WebFilter(filterName = "AdminAuthenticationFilter", urlPatterns = {"/admin/*"})
-public class AdminAuthenticationFilter implements Filter {
+public class ManagerAuthenticationFilter implements Filter {
 
     @Override
-    public void init(FilterConfig chain) throws ServletException {
+    public void init(FilterConfig fc) throws ServletException {
         
     }
 
@@ -37,7 +35,7 @@ public class AdminAuthenticationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession(false);
  
-        boolean isLoggedIn = (session != null && session.getAttribute("adminUser") != null);
+        boolean isLoggedIn = (session != null && session.getAttribute("ManUser") != null);
  
         String loginURI = httpRequest.getContextPath() + "/login";
  
@@ -63,7 +61,6 @@ public class AdminAuthenticationFilter implements Filter {
             
  
         }
- 
     }
 
     @Override

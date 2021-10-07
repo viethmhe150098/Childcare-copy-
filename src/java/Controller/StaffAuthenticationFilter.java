@@ -24,12 +24,12 @@ import javax.servlet.http.HttpSession;
  *
  * @author Viet
  */
-@WebFilter(filterName = "AdminAuthenticationFilter", urlPatterns = {"/admin/*"})
-public class AdminAuthenticationFilter implements Filter {
+@WebFilter(filterName = "StaffAuthenticationFilter", urlPatterns = {"/staff/*"})
+public class StaffAuthenticationFilter implements Filter {
 
     @Override
-    public void init(FilterConfig chain) throws ServletException {
-        
+    public void init(FilterConfig fc) throws ServletException {
+       
     }
 
     @Override
@@ -37,7 +37,7 @@ public class AdminAuthenticationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession(false);
  
-        boolean isLoggedIn = (session != null && session.getAttribute("adminUser") != null);
+        boolean isLoggedIn = (session != null && session.getAttribute("StaffUser") != null);
  
         String loginURI = httpRequest.getContextPath() + "/login";
  
@@ -48,7 +48,7 @@ public class AdminAuthenticationFilter implements Filter {
         if (isLoggedIn && (isLoginRequest || isLoginPage)) {
             // the admin is already logged in and he's trying to login again
             // then forwards to the admin's homepage
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/staff/");
             dispatcher.forward(request, response);
  
         } else if (isLoggedIn || isLoginRequest) {
@@ -63,7 +63,6 @@ public class AdminAuthenticationFilter implements Filter {
             
  
         }
- 
     }
 
     @Override
