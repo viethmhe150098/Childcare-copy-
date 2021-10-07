@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.DAOCustomer;
+import DAO.DAOSendEmail;
 import Entity.Customer;
 import Model.DBConnect;
 import java.io.IOException;
@@ -89,16 +90,27 @@ public class register extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String age = request.getParameter("age");
-        String status = request.getParameter("status");
+//        String status = request.getParameter("status");
 
         if (!password.equals(confirm)) {
             request.setAttribute("mess", "password khong khop");
             request.getRequestDispatcher("Register.jsp").forward(request, response);
         } else {
-            Customer cus = new Customer(firstname, lastname, gender, email, phonenumber, username, password, age, status, address);
-            DAOCustomer daocus = new DAOCustomer(dbconn);
-            daocus.insertCus(cus);
-            response.sendRedirect("login");
+            Customer cus = new Customer(firstname, lastname, gender, email, phonenumber, username, password, age, address);
+            HttpSession Temp = request.getSession();
+            session.setAttribute("tempCus", cus);
+            DAOSendEmail e = new DAOSendEmail();
+            
+            String code = e.RanCode();
+            e.send(email, e.RegisterNoti(), code);
+            
+            request.setAttribute(email, "email");
+            session.setAttribute("code", code);
+            request.getRequestDispatcher("enterCode.jsp").forward(request, response);
+            
+//            DAOCustomer daocus = new DAOCustomer(dbconn);
+//            daocus.insertCus(cus);
+//            response.sendRedirect("login");
 //            Customer c = daocus.loginCustomer(username, password);
 //            session.setAttribute("account", c);
 //            response.sendRedirect("Homepage");

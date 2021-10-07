@@ -35,6 +35,18 @@ public class Customer {
         this.password = password;
     }
 
+    public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String address) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.email = email;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.address = address;
+    }
+    
     public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String address) {
         this.first_name = first_name;
         this.last_name = last_name;

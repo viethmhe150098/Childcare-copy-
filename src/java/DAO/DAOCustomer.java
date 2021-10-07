@@ -102,8 +102,8 @@ public class DAOCustomer {
         int n = 0;
         try {
             String sql = "insert into Customer(first_name, last_name, gender, "
-                    + "email, tel, username,password,age,status,address)\n"
-                    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    + "email, tel, username,password,age,address)\n"
+                    + "values(?, ?, ?, ?, ?, ?, ?, ?,?)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, cus.getFirst_name());
             ps.setString(2, cus.getLast_name());
@@ -113,8 +113,8 @@ public class DAOCustomer {
             ps.setString(6, cus.getUsername());
             ps.setString(7, cus.getPassword());
             ps.setString(8, cus.getAge());
-            ps.setString(9, cus.getStatus());
-            ps.setString(10, cus.getAddress());
+            
+            ps.setString(9, cus.getAddress());
             n = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
