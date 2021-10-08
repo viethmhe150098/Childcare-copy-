@@ -58,6 +58,22 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(int cID, String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String status, String address, int role) {
+        this.cID = cID;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.email = email;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.status = status;
+        this.address = address;
+        this.role = role;
+    }
+    
+
     public void setRole(int role) {
         this.role = role;
     }

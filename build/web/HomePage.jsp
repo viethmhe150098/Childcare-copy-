@@ -336,11 +336,14 @@
                             <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                         </div>
                         <div class="home-content">
+                            <div class="serv-img" >
+                                <img class="ser-img-saleoff" src="https://cf.shopee.vn/file/d572d2eef9148fecdeaf56caf9917298" alt="" >
+                            </div>
                             <h2 class="content-h2 text-center">${o.scCateName}</h2>
                             <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
                                 <p style = "text-decoration: underline;
-                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                                <p style="text-align: center"> Sale :50$</p>
+                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 240$</p>
+                                <p style="text-align: center"> Sale :192$</p>
                             </div>
 
                             <!-- <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt lịch ngay</a> </button>
@@ -356,16 +359,20 @@
                         <img src="./images/cloud.png" alt="" class="img-cloud">
                         <div class="slide__container">
                             <div class="slide-img">
+                              
                                 <img src="images/clinic_02.jpg" alt="" class="img-content">
                                 <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
                             <div class="home-content">
+                                <div class="serv-img" >
+                                    <img class="ser-img-saleoff" src="https://cf.shopee.vn/file/d572d2eef9148fecdeaf56caf9917298" alt="" >
+                                </div>
                                 <h2 class="content-h2 text-center">${o.scCateName}</h2>
 
                                 <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
                                     <p style = "text-decoration: underline;
                                        text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                                    <p style="text-align: center"> Sale :50$</p>
+                                    <p style="text-align: center"> Sale :96$</p>
                                 </div>        
 
                                 <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
@@ -382,11 +389,14 @@
                             <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
                             <div class="home-content">
+                                <div class="serv-img" >
+                                    <img class="ser-img-saleoff" src="https://cf.shopee.vn/file/d572d2eef9148fecdeaf56caf9917298" alt="" >
+                                </div>
                                 <h2 class="content-h2 text-center">${o.scCateName}</h2>
                                 <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
                                     <p style = "text-decoration: underline;
-                                       text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                                    <p style="text-align: center"> Sale :50$</p>
+                                       text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 100$</p>
+                                    <p style="text-align: center"> Sale :80$</p>
                                 </div>
                                 <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                             </div>

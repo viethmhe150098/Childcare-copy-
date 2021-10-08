@@ -38,14 +38,19 @@
 
 .slide-1 {
     background: url(../images/image-1.jpg) no-repeat center/cover;
+    max-height: 900px;
 }
 
 .slide-2 {
     background: url(../images/image-3.jpg) no-repeat center/cover;
+  max-height: 900px;
+
 }
 
 .slide-3 {
     background: url(../images/image-4.jpg) no-repeat center/cover;
+    max-height: 900px;
+
 }
 
 .img-cloud {
@@ -171,4 +176,11 @@
 .next-btn:hover .next {
   transform: translateX(100%);
    
+}
+.ser-img-saleoff {
+    height:100px;
+    width: 100px;
+    position: absolute;
+    right:400px;
+    border-radius:100px;
 }
