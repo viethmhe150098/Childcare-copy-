@@ -90,40 +90,33 @@ public class register extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String age = request.getParameter("age");
-//        String status = request.getParameter("status");
+        String status = request.getParameter("status");
 
         if (!password.equals(confirm)) {
-            request.setAttribute("mess", "password khong khop");
+            request.setAttribute("mess1", "password khong khop");
             request.getRequestDispatcher("Register.jsp").forward(request, response);
         } else {
-            Customer cus = new Customer(firstname, lastname, gender, email, phonenumber, username, password, age, address);
-            HttpSession Temp = request.getSession();
-            session.setAttribute("tempCus", cus);
-            DAOSendEmail e = new DAOSendEmail();
-            
-            String code = e.RanCode();
-            e.send(email, e.RegisterNoti(), code);
-            
-            request.setAttribute(email, "email");
-            session.setAttribute("code", code);
-            request.getRequestDispatcher("enterCode.jsp").forward(request, response);
-            
-//            DAOCustomer daocus = new DAOCustomer(dbconn);
-//            daocus.insertCus(cus);
-//            response.sendRedirect("login");
-//            Customer c = daocus.loginCustomer(username, password);
-//            session.setAttribute("account", c);
-//            response.sendRedirect("Homepage");
+            //Customer cus = new Customer(firstname, lastname, gender, email, phonenumber, username, password, age, status, address);
+            DAOCustomer daocus = new DAOCustomer(dbconn);
+            Customer c = daocus.CheckExistCustomer(username);
+            if (c == null) {
+                Customer cus = new Customer(firstname, lastname, gender, email, phonenumber, username, password, age, address);
+                HttpSession Temp = request.getSession();
+                session.setAttribute("tempCus", cus);
+                DAOSendEmail e = new DAOSendEmail();
 
-//            SendMail sm = new SendMail();
-//            String code = sm.getRandom();
-//            Customer cus = new Customer(firstname, lastname, gender, email,phonenumber, username, password, age, status, address, code);
-//            
-//            boolean test = sm.sendEmail(cus);
-//            if(test){
-//                session.setAttribute("suthcode", cus);
-//                response.sendRedirect("Verify.jsp");
-//            }
+                String code = e.RanCode();
+                e.send(email, e.RegisterNoti(), code);
+
+                request.setAttribute(email, "email");
+                session.setAttribute("code", code);
+                request.getRequestDispatcher("enterCode.jsp").forward(request, response);
+                // daocus.insertCus(cus);
+                // response.sendRedirect("login");
+            } else {
+                request.setAttribute("mess2", "Canh bao: username existed");
+                request.getRequestDispatcher("Register.jsp").forward(request, response);
+            }
         }
     }
 
