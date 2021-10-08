@@ -43,6 +43,7 @@ public class SearchControl extends HttpServlet {
         List<Service> list = dao.searchByName(txtSearch);
          request.setAttribute("listS", list);
         request.setAttribute("listC", listC);
+          request.setAttribute("txtS", txtSearch);
         request.getRequestDispatcher("HomePage.jsp").forward(request, response);
     }
 
