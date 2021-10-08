@@ -37,18 +37,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
 
-	<!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-===============================================================================================
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-===============================================================================================
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-===============================================================================================
-	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-===============================================================================================
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main1.css">
+    <!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main1.css">
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
@@ -65,9 +65,9 @@
 </head>
 <body class="clinic_version">
     <!-- LOADER -->
-<!--    <div id="preloader">
-        <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
-    </div>-->
+    <!--    <div id="preloader">
+            <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+        </div>-->
     <!-- END LOADER -->
     <header>
         <div class="header-top wow fadeIn">
@@ -131,18 +131,22 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
+
+                <form action="searchReservation" method="post">
+                    <div class="serch-bar">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input name="txt" type="text" class="form-control input-lg" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="submit">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
+
             </div>
         </div>
     </header>
@@ -166,88 +170,137 @@
     </div>
     <!-- end section -->
 
-    <div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-                            <h2 class="title" style="text-align: center">Reservation List</h2>
-                            <%ResultSet rs1 = (ResultSet) request.getAttribute("ketQua1");%>
-				<div class="table100 ver1 m-b-110">
-					<div class="table100-head">
-						<table>
-							<thead>
-								<tr class="row100 head">
-									<th class="cell100 column1">Reservation ID</th>
-									<th class="cell100 column2">Reservation Date</th>
-									<th class="cell100 column3">Customer Name</th>
-									<th class="cell100 column4">Receive Name</th>
-									<th class="cell100 column5">Price</th>
-									<th class="cell100 column6">Status</th>
-									<th class="cell100 column7">Receive phonenumber</th>
-									<th class="cell100 column8">Service Name</th>
-								</tr>
-							</thead>
-						</table>
-					</div>
-
-					<div class="table100-body js-pscroll">
-						<table>
-							<tbody>
-                                                            <%while (rs1.next()) {%>
-								<tr class="row100 body">
-									<td class="cell100 column1"><%=rs1.getString(1)%></td>
-									<td class="cell100 column2"><%=rs1.getDate(2)%></td>
-									<td class="cell100 column3"><%=rs1.getString(3)%></td>
-									<td class="cell100 column4"><%=rs1.getString(4)%></td>
-									<td class="cell100 column5"><%=rs1.getDouble(5)%></td>
-									<td class="cell100 column6"><%=rs1.getInt(6)%></td>
-									<td class="cell100 column7"><%=rs1.getString(7)%></td>
-									<td class="cell100 column8"><%=rs1.getString(8)%></td>
-								</tr>	
-                                                                <%}%>
-							</tbody>
-						</table>
-					</div>
-				</div>								
-		</div>
-	</div>      
-    
-<!--    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="card card-4">
-            <div class="card-body" style="padding: 1rem">
-                <h2 class="title" style="text-align: center">Reservation List</h2>
-
-                <table border="1" style="border-collapse: collapse; padding: 20px; text-align: center">
-                    <thead>
-                        <tr>
-                            <th>Reservation ID</th>
-                            <th>Reservation Date</th>
-                            <th>Customer Name</th>
-                            <th>Receive Name</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th>Receive phonenumber</th>
-                            <th>Service Name</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <%while (rs1.next()) {%>
-                        <tr>
-                            <td><%=rs1.getString(1)%></td>
-                            <td><%=rs1.getDate(2)%></td>
-                            <td><%=rs1.getString(3)%></td>
-                            <td><%=rs1.getString(4)%></td>
-                            <td><%=rs1.getDouble(5)%></td>
-                            <td><%=rs1.getInt(6)%></td>
-                            <td><%=rs1.getString(7)%></td>
-                            <td><%=rs1.getString(8)%></td>
-                        </tr>
-                        <%}%>
-                    </tbody>
-                </table>
-            </div>
+    <div class="container">
+        <div class="heading">
+            <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+            <h2>The Reservation List</h2>
         </div>
-    </div>-->
+        <!-- end title -->
+        <table class="table table-dark" style="background: #333;border-radius:10px">
+            <thead>
+                <tr>
+                    <th>Reservation ID</th>
+                    <th>Reservation Date</th>
+                    <th>Customer Name</th>
+                    <th>Receive Name</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Receive phonenumber</th>
+                    <th>Service Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%ResultSet rs1 = (ResultSet) request.getAttribute("ketQua1");%>
+                <%while (rs1.next()) {%>
+                <tr>
+                    <td><%=rs1.getString(1)%></td>
+                    <td><%=rs1.getDate(2)%></td>
+                    <td><%=rs1.getString(3)%></td>
+                    <td><%=rs1.getString(4)%></td>
+                    <td><%=rs1.getDouble(5)%></td>
+                    <td><%=rs1.getInt(6)%></td>
+                    <td><%=rs1.getString(7)%></td>
+                    <td><%=rs1.getString(8)%></td>
+                </tr>	
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container text-center">
+        <ul class="pagination">
+            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </div>
+
+
+
+    <!--<div class="limiter">-->
+    <!--    <div class="container-table100">
+            <div class="wrap-table100">
+                <h2 class="title" style="text-align: center">Reservation List</h2>
+                
+                
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100">Reservation ID</th>
+                                    <th class="cell100">Reservation Date</th>
+                                    <th class="cell100">Customer Name</th>
+                                    <th class="cell100">Receive Name</th>
+                                    <th class="cell100">Price</th>
+                                    <th class="cell100">Status</th>
+                                    <th class="cell100">Receive phonenumber</th>
+                                    <th class="cell100">Service Name</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+    
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tbody>
+    <%while (rs1.next()) {%>
+    <tr class="row100 body">
+        <td class="cell100"><%=rs1.getString(1)%></td>
+        <td class="cell100"><%=rs1.getDate(2)%></td>
+        <td class="cell100"><%=rs1.getString(3)%></td>
+        <td class="cell100"><%=rs1.getString(4)%></td>
+        <td class="cell100"><%=rs1.getDouble(5)%></td>
+        <td class="cell100"><%=rs1.getInt(6)%></td>
+        <td class="cell100"><%=rs1.getString(7)%></td>
+        <td class="cell100"><%=rs1.getString(8)%></td>
+    </tr>	
+    <%}%>
+</tbody>
+</table>
+</div>
+</div>								
+</div>
+</div>      -->
+
+    <!--    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+            <div class="card card-4">
+                <div class="card-body" style="padding: 1rem">
+                    <h2 class="title" style="text-align: center">Reservation List</h2>
+    
+                    <table border="1" style="border-collapse: collapse; padding: 20px; text-align: center">
+                        <thead>
+                            <tr>
+                                <th>Reservation ID</th>
+                                <th>Reservation Date</th>
+                                <th>Customer Name</th>
+                                <th>Receive Name</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Receive phonenumber</th>
+                                <th>Service Name</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+    <%while (rs1.next()) {%>
+    <tr>
+        <td><%=rs1.getString(1)%></td>
+        <td><%=rs1.getDate(2)%></td>
+        <td><%=rs1.getString(3)%></td>
+        <td><%=rs1.getString(4)%></td>
+        <td><%=rs1.getDouble(5)%></td>
+        <td><%=rs1.getInt(6)%></td>
+        <td><%=rs1.getString(7)%></td>
+        <td><%=rs1.getString(8)%></td>
+    </tr>
+    <%}%>
+</tbody>
+</table>
+</div>
+</div>
+</div>-->
 
     <footer id="footer" class="footer-area wow fadeIn">
         <div class="container">
@@ -330,28 +383,28 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./js/main.js"></script>
 
-    
-    
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-===============================================================================================
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-===============================================================================================
-	<script src="vendor/select2/select2.min.js"></script>
-===============================================================================================
-	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
-		$('.js-pscroll').each(function(){
-			var ps = new PerfectScrollbar(this);
 
-			$(window).on('resize', function(){
-				ps.update();
-			})
-		});
-			
-		
-	</script>
-===============================================================================================
-	<script src="js/main1.js"></script>
+
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            var ps = new PerfectScrollbar(this);
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main1.js"></script>
 </body>
 </html>

@@ -9,9 +9,6 @@ import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -24,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DO THANH TRUNG
  */
-public class reservationController extends HttpServlet {
+public class searchReservation extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,14 +36,18 @@ public class reservationController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String txtSearch = request.getParameter("txt");
+
             DBConnect dbconn = new DBConnect();
             String sql = "select b.reID, b.date, b.fullname, b.recceive_name, b.totalprice, b.status, b.recceive_tel, d.sname\n"
                     + "from Customer as a join Reservation as b on a.cID=b.cid\n"
                     + "join ReservationDetail as c on b.reID=c.reID\n"
-                    + "join Service as d on c.serID=d.sID order by b.fullname";
-            ResultSet rs1 = dbconn.getData(sql);
-            request.setAttribute("ketQua1", rs1);
-            dispatch(request, response, "/ReservationList.jsp");
+                    + "join Service as d on c.serID=d.sID\n"
+                    + "where b.fullname like '% " + txtSearch + "%'";
+            ResultSet rs2 = dbconn.getData(sql);
+            request.setAttribute("ketQua1", rs2);
+//            dispatch(request, response, "/ReservationList.jsp");
+            request.getRequestDispatcher("ReservationList.jsp").forward(request, response);
         }
 
     }
@@ -56,9 +57,9 @@ public class reservationController extends HttpServlet {
         try {
             dis.forward(request, response);
         } catch (ServletException ex) {
-            Logger.getLogger(reservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(searchReservation.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(reservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(searchReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -90,7 +91,6 @@ public class reservationController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    
 
     /**
      * Returns a short description of the servlet.
