@@ -197,7 +197,8 @@
             <div class="main-agileinfo">
                 <div class="agileits-top">
                     <form action="register" method="post">
-                        <p class="text-danger">${mess}</p>
+                        <p class="text-danger">${mess1}</p>
+                        <p class="text-danger">${mess2}</p>
                         <input class="text" type="text" name="fname" placeholder="First Name" required="">
                         <input class="text" type="text" name="lname" placeholder="Last Name" required="">
                         <input class="text" type="text" name="username" placeholder="Username" required="">

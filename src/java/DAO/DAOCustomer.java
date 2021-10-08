@@ -62,6 +62,27 @@ public class DAOCustomer {
         }
         return null;
     }
+    
+    public Customer CheckExistCustomer(String username) {
+        try {
+            String sql = "select * from Customer where username = ?";
+
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), 
+                        rs.getString(7), rs.getString(8), rs.getString(9),
+                        rs.getString(10), rs.getString(11));
+                return cus;
+            }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public ArrayList<Customer> getAllCustomer() {
         ArrayList<Customer> arr = new ArrayList<Customer>();
