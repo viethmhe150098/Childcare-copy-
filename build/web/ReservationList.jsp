@@ -40,13 +40,13 @@
 	<!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-===============================================================================================
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-===============================================================================================
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-===============================================================================================
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-===============================================================================================
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main1.css">
 
@@ -131,18 +131,22 @@
                         </ul>
                     </div>
                 </nav>
+                
+                <form action="searchReservation" method="post">
                 <div class="serch-bar">
                     <div id="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <input name="txt" type="text" class="form-control input-lg" placeholder="Search" />
                             <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
+                                <button class="btn btn-info btn-lg" type="submit">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </span>
                         </div>
                     </div>
                 </div>
+                </form>
+                
             </div>
         </div>
     </header>
@@ -166,7 +170,7 @@
     </div>
     <!-- end section -->
 
-    <div class="limiter">
+    <!--<div class="limiter">-->
 		<div class="container-table100">
 			<div class="wrap-table100">
                             <h2 class="title" style="text-align: center">Reservation List</h2>
@@ -176,14 +180,14 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Reservation ID</th>
-									<th class="cell100 column2">Reservation Date</th>
-									<th class="cell100 column3">Customer Name</th>
-									<th class="cell100 column4">Receive Name</th>
-									<th class="cell100 column5">Price</th>
-									<th class="cell100 column6">Status</th>
-									<th class="cell100 column7">Receive phonenumber</th>
-									<th class="cell100 column8">Service Name</th>
+									<th class="cell100">Reservation ID</th>
+									<th class="cell100">Reservation Date</th>
+									<th class="cell100">Customer Name</th>
+									<th class="cell100">Receive Name</th>
+									<th class="cell100">Price</th>
+									<th class="cell100">Status</th>
+									<th class="cell100">Receive phonenumber</th>
+									<th class="cell100">Service Name</th>
 								</tr>
 							</thead>
 						</table>
@@ -194,14 +198,14 @@
 							<tbody>
                                                             <%while (rs1.next()) {%>
 								<tr class="row100 body">
-									<td class="cell100 column1"><%=rs1.getString(1)%></td>
-									<td class="cell100 column2"><%=rs1.getDate(2)%></td>
-									<td class="cell100 column3"><%=rs1.getString(3)%></td>
-									<td class="cell100 column4"><%=rs1.getString(4)%></td>
-									<td class="cell100 column5"><%=rs1.getDouble(5)%></td>
-									<td class="cell100 column6"><%=rs1.getInt(6)%></td>
-									<td class="cell100 column7"><%=rs1.getString(7)%></td>
-									<td class="cell100 column8"><%=rs1.getString(8)%></td>
+									<td class="cell100"><%=rs1.getString(1)%></td>
+									<td class="cell100"><%=rs1.getDate(2)%></td>
+									<td class="cell100"><%=rs1.getString(3)%></td>
+									<td class="cell100"><%=rs1.getString(4)%></td>
+									<td class="cell100"><%=rs1.getDouble(5)%></td>
+									<td class="cell100"><%=rs1.getInt(6)%></td>
+									<td class="cell100"><%=rs1.getString(7)%></td>
+									<td class="cell100"><%=rs1.getString(8)%></td>
 								</tr>	
                                                                 <%}%>
 							</tbody>
@@ -333,12 +337,12 @@
     
     
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-===============================================================================================
+<!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-===============================================================================================
+<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
-===============================================================================================
+<!--===============================================================================================-->
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>
 		$('.js-pscroll').each(function(){
@@ -351,7 +355,7 @@
 			
 		
 	</script>
-===============================================================================================
+<!--===============================================================================================-->
 	<script src="js/main1.js"></script>
 </body>
 </html>
