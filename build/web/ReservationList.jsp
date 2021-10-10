@@ -187,6 +187,7 @@
                     <th>Status</th>
                     <th>Receive phone number</th>
                     <th>Service Name</th>
+                    <th>Reservation Detail</th>
                 </tr>
             </thead>
             <tbody>
@@ -201,6 +202,7 @@
                     <td><%=rs1.getInt(6)%></td>
                     <td><%=rs1.getString(7)%></td>
                     <td><%=rs1.getString(8)%></td>
+                    <td><a href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
                 </tr>	
                 <%}%>
             </tbody>
