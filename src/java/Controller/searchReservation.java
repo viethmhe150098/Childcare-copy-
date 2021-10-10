@@ -8,6 +8,8 @@ package Controller;
 import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,20 +38,19 @@ public class searchReservation extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String txtSearch = request.getParameter("txt");
+            String txtSearch = request.getParameter("pname");
 
             DBConnect dbconn = new DBConnect();
             String sql = "select b.reID, b.date, b.fullname, b.recceive_name, b.totalprice, b.status, b.recceive_tel, d.sname\n"
                     + "from Customer as a join Reservation as b on a.cID=b.cid\n"
                     + "join ReservationDetail as c on b.reID=c.reID\n"
                     + "join Service as d on c.serID=d.sID\n"
-                    + "where b.fullname like '% " + txtSearch + "%'";
+                    + "where b.fullname like '%" + txtSearch + "%'";
             ResultSet rs2 = dbconn.getData(sql);
             request.setAttribute("ketQua1", rs2);
 //            dispatch(request, response, "/ReservationList.jsp");
             request.getRequestDispatcher("ReservationList.jsp").forward(request, response);
         }
-
     }
 
     private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {

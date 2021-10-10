@@ -132,11 +132,11 @@
                     </div>
                 </nav>
 
-                <form action="searchReservation" method="post">
+                <form action="searchReservation" method="get">
                     <div class="serch-bar">
                         <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input name="txt" type="text" class="form-control input-lg" placeholder="Search" />
+                                <input name="pname" type="text" class="form-control input-lg" placeholder="Search" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-lg" type="submit">
                                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -185,7 +185,7 @@
                     <th>Receive Name</th>
                     <th>Price</th>
                     <th>Status</th>
-                    <th>Receive phonenumber</th>
+                    <th>Receive phone number</th>
                     <th>Service Name</th>
                 </tr>
             </thead>
@@ -206,6 +206,7 @@
             </tbody>
         </table>
     </div>
+                        
 
     <div class="container text-center">
         <ul class="pagination">
