@@ -50,6 +50,44 @@ public class DAOService {
         }
         return list;
     }
+    public int getTotalService() {
+        String sql = "select count(*) from Service";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
+    public List<Service> pagingCustomer(int index) {
+        List<Service> list = new ArrayList<>();
+        String sql = "select * from Service\n"
+                + "order by cID\n"
+                + "offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Service(rs.getString(1),
+                        rs.getString(2),
+                        rs.getDouble(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getString(6), rs.getString(7)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
 
     public List<Service> getServiceByCID(String cid) {
         List<Service> list = new ArrayList<>();

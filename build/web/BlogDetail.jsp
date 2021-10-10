@@ -1,9 +1,9 @@
 <%-- 
-    Document   : CustomerList
-    Created on : Oct 8, 2021, 10:27:49 PM
+    Document   : BlogDetail
+    Created on : Oct 10, 2021, 9:22:28 PM
     Author     : ADMIN
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,6 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-
 <body class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
@@ -132,51 +131,36 @@
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                <h2>List Customer</h2>
+                <h2>The Detail Service</h2>
             </div>
             <!-- end title -->
-           <table class="table table-dark" style="background: #333;border-radius:10px">
-<thead>
-    
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Email</th>
-<th>Tuổi</th>
-<th>Địa chỉ</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-     <c:forEach items="${listC}" var="o">
-<tr>
-<td>${o.cID}</td>
-<td>${o.first_name}</td>
-<td>${o.email}</td>
-<td>${o.age}</td>
-<td>${o.address}</td>
-<td>${o.status}</td>
- </c:forEach>
-</tr>
-</tbody>
-</table>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="message-box">
+                        <h4>What We Do</h4>
+                        <h2>Clinic Service</h2>
+                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                            <p style = "text-decoration: underline;
+                               text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
+                            <p style="text-align: center"> Sale :50$</p>
+                        </div>
+                        <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
+                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                    </div>
+                    <!-- end messagebox -->
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="post-media wow fadeIn">
+                        <img src="images/about_03.jpg" alt="" class="img-responsive">
+                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                    </div>
+                    <!-- end media -->
+                </div>
+                <!-- end col -->
+            </div>
         </div>
-        <div class="container text-center">
-<ul class="pagination">
-    <c:if test="${tag>1}">
-<li class="page-item disabled"><a class="page-link" href="CustomerControl?index=${tag-1}">Previous</a></li>
-    </c:if>
- <c:forEach begin="1" end="${endP}" var="i">
- 
-<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
-   </c:forEach>
- <c:if test="${tag<endP}">
-
-
-<li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}">Next</a></li>
- </c:if>
-</ul>
-</div>
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">

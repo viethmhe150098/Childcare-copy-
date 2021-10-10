@@ -79,6 +79,20 @@ public class DAOCustomer {
         }
         return list;
      }
+     public int getTotalCustomer() {
+        String sql = "select count(*) from Customer";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
      public Customer getCustomerByID(String cid) {
         List<Customer> list = new ArrayList<>();
         String query = "select * from Customer where cID=?";
@@ -133,6 +147,27 @@ public class DAOCustomer {
         }
         return arr;
     }
+    public List<Customer> pagingCustomer(int index) {
+        List<Customer> list = new ArrayList<>();
+        String sql = "select * from Customer\n"
+                + "order by cID\n"
+                + "offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),rs.getInt(12)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
    public Customer getPass(String username) {
         try {
             String sql = "select password from Customer where username = ?";
@@ -179,12 +214,20 @@ public class DAOCustomer {
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
-       Customer a = dao.getCustomerByID("1");
-        System.out.println(a);
-        List<Customer> list = dao.getAllCustomer1();
-        for(Customer o : list){
+//       Customer a = dao.getCustomerByID("1");
+//        System.out.println(a);
+//        List<Customer> list = dao.getAllCustomer1();
+//        for(Customer o : list){
+//            System.out.println(o);
+//        }
+    List<Customer> list = dao.pagingCustomer(1);
+    for(Customer o : list){
             System.out.println(o);
-        }
+    }
+//        }
+    
+//        int b= dao.getTotalCustomer();
+//        System.out.println(b);
 //        }
         
 //        System.out.println(dao.loginCustomer("trung", "12345678"));
