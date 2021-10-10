@@ -159,14 +159,13 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.html">Home</a></li>
-                            <li><a data-scroll href="#about">About us</a></li
-                            <li><a data-scroll href="#blogs">Blogs</a></li>
-                            <li><a data-scroll href="#service">Services</a></li>
-                            <li><a data-scroll href="#doctors">Doctors</a></li>
-                            <li><a data-scroll href="#price">Price</a></li>
-                            <li><a data-scroll href="#testimonials">Testimonials</a></li>
-                            <li><a data-scroll href="#getintouch">Contact</a></li>
+                          <li><a class="active" href="index.html">Home</a></li>
+                                <li><a data-scroll href="#about">About us</a></li>
+                                <li><a data-scroll href="#service">Services</a></li>
+                                <li><a data-scroll href="#doctors">Doctors</a></li>
+                                <li><a data-scroll href="#price">Price</a></li>
+                                <li><a data-scroll href="#blog">Blogs</a></li>
+                                <li><a data-scroll href="#getintouch">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
