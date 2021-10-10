@@ -48,8 +48,8 @@ public class searchReservation extends HttpServlet {
                     + "where b.fullname like '%" + txtSearch + "%'";
             ResultSet rs2 = dbconn.getData(sql);
             request.setAttribute("ketQua1", rs2);
-//            dispatch(request, response, "/ReservationList.jsp");
             request.getRequestDispatcher("ReservationList.jsp").forward(request, response);
+
         }
     }
 
