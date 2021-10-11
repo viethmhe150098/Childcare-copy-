@@ -183,7 +183,7 @@
                     <th>Reservation Date</th>
                     <th>Customer Name</th>
                     <th>Receive Name</th>
-                    <th>Price</th>
+                    <th>Total Price</th>
                     <th>Status</th>
                     <th>Receive phone number</th>
                     <th>Service Name</th>

@@ -168,7 +168,7 @@ public final class Detail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <ul class=\"nav navbar-nav\">\r\n");
       out.write("                                <li><a class=\"active\" href=\"index.html\">Home</a></li>\r\n");
       out.write("                                <li><a data-scroll href=\"#about\">About us</a></li>\r\n");
-      out.write("                                <li><a data-scroll href=\"#service\">Blogs</a></li>\r\n");
+      out.write("                                <li><a data-scroll href=\"#service\">Services</a></li>\r\n");
       out.write("                                <li><a data-scroll href=\"#doctors\">Doctors</a></li>\r\n");
       out.write("                                <li><a data-scroll href=\"#price\">Price</a></li>\r\n");
       out.write("                                <li><a data-scroll href=\"#testimonials\">Testimonials</a></li>\r\n");
