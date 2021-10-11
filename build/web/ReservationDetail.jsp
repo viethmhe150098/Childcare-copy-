@@ -323,7 +323,7 @@
                             <h2>Full Name: <%=rs1.getString(6)%></h2>
                             <div>
                                 Gender: <%=rs1.getString(8)%><br>
-                                Gmail: <%=rs1.getString(9)%>
+                                Gmail: <%=rs1.getString(9)%><br>
                                 Tel: <%=rs1.getString(7)%>
                             </div>
                         </div>
