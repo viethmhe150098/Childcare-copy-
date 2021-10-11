@@ -160,6 +160,10 @@ a {
     outline: none;
 }
 
+.table a #grey{
+    color: grey;
+}
+
 a,
 .btn {
     text-decoration: none !important;

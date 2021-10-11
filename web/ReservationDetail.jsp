@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -178,6 +179,26 @@
                                 <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                                 <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>
                             </div>
+                            <div class="info-inner">
+                                <ul class="list-main">
+                                    <c:choose>
+                                        <c:when test= "${sessionScope.customer_account == null}">
+                                            <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose >
+                                            <c:when test = "${sessionScope.customer_account == null}">
+                                            <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
+                                                </c:otherwise>
+                                            </c:choose>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -284,7 +305,17 @@
                         </tr>
                         <tr>
                             <td><%=rs1.getString(1)%></td>
-                            <td><%=rs1.getInt(11)%></td>
+                            <td>
+<!--                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <%=(rs1.getInt(11) == 1) ? "Shipped" : "Waiting"%>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#"><%=(rs1.getInt(11) != 1) ? "Shipped" : "Waiting"%></a>
+                                    </div>
+                                </div>-->
+
+                                <%=(rs1.getInt(11) == 1) ? "Shipped" : "Waiting"%></td>
                             <td><%=rs1.getDate(2)%></td>
                             <td><%=rs1.getString(12)%></td>
                             <td><%=rs1.getDouble(10)%></td>
@@ -292,19 +323,19 @@
                     </table>
                 </div>
                 <div class="wrapper2">
-<!--                    <h2>RESERVATION SUMMARY</h2>
-                    <table>
-                        <tr>
-                            <td>SERVICE</td>
-                            <td>QUANTITY </td>
-                            <td>VALUE </td>
-                        </tr>
-                        <tr>
-                            <td>KHÁM PHỔI </td>
-                            <td>1</td>
-                            <td>40$</td>
-                        </tr>
-                    </table>-->
+                    <!--                    <h2>RESERVATION SUMMARY</h2>
+                                        <table>
+                                            <tr>
+                                                <td>SERVICE</td>
+                                                <td>QUANTITY </td>
+                                                <td>VALUE </td>
+                                            </tr>
+                                            <tr>
+                                                <td>KHÁM PHỔI </td>
+                                                <td>1</td>
+                                                <td>40$</td>
+                                            </tr>
+                                        </table>-->
                 </div>
                 <div class="wrapper3">
                     <div class="left_table">
@@ -322,7 +353,7 @@
                         <div class="content">
                             <h2>Full Name: <%=rs1.getString(6)%></h2>
                             <div>
-                                Gender: <%=rs1.getString(8)%><br>
+                                Gender: <%=(rs1.getString(8) == "1") ? "Female" : "Male"%><br>
                                 Gmail: <%=rs1.getString(9)%><br>
                                 Tel: <%=rs1.getString(7)%>
                             </div>

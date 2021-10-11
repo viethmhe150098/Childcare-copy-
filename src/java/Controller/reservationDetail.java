@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DAO.DAOReservation;
 import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +39,8 @@ public class reservationDetail extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             DBConnect dbconn = new DBConnect();
             String reID = request.getParameter("reID");
-
+            
+//            DAOReservation dao = new DAOReservation(dbconn);
             String sql = "select b.reID, b.date, b.fullname, b.mail, b.phone, b.recceive_name, b.recceive_tel, b.recceive_gender, \n"
                     + "b.recceive_mail, b.totalprice, b.status, d.sname\n"
                     + "from Customer as a join Reservation as b on a.cID=b.cid\n"
@@ -47,6 +49,7 @@ public class reservationDetail extends HttpServlet {
                     + "where b.reID = " + reID;
             ResultSet rs3 = dbconn.getData(sql);
             request.setAttribute("reserDetail", rs3);
+            
             dispatch(request, response, "/ReservationDetail.jsp");
         }
     }

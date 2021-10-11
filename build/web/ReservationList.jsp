@@ -199,10 +199,10 @@
                     <td><%=rs1.getString(3)%></td>
                     <td><%=rs1.getString(4)%></td>
                     <td><%=rs1.getDouble(5)%></td>
-                    <td><%=rs1.getInt(6)%></td>
+                    <td><%=(rs1.getInt(6)==1)?"Shipped":"Waiting"%></td>
                     <td><%=rs1.getString(7)%></td>
                     <td><%=rs1.getString(8)%></td>
-                    <td><a href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
+                    <td><a id="grey" href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
                 </tr>	
                 <%}%>
             </tbody>
