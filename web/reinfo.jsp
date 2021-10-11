@@ -1,16 +1,15 @@
 <%-- 
-    Document   : Userprofile
-    Created on : Oct 3, 2021, 2:25:48 PM
-    Author     : LOVE
+    Document   : reinfo
+    Created on : Oct 10, 2021, 10:43:41 PM
+    Author     : Viet
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="Entity.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-   <head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -156,6 +155,19 @@
         .content h2 {
             color: rgba(0, 181, 204, 1);
         }
+        .button{
+            margin: 10px;
+        }
+        button{
+            background-color:  rgba(0, 181, 204, 1);
+            border: none;
+            border-radius: 10px;
+            height: 40px;
+            width: 100px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -242,9 +254,6 @@
         <!-- end container -->
     </div>
     <div class="contain">
-         <%  session = request.getSession(true);
-            Customer a = (Customer) session.getAttribute("customer_account");
-        %>
         <div class="leftside_bar">
             <div>
                 <ul>
@@ -265,110 +274,81 @@
                         <a>ADDRESS</a>
                     </li>
                     <li>
-                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                        <a href = "ReserDetailforCus?cID=<%=a.getcID()%>"> RESERVATION DETAIL</a>
-                    </li>
-                    <li>
                         <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
                         <a>LOG OUT</a>
                     </li>
                 </ul>
             </div>
         </div>
-             
-        <div class="container">
-            <div class="main-body">
-                <br>
+        <div class="reservation">
+            <h1>RESERVATION#RES-435456</h1>
+            <div class="wrapper1">
+                <h2>RESERVATION DETAIL</h2>
+                <table>
+                    <tr>
+                        <td>RESERVATION ID</td>
+                        <td>STATUS</td>
+                        <td>DATE</td>
+                        <td>NUMBER OF SERVICE</td>
+                        <td>TOTAL PRICE</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>#RES-435456</td>
+                        <td>submitted</td>
+                        <td>05/10/2021</td>
+                        <td>1</td>
+                        <td>40$</td>
 
-                <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                                    <div class="mt-3">
-                                        <h4><%=a.getFirst_name() + " " + a.getLast_name()%></h4>
-
-                                        <button class="btn btn-primary">Follow</button>
-                                        <button class="btn btn-outline-primary">Message</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getFirst_name() + " " + a.getLast_name()%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Gender</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">                                     
-                                          <% if (a.getGender().equals("1")) {
-                                                out.println("Male");
-                                            } else {
-                                                out.println("Female");
-                                            }%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getEmail()%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">   
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getTel()%>
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getAddress()%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    </tr>
+                </table>
+            </div>
+            <div class="wrapper2">
+                <h2>RESERVATION SUMMARY</h2>
+                <table>
+                    <tr>
+                        <td>SERVICE</td>
+                        <td>QUANTITY </td>
+                        <td>VALUE </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>KHÁM PHỔI </td>
+                        <td>1</td>
+                        <td>40$</td>
+                        
+                    </tr>
+                </table>
+                <div class="button">
+                    <button><i class="fas fa-pen" style="margin-right:10px ;"></i>UPDATE</button>
+                    <button><i class="far fa-trash-alt"style="margin-right:10px ;"></i>DELETE</button>
+                    <p style="background-color:rgba(0, 181, 204, 1) ;margin-top: 20px;padding: 10px; border-radius: 10px;"><i class="fas fa-exclamation-triangle"></i>You can only update or delete if reservation status is submitted</p>
                 </div>
             </div>
-
+            <div class="wrapper3">
+                <div class="left_table">
+                    <h1>CONTACT INFORMATION</h1>
+                    <div class="content">
+                        <h2>HOANG MINH VIET</h2>
+                        <p>
+                            GMAIL: mrkai6996@gmail.com
+                        </p>
+                        <p>
+                            TEL: 0963275501
+                        </p>
+                    </div>
+                </div>
+                <div class="right_table">
+                    <h1>CUSTOMER ADDRESS</h1>
+                    <div class="content">
+                        <h2>HOANG MINH VIET</h2>
+                        <div>
+                            ADDRESS: 55 ngo 164 Vuong Thua Vu Khuong Trung Thanh Xuan Ha Noi
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-  
-        
-        
-        
-    
     </div>
     <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
         <div class="container">
@@ -376,6 +356,47 @@
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>Get in Touch</h2>
             </div>
+        </div>
+        <div class="contact-section">
+            <div class="form-contant">
+                <form id="ajax-contact" action="assets/mailer.php" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group in_name">
+                                <input type="text" class="form-control" placeholder="Name" required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group in_email">
+                                <input type="email" class="form-control" placeholder="E-mail" required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group in_email">
+                                <input type="tel" class="form-control" id="phone" placeholder="Phone"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group in_email">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group in_message">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Message"
+                                    required="required"></textarea>
+                            </div>
+                            <div class="actions">
+                                <input type="submit" value="Send Message" name="submit" id="submitButton"
+                                    class="btn small" title="Submit Your Message!">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="googleMap" style="width:100%;height:450px;"></div>
         </div>
     </div>
     <footer id="footer" class="footer-area wow fadeIn">
@@ -458,9 +479,6 @@
     <!-- map -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
-</body> 
-
-    
-    
+</body>
 
 </html>

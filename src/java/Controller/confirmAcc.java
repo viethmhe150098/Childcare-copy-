@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.DAOCustomer;
 import Entity.Customer;
+import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,12 +36,15 @@ public class confirmAcc extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            DBConnect dbconn = new DBConnect();
+            DAOCustomer d = new DAOCustomer(dbconn);
             HttpSession session = request.getSession();
             String code = (String) session.getAttribute("code");
             String uCode = request.getParameter("uCode");
+            
             if(code.equals(uCode)){
                 Customer cus = (Customer) session.getAttribute("tempCus");
-                DAO.DAOCustomer d = new DAOCustomer();
+                
                 d.insertCus(cus);
                 response.sendRedirect("login");
             }else{
