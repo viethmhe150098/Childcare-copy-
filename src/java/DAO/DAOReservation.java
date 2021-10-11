@@ -27,6 +27,11 @@ public class DAOReservation {
         conn = dbconn.con;
         this.dbconn = dbconn;
     }
+
+    public DAOReservation() {
+    }
+    
+    
     private static final String alpha = "abcdefghijklmnopqrstuvwxyz"; // a-z
     private static final String alphaUpperCase = alpha.toUpperCase(); // A-Z
     private static final String digits = "0123456789"; // 0-9
@@ -63,17 +68,41 @@ public class DAOReservation {
         return null;
     }
     
-    public int changeStatus(int reID, int status) {
-        int n = 0;
-        String sql = "update Reservation set status = ? where reID= ?";
+//    public int changeStatus(int reID, int status) {
+//        int n = 0;
+//        String sql = "update Reservation set status = ? where reID= ?";
+//        try {
+//            PreparedStatement pre = conn.prepareStatement(sql);
+//            pre.setInt(1, status);
+//            pre.setInt(2, reID);
+//            n = pre.executeUpdate();
+//        } catch (SQLException ex) {
+//            java.util.logging.Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return n;
+//    }
+    
+    public void AcceptReservation(String reID){
+        //set status = 1 => shipped
+        String sql = "update Reservation set status = 1 where reID= ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, status);
-            pre.setInt(2, reID);
-            n = pre.executeUpdate();
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+            pre.setString(1, reID);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        return n;
+    }
+    
+    public void RejectReservation(String reID){
+        //set status = 0 => waiting
+        String sql = "update Reservation set status = 0 where reID= ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, reID);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
