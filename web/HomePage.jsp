@@ -54,7 +54,7 @@
     </div>
     <!-- END LOADER -->
     <header>
-        <div class="header-top wow fadeIn">
+        <div class="header-top fadeIn" >
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
                 <div class="right-header">
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom wow fadeIn">
+        <div class="header-bottom fadeIn" >
             <div class="container">
                 <nav class="main-menu">
                     <div class="navbar-header">
@@ -471,7 +471,9 @@
                     
                  </div>
                          
+                  
               </div>
+               
                           
                   
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -543,6 +545,22 @@
                  </div>
               </div>
            </div>
+                      <div class="container text-left">
+<ul class="pagination">
+    <c:if test="${tag>1}">
+<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
+    </c:if>
+ <c:forEach begin="1" end="${endP}" var="i">
+ 
+<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
+   </c:forEach>
+ <c:if test="${tag<endP}">
+
+
+<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
+ </c:if>
+</ul>
+</div>
         </div>
      </div>
      <!-- end section -->

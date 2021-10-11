@@ -54,7 +54,7 @@
     </div>
     <!-- END LOADER -->
     <header>
-        <div class="header-top wow fadeIn">
+        <div class="header-top fadeIn">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
                 <div class="right-header">
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom wow fadeIn">
+        <div class="header-bottom fadeIn">
             <div class="container">
                 <nav class="main-menu">
                     <div class="navbar-header">
@@ -84,7 +84,7 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.html">Home</a></li>
+                            <li><a class="active" href="ServiceControl">Home</a></li>
                             <li><a data-scroll href="#about">About us</a></li>
                             <li><a data-scroll href="#service">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
@@ -145,6 +145,8 @@
 <th>Tuổi</th>
 <th>Địa chỉ</th>
 <th>Status</th>
+<th>Detail</th>
+
 </tr>
 </thead>
 <tbody>
@@ -156,15 +158,17 @@
 <td>${o.age}</td>
 <td>${o.address}</td>
 <td>${o.status}</td>
+<td><a href="CustomerDetail?sid=${o.cID}" style="color:fff;">Detail</td>
+
  </c:forEach>
 </tr>
 </tbody>
-</table>
+</table> 
         </div>
         <div class="container text-center">
 <ul class="pagination">
     <c:if test="${tag>1}">
-<li class="page-item disabled"><a class="page-link" href="CustomerControl?index=${tag-1}">Previous</a></li>
+<li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
     </c:if>
  <c:forEach begin="1" end="${endP}" var="i">
  
@@ -173,7 +177,7 @@
  <c:if test="${tag<endP}">
 
 
-<li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}">Next</a></li>
+<li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
  </c:if>
 </ul>
 </div>

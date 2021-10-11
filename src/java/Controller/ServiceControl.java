@@ -37,10 +37,24 @@ public class ServiceControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAOService dao = new DAOService();
+         String indexPage = request.getParameter("index");
+        if(indexPage==null){
+            indexPage="1";
+        }
+        int index = Integer.parseInt(indexPage);
+        
+        int count =dao.getTotalService();
+         int endPage = count / 3;
+        if (count % 3 != 0) {
+            endPage++;
+        }
+         List<Service> list = dao.pagingProduct(index);
+        request.setAttribute("endP", endPage);
         List<Service> listS = dao.getAllProduct();
         List<SerCate> listC = dao.getAllCateSer();
-        request.setAttribute("listS", listS);
+        request.setAttribute("listS", list);
         request.setAttribute("listC", listC);
+         request.setAttribute("tag", index);
         request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 
     }

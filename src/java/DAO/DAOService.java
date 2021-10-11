@@ -64,10 +64,10 @@ public class DAOService {
         }
         return 0;
     }
-    public List<Service> pagingCustomer(int index) {
+    public List<Service> pagingService(int index) {
         List<Service> list = new ArrayList<>();
         String sql = "select * from Service\n"
-                + "order by cID\n"
+                + "order by sID\n"
                 + "offset ? rows fetch next 3 rows only";
         try {
             conn = new DBConnect().getConnection();
