@@ -30,7 +30,7 @@ public class FrontEndAuthenticationFilter implements Filter {
     private HttpServletRequest httpRequest;
 
     private static final String[] loginRequiredURLs = {
-        "/view_profile", "/edit_profile", "/update_profile"
+        "/Userprofile.jsp", "/edit_profile", "/update_profile","ReservationInfo"
     };
 
     @Override

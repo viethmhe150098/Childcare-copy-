@@ -156,6 +156,9 @@
         .content h2 {
             color: rgba(0, 181, 204, 1);
         }
+        .container{
+            flex:3
+        }
     </style>
 </head>
 
@@ -289,8 +292,7 @@
                                     <div class="mt-3">
                                         <h4><%=a.getFirst_name() + " " + a.getLast_name()%></h4>
 
-                                        <button class="btn btn-primary">Follow</button>
-                                        <button class="btn btn-outline-primary">Message</button>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +348,7 @@
                                         <h6 class="mb-0">Address</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <%=a.getAddress()%>
+                                        <%= a.getAddress() %>
                                     </div>
                                 </div>
                                 <hr>
