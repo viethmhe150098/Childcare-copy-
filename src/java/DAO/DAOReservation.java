@@ -62,4 +62,18 @@ public class DAOReservation {
         }
         return null;
     }
+    
+    public int changeStatus(int reID, int status) {
+        int n = 0;
+        String sql = "update Reservation set status = ? where reID= ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, status);
+            pre.setInt(2, reID);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 }
