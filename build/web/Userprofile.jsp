@@ -242,6 +242,9 @@
         <!-- end container -->
     </div>
     <div class="contain">
+         <%  session = request.getSession(true);
+            Customer a = (Customer) session.getAttribute("customer_account");
+        %>
         <div class="leftside_bar">
             <div>
                 <ul>
@@ -262,15 +265,17 @@
                         <a>ADDRESS</a>
                     </li>
                     <li>
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <a href = "ReserDetailforCus?cID=<%=a.getcID()%>"> RESERVATION DETAIL</a>
+                    </li>
+                    <li>
                         <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
                         <a>LOG OUT</a>
                     </li>
                 </ul>
             </div>
         </div>
-              <%  session = request.getSession(true);
-            Customer a = (Customer) session.getAttribute("customer_account");
-        %>
+             
         <div class="container">
             <div class="main-body">
                 <br>
