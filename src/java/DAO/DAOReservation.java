@@ -22,7 +22,10 @@ import java.util.logging.Logger;
 public class DAOReservation {
 
     Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
     DBConnect dbconn = null;
+
     public DAOReservation(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbconn = dbconn;
@@ -30,8 +33,7 @@ public class DAOReservation {
 
     public DAOReservation() {
     }
-    
-    
+
     private static final String alpha = "abcdefghijklmnopqrstuvwxyz"; // a-z
     private static final String alphaUpperCase = alpha.toUpperCase(); // A-Z
     private static final String digits = "0123456789"; // 0-9
@@ -53,21 +55,22 @@ public class DAOReservation {
     public static int randomNumber(int min, int max) {
         return generator.nextInt((max - min) + 1) + min;
     }
-    public Reservation searchbyID(String reID){
-        String sql = "select * from Reservation where reID="+reID;
+
+    public Reservation searchbyID(String reID) {
+        String sql = "select * from Reservation where reID=" + reID;
         try {
             PreparedStatement pr = conn.prepareStatement(sql);
             ResultSet rs = pr.executeQuery();
-            while(rs.next()){
-                return new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getString(4), rs.getString(5), 
-                        rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9),rs.getInt(10) , rs.getString(11), rs.getString(12));
+            while (rs.next()) {
+                return new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getString(4), rs.getString(5),
+                        rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getString(11), rs.getString(12));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
+
 //    public int changeStatus(int reID, int status) {
 //        int n = 0;
 //        String sql = "update Reservation set status = ? where reID= ?";
@@ -81,28 +84,39 @@ public class DAOReservation {
 //        }
 //        return n;
 //    }
-    
-    public void AcceptReservation(String reID){
+    public void AcceptReservation(String reID) {
         //set status = 1 => shipped
         String sql = "update Reservation set status = 1 where reID= ?";
         try {
-            PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, reID);
-            pre.executeUpdate();
-        } catch (Exception e) {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, reID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
             System.out.println(e);
+        } catch (Exception ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void RejectReservation(String reID){
+
+    public void RejectReservation(String reID) {
         //set status = 0 => waiting
-        String sql = "update Reservation set status = 0 where reID= ?";
+        String sql = "update [dbo].[Reservation] set status = 0 where reID= ?";
         try {
-            PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setString(1, reID);
-            pre.executeUpdate();
-        } catch (Exception e) {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, reID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
             System.out.println(e);
+        } catch (Exception ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void main(String[] args) {
+        DBConnect dbconn = new DBConnect();
+        DAOReservation dao = new DAOReservation();
+        dao.AcceptReservation("1");
     }
 }

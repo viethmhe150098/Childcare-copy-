@@ -8,6 +8,9 @@ package Controller;
 import DAO.DAOReservation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,16 +35,25 @@ public class request extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet request</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet request at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            DAOReservation dao = new DAOReservation();
+        String action = request.getParameter("action");
+        if (action == null || action.equals("")) {
+            return;
+        }
+        switch (action) {
+            case "accept":
+                String id = request.getParameter("ida");
+                dao.AcceptReservation(id);
+                break;
+
+            case "reject":
+                String id1 = request.getParameter("idr");
+                dao.RejectReservation(id1);
+                break;
+        }
+//        dispatch(request, response, "/ReservationList.jsp");
+//        request.getRequestDispatcher("reservationController").forward(request, response);
+        response.sendRedirect("reservationController");
         }
     }
 
@@ -57,25 +69,19 @@ public class request extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-        DAOReservation dao = new DAOReservation();
-        String action = request.getParameter("action");
-        if(action == null || action.equals("")){
-            return;
+        processRequest(request, response);
+        
+    }
+
+    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
+        RequestDispatcher dis = request.getRequestDispatcher(URL);
+        try {
+            dis.forward(request, response);
+        } catch (ServletException ex) {
+            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
         }
-        switch(action){
-            case "accept":
-                String id = request.getParameter("ida");
-                dao.AcceptReservation(id);
-                break;
-                
-            case "reject":
-                String id1 = request.getParameter("idr");
-                dao.RejectReservation(id1);
-                break;
-        }
-//        request.getRequestDispatcher("ReservationDetail.jsp").forward(request, response);
-        response.sendRedirect("reservationController");
     }
 
     /**
