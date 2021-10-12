@@ -35,7 +35,8 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
-
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logo_web.png" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -128,14 +129,33 @@
         <!-- end container -->
     </div>
     <!-- end section -->
+    
     <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>List Customer</h2>
             </div>
+             <div class="col-sm-6">
+                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+                        </div>
+             <form method="post" style="margin-bottom:20px;" action="BillController?service=searchByStatus" class="form-inline" id="searchForm" name="searchObject">
+
+        <select class="form-control" id="trangThai" name="status">
+            <option  value="4">All</option>
+            <option ${checkStatus == 0?"selected":""} value="0">Gender</option>
+            <option ${checkStatus == 1?"selected":""} value="1">Role</option>
+            <option ${checkStatus == 2?"selected":""} value="2">Address</option>     
+            <option ${checkStatus == 3?"selected":""} value="3">PhoneNumber</option> 
+        </select>
+        <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
+        
+    </form>
+        
             <!-- end title -->
-           <table class="table table-dark" style="background: #333;border-radius:10px">
+            
+           <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
 <thead>
     
 <tr>
@@ -158,6 +178,10 @@
 <td>${o.age}</td>
 <td>${o.address}</td>
 <td>${o.status}</td>
+ <td>
+                                    <a href=""  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                </td>
 <td><a href="CustomerDetail?sid=${o.cID}" style="color:fff;">Detail</td>
 
  </c:forEach>
@@ -250,8 +274,64 @@
                 </div>
             </div>
         </div>
+            <div id="addEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="add" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Add Customer</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">					
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input name="name" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input name="image" type="file" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input name="price" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <textarea name="title" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="description" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select name="category" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${listCC}" var="o">
+                                        <option value="${o.cid}">${o.cname}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Add">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
+         <script>
+function disable() {
+  document.getElementById("trangThai").disabled=true;
+}
+function enable() {
+  document.getElementById("trangThai").disabled=false;
+}
+</script>
         <script src="js/all.js"></script>
         <!-- all plugins -->
         <script src="js/custom.js"></script>
