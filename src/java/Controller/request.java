@@ -6,10 +6,8 @@
 package Controller;
 
 import DAO.DAOReservation;
-import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -22,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DO THANH TRUNG
  */
-public class reservationDetail extends HttpServlet {
+public class request extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,31 +35,25 @@ public class reservationDetail extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            DBConnect dbconn = new DBConnect();
-            String reID = request.getParameter("reID");
-            
-//            DAOReservation dao = new DAOReservation(dbconn);
-            String sql = "select b.reID, b.date, b.fullname, b.mail, b.phone, b.recceive_name, b.recceive_tel, b.recceive_gender, \n"
-                    + "b.recceive_mail, b.totalprice, b.status, d.sname\n"
-                    + "from Customer as a join Reservation as b on a.cID=b.cid\n"
-                    + "join ReservationDetail as c on b.reID=c.reID\n"
-                    + "join Service as d on c.serID=d.sID\n"
-                    + "where b.reID = " + reID;
-            ResultSet rs3 = dbconn.getData(sql);
-            request.setAttribute("reserDetail", rs3);
-            
-            dispatch(request, response, "/ReservationDetail.jsp");
+            DAOReservation dao = new DAOReservation();
+        String action = request.getParameter("action");
+        if (action == null || action.equals("")) {
+            return;
         }
-    }
+        switch (action) {
+            case "accept":
+                String id = request.getParameter("ida");
+                dao.AcceptReservation(id);
+                break;
 
-    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
-        RequestDispatcher dis = request.getRequestDispatcher(URL);
-        try {
-            dis.forward(request, response);
-        } catch (ServletException ex) {
-            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+            case "reject":
+                String id1 = request.getParameter("idr");
+                dao.RejectReservation(id1);
+                break;
+        }
+//        dispatch(request, response, "/ReservationList.jsp");
+//        request.getRequestDispatcher("reservationController").forward(request, response);
+        response.sendRedirect("reservationController");
         }
     }
 
@@ -78,6 +70,18 @@ public class reservationDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+    }
+
+    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
+        RequestDispatcher dis = request.getRequestDispatcher(URL);
+        try {
+            dis.forward(request, response);
+        } catch (ServletException ex) {
+            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

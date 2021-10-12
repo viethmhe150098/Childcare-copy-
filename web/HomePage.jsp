@@ -55,7 +55,7 @@
     </div>
     <!-- END LOADER -->
     <header>
-        <div class="header-top wow fadeIn">
+        <div class="header-top fadeIn" >
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
                 <div class="right-header">
@@ -151,7 +151,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom wow fadeIn">
+        <div class="header-bottom fadeIn" >
             <div class="container">
                 <nav class="main-menu">
                     <div class="navbar-header">
@@ -446,6 +446,7 @@
                 <div class="search1">
                     <input type="text" value="${txtS}" name="txt" placeholder="Type your search :" />
                     <button  type="submit" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
+<<<<<<< HEAD
                              background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
             </form>
 
@@ -482,6 +483,46 @@
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="appointment-form">
+=======
+               background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
+               </form>
+    
+      </div>
+           <div class="row">
+              
+              <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                 <div class="inner-services">
+                      <c:forEach items="${listS}"  var ="o">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                       <div class="serv">
+                          <span class="icon-service"><img  class="img-service"src="images/clinic_03.jpg" alt="#"  style="width: 220px;height:220px;border-radius: 10px;"/></span>            
+                           <p class="card-title show_txt"><a class="name_service" href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
+                          <p>${o.description}</p>   
+                          
+                            <span class="service-price1">${o.sprice}$</span>
+                           <span class="service-quantity">${o.maxquantity}</span>
+                                     
+                           
+                           
+
+                       </div>
+                    </div>
+                            </c:forEach>
+                
+                    
+                    
+                   
+                    
+                 </div>
+                         
+                  
+              </div>
+               
+                          
+                  
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                 <div class="appointment-form">
+>>>>>>> 5269b2773fee45ca97466c47c70817ea413c810c
                     <h3><span>+</span> Book Appointment</h3>
                     <div class="form">
                         <form action="index.html">
@@ -546,8 +587,30 @@
                             </fieldset>
                         </form>
                     </div>
+<<<<<<< HEAD
                 </div>
             </div>
+=======
+                 </div>
+              </div>
+           </div>
+                      <div class="container text-left">
+<ul class="pagination">
+    <c:if test="${tag>1}">
+<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
+    </c:if>
+ <c:forEach begin="1" end="${endP}" var="i">
+ 
+<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
+   </c:forEach>
+ <c:if test="${tag<endP}">
+
+
+<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
+ </c:if>
+</ul>
+</div>
+>>>>>>> 5269b2773fee45ca97466c47c70817ea413c810c
         </div>
     </div>
 </div>

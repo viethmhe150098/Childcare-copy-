@@ -5,14 +5,10 @@
  */
 package Controller;
 
-import DAO.DAOReservation;
 import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DO THANH TRUNG
  */
-public class reservationDetail extends HttpServlet {
+public class filterReservation extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,31 +33,18 @@ public class reservationDetail extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String datefrom = request.getParameter("datefrom");
+            String dateto = request.getParameter("dateto");
+
             DBConnect dbconn = new DBConnect();
-            String reID = request.getParameter("reID");
-            
-//            DAOReservation dao = new DAOReservation(dbconn);
-            String sql = "select b.reID, b.date, b.fullname, b.mail, b.phone, b.recceive_name, b.recceive_tel, b.recceive_gender, \n"
-                    + "b.recceive_mail, b.totalprice, b.status, d.sname\n"
+            String sql = "select b.reID, b.date, b.fullname, b.recceive_name, b.totalprice, b.status, b.recceive_tel, d.sname\n"
                     + "from Customer as a join Reservation as b on a.cID=b.cid\n"
                     + "join ReservationDetail as c on b.reID=c.reID\n"
                     + "join Service as d on c.serID=d.sID\n"
-                    + "where b.reID = " + reID;
-            ResultSet rs3 = dbconn.getData(sql);
-            request.setAttribute("reserDetail", rs3);
-            
-            dispatch(request, response, "/ReservationDetail.jsp");
-        }
-    }
-
-    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
-        RequestDispatcher dis = request.getRequestDispatcher(URL);
-        try {
-            dis.forward(request, response);
-        } catch (ServletException ex) {
-            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+                    + "where b.date between '" + datefrom + "' and '" + dateto + "'";
+            ResultSet rs4 = dbconn.getData(sql);
+            request.setAttribute("ketQua1", rs4);
+            request.getRequestDispatcher("ReservationList.jsp").forward(request, response);
         }
     }
 
