@@ -5,8 +5,9 @@
         <group>
             <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/DAO/DAOReservation.java</file>
             <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/Controller/request.java</file>
-            <file>file:/D:/SWP_Project_Trung/ChildCare/web/ReservationDetail.jsp</file>
             <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/Controller/reservationDetail.java</file>
+            <file>file:/D:/SWP_Project_Trung/ChildCare/src/java/Controller/reservationController.java</file>
+            <file>file:/D:/SWP_Project_Trung/ChildCare/web/ReservationDetail.jsp</file>
         </group>
     </open-files>
 </project-private>

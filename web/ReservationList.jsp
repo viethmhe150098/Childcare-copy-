@@ -176,6 +176,19 @@
             <h2>The Reservation List</h2>
         </div>
         <!-- end title -->
+
+        <div>
+            <form action="filterReservation" method="get">
+                From:
+                <input name="datefrom" type="text" placeholder="yyyy-MM-dd"/> 
+                To: 
+                <input name="dateto" type="text" placeholder="yyyy-MM-dd"/>
+                <input style="color: red" type="submit" value="Filter">
+                <br>
+            </form>
+        </div>
+
+
         <table class="table table-dark" style="background: #333;border-radius:10px">
             <thead>
                 <tr>
@@ -199,7 +212,7 @@
                     <td><%=rs1.getString(3)%></td>
                     <td><%=rs1.getString(4)%></td>
                     <td><%=rs1.getDouble(5)%></td>
-                    <td><%=(rs1.getInt(6)==1)?"Shipped":"Waiting"%></td>
+                    <td><%=(rs1.getInt(6) == 1) ? "Shipped" : "Waiting"%></td>
                     <td><%=rs1.getString(7)%></td>
                     <td><%=rs1.getString(8)%></td>
                     <td><a id="grey" href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
@@ -208,7 +221,7 @@
             </tbody>
         </table>
     </div>
-                        
+
 
     <div class="container text-center">
         <ul class="pagination">
