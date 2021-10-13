@@ -446,7 +446,6 @@
                 <div class="search1">
                     <input type="text" value="${txtS}" name="txt" placeholder="Type your search :" />
                     <button  type="submit" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-<<<<<<< HEAD
                              background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
             </form>
 
