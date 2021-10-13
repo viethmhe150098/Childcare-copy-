@@ -140,14 +140,14 @@
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
                         </div>
-             <form method="post" style="margin-bottom:20px;" action="BillController?service=searchByStatus" class="form-inline" id="searchForm" name="searchObject">
+             <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
 
         <select class="form-control" id="trangThai" name="status">
             <option  value="4">All</option>
-            <option ${checkStatus == 0?"selected":""} value="0">Gender</option>
-            <option ${checkStatus == 1?"selected":""} value="1">Role</option>
-            <option ${checkStatus == 2?"selected":""} value="2">Address</option>     
-            <option ${checkStatus == 3?"selected":""} value="3">PhoneNumber</option> 
+            <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
+            <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
+            <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
+            <option ${checkStatus == 3?"selected":""} value="3">Name</option> 
         </select>
         <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
         
@@ -178,11 +178,12 @@
 <td>${o.age}</td>
 <td>${o.address}</td>
 <td>${o.status}</td>
- <td>
-                                    <a href=""  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+ 
+<td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
+<td >
+                                    <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
-<td><a href="CustomerDetail?sid=${o.cID}" style="color:fff;">Detail</td>
 
  </c:forEach>
 </tr>
