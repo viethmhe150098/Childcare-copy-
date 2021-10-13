@@ -11,6 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +73,43 @@ public class DAOReservation {
         }
         return null;
     }
+    
+    public int getTotalReservation() {
+        String sql = "select count(*) from reservation";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
+    
+    public List<Reservation> pagingReservation(int index) {
+        List<Reservation> list = new ArrayList<>();
+        String sql = "select * from reservation\n"
+                + "order by cID\n"
+                + "offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3),
+                        rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getInt(10), rs.getString(11),rs.getString(12), rs.getInt(13)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
 
 //    public int changeStatus(int reID, int status) {
 //        int n = 0;
@@ -118,5 +158,6 @@ public class DAOReservation {
         DBConnect dbconn = new DBConnect();
         DAOReservation dao = new DAOReservation();
         dao.AcceptReservation("1");
+                
     }
 }

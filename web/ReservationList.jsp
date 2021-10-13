@@ -223,100 +223,24 @@
     </div>
 
 
+    
+
     <div class="container text-center">
         <ul class="pagination">
-            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <c:if test="${tag>1}">
+                <li class="page-item "><a class="page-link" href="reservationController?index=${tag-1}#about">Previous</a></li>
+                </c:if>
+                <c:forEach begin="1" end="${endP}" var="i">
+
+                <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="reservationController?index=${i}#about">${i}</a></li>
+                </c:forEach>
+                <c:if test="${tag<endP}">
+
+
+                <li class="page-item"><a class="page-link" href="reservationController?index=${tag+1}#about">Next</a></li>
+                </c:if>
         </ul>
     </div>
-
-
-
-    <!--<div class="limiter">-->
-    <!--    <div class="container-table100">
-            <div class="wrap-table100">
-                <h2 class="title" style="text-align: center">Reservation List</h2>
-                
-                
-                    <div class="table100-head">
-                        <table>
-                            <thead>
-                                <tr class="row100 head">
-                                    <th class="cell100">Reservation ID</th>
-                                    <th class="cell100">Reservation Date</th>
-                                    <th class="cell100">Customer Name</th>
-                                    <th class="cell100">Receive Name</th>
-                                    <th class="cell100">Price</th>
-                                    <th class="cell100">Status</th>
-                                    <th class="cell100">Receive phonenumber</th>
-                                    <th class="cell100">Service Name</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-    
-                    <div class="table100-body js-pscroll">
-                        <table>
-                            <tbody>
-    <%while (rs1.next()) {%>
-    <tr class="row100 body">
-        <td class="cell100"><%=rs1.getString(1)%></td>
-        <td class="cell100"><%=rs1.getDate(2)%></td>
-        <td class="cell100"><%=rs1.getString(3)%></td>
-        <td class="cell100"><%=rs1.getString(4)%></td>
-        <td class="cell100"><%=rs1.getDouble(5)%></td>
-        <td class="cell100"><%=rs1.getInt(6)%></td>
-        <td class="cell100"><%=rs1.getString(7)%></td>
-        <td class="cell100"><%=rs1.getString(8)%></td>
-    </tr>	
-    <%}%>
-</tbody>
-</table>
-</div>
-</div>								
-</div>
-</div>      -->
-
-    <!--    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-            <div class="card card-4">
-                <div class="card-body" style="padding: 1rem">
-                    <h2 class="title" style="text-align: center">Reservation List</h2>
-    
-                    <table border="1" style="border-collapse: collapse; padding: 20px; text-align: center">
-                        <thead>
-                            <tr>
-                                <th>Reservation ID</th>
-                                <th>Reservation Date</th>
-                                <th>Customer Name</th>
-                                <th>Receive Name</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Receive phonenumber</th>
-                                <th>Service Name</th>
-                            </tr>
-                        </thead>
-    
-                        <tbody>
-    <%while (rs1.next()) {%>
-    <tr>
-        <td><%=rs1.getString(1)%></td>
-        <td><%=rs1.getDate(2)%></td>
-        <td><%=rs1.getString(3)%></td>
-        <td><%=rs1.getString(4)%></td>
-        <td><%=rs1.getDouble(5)%></td>
-        <td><%=rs1.getInt(6)%></td>
-        <td><%=rs1.getString(7)%></td>
-        <td><%=rs1.getString(8)%></td>
-    </tr>
-    <%}%>
-</tbody>
-</table>
-</div>
-</div>
-</div>-->
 
     <footer id="footer" class="footer-area wow fadeIn">
         <div class="container">
