@@ -182,10 +182,7 @@
                         </div>
                     </div>
                 </div>
-                <%  session = request.getSession(true);
-                    Customer a = (Customer) session.getAttribute("customer_account");
-                %>
-                <a href="ReserDetailforCus?cID=<%=a.getcID()%>"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
 
             </div>
         </div>
@@ -446,7 +443,6 @@
                 <div class="search1">
                     <input type="text" value="${txtS}" name="txt" placeholder="Type your search :" />
                     <button  type="submit" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-<<<<<<< HEAD
                              background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
             </form>
 
@@ -480,49 +476,8 @@
 
             </div>
 
-
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="appointment-form">
-=======
-               background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
-               </form>
-    
-      </div>
-           <div class="row">
-              
-              <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                 <div class="inner-services">
-                      <c:forEach items="${listS}"  var ="o">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                       <div class="serv">
-                          <span class="icon-service"><img  class="img-service"src="images/clinic_03.jpg" alt="#"  style="width: 220px;height:220px;border-radius: 10px;"/></span>            
-                           <p class="card-title show_txt"><a class="name_service" href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
-                          <p>${o.description}</p>   
-                          
-                            <span class="service-price1">${o.sprice}$</span>
-                           <span class="service-quantity">${o.maxquantity}</span>
-                                     
-                           
-                           
-
-                       </div>
-                    </div>
-                            </c:forEach>
-                
-                    
-                    
-                   
-                    
-                 </div>
-                         
-                  
-              </div>
-               
-                          
-                  
-              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                  <div class="appointment-form">
->>>>>>> 5269b2773fee45ca97466c47c70817ea413c810c
                     <h3><span>+</span> Book Appointment</h3>
                     <div class="form">
                         <form action="index.html">
@@ -587,11 +542,16 @@
                             </fieldset>
                         </form>
                     </div>
-<<<<<<< HEAD
+
                 </div>
-            </div>
-=======
+
                  </div>
+     
+    
+      </div>
+                          
+         
+              
               </div>
            </div>
                       <div class="container text-left">
@@ -610,7 +570,6 @@
  </c:if>
 </ul>
 </div>
->>>>>>> 5269b2773fee45ca97466c47c70817ea413c810c
         </div>
     </div>
 </div>
