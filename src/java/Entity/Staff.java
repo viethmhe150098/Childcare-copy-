@@ -13,14 +13,28 @@ public class Staff {
     private String first_name;
     private int aID;
     private String last_name;
-    private int role;
     private String username;
     private String password;
     private String image;
     private String address;
+    private int sID;
+    private int role;
     
     public Staff() {
     }
+
+    public Staff(String first_name, int aID, String last_name, String username, String password, String image, String address, int sID, int role) {
+        this.first_name = first_name;
+        this.aID = aID;
+        this.last_name = last_name;
+        this.username = username;
+        this.password = password;
+        this.image = image;
+        this.address = address;
+        this.sID = sID;
+        this.role = role;
+    }
+    
 
     public Staff(String first_name, int aID, String last_name, int role, String username, String password, String image, String address) {
         this.first_name = first_name;
@@ -101,6 +115,17 @@ public class Staff {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public int getsID() {
+        return sID;
+    }
+
+    public void setsID(int sID) {
+        this.sID = sID;
+    }
+
+
+    
 
     @Override
     public String toString() {
