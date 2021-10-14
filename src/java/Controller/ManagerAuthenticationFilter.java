@@ -46,7 +46,7 @@ public class ManagerAuthenticationFilter implements Filter {
         if (isLoggedIn && (isLoginRequest || isLoginPage)) {
             // the admin is already logged in and he's trying to login again
             // then forwards to the admin's homepage
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/manager/");
             dispatcher.forward(request, response);
  
         } else if (isLoggedIn || isLoginRequest) {
