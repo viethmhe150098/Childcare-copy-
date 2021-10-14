@@ -35,7 +35,7 @@ public class ManagerAuthenticationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession(false);
  
-        boolean isLoggedIn = (session != null && session.getAttribute("ManUser") != null);
+        boolean isLoggedIn = (session != null && session.getAttribute("manager_account") != null);
  
         String loginURI = httpRequest.getContextPath() + "/login";
  
