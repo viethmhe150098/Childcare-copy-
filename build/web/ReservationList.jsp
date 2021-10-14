@@ -215,7 +215,7 @@
                     <td><%=(rs1.getInt(6) == 1) ? "Shipped" : "Waiting"%></td>
                     <td><%=rs1.getString(7)%></td>
                     <td><%=rs1.getString(8)%></td>
-                    <td><a id="grey" href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
+                    <td><a style="color:#fff;" id="grey" href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
                 </tr>	
                 <%}%>
             </tbody>

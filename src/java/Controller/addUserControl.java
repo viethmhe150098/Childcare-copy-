@@ -31,7 +31,7 @@ public class addUserControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             String fname = request.getParameter("firstname");
             String lname = request.getParameter("lastname");
             String gender = request.getParameter("gender");
@@ -45,9 +45,9 @@ public class addUserControl extends HttpServlet {
             String role = request.getParameter("role");
             DAOCustomer dao = new DAOCustomer();
             dao.addCustomer(fname, lname, gender, email, tel, user, pass, age, status, address, role);
-            response.sendRedirect("UserControl");
+            response.sendRedirect("userControl");
 
-//        }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
