@@ -46,7 +46,7 @@ public class AddCustomerControl extends HttpServlet {
                      String role = request.getParameter("role");
                      DAOCustomer dao = new DAOCustomer();
                      dao.addCustomer(fname, lname, gender, email, tel, user, pass, age, status, address, role);
-                    response.sendRedirect("manager/CustomerControl");
+                    response.sendRedirect("CustomerControl");
 
 
     }

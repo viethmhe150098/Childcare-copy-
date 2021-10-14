@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "CustomerControl", urlPatterns = {"manager/CustomerControl"})
+@WebServlet(name = "CustomerControl", urlPatterns = {"/CustomerControl"})
 public class CustomerControl extends HttpServlet {
 
     /**
