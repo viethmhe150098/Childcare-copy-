@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
     <!-- Basic -->
@@ -80,7 +81,6 @@
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
                     </div>
-
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a class="active" href="index.html">Home</a></li>
@@ -88,6 +88,7 @@
                             <li><a data-scroll href="#service">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
                             <li><a data-scroll href="#price">Price</a></li>
+                               <li><a data-scroll href="BlogController">Blog</a></li>
                             <li><a data-scroll href="#testimonials">Testimonials</a></li>
                             <li><a data-scroll href="#getintouch">Contact</a></li>
                         </ul>
@@ -117,60 +118,35 @@
                 <h2>News Feed</h2>
             </div>
             <div class="row dev-list text-center">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
-                    <div class="widget clearfix">
-                        <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
-                        <div class="widget-title">
-                            <h3>Soren Bo Bostian</h3>
-                            <small>Clinic Owner</small>
-                        </div>
-                        <!-- end title -->
-                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
-                        <div class="footer-social">
-                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div><!--widget -->
-                </div><!-- end col -->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
-                    <div class="widget clearfix">
-                        <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
-                        <div class="widget-title">
-                            <h3>Bryan Saftler</h3>
-                            <small>Internal Diseases</small>
-                        </div>
-                        <!-- end title -->
-                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
-                        <div class="footer-social">
-                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div><!--widget -->
-                </div><!-- end col -->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
-                    <div class="widget clearfix">
-                        <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
-                        <div class="widget-title">
-                            <h3>Matthew Bayliss</h3>
-                            <small>Orthopedics Expert</small>
-                        </div>
-                        <!-- end title -->
-                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
-
-                        <div class="footer-social">
-                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div><!--widget -->
-                </div><!-- end col -->
-
+                <c:forEach items="${blogs}" var="l">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+                        <div class="widget clearfix">
+                            <img src="${l.image}" alt="" class="img-responsive img-rounded">
+                            <div class="widget-title">
+                                <h3>${l.title}</h3>
+                                <small>${l.author}</small>
+                            </div>
+                            <!-- end title -->
+                            <p>${l.content}</p>
+                            <div class="footer-social">
+                                <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                                <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div><!--widget -->
+                    </div><!-- end col -->
+                </c:forEach>
             </div><!-- end row -->
+            <c:if test="${maxPage gt 1}">
+                <div class="pagination">    
+                    <button onclick="pagingHandle(${pageIndex})" class="btn-success rounded-50">Trang trước</button>
+                    <c:forEach varStatus="loop" begin="1" end="${maxPage}">
+                        <span class="pagination-index <c:if test="${loop.index eq pageIndex}">pagination-active</c:if>">${loop.index}</span>
+                    </c:forEach>
+                    <button onclick="pagingHandle(${pageIndex}, ${maxPage})" class="btn-success rounded-50"  >Trang sau</button>
+                </div>
+            </c:if>
         </div><!-- end container -->
     </div>
     <!-- end row -->
