@@ -5,28 +5,21 @@
  */
 package Controller;
 
-import Model.DBConnect;
+import DAO.DAOCustomer;
+import Entity.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import DAO.DAOReservation;
-import DAO.DAOReservationDetail;
-import Entity.Customer;
-import Entity.Reservation;
-import Entity.ReservationDetail;
-import Entity.Result;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Viet
+ * @author DO THANH TRUNG
  */
-public class ReservationInfo extends HttpServlet {
+public class userControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,23 +34,24 @@ public class ReservationInfo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            DBConnect dbconn = new DBConnect();
-            DAOReservation dao = new DAOReservation(dbconn);
-            DAOReservationDetail daoDE = new DAOReservationDetail(dbconn);
-            HttpSession session = request.getSession();
-            Customer c = (Customer) session.getAttribute("customer_account");
-            String cid = String.valueOf(c.getcID());
-            String reID = request.getParameter("reID");
-            if (dao.acceptAccess(cid, reID)) {
-                Reservation re = dao.searchbyID(reID);
-                ResultSet rs = daoDE.searchByReID(reID);
-                request.setAttribute("rs", rs);
-                request.setAttribute("re", re);
-                request.getRequestDispatcher("reinfo.jsp").forward(request, response);
-            }else{
-                response.sendRedirect("404.html");
+            DAOCustomer dao = new DAOCustomer();
+            String indexPage = request.getParameter("index");
+            if (indexPage == null) {
+                indexPage = "1";
             }
+            int index = Integer.parseInt(indexPage);
+
+            int count = dao.getTotalCustomer();
+//            List<Customer> listC = dao.getAllCustomer1();
+            int endPage = count / 3;
+            if (count % 3 != 0) {
+                endPage++;
+            }
+            List<Customer> list = dao.pagingCustomer(index);
+            request.setAttribute("endP", endPage);
+            request.setAttribute("tag", index);
+            request.setAttribute("listUser", list);
+            request.getRequestDispatcher("UserList.jsp").forward(request, response);
         }
     }
 

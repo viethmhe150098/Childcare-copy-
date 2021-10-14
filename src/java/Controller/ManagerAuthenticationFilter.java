@@ -35,7 +35,7 @@ public class ManagerAuthenticationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession(false);
  
-        boolean isLoggedIn = (session != null && session.getAttribute("ManUser") != null);
+        boolean isLoggedIn = (session != null && session.getAttribute("manager_account") != null);
  
         String loginURI = httpRequest.getContextPath() + "/login";
  
@@ -46,7 +46,7 @@ public class ManagerAuthenticationFilter implements Filter {
         if (isLoggedIn && (isLoginRequest || isLoginPage)) {
             // the admin is already logged in and he's trying to login again
             // then forwards to the admin's homepage
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/manager/");
             dispatcher.forward(request, response);
  
         } else if (isLoggedIn || isLoginRequest) {

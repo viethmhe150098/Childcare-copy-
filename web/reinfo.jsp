@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : reinfo
@@ -311,6 +312,7 @@
                         </tr>
                     </table>
                 </div>
+                            <%ResultSet rs = (ResultSet)request.getAttribute("rs");%>
                 <div class="wrapper2">
                     <h2>RESERVATION SUMMARY</h2>
                     <table>
@@ -318,18 +320,21 @@
                             <td>SERVICE</td>
                             <td>QUANTITY </td>
                             <td>VALUE </td>
-
                         </tr>
+                        <% while(rs.next()){%>
                         <tr>
-                            <td>KHÁM PHỔI </td>
-                            <td>1</td>
-                            <td>40$</td>
-
+                            <td><%=rs.getString(1)%></td>
+                            <td><%=rs.getString(2)%></td>
+                            <td><%=rs.getFloat(3)%></td>
                         </tr>
+                        <%}%>
+                        
                     </table>
                     <div class="button">
-                        <button><i class="fas fa-pen" style="margin-right:10px ;"></i>UPDATE</button>
-                        <button><i class="far fa-trash-alt"style="margin-right:10px ;"></i>DELETE</button>
+                        <c:if test="${re.status==1}">
+                            <button><i class="fas fa-pen" style="margin-right:10px ;"></i>UPDATE</button>
+                            <button><i class="far fa-trash-alt"style="margin-right:10px ;"></i>DELETE</button>
+                        </c:if>
                         <p style="background-color:rgba(0, 181, 204, 1) ;margin-top: 20px;padding: 10px; border-radius: 10px;"><i class="fas fa-exclamation-triangle"></i>You can only update or delete if reservation status is submitted</p>
                     </div>
                 </div>

@@ -10,5 +10,56 @@ package Entity;
  * @author Viet
  */
 public class ReservationDetail {
+    private int serID;
+    private String reID;
+    private int quantity;
+    private float price;
+
+    public ReservationDetail() {
+    }
+
+    public ReservationDetail(int serID, String reID, int quantity, float price) {
+        this.serID = serID;
+        this.reID = reID;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public int getSerID() {
+        return serID;
+    }
+
+    public void setSerID(int serID) {
+        this.serID = serID;
+    }
+
+    public String getReID() {
+        return reID;
+    }
+
+    public void setReID(String reID) {
+        this.reID = reID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ReservationDetail{" + "serID=" + serID + ", reID=" + reID + ", quantity=" + quantity + ", price=" + price + '}';
+    }
     
 }
