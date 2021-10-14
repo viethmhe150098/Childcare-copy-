@@ -1,6 +1,6 @@
 <%-- 
-    Document   : UserList
-    Created on : Oct 14, 2021, 2:14:34 PM
+    Document   : UserDetail
+    Created on : Oct 14, 2021, 10:15:48 PM
     Author     : DO THANH TRUNG
 --%>
 
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- Site Metas -->
-    <title>User List</title>
+    <title>User Detail</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -36,8 +36,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logo_web.png" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -48,7 +47,6 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-
 <body class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
@@ -153,90 +151,44 @@
         <!-- end container -->
     </div>
     <!-- end section -->
-
     <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                <h2>List User</h2>
+                <h2>The User Detail</h2>
             </div>
-            <div class="col-sm-6">
-                <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
-                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
-            </div>
-            <form method="post" style="margin-bottom:20px;" action="searchUserControl?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
-
-                <select class="form-control" id="trangThai" name="status">
-                    <option  value="4">All</option>
-<!--                    <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
-                    <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
-                    <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
-                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
-                </select>
-                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Search</button>
-
-            </form>
-
             <!-- end title -->
-
-            <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
-                <thead>
-
-                    <tr>
-                        <th>ID</th>
-                        <!--<th>Firstname</th>-->
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Status</th>
-                        <th>Role</th>
-                        <th>Detail</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${listUser}" var="o">
-                        <tr>
-                            <td>${o.cID}</td>
-                            <td>${o.first_name} ${o.last_name}</td>
-                            <td>${o.email}</td>
-                            <td>${o.gender ==1?"Male":"Female"}</td>
-                            <td>${o.age}</td>
-                            <td>${o.address}</td>
-                            <td>${o.tel}</td>
-                            <td>${o.status}</td>
-                            <td>${o.role}</td>
-
-                            <td><a href="userDetailControl?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
-                            <td >
-                                <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-
-                        </c:forEach>
-                    </tr>
-                </tbody>
-            </table> 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="message-box">
+                        <h2>User ID: ${listUser.cID}</h2>
+                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                            <h4>Full Name: ${listUser.first_name} ${listUser.last_name}</h4>
+                            <h4>Age: ${listUser.age}</h4>
+                            <h4>Gender: ${listUser.gender==1?"Male":"Female"}</h4>
+                            <h4>Email: ${listUser.email}</h4>
+                            <h4>Phone: ${listUser.tel}</h4>
+                            <h4>Status: ${listUser.status}</h4>
+                            <h4>Role: ${listUser.role}</h4>
+                        </div>
+<!--                        <p class="lead">${listUser.address}</p>
+                        <p> ${listUser.tel} </p>-->
+                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                    </div>
+                    <!-- end messagebox -->
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="post-media wow fadeIn">
+                        <img src="images/about_03.jpg" alt="" class="img-responsive">
+                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                    </div>
+                    <!-- end media -->
+                </div>
+                <!-- end col -->
+            </div>
         </div>
-        <div class="container text-center">
-            <ul class="pagination">
-                <c:if test="${tag>1}">
-                    <li class="page-item "><a class="page-link" href="userControl?index=${tag-1}#about">Previous</a></li>
-                    </c:if>
-                    <c:forEach begin="1" end="${endP}" var="i">
-
-                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="userControl?index=${i}#about">${i}</a></li>
-                    </c:forEach>
-                    <c:if test="${tag<endP}">
-
-
-                    <li class="page-item"><a class="page-link" href="userControl?index=${tag+1}#about">Next</a></li>
-                    </c:if>
-            </ul>
-        </div>
+        <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Customer List" style="margin:0;background-color: orange;margin-left:190px;">
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -306,80 +258,9 @@
                 </div>
             </div>
         </div>
-        <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="addUserControl" method="post">
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Add New User <i class="fas fa-user-friends"></i></h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input name="firstname" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input name="lastname" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Gender</label>
-                                <input name="gender" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Email <i class="far fa-envelope"></i></label>
-                                <input name="email" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Tel <i class="fas fa-phone"></i>
-                                </label>
-                                <input name="tel" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input name="user" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input name="pass" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Age</label>
-                                <input name="age" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Status</label>
-                                <input name="status" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <textarea name="address" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Role</label>
-                                <input name="role" type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer" style="margin-top:30px;">
-                            <input type="submit" class="btn btn-success" value="Add">
-                            <input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
-        <script>
-            function disable() {
-                document.getElementById("trangThai").disabled = true;
-            }
-            function enable() {
-                document.getElementById("trangThai").disabled = false;
-            }
-        </script>
         <script src="js/all.js"></script>
         <!-- all plugins -->
         <script src="js/custom.js"></script>

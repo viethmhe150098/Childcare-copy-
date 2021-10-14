@@ -210,7 +210,7 @@
                             <td>${o.status}</td>
                             <td>${o.role}</td>
 
-                            <td><a href="userDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
+                            <td><a href="userDetailControl?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
                             <td >
                                 <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
