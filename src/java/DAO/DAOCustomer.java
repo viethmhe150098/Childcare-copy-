@@ -93,6 +93,30 @@ public class DAOCustomer {
         }
         return 0;
     }
+     public void addCustomer(String firstname, String lastname, String gender, String email,String tel,String username,String password,
+             String age,String status,String address,String role) {
+       
+        String query ="insert into Customer(first_name,last_name,gender,email,tel,username,[password],age,status,address,role)\n" +
+"                 values(?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, firstname);
+            ps.setString(2, lastname);
+            ps.setString(3, gender);
+            ps.setString(4, email);
+            ps.setString(5, tel);
+                        ps.setString(6, username);
+            ps.setString(7, password);
+            ps.setString(8, age);
+            ps.setString(9, status);
+            ps.setString(10, address);
+            ps.setString(11, role);
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
      public Customer getCustomerByID(String cid) {
         List<Customer> list = new ArrayList<>();
         String query = "select * from Customer where cID=?";
@@ -224,6 +248,7 @@ public class DAOCustomer {
     for(Customer o : list){
             System.out.println(o);
     }
+    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJC", "1");
 //        }
     
 //        int b= dao.getTotalCustomer();

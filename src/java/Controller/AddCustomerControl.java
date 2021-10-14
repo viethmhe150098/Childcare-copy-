@@ -6,10 +6,8 @@
 package Controller;
 
 import DAO.DAOCustomer;
-import Entity.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "CustomerControl", urlPatterns = {"manager/CustomerControl"})
-public class CustomerControl extends HttpServlet {
+@WebServlet(name = "AddCustomerControl", urlPatterns = {"/AddCustomer"})
+public class AddCustomerControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,24 +33,22 @@ public class CustomerControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAOCustomer dao = new DAOCustomer();
-         String indexPage = request.getParameter("index");
-        if(indexPage==null){
-            indexPage="1";
-        }
-        int index = Integer.parseInt(indexPage);
-        
-        int count =dao.getTotalCustomer();
-         List<Customer> listC = dao.getAllCustomer1();
-         int endPage = count / 3;
-        if (count % 3 != 0) {
-            endPage++;
-        }
-        List<Customer> list = dao.pagingCustomer(index);
-         request.setAttribute("endP", endPage);
-         request.setAttribute("tag", index);
-          request.setAttribute("listC", list);
-         request.getRequestDispatcher("CustomerList.jsp").forward(request, response);
+        String fname = request.getParameter("firstname");
+        String lname = request.getParameter("lastname");
+        String gender = request.getParameter("gender");
+        String email = request.getParameter("email");
+        String tel = request.getParameter("tel");
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        String age = request.getParameter("age");
+                String status = request.getParameter("status");
+                String address = request.getParameter("address");
+                     String role = request.getParameter("role");
+                     DAOCustomer dao = new DAOCustomer();
+                     dao.addCustomer(fname, lname, gender, email, tel, user, pass, age, status, address, role);
+                    response.sendRedirect("manager/CustomerControl");
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

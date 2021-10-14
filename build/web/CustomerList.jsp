@@ -159,6 +159,7 @@
 <thead>
     
 <tr>
+    <th>ID</th>
 <th>Firstname</th>
 <th>Lastname</th>
 <th>Email</th>
@@ -174,10 +175,12 @@
 <tr>
 <td>${o.cID}</td>
 <td>${o.first_name}</td>
+<td>${o.first_name}</td>
+
 <td>${o.email}</td>
 <td>${o.age}</td>
 <td>${o.address}</td>
-<td>${o.status}</td>
+<td>${o.status}</td>    
  
 <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
 <td >
@@ -278,43 +281,75 @@
             <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="add" method="post">
+                    <form action="AddCustomer" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Add Customer</h4>
+                            <h4 class="modal-title">Add Customer <i class="fas fa-user-friends"></i></h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" class="form-control" required>
+                                <label>First Name</label>
+                                <input name="firstname" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="file" class="form-control" required>
+                                <label>Last Name</label>
+                                <input name="lastname" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
+                                <label>Gender</label>
+                                <input name="gender" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
+                                <label>Email <i class="far fa-envelope"></i></label>
+                                                               <input name="email" type="text" class="form-control" required>
+
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
+                                <label>Tel <i class="fas fa-phone"></i>
+
+</label>
+                                                              <input name="tel" type="text" class="form-control" required>
+
                             </div>
                             <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listCC}" var="o">
-                                        <option value="${o.cid}">${o.cname}</option>
-                                    </c:forEach>
-                                </select>
+                                <label>Username</label>
+                                                                <input name="user" type="text" class="form-control" required>
+
+                                
+                            </div>
+                     <div class="form-group">
+                                <label>Password</label>
+                                                              <input name="pass" type="text" class="form-control" required>
+
+                                
+                            </div>
+                             
+                     <div class="form-group">
+                                <label>Age</label>
+                                                               <input name="age" type="text" class="form-control" required>
+
+                                
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                                              <input name="status" type="text" class="form-control" required>
+
+                                
+                            </div>
+                     <div class="form-group">
+                                <label>Address</label>
+                                <textarea name="address" class="form-control" required></textarea>
+                                
+                            </div>
+                     <div class="form-group">
+                                <label>Role</label>
+                                                                <input name="role" type="text" class="form-control" required>
+
+                                
                             </div>
 
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="margin-top:30px;">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-success" value="Add">
                         </div>
