@@ -16,6 +16,8 @@ import DAO.DAOReservation;
 import DAO.DAOReservationDetail;
 import Entity.Reservation;
 import Entity.ReservationDetail;
+import Entity.Result;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -40,11 +42,11 @@ public class ReservationInfo extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             DBConnect dbconn = new DBConnect();
             DAOReservation dao = new DAOReservation(dbconn);
-//            DAOReservationDetail daoDE = new DAOReservationDetail(dbconn);
+            DAOReservationDetail daoDE = new DAOReservationDetail(dbconn);
             String reID = request.getParameter("reID");
             Reservation re = dao.searchbyID(reID);
-//            ArrayList<ReservationDetail> list = daoDE.searchByReID(reID);
-//            request.setAttribute("reDeList", list);
+            ResultSet rs = daoDE.searchByReID(reID);
+            request.setAttribute("rs", rs);
             request.setAttribute("re", re);
             request.getRequestDispatcher("reinfo.jsp").forward(request, response);
         }

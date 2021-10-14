@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : reinfo
@@ -311,6 +312,7 @@
                         </tr>
                     </table>
                 </div>
+                            <%ResultSet rs = (ResultSet)request.getAttribute("rs");%>
                 <div class="wrapper2">
                     <h2>RESERVATION SUMMARY</h2>
                     <table>
@@ -318,8 +320,14 @@
                             <td>SERVICE</td>
                             <td>QUANTITY </td>
                             <td>VALUE </td>
-
                         </tr>
+                        <% while(rs.next()){%>
+                        <tr>
+                            <td><%=rs.getString(1)%></td>
+                            <td><%=rs.getString(2)%></td>
+                            <td><%=rs.getFloat(3)%></td>
+                        </tr>
+                        <%}%>
                         
                     </table>
                     <div class="button">
