@@ -158,7 +158,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>reservationController</servlet-name>
-        <url-pattern>/reservationController</url-pattern>
+        <url-pattern>/staff/reservationController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>searchReservation</servlet-name>

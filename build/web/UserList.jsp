@@ -183,11 +183,14 @@
                 <thead>
 
                     <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
+                        <th>ID</th>
+                        <!--<th>Firstname</th>-->
+                        <th>Full Name</th>
                         <th>Email</th>
-                        <th>Tuổi</th>
-                        <th>Địa chỉ</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Phone</th>
                         <th>Status</th>
                         <th>Detail</th>
 
@@ -197,10 +200,12 @@
                     <c:forEach items="${listUser}" var="o">
                         <tr>
                             <td>${o.cID}</td>
-                            <td>${o.first_name}</td>
+                            <td>${o.first_name} ${o.last_name}</td>
                             <td>${o.email}</td>
+                            <td>${o.gender ==1?"Male":"Female"}</td>
                             <td>${o.age}</td>
                             <td>${o.address}</td>
+                            <td>${o.tel}</td>
                             <td>${o.status}</td>
 
                             <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
@@ -217,16 +222,16 @@
         <div class="container text-center">
             <ul class="pagination">
                 <c:if test="${tag>1}">
-                    <li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
+                    <li class="page-item "><a class="page-link" href="userControl?index=${tag-1}#about">Previous</a></li>
                     </c:if>
                     <c:forEach begin="1" end="${endP}" var="i">
 
-                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
+                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="userControl?index=${i}#about">${i}</a></li>
                     </c:forEach>
                     <c:if test="${tag<endP}">
 
 
-                    <li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="userControl?index=${tag+1}#about">Next</a></li>
                     </c:if>
             </ul>
         </div>
