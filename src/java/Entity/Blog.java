@@ -12,17 +12,20 @@ import java.util.Date;
  * @author win
  */
 public class Blog {
-    private Date date;
+
+    private int id;
     private String title;
     private String author;
     private String content;
     private String image;
     private String contact;
+    private Date date;
 
     public Blog() {
     }
 
-    public Blog(Date date, String title, String author, String content, String image, String contact) {
+    public Blog(int id, String title, String author, String content, String image, String contact, Date date) {
+        this.id = id;
         this.date = date;
         this.title = title;
         this.author = author;
@@ -30,8 +33,6 @@ public class Blog {
         this.image = image;
         this.contact = contact;
     }
-    
-    
 
     public Date getDate() {
         return date;
@@ -80,8 +81,5 @@ public class Blog {
     public void setContact(String contact) {
         this.contact = contact;
     }
-    
-    
-    
-    
+
 }
