@@ -73,7 +73,7 @@ public class DAOReservation {
         }
         return null;
     }
-    
+
     public int getTotalReservation() {
         String sql = "select count(*) from reservation";
         try {
@@ -88,7 +88,7 @@ public class DAOReservation {
         }
         return 0;
     }
-    
+
     public List<Reservation> pagingReservation(int index) {
         List<Reservation> list = new ArrayList<>();
         String sql = "select * from reservation\n"
@@ -102,7 +102,7 @@ public class DAOReservation {
             while (rs.next()) {
                 list.add(new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3),
                         rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getInt(10), rs.getString(11),rs.getString(12), rs.getInt(13)));
+                        rs.getString(8), rs.getString(9), rs.getInt(10), rs.getString(11), rs.getString(12), rs.getInt(13)));
             }
 
         } catch (Exception e) {
@@ -154,10 +154,26 @@ public class DAOReservation {
         }
     }
 
+    public boolean acceptAccess(String cid, String reID) {
+        ResultSet rs1 = dbconn.getData("select cid from Reservation where reID = " + reID);
+        try {
+            while (rs1.next()) {                
+                if(rs1.getString(1).equals(cid)){
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
-        DAOReservation dao = new DAOReservation();
-        dao.AcceptReservation("1");
-                
+        DAOReservation dao = new DAOReservation(dbconn);
+        
+        if(dao.acceptAccess("2", "123456")){
+            System.out.println("true");
+        }
     }
 }

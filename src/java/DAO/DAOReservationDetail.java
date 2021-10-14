@@ -21,10 +21,10 @@ import java.util.logging.Logger;
  * @author Viet
  */
 public class DAOReservationDetail {
-    
+
     Connection conn = null;
     DBConnect dbconn = null;
-    
+
     public DAOReservationDetail(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbconn = dbconn;
@@ -34,4 +34,6 @@ public class DAOReservationDetail {
         ResultSet rs = dbconn.getData("select b.sname,a.quantity,a.price from ReservationDetail as a inner join Service as b on a.serID=b.sID where a.reID=" + reID);
         return rs;
     }
+
+  
 }
