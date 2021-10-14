@@ -3,6 +3,7 @@
     Created on : Sep 24, 2021, 1:15:52 PM
     Author     : ADMIN
 --%>
+<%@page import="Entity.Customer"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -79,8 +80,8 @@
                                 <c:choose>
                                     <c:when test= "${sessionScope.customer_account == null}">
                                         <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
-                                        </c:when>
-                                        <c:otherwise>
+                                    </c:when>
+                                    <c:otherwise>
                                         <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
                                         </c:otherwise>
                                     </c:choose>
@@ -110,7 +111,7 @@
                                         <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
                                             </c:otherwise>
                                         </c:choose>--%>
-                                
+
                                 <%--<c:choose>
                                     <c:when test= "${sessionScope.manager_account == null}">
                                         <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
@@ -127,7 +128,7 @@
                                         <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
                                             </c:otherwise>
                                         </c:choose>--%>
-                                
+
                                 <%--<c:choose>
                                     <c:when test= "${sessionScope.staff_account == null}">
                                         <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
@@ -159,13 +160,13 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                          <li><a class="active" href="index.html">Home</a></li>
-                                <li><a data-scroll href="#about">About us</a></li>
-                                <li><a data-scroll href="#service">Services</a></li>
-                                <li><a data-scroll href="#doctors">Doctors</a></li>
-                                <li><a data-scroll href="#price">Price</a></li>
-                                <li><a data-scroll href="#blog">Blogs</a></li>
-                                <li><a data-scroll href="#getintouch">Contact</a></li>
+                            <li><a class="active" href="index.html">Home</a></li>
+                            <li><a data-scroll href="#about">About us</a></li>
+                            <li><a data-scroll href="#service">Services</a></li>
+                            <li><a data-scroll href="#doctors">Doctors</a></li>
+                            <li><a data-scroll href="#price">Price</a></li>
+                            <li><a data-scroll href="BlogController">Blogs</a></li>
+                            <li><a data-scroll href="#getintouch">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -181,6 +182,8 @@
                         </div>
                     </div>
                 </div>
+                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+
             </div>
         </div>
     </header>
@@ -327,38 +330,38 @@
             <div class="home__container">
                 <c:forEach items="${listC}" begin="0" end="0" var ="o">
 
-                <div class="slide slide-1">
-                    <img src="./images/cloud.png" alt="" class="img-cloud">
-                    <div class="slide__container">
-                        <div class="slide-img">
-                            <img src="images/clinic_01.jpg" alt="" class="img-content">
-                            <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
-                        </div>
-                        <div class="home-content">
-                            <div class="serv-img" >
-                                <img class="ser-img-saleoff" src="https://cf.shopee.vn/file/d572d2eef9148fecdeaf56caf9917298" alt="" >
+                    <div class="slide slide-1">
+                        <img src="./images/cloud.png" alt="" class="img-cloud">
+                        <div class="slide__container">
+                            <div class="slide-img">
+                                <img src="images/clinic_01.jpg" alt="" class="img-content">
+                                <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
-                            <h2 class="content-h2 text-center">${o.scCateName}</h2>
-                            <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
-                                <p style = "text-decoration: underline;
-                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 240$</p>
-                                <p style="text-align: center"> Sale :192$</p>
+                            <div class="home-content">
+                                <div class="serv-img" >
+                                    <img class="ser-img-saleoff" src="https://cf.shopee.vn/file/d572d2eef9148fecdeaf56caf9917298" alt="" >
+                                </div>
+                                <h2 class="content-h2 text-center">${o.scCateName}</h2>
+                                <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
+                                    <p style = "text-decoration: underline;
+                                       text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 240$</p>
+                                    <p style="text-align: center"> Sale :192$</p>
+                                </div>
+
+                                <!-- <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt lịch ngay</a> </button>
+                                -->
+
+                                <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                             </div>
-
-                            <!-- <button type="button" class='btn-content apply-button'><a data-scroll href="#Apply">Đặt lịch ngay</a> </button>
-                            -->
-
-                            <a data-scroll href="#Apply" class="link apply-button">Đặt lịch ngay</a>
                         </div>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
                 <c:forEach items="${listC}" begin="1" end="1" var ="o">
                     <div class="slide slide-2">
                         <img src="./images/cloud.png" alt="" class="img-cloud">
                         <div class="slide__container">
                             <div class="slide-img">
-                              
+
                                 <img src="images/clinic_02.jpg" alt="" class="img-content">
                                 <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
@@ -385,7 +388,7 @@
                         <div class="slide__container">
                             <div class="slide-img">
                                 <img src="images/clinic_03.jpg" alt="" class="img-content">
-                            <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
+                                <img src="https://png.pngtree.com/template/20190926/ourlarge/pngtree-healthcare-medical-logo-vector-icon-for-ambulance-hospital-pharm-image_309802.jpg" alt="" class="img-rocket">
                             </div>
                             <div class="home-content">
                                 <div class="serv-img" >
@@ -415,134 +418,140 @@
 
     <div id="Apply" class="services wow fadeIn">
         <div class="container">     
-           
-               <div class="dropdown">
-                   <div class="dropdown__select">
-                   <span class="dropdown__selected">Category of Service</span>
-                   <i class="fa fa-caret-down dropdown__caret"></i>
-                 </div>
-                    
-                   <ul class="dropdown__list">
+
+            <div class="dropdown">
+                <div class="dropdown__select">
+                    <span class="dropdown__selected">Category of Service</span>
+                    <i class="fa fa-caret-down dropdown__caret"></i>
+                </div>
+
+                <ul class="dropdown__list">
                     <li class="dropdown__item">
                         <a  href="ServiceControl#Apply" class="dropdown__text" style="color:#fff;">TẤT CẢ CÁC LOẠI DỊCH VỤ</a>
-                      <i class="fa fa-plus-circle dropdown__icon"></i>
+                        <i class="fa fa-plus-circle dropdown__icon"></i>
                     </li>
-                     <c:forEach items="${listC}"  var ="o">
-                   <li class="dropdown__item">
-                       <a  href="CategoryControl?cid=${o.scID}#Apply" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
-                     <i class="fa fa-plus-circle dropdown__icon"></i>
-                   </li>
+                    <c:forEach items="${listC}"  var ="o">
+                        <li class="dropdown__item">
+                            <a  href="CategoryControl?cid=${o.scID}#Apply" class="dropdown__text" style="color:#fff;">${o.scCateName}</a>
+                            <i class="fa fa-plus-circle dropdown__icon"></i>
+                        </li>
                     </c:forEach>
-                 </ul>
-                   
-               </div>
-               <form action="Searching" method="post">
-                 <div class="search1">
+                </ul>
+
+            </div>
+            <form action="Searching" method="post">
+                <div class="search1">
                     <input type="text" value="${txtS}" name="txt" placeholder="Type your search :" />
                     <button  type="submit" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
-               background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
-               </form>
-    
-      </div>
-           <div class="row">
-              
-              <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                 <div class="inner-services">
-                      <c:forEach items="${listS}"  var ="o">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                       <div class="serv">
-                          <span class="icon-service"><img  class="img-service"src="images/clinic_03.jpg" alt="#"  style="width: 220px;height:220px;border-radius: 10px;"/></span>            
-                           <p class="card-title show_txt"><a class="name_service" href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
-                          <p>${o.description}</p>   
-                          
-                            <span class="service-price1">${o.sprice}$</span>
-                           <span class="service-quantity">${o.maxquantity}</span>
-                                     
-                           
-                           
+                             background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
+            </form>
 
-                       </div>
-                    </div>
-                            </c:forEach>
-                
-                    
-                    
-                   
-                    
-                 </div>
-                         
-                  
-              </div>
-               
-                          
-                  
-              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        </div>
+        <div class="row">
+
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                <div class="inner-services">
+                    <c:forEach items="${listS}"  var ="o">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="serv">
+                                <span class="icon-service"><img  class="img-service"src="images/clinic_03.jpg" alt="#"  style="width: 220px;height:220px;border-radius: 10px;"/></span>            
+                                <p class="card-title show_txt"><a class="name_service" href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
+                                <p>${o.description}</p>   
+
+                                <span class="service-price1">${o.sprice}$</span>
+                                <span class="service-quantity">${o.maxquantity}</span>
+
+
+
+
+                            </div>
+                        </div>
+                    </c:forEach>
+
+
+
+
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                  <div class="appointment-form">
                     <h3><span>+</span> Book Appointment</h3>
                     <div class="form">
-                       <form action="index.html">
-                          <fieldset>
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="row">
-                                   <div class="form-group">
-                                      <input type="text" id="name" placeholder="Your Name"  />
-                                   </div>
+                        <form action="index.html">
+                            <fieldset>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="text" id="name" placeholder="Your Name"  />
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="row">
-                                   <div class="form-group">
-                                      <input type="email" placeholder="Email Address" id="email" />
-                                   </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="email" placeholder="Email Address" id="email" />
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
-                                <div class="row">
-                                   <div class="form-group">
-                                      <select class="form-control">
-                                         <option>Day</option>
-                                         <option>Sunday</option>
-                                         <option>Monday</option>
-                                      </select>
-                                   </div>
-                                   <div class="form-group">
-                                      <select class="form-control">
-                                         <option>Time</option>
-                                         <option>AM</option>
-                                         <option>PM</option>
-                                      </select>
-                                   </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Day</option>
+                                                <option>Sunday</option>
+                                                <option>Monday</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Time</option>
+                                                <option>AM</option>
+                                                <option>PM</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="row">
-                                   <div class="form-group">
-                                      <select class="form-control">
-                                         <option>Doctor Name</option>
-                                         <option>Mr.XYZ</option>
-                                         <option>Mr.ABC</option>
-                                      </select>
-                                   </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Doctor Name</option>
+                                                <option>Mr.XYZ</option>
+                                                <option>Mr.ABC</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="row">
-                                   <div class="form-group">
-                                      <textarea rows="4" id="textarea_message" class="form-control" placeholder="Your Message..."></textarea>
-                                   </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <textarea rows="4" id="textarea_message" class="form-control" placeholder="Your Message..."></textarea>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="row">
-                                   <div class="form-group">
-                                      <div class="center"><button type="submit">Submit</button></div>
-                                   </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="center"><button type="submit">Submit</button></div>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                          </fieldset>
-                       </form>
+                            </fieldset>
+                        </form>
                     </div>
+
+                </div>
+
                  </div>
+     
+    
+      </div>
+                          
+         
+              
               </div>
            </div>
                       <div class="container text-left">
@@ -562,9 +571,10 @@
 </ul>
 </div>
         </div>
-     </div>
-     <!-- end section -->
-     
+    </div>
+</div>
+<!-- end section -->
+
 
 <!-- doctor -->
 
@@ -763,6 +773,76 @@
 </div>
 
 <!-- end doctor section -->
+
+<div id="blog" class="parallax section db" data-stellar-background-ratio="0.4" style="background:#fff;" data-scroll-id="doctors" tabindex="-1">
+    <div class="container">
+
+        <div class="heading">
+            <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+            <h2>The Specialist Clinic</h2>
+        </div>
+
+        <div class="row dev-list text-center">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+                <div class="widget clearfix">
+                    <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
+                    <div class="widget-title">
+                        <h3>Soren Bo Bostian</h3>
+                        <small>Clinic Owner</small>
+                    </div>
+                    <!-- end title -->
+                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+
+                    <div class="footer-social">
+                        <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div><!--widget -->
+            </div><!-- end col -->
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
+                <div class="widget clearfix">
+                    <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
+                    <div class="widget-title">
+                        <h3>Bryan Saftler</h3>
+                        <small>Internal Diseases</small>
+                    </div>
+                    <!-- end title -->
+                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+
+                    <div class="footer-social">
+                        <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div><!--widget -->
+            </div><!-- end col -->
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
+                <div class="widget clearfix">
+                    <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
+                    <div class="widget-title">
+                        <h3>Matthew Bayliss</h3>
+                        <small>Orthopedics Expert</small>
+                    </div>
+                    <!-- end title -->
+                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+
+                    <div class="footer-social">
+                        <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div><!--widget -->
+            </div><!-- end col -->
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div>
 
 <div id="testimonials" class="section wb wow fadeIn">
     <div class="container">

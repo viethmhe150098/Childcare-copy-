@@ -1,6 +1,6 @@
 <%-- 
-    Document   : CustomerList
-    Created on : Oct 8, 2021, 10:27:49 PM
+    Document   : CustomerDetail
+    Created on : Oct 14, 2021, 12:59:59 AM
     Author     : ADMIN
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -35,8 +35,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logo_web.png" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -47,7 +46,6 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-
 <body class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
@@ -85,7 +83,7 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="ServiceControl">Home</a></li>
+                            <li><a class="active" href="index.html">Home</a></li>
                             <li><a data-scroll href="#about">About us</a></li>
                             <li><a data-scroll href="#service">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
@@ -129,83 +127,39 @@
         <!-- end container -->
     </div>
     <!-- end section -->
-    
     <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                <h2>List Customer</h2>
+                <h2>The Detail Customer</h2>
             </div>
-             <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
-                        </div>
-             <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
-
-        <select class="form-control" id="trangThai" name="status">
-            <option  value="4">All</option>
-            <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
-            <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
-            <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
-            <option ${checkStatus == 3?"selected":""} value="3">Name</option> 
-        </select>
-        <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
-        
-    </form>
-        
             <!-- end title -->
-            
-           <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
-<thead>
-    
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Email</th>
-<th>Tuổi</th>
-<th>Địa chỉ</th>
-<th>Status</th>
-<th>Detail</th>
-
-</tr>
-</thead>
-<tbody>
-     <c:forEach items="${listC}" var="o">
-<tr>
-<td>${o.cID}</td>
-<td>${o.first_name}</td>
-<td>${o.email}</td>
-<td>${o.age}</td>
-<td>${o.address}</td>
-<td>${o.status}</td>
- 
-<td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
-<td >
-                                    <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-
- </c:forEach>
-</tr>
-</tbody>
-</table> 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="message-box">
+                        <h4>${listC.first_name}</h4>
+                        <h2>${listC.age}</h2>
+                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                           
+                        </div>
+                        <p class="lead">${listC.address}</p>
+                        <p> ${listC.tel} </p>
+                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                    </div>
+                    <!-- end messagebox -->
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="post-media wow fadeIn">
+                        <img src="images/about_03.jpg" alt="" class="img-responsive">
+                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                    </div>
+                    <!-- end media -->
+                </div>
+                <!-- end col -->
+            </div>
         </div>
-        <div class="container text-center">
-<ul class="pagination">
-    <c:if test="${tag>1}">
-<li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
-    </c:if>
- <c:forEach begin="1" end="${endP}" var="i">
- 
-<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
-   </c:forEach>
- <c:if test="${tag<endP}">
-
-
-<li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
- </c:if>
-</ul>
-</div>
+                        <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Customer List" style="margin:0;background-color: orange;margin-left:190px;">
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -275,64 +229,9 @@
                 </div>
             </div>
         </div>
-            <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="add" method="post">
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Add Customer</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="file" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listCC}" var="o">
-                                        <option value="${o.cid}">${o.cname}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-success" value="Add">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
         
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
-         <script>
-function disable() {
-  document.getElementById("trangThai").disabled=true;
-}
-function enable() {
-  document.getElementById("trangThai").disabled=false;
-}
-</script>
         <script src="js/all.js"></script>
         <!-- all plugins -->
         <script src="js/custom.js"></script>

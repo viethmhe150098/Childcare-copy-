@@ -1,13 +1,10 @@
 <%-- 
-    Document   : ReservationList
-    Created on : Oct 7, 2021, 3:03:57 PM
-    Author     : DO THANH TRUNG
+    Document   : BlogDetail
+    Created on : Oct 10, 2021, 9:22:28 PM
+    Author     : ADMIN
 --%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
     <!-- Basic -->
@@ -17,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- Site Metas -->
-    <title>Reservation List</title>
+    <title>Life Care</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -36,20 +33,6 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
-
-    <!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main1.css">
-
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
 
@@ -65,9 +48,9 @@
 </head>
 <body class="clinic_version">
     <!-- LOADER -->
-    <!--    <div id="preloader">
-            <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
-        </div>-->
+    <div id="preloader">
+        <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+    </div>
     <!-- END LOADER -->
     <header>
         <div class="header-top wow fadeIn">
@@ -87,26 +70,6 @@
                             <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                             <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
                         </div>
-                        <div class="info-inner">
-                            <ul class="list-main">
-                                <c:choose>
-                                    <c:when test= "${sessionScope.customer_account == null}">
-                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
-                                    </c:when>
-                                    <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -121,8 +84,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a class="active" href="index.html">Home</a></li>
-                            <li><a data-scroll href="#about">About us</a></li
-                            <li><a data-scroll href="#blogs">Blogs</a></li>
+                            <li><a data-scroll href="#about">About us</a></li>
                             <li><a data-scroll href="#service">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
                             <li><a data-scroll href="#price">Price</a></li>
@@ -131,117 +93,87 @@
                         </ul>
                     </div>
                 </nav>
-
-                <form action="searchReservation" method="get">
-                    <div class="serch-bar">
-                        <div id="custom-search-input">
-                            <div class="input-group col-md-12">
-                                <input name="pname" type="text" class="form-control input-lg" placeholder="Search" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info btn-lg" type="submit">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                </span>
-                            </div>
+                <div class="serch-bar">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </span>
                         </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </header>
-    <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="text-contant">
-                        <h2>
-                            <span class="center"><span class="icon"><img src="images/icon-logo.png" alt="#" /></span></span>
-                            <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Life Care", "We Care Your Health", "We are Expert!" ]'>
-                                <span class="wrap"></span>
-                            </a>
-                        </h2>
                     </div>
                 </div>
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
+    </header>
+
+    <div id="blog" class="parallax section db" data-stellar-background-ratio="0.4" style="background:#fff;" data-scroll-id="doctors" tabindex="-1">
+        <div class="container">
+
+            <div class="heading">
+                <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+                <h2>News Feed</h2>
+            </div>
+            <div class="row dev-list text-center">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+                    <div class="widget clearfix">
+                        <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
+                        <div class="widget-title">
+                            <h3>Soren Bo Bostian</h3>
+                            <small>Clinic Owner</small>
+                        </div>
+                        <!-- end title -->
+                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+                        <div class="footer-social">
+                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div><!--widget -->
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
+                    <div class="widget clearfix">
+                        <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
+                        <div class="widget-title">
+                            <h3>Bryan Saftler</h3>
+                            <small>Internal Diseases</small>
+                        </div>
+                        <!-- end title -->
+                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+                        <div class="footer-social">
+                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div><!--widget -->
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
+                    <div class="widget clearfix">
+                        <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
+                        <div class="widget-title">
+                            <h3>Matthew Bayliss</h3>
+                            <small>Orthopedics Expert</small>
+                        </div>
+                        <!-- end title -->
+                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+
+                        <div class="footer-social">
+                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div><!--widget -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
     </div>
-    <!-- end section -->
-
-    <div class="container">
-        <div class="heading">
-            <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-            <h2>The Reservation List</h2>
-        </div>
-        <!-- end title -->
-
-        <div>
-            <form action="filterReservation" method="get">
-                From:
-                <input name="datefrom" type="text" placeholder="yyyy-MM-dd"/> 
-                To: 
-                <input name="dateto" type="text" placeholder="yyyy-MM-dd"/>
-                <input style="color: red" type="submit" value="Filter">
-                <br>
-            </form>
-        </div>
-
-
-        <table class="table table-dark" style="background: #333;border-radius:10px">
-            <thead>
-                <tr>
-                    <th>Reservation ID</th>
-                    <th>Reservation Date</th>
-                    <th>Customer Name</th>
-                    <th>Receive Name</th>
-                    <th>Total Price</th>
-                    <th>Status</th>
-                    <th>Receive phone number</th>
-                    <th>Service Name</th>
-                    <th>Reservation Detail</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%ResultSet rs1 = (ResultSet) request.getAttribute("ketQua1");%>
-                <%while (rs1.next()) {%>
-                <tr>
-                    <td><%=rs1.getString(1)%></td>
-                    <td><%=rs1.getDate(2)%></td>
-                    <td><%=rs1.getString(3)%></td>
-                    <td><%=rs1.getString(4)%></td>
-                    <td><%=rs1.getDouble(5)%></td>
-                    <td><%=(rs1.getInt(6) == 1) ? "Shipped" : "Waiting"%></td>
-                    <td><%=rs1.getString(7)%></td>
-                    <td><%=rs1.getString(8)%></td>
-                    <td><a id="grey" href="reservationDetail?reID=<%=rs1.getString(1)%>">Detail</a></td>
-                </tr>	
-                <%}%>
-            </tbody>
-        </table>
-    </div>
-
-
-    
-
-    <div class="container text-center">
-        <ul class="pagination">
-            <c:if test="${tag>1}">
-                <li class="page-item "><a class="page-link" href="reservationController?index=${tag-1}#about">Previous</a></li>
-                </c:if>
-                <c:forEach begin="1" end="${endP}" var="i">
-
-                <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="reservationController?index=${i}#about">${i}</a></li>
-                </c:forEach>
-                <c:if test="${tag<endP}">
-
-
-                <li class="page-item"><a class="page-link" href="reservationController?index=${tag+1}#about">Next</a></li>
-                </c:if>
-        </ul>
-    </div>
-
+    <!-- end row -->
     <footer id="footer" class="footer-area wow fadeIn">
         <div class="container">
             <div class="row">
@@ -310,7 +242,6 @@
             </div>
         </div>
     </div>
-    <!-- end copyrights -->
     <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
     <!-- all js files -->
     <script src="js/all.js"></script>
@@ -322,29 +253,5 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./js/main.js"></script>
-
-
-
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script>
-        $('.js-pscroll').each(function () {
-            var ps = new PerfectScrollbar(this);
-
-            $(window).on('resize', function () {
-                ps.update();
-            })
-        });
-
-
-    </script>
-    <!--===============================================================================================-->
-    <script src="js/main1.js"></script>
-</body>
+</body>   
 </html>

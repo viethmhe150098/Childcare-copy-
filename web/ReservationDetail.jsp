@@ -306,16 +306,13 @@
                         <tr>
                             <td><%=rs1.getString(1)%></td>
                             <td>
-<!--                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <%=(rs1.getInt(11) == 1) ? "Shipped" : "Waiting"%>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><%=(rs1.getInt(11) != 1) ? "Shipped" : "Waiting"%></a>
-                                    </div>
-                                </div>-->
+                                <%=(rs1.getInt(11) == 1) ? "Shipped" : "Waiting"%>
 
-                                <%=(rs1.getInt(11) == 1) ? "Shipped" : "Waiting"%></td>
+                        <a href="request?action=accept&ida=<%=rs1.getInt(1)%>">Accept</a>
+                        <a href="request?action=reject&idr=<%=rs1.getInt(1)%>">Reject</a>
+                        <!--<a href="request?action=accept&ida=<%=rs1.getInt(11)%>">Accept</a>
+                        <a href="request?action=reject&idr=<%=rs1.getInt(11)%>">Reject</a>-->
+                            </td>
                             <td><%=rs1.getDate(2)%></td>
                             <td><%=rs1.getString(12)%></td>
                             <td><%=rs1.getDouble(10)%></td>

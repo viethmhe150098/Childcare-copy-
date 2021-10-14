@@ -220,7 +220,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                
+         <%  session = request.getSession(true);
+            Customer a = (Customer) session.getAttribute("customer_account");
+        %>
+                <a href="ReserDetailforCus?cID=<%=a.getcID()%>"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+            
         </div>
     </header>
     <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4"
@@ -245,9 +250,7 @@
         <!-- end container -->
     </div>
     <div class="contain">
-         <%  session = request.getSession(true);
-            Customer a = (Customer) session.getAttribute("customer_account");
-        %>
+
         <div class="leftside_bar">
             <div>
                 <ul>
