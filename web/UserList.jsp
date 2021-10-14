@@ -119,18 +119,21 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
+
+                <form action="searchUserControl1" method="get">
+                    <div class="serch-bar">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input name="name" type="text" class="form-control input-lg" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="button">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </header>
@@ -164,7 +167,7 @@
                 <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
                 <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
             </div>
-            <form method="post" style="margin-bottom:20px;" action="searchUserControl?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+            <form method="post" style="margin-bottom:20px;" action="filterUserControl?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
 
                 <select class="form-control" id="trangThai" name="status">
                     <option  value="4">All</option>
@@ -173,7 +176,7 @@
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
                     <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
-                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Search</button>
+                <button style="color: red"  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
 
             </form>
 
@@ -186,6 +189,7 @@
                         <th>ID</th>
                         <!--<th>Firstname</th>-->
                         <th>Full Name</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Gender</th>
                         <th>Age</th>
@@ -202,6 +206,7 @@
                         <tr>
                             <td>${o.cID}</td>
                             <td>${o.first_name} ${o.last_name}</td>
+                            <td>${o.username}</td>
                             <td>${o.email}</td>
                             <td>${o.gender ==1?"Male":"Female"}</td>
                             <td>${o.age}</td>

@@ -192,6 +192,28 @@ public class DAOCustomer {
         }
         return list;
     }
+    
+    public List<Customer> SearchCustomer(String name, String phone) {
+        List<Customer> list = new ArrayList<>();
+        String sql = "select * from Customer where username like ? or tel=?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + name + "%");
+            ps.setString(2, phone);
+//            ps.setString(2, phone);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),rs.getInt(12)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
    public Customer getPass(String username) {
         try {
             String sql = "select password from Customer where username = ?";
@@ -244,11 +266,11 @@ public class DAOCustomer {
 //        for(Customer o : list){
 //            System.out.println(o);
 //        }
-    List<Customer> list = dao.pagingCustomer(1);
-    for(Customer o : list){
-            System.out.println(o);
-    }
-    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJC", "1");
+//    List<Customer> list = dao.pagingCustomer(1);
+//    for(Customer o : list){
+//            System.out.println(o);
+//    }
+//    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJC", "1");
 //        }
     
 //        int b= dao.getTotalCustomer();
@@ -258,6 +280,10 @@ public class DAOCustomer {
 //        System.out.println(dao.loginCustomer("trung", "12345678"));
         
 //        dao.insertCus(new Customer("gia", "phu", "1", "phu@gmail.com", "086342623", "phu", "12345678", "20", "1", "ha noi"));
+//        List<Customer> list = dao.SearchCustomer("t");
+//        for(Customer o : list){
+//            System.out.println(o);
+//        }
     }
 }
 
