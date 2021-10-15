@@ -137,14 +137,20 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h4>${listC.first_name}</h4>
-                        <h2>${listC.age}</h2>
+                        <h2>Customer ID: ${listC.cID}</h2>
+                        <h4>Full Name: ${listC.first_name} ${listC.last_name}</h4>
+                        <h4>Age: ${listC.age}</h4>
+                        <h4>Gender: ${listC.gender ==1?"Male":"Female"}</h4>
+                        <h4>Status: ${listC.status ==1?"Active":"Inactive"}</h4>
                         <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                           
+
                         </div>
-                        <p class="lead">${listC.address}</p>
-                        <p> ${listC.tel} </p>
-                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                        <p class="lead">Address: ${listC.address}</p>
+                        <p>Phone: ${listC.tel} </p>
+                        <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Customer List" style="margin:0;background-color: yellowgreen;margin-left:190px;">
+
+                        
+                        <!--<a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>-->
                     </div>
                     <!-- end messagebox -->
                 </div>
@@ -152,14 +158,14 @@
                 <div class="col-md-6">
                     <div class="post-media wow fadeIn">
                         <img src="images/about_03.jpg" alt="" class="img-responsive">
-                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                        <!--<a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>-->
                     </div>
                     <!-- end media -->
                 </div>
                 <!-- end col -->
             </div>
         </div>
-                        <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Customer List" style="margin:0;background-color: orange;margin-left:190px;">
+        <!--                        <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Customer List" style="margin:0;background-color: yellowgreen;margin-left:190px;">-->
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -229,7 +235,7 @@
                 </div>
             </div>
         </div>
-        
+
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
         <script src="js/all.js"></script>
