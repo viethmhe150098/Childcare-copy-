@@ -207,125 +207,93 @@ public final class UpdateCustomer_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <div class=\"modal-content\">\n");
       out.write("            <form action=\"updateCustomerControl\" method=\"post\">\n");
       out.write("                <div class=\"modal-header\">\t\t\t\t\t\t\n");
-      out.write("                    <h4 class=\"modal-title\">Update Customer <i class=\"fas fa-user-friends\"></i></h4>\n");
+      out.write("                    <h4 class=\"modal-title\">Update Customer<i class=\"fas fa-user-friends\"></i></h4>\n");
       out.write("                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n");
       out.write("                </div>\n");
-      out.write("                <div class=\"modal-body\">\n");
+      out.write("                <div class=\"modal-body\">\t\t\t\t\t\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Customer ID</label>\n");
-      out.write("                        <input name=\"cID\" type=\"text\" class=\"form-control\" readonly=\"\">\n");
+      out.write("                        <input type=\"text\" name=\"cid\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.cID}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" readonly/>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>First Name</label>\n");
-      out.write("                        <input name=\"firstname\" type=\"text\" class=\"form-control\" required>\n");
+      out.write("                        <input name=\"firstname\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.first_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Last Name</label>\n");
-      out.write("                        <input name=\"lastname\" type=\"text\" class=\"form-control\" required>\n");
+      out.write("                        <input name=\"lastname\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.last_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Gender</label>\n");
-      out.write("                        <input name=\"gender\" type=\"text\" class=\"form-control\" required>\n");
+      out.write("                        <input name=\"gender\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.gender}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Email <i class=\"far fa-envelope\"></i></label>\n");
-      out.write("                        <input name=\"email\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
+      out.write("                        <input name=\"email\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.email}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Tel <i class=\"fas fa-phone\"></i>\n");
-      out.write("\n");
       out.write("                        </label>\n");
-      out.write("                        <input name=\"tel\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
+      out.write("                        <input name=\"tel\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.tel}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Username</label>\n");
-      out.write("                        <input name=\"user\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                        <input name=\"user\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Password</label>\n");
-      out.write("                        <input name=\"pass\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                        <input name=\"pass\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.password}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
-      out.write("\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Age</label>\n");
-      out.write("                        <input name=\"age\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                        <input name=\"age\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.age}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Status</label>\n");
-      out.write("                        <input name=\"status\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                        <input name=\"status\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.status}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Address</label>\n");
-      out.write("                        <textarea name=\"address\" class=\"form-control\" required></textarea>\n");
-      out.write("\n");
+      out.write("                        <textarea name=\"address\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.address}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required></textarea>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"form-group\">\n");
       out.write("                        <label>Role</label>\n");
-      out.write("                        <input name=\"role\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                        <input name=\"role\" type=\"text\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listC.role}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"form-control\" required>\n");
       out.write("                    </div>\n");
-      out.write("\n");
       out.write("                </div>\n");
       out.write("                <div class=\"modal-footer\" style=\"margin-top:30px;\">\n");
-      out.write("                    <input type=\"submit\" class=\"btn btn-success\" value=\"Add\">\n");
-      out.write("                    <input style=\"background-color: red; color: white\" type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" value=\"Cancel\">\n");
+      out.write("                    <input type=\"submit\" class=\"btn btn-success\" value=\"Update\">\n");
+      out.write("                    <input style=\"background-color: red\" type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" value=\"Cancel\">\n");
       out.write("                </div>\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </div>\n");
       out.write("    <!--</div>-->\n");
       out.write("\n");
-      out.write("    <div class=\"page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins\">\n");
-      out.write("        <div class=\"wrapper wrapper--w680\">\n");
-      out.write("            <div class=\"card card-4\">\n");
-      out.write("                <div class=\"card-body\">\n");
-      out.write("                    <h2 class=\"title\">Your Profile</h2>\n");
-      out.write("                    <form action=\"myAccount\" method=\"post\"> \n");
-      out.write("                        Customer ID: <input type=\"text\" name=\"cid\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.customerID}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" readonly/>\n");
-      out.write("                        Account: <input type=\"text\" name=\"account\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.account}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" ><br>\n");
-      out.write("                        Name: <input type=\"text\" name=\"name\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.customerName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" ><br>\n");
-      out.write("                        <div class=\"input-group\">\n");
-      out.write("                            <label class=\"label\">Gender: </label>\n");
-      out.write("                            <div class=\"p-t-10\">\n");
-      out.write("                                ");
-      if (_jspx_meth_c_choose_2(_jspx_page_context))
-        return;
-      out.write("\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        Phone number: <input type=\"text\" name=\"phone\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.phoneNumber}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" ><br>\n");
-      out.write("                        Email: <input type=\"text\" name=\"email\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.email}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" ><br>\n");
-      out.write("                        DOB: <fmt:formatDate type = \"date\" \n");
-      out.write("                                             value = \"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.DOB}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" /><br>\n");
-      out.write("                        <button style=\"border: 1px solid black; padding: 10px; margin-top: 10px; background-color: lightgray\" type=\"submit\">Save</button>\n");
-      out.write("                    </form>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("    </div>\n");
       out.write("\n");
       out.write("    <footer id=\"footer\" class=\"footer-area wow fadeIn\">\n");
       out.write("        <div class=\"container\">\n");
@@ -395,69 +363,7 @@ public final class UpdateCustomer_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("    </div>\n");
-      out.write("    <div id=\"addEmployeeModal\" class=\"modal fade\">\n");
-      out.write("        <div class=\"modal-dialog\">\n");
-      out.write("            <div class=\"modal-content\">\n");
-      out.write("                <form action=\"addUserControl\" method=\"post\">\n");
-      out.write("                    <div class=\"modal-header\">\t\t\t\t\t\t\n");
-      out.write("                        <h4 class=\"modal-title\">Add New User <i class=\"fas fa-user-friends\"></i></h4>\n");
-      out.write("                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"modal-body\">\t\t\t\t\t\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>First Name</label>\n");
-      out.write("                            <input name=\"firstname\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Last Name</label>\n");
-      out.write("                            <input name=\"lastname\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Gender</label>\n");
-      out.write("                            <input name=\"gender\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Email <i class=\"far fa-envelope\"></i></label>\n");
-      out.write("                            <input name=\"email\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Tel <i class=\"fas fa-phone\"></i>\n");
-      out.write("                            </label>\n");
-      out.write("                            <input name=\"tel\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Username</label>\n");
-      out.write("                            <input name=\"user\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Password</label>\n");
-      out.write("                            <input name=\"pass\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Age</label>\n");
-      out.write("                            <input name=\"age\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Status</label>\n");
-      out.write("                            <input name=\"status\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Address</label>\n");
-      out.write("                            <textarea name=\"address\" class=\"form-control\" required></textarea>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label>Role</label>\n");
-      out.write("                            <input name=\"role\" type=\"text\" class=\"form-control\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"modal-footer\" style=\"margin-top:30px;\">\n");
-      out.write("                        <input type=\"submit\" class=\"btn btn-success\" value=\"Add\">\n");
-      out.write("                        <input style=\"background-color: red\" type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" value=\"Cancel\">\n");
-      out.write("                    </div>\n");
-      out.write("                </form>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("    </div>\n");
+      out.write("\n");
       out.write("\n");
       out.write("    <a href=\"#home\" data-scroll class=\"dmtop global-radius\"><i class=\"fa fa-angle-up\"></i></a>\n");
       out.write("    <!-- all js files -->\n");
@@ -670,111 +576,6 @@ public final class UpdateCustomer_jsp extends org.apache.jasper.runtime.HttpJspB
       return true;
     }
     _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_choose_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:choose
-    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_2 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
-    _jspx_th_c_choose_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_choose_2.setParent(null);
-    int _jspx_eval_c_choose_2 = _jspx_th_c_choose_2.doStartTag();
-    if (_jspx_eval_c_choose_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\n");
-        out.write("                                    ");
-        if (_jspx_meth_c_when_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_2, _jspx_page_context))
-          return true;
-        out.write("\n");
-        out.write("                                    ");
-        if (_jspx_meth_c_otherwise_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_2, _jspx_page_context))
-          return true;
-        out.write("\n");
-        out.write("                                ");
-        int evalDoAfterBody = _jspx_th_c_choose_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_choose_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_2);
-      return true;
-    }
-    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_when_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_2, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:when
-    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_2 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
-    _jspx_th_c_when_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_when_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_2);
-    _jspx_th_c_when_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name.gender eq true}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_when_2 = _jspx_th_c_when_2.doStartTag();
-    if (_jspx_eval_c_when_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\n");
-        out.write("                                        <label class=\"radio-container m-r-45\">Male\n");
-        out.write("                                            <input type=\"radio\" name=\"gender\" value=\"male\" >\n");
-        out.write("\n");
-        out.write("                                            <span class=\"checkmark\"></span>\n");
-        out.write("                                        </label>\n");
-        out.write("                                        <label class=\"radio-container\">Female\n");
-        out.write("                                            <input type=\"radio\" name=\"gender\" value=\"female\" checked=\"checked\" >\n");
-        out.write("                                            <span class=\"checkmark\"></span>\n");
-        out.write("                                        </label>\n");
-        out.write("                                    ");
-        int evalDoAfterBody = _jspx_th_c_when_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_when_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_2);
-      return true;
-    }
-    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_otherwise_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_2, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:otherwise
-    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_2 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
-    _jspx_th_c_otherwise_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_otherwise_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_2);
-    int _jspx_eval_c_otherwise_2 = _jspx_th_c_otherwise_2.doStartTag();
-    if (_jspx_eval_c_otherwise_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\n");
-        out.write("                                        <label class=\"radio-container m-r-45\">Male\n");
-        out.write("                                            <input type=\"radio\" name=\"gender\" value=\"male\" >\n");
-        out.write("\n");
-        out.write("                                            <span class=\"checkmark\"></span>\n");
-        out.write("                                        </label>\n");
-        out.write("                                        <label class=\"radio-container\">Female\n");
-        out.write("                                            <input type=\"radio\" name=\"gender\" value=\"female\" checked=\"checked\" >\n");
-        out.write("                                            <span class=\"checkmark\"></span>\n");
-        out.write("                                        </label>\n");
-        out.write("                                    ");
-        int evalDoAfterBody = _jspx_th_c_otherwise_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_otherwise_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_2);
-      return true;
-    }
-    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_2);
     return false;
   }
 }

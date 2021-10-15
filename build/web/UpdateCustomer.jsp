@@ -160,133 +160,69 @@
         <div class="modal-content">
             <form action="updateCustomerControl" method="post">
                 <div class="modal-header">						
-                    <h4 class="modal-title">Update Customer <i class="fas fa-user-friends"></i></h4>
+                    <h4 class="modal-title">Update Customer<i class="fas fa-user-friends"></i></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body">					
                     <div class="form-group">
                         <label>Customer ID</label>
-                        <input name="cID" type="text" class="form-control" readonly="">
+                        <input type="text" name="cid" value="${listC.cID}" readonly/>
                     </div>
                     <div class="form-group">
                         <label>First Name</label>
-                        <input name="firstname" type="text" class="form-control" required>
+                        <input name="firstname" type="text" value="${listC.first_name}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input name="lastname" type="text" class="form-control" required>
+                        <input name="lastname" type="text" value="${listC.last_name}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
-                        <input name="gender" type="text" class="form-control" required>
+                        <input name="gender" type="text" value="${listC.gender}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Email <i class="far fa-envelope"></i></label>
-                        <input name="email" type="text" class="form-control" required>
-
+                        <input name="email" type="text" value="${listC.email}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Tel <i class="fas fa-phone"></i>
-
                         </label>
-                        <input name="tel" type="text" class="form-control" required>
-
+                        <input name="tel" type="text" value="${listC.tel}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input name="user" type="text" class="form-control" required>
-
-
+                        <input name="user" type="text" value="${listC.username}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input name="pass" type="text" class="form-control" required>
-
-
+                        <input name="pass" type="text" value="${listC.password}" class="form-control" required>
                     </div>
-
                     <div class="form-group">
                         <label>Age</label>
-                        <input name="age" type="text" class="form-control" required>
-
-
+                        <input name="age" type="text" value="${listC.age}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input name="status" type="text" class="form-control" required>
-
-
+                        <input name="status" type="text" value="${listC.status}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea name="address" class="form-control" required></textarea>
-
+                        <textarea name="address" value="${listC.address}" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Role</label>
-                        <input name="role" type="text" class="form-control" required>
-
-
+                        <input name="role" type="text" value="${listC.role}" class="form-control" required>
                     </div>
-
                 </div>
                 <div class="modal-footer" style="margin-top:30px;">
-                    <input type="submit" class="btn btn-success" value="Add">
-                    <input style="background-color: red; color: white" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-success" value="Update">
+                    <input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                 </div>
             </form>
         </div>
     </div>
     <!--</div>-->
 
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-4">
-                <div class="card-body">
-                    <h2 class="title">Your Profile</h2>
-                    <form action="myAccount" method="post"> 
-                        Customer ID: <input type="text" name="cid" value="${name.customerID}" readonly/>
-                        Account: <input type="text" name="account" value="${name.account}" ><br>
-                        Name: <input type="text" name="name" value="${name.customerName}" ><br>
-                        <div class="input-group">
-                            <label class="label">Gender: </label>
-                            <div class="p-t-10">
-                                <c:choose>
-                                    <c:when test="${name.gender eq true}">
-                                        <label class="radio-container m-r-45">Male
-                                            <input type="radio" name="gender" value="male" >
-
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Female
-                                            <input type="radio" name="gender" value="female" checked="checked" >
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <label class="radio-container m-r-45">Male
-                                            <input type="radio" name="gender" value="male" >
-
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Female
-                                            <input type="radio" name="gender" value="female" checked="checked" >
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
-                        </div>
-                        Phone number: <input type="text" name="phone" value="${name.phoneNumber}" ><br>
-                        Email: <input type="text" name="email" value="${name.email}" ><br>
-                        DOB: <fmt:formatDate type = "date" 
-                                             value = "${name.DOB}" /><br>
-                        <button style="border: 1px solid black; padding: 10px; margin-top: 10px; background-color: lightgray" type="submit">Save</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer id="footer" class="footer-area wow fadeIn">
         <div class="container">
@@ -356,73 +292,7 @@
             </div>
         </div>
     </div>
-    <div id="addEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="updateCustomerControl" method="post">
-                    <div class="modal-header">						
-                        <h4 class="modal-title">Update Customer<i class="fas fa-user-friends"></i></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">					
-                        <div class="form-group">
-                            <label>Customer ID</label>
-                            <input type="text" name="cid" value="${listC.cID}" readonly/>
-                        </div>
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input name="firstname" type="text" value="${listC.first_name}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input name="lastname" type="text" value="${listC.last_name}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Gender</label>
-                            <input name="gender" type="text" value="${listC.gender}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email <i class="far fa-envelope"></i></label>
-                            <input name="email" type="text" value="${listC.email}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Tel <i class="fas fa-phone"></i>
-                            </label>
-                            <input name="tel" type="text" value="${listC.tel}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input name="user" type="text" value="${listC.username}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input name="pass" type="text" value="${listC.password}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Age</label>
-                            <input name="age" type="text" value="${listC.age}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Status</label>
-                            <input name="status" type="text" value="${listC.status}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <textarea name="address" value="${listC.address}" class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Role</label>
-                            <input name="role" type="text" value="${listC.role}" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer" style="margin-top:30px;">
-                        <input type="submit" class="btn btn-success" value="Update">
-                        <input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
 
     <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
     <!-- all js files -->

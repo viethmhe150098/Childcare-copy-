@@ -342,8 +342,7 @@ public class DAOCustomer {
         return list;
     }
 
-    public int updateCustomer(Customer cus) {
-        int n = 0;
+    public Customer updateCustomer(Customer cus) {
         try {
             String sql = "update Customer set first_name=?, last_name=?, gender=?, "
                     + "email=?, tel=?, username=?, \n"
@@ -362,11 +361,11 @@ public class DAOCustomer {
             ps.setString(10, cus.getAddress());
             ps.setInt(11, cus.getRole());
             ps.setInt(12, cus.getcID());
-            n = ps.executeUpdate();
+            ps.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return n;
+        return cus;
     }
 
     public static void main(String[] args) {
@@ -377,7 +376,7 @@ public class DAOCustomer {
 //            System.out.println(o);
 //        }
         
-        Customer cus = new Customer(1, "trung", "do", "1", 
+        Customer cus = new Customer(1, "trung", "doo", "1", 
                 "trung@gmail.com", "0387037855", "trung", "12345678", 
                 "20", "1", "ha noi", 1);
         dao.updateCustomer(cus);

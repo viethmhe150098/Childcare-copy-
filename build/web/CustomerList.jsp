@@ -189,8 +189,6 @@
                             <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
                             <td >
                                 <a href="updateCustomerControl?cID=${o.cID}#about" style="color:#fff" class="edit">Update</a>
-                                <!--<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>-->
-                                <!--<a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>-->
                             </td>
 
                         </c:forEach>
