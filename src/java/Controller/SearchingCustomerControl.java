@@ -42,8 +42,12 @@ public class SearchingCustomerControl extends HttpServlet {
             if(service.equals("searchBy")){
              if(status.equals("4")){
                  list1 =dao.getAllCustomer1();
-             }else{
-                 
+             }else if(status.equals("0")){
+                 //status active
+                 list1 =dao.getStatusActive(1);
+             }else if(status.equals("1")){
+                 //status inactive
+                 list1 =dao.getStatusInactive(0);
              }
               
              request.setAttribute("checkStatus",status);

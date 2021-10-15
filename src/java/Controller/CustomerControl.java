@@ -36,23 +36,23 @@ public class CustomerControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAOCustomer dao = new DAOCustomer();
-         String indexPage = request.getParameter("index");
-        if(indexPage==null){
-            indexPage="1";
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
         }
         int index = Integer.parseInt(indexPage);
-        
-        int count =dao.getTotalCustomer();
-         List<Customer> listC = dao.getAllCustomer1();
-         int endPage = count / 3;
+
+        int count = dao.getTotalCustomer();
+//        List<Customer> listC = dao.getAllCustomer1();
+        int endPage = count / 3;
         if (count % 3 != 0) {
             endPage++;
         }
         List<Customer> list = dao.pagingCustomer(index);
-         request.setAttribute("endP", endPage);
-         request.setAttribute("tag", index);
-          request.setAttribute("listC", list);
-         request.getRequestDispatcher("CustomerList.jsp").forward(request, response);
+        request.setAttribute("endP", endPage);
+        request.setAttribute("tag", index);
+        request.setAttribute("listC", list);
+        request.getRequestDispatcher("CustomerList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

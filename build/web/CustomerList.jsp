@@ -142,17 +142,16 @@
                 <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
                 <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
             </div>
-            <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
 
+            <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
                 <select class="form-control" id="trangThai" name="status">
                     <option  value="4">All</option>
-                    <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
-                    <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
+                    <option value="0">Status Active</option>
+                    <option value="1">Status Inactive</option><!--
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
-                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> 
+                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
-                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
-
+                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
             </form>
 
             <!-- end title -->
@@ -182,7 +181,7 @@
                             <td>${o.gender ==1?"Male":"Female"}</td>
                             <td>${o.age}</td>
                             <td>${o.address}</td>
-                            <td>${o.status}</td>    
+                            <td>${o.status ==1?"Active":"Inactive"}</td>    
                             <td>${o.tel}</td>    
 
                             <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
@@ -212,6 +211,7 @@
                     </c:if>
             </ul>
         </div>
+
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
