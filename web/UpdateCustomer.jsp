@@ -237,158 +237,211 @@
             </form>
         </div>
     </div>
-<!--</div>-->
+    <!--</div>-->
 
-<footer id="footer" class="footer-area wow fadeIn">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="logo padding">
-                    <a href=""><img src="images/logo.png" alt=""></a>
-                    <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="footer-info padding">
-                    <h3>CONTACT US</h3>
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                    <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
-                    <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="subcriber-info">
-                    <h3>SUBSCRIBE</h3>
-                    <p>Get healthy news, tip and solutions to your problems from our experts.</p>
-                    <div class="subcriber-box">
-                        <form id="mc-form" class="mc-form">
-                            <div class="newsletter-form">
-                                <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
-                                <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                                <div class="clearfix"></div>
-                                <!-- mailchimp-alerts Start -->
-                                <div class="mailchimp-alerts">
-                                    <div class="mailchimp-submitting"></div>
-                                    <!-- mailchimp-submitting end -->
-                                    <div class="mailchimp-success"></div>
-                                    <!-- mailchimp-success end -->
-                                    <div class="mailchimp-error"></div>
-                                    <!-- mailchimp-error end -->
-                                </div>
-                                <!-- mailchimp-alerts end -->
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Your Profile</h2>
+                    <form action="myAccount" method="post"> 
+                        Customer ID: <input type="text" name="cid" value="${name.customerID}" readonly/>
+                        Account: <input type="text" name="account" value="${name.account}" ><br>
+                        Name: <input type="text" name="name" value="${name.customerName}" ><br>
+                        <div class="input-group">
+                            <label class="label">Gender: </label>
+                            <div class="p-t-10">
+                                <c:choose>
+                                    <c:when test="${name.gender eq true}">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" name="gender" value="male" >
+
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender" value="female" checked="checked" >
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" name="gender" value="male" >
+
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender" value="female" checked="checked" >
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        Phone number: <input type="text" name="phone" value="${name.phoneNumber}" ><br>
+                        Email: <input type="text" name="email" value="${name.email}" ><br>
+                        DOB: <fmt:formatDate type = "date" 
+                                             value = "${name.DOB}" /><br>
+                        <button style="border: 1px solid black; padding: 10px; margin-top: 10px; background-color: lightgray" type="submit">Save</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</footer>
-<div class="copyright-area wow fadeIn">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="footer-text">
-                    <p>© 2018 Lifecare. All Rights Reserved.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="social">
-                    <ul class="social-links">
-                        <li><a href=""><i class="fa fa-rss"></i></a></li>
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                        <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="addEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form action="addUserControl" method="post">
-                <div class="modal-header">						
-                    <h4 class="modal-title">Add New User <i class="fas fa-user-friends"></i></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">					
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input name="firstname" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input name="lastname" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Gender</label>
-                        <input name="gender" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email <i class="far fa-envelope"></i></label>
-                        <input name="email" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Tel <i class="fas fa-phone"></i>
-                        </label>
-                        <input name="tel" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input name="user" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input name="pass" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Age</label>
-                        <input name="age" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <input name="status" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea name="address" class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Role</label>
-                        <input name="role" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer" style="margin-top:30px;">
-                    <input type="submit" class="btn btn-success" value="Add">
-                    <input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
-<a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-<!-- all js files -->
-<script>
-    function disable() {
-        document.getElementById("trangThai").disabled = true;
-    }
-    function enable() {
-        document.getElementById("trangThai").disabled = false;
-    }
-</script>
-<script src="js/all.js"></script>
-<!-- all plugins -->
-<script src="js/custom.js"></script>
-<!-- map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
+    <footer id="footer" class="footer-area wow fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="logo padding">
+                        <a href=""><img src="images/logo.png" alt=""></a>
+                        <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-info padding">
+                        <h3>CONTACT US</h3>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
+                        <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="subcriber-info">
+                        <h3>SUBSCRIBE</h3>
+                        <p>Get healthy news, tip and solutions to your problems from our experts.</p>
+                        <div class="subcriber-box">
+                            <form id="mc-form" class="mc-form">
+                                <div class="newsletter-form">
+                                    <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
+                                    <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
+                                    <div class="clearfix"></div>
+                                    <!-- mailchimp-alerts Start -->
+                                    <div class="mailchimp-alerts">
+                                        <div class="mailchimp-submitting"></div>
+                                        <!-- mailchimp-submitting end -->
+                                        <div class="mailchimp-success"></div>
+                                        <!-- mailchimp-success end -->
+                                        <div class="mailchimp-error"></div>
+                                        <!-- mailchimp-error end -->
+                                    </div>
+                                    <!-- mailchimp-alerts end -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright-area wow fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="footer-text">
+                        <p>© 2018 Lifecare. All Rights Reserved.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social">
+                        <ul class="social-links">
+                            <li><a href=""><i class="fa fa-rss"></i></a></li>
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                            <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="updateCustomerControl" method="post">
+                    <div class="modal-header">						
+                        <h4 class="modal-title">Update Customer<i class="fas fa-user-friends"></i></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">					
+                        <div class="form-group">
+                            <label>Customer ID</label>
+                            <input type="text" name="cid" value="${listC.cID}" readonly/>
+                        </div>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input name="firstname" type="text" value="${listC.first_name}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input name="lastname" type="text" value="${listC.last_name}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <input name="gender" type="text" value="${listC.gender}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email <i class="far fa-envelope"></i></label>
+                            <input name="email" type="text" value="${listC.email}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tel <i class="fas fa-phone"></i>
+                            </label>
+                            <input name="tel" type="text" value="${listC.tel}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input name="user" type="text" value="${listC.username}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input name="pass" type="text" value="${listC.password}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input name="age" type="text" value="${listC.age}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <input name="status" type="text" value="${listC.status}" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea name="address" value="${listC.address}" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Role</label>
+                            <input name="role" type="text" value="${listC.role}" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="margin-top:30px;">
+                        <input type="submit" class="btn btn-success" value="Update">
+                        <input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="./js/main.js"></script>
+    <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- all js files -->
+    <script>
+        function disable() {
+            document.getElementById("trangThai").disabled = true;
+        }
+        function enable() {
+            document.getElementById("trangThai").disabled = false;
+        }
+    </script>
+    <script src="js/all.js"></script>
+    <!-- all plugins -->
+    <script src="js/custom.js"></script>
+    <!-- map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./js/main.js"></script>
 </body>   
 </html>

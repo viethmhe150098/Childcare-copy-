@@ -140,8 +140,9 @@
             </div>
             <div class="col-sm-6">
                 <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                <!--<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>-->						
+                <!--<a href="updateCustomerControl" class="btn btn-info" ><i class="material-icons">&#xE15C;</i> <span>Update</span></a>-->						
             </div>
+            <!--data-toggle="modal"-->
 
             <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
                 <select class="form-control" id="trangThai" name="status">
@@ -169,6 +170,7 @@
                         <th>Status</th>
                         <th>Phone</th>
                         <th>Detail</th>
+                        <th>Update</th>
 
                     </tr>
                 </thead>
@@ -186,7 +188,8 @@
 
                             <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
                             <td >
-                                <a href="updateCustomerControl" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="updateCustomerControl?cID=${o.cID}#about" style="color:#fff" class="edit">Update</a>
+                                <!--<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>-->
                                 <!--<a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>-->
                             </td>
 
