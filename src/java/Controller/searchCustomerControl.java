@@ -35,6 +35,24 @@ public class searchCustomerControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             DAOCustomer dao = new DAOCustomer();
+//            String txtSearch = request.getParameter("name");
+//            String indexPage = request.getParameter("index");
+//            if (indexPage == null) {
+//                indexPage = "1";
+//            }
+//            int index = Integer.parseInt(indexPage);
+//
+//            int count = dao.getTotalCustomer();
+//            List<Customer> listC = dao.getAllCustomer1();
+//            int endPage = count / 3;
+//            if (count % 3 != 0) {
+//                endPage++;
+//            }
+//            List<Customer> list = dao.pagingSearchCustomer(index, txtSearch);
+//            request.setAttribute("endP", endPage);
+//            request.setAttribute("tag", index);
+//            request.setAttribute("listC", list);
+
             String txtSearch = request.getParameter("name");
             List<Customer> list = dao.SearchCustomer(txtSearch, txtSearch);
             request.setAttribute("listC", list);
