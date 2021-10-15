@@ -35,23 +35,6 @@ public class updateCustomerControl extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 //            response.sendRedirect("CustomerControl");
 
-            DAOCustomer dao = new DAOCustomer();
-            int cid = Integer.parseInt(request.getParameter("cid"));
-            String firstname = request.getParameter("firstname");
-            String lastname = request.getParameter("lastname");
-            String gender = request.getParameter("gender");
-            String phone = request.getParameter("tel");
-            String email = request.getParameter("email");
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String status = request.getParameter("status");
-            String address = request.getParameter("address");
-            String age = request.getParameter("age");
-            int role = Integer.parseInt(request.getParameter("role"));
-
-            Customer cus = new Customer(cid, firstname, lastname, gender, email, phone, username, password, age, status, address, role);
-            dao.updateCustomer(cus);
-            response.sendRedirect("CustomerControl");
         }
     }
 
@@ -67,7 +50,28 @@ public class updateCustomerControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+
+        DAOCustomer dao = new DAOCustomer();
+        String cid = request.getParameter("cID");
+        Customer cus = dao.getCustomerBycID(cid);
+        request.setAttribute("custom", cus);
+        request.getRequestDispatcher("UpdateCustomer.jsp").forward(request, response);
+//        String firstname = request.getParameter("firstname");
+//        String lastname = request.getParameter("lastname");
+//        String gender = request.getParameter("gender");
+//        String phone = request.getParameter("tel");
+//        String email = request.getParameter("email");
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        String status = request.getParameter("status");
+//        String address = request.getParameter("address");
+//        String age = request.getParameter("age");
+//        int role = Integer.parseInt(request.getParameter("role"));
+//
+//        Customer cus = new Customer(cid, firstname, lastname, gender, email, phone, username, password, age, status, address, role);
+//        dao.updateCustomer(cus);
+//        response.sendRedirect("CustomerControl");
     }
 
     /**
@@ -81,8 +85,24 @@ public class updateCustomerControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        DAOCustomer dao = new DAOCustomer();
+        int cid = Integer.parseInt(request.getParameter("cid"));
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String gender = request.getParameter("gender");
+        String phone = request.getParameter("tel");
+        String email = request.getParameter("email");
+        String username = request.getParameter("user");
+        String password = request.getParameter("pass");
+        String status = request.getParameter("status");
+        String address = request.getParameter("address");
+        String age = request.getParameter("age");
+        int role = Integer.parseInt(request.getParameter("role"));
 
+//        Customer cus = new Customer(cid, firstname, lastname, gender, email, phone, username, password, age, status, address, role);
+        dao.updateCustomer1(firstname, lastname, gender, email, phone, username, password, age, status, address, role, cid);
+        response.sendRedirect("CustomerControl");
     }
 
     /**

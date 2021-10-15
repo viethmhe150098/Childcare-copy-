@@ -188,7 +188,7 @@
 
                             <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
                             <td >
-                                <a href="updateCustomerControl?cID=${o.cID}#about" style="color:#fff" class="edit">Update</a>
+                                <a href="updateCustomerControl?cID=${o.cID}" style="color:#fff" class="edit">Update</a>
                             </td>
 
                         </c:forEach>

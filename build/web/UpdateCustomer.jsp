@@ -166,52 +166,52 @@
                 <div class="modal-body">					
                     <div class="form-group">
                         <label>Customer ID</label>
-                        <input type="text" name="cid" value="${listC.cID}" readonly/>
+                        <input type="text" name="cid" value="${custom.cID}" readonly/>
                     </div>
                     <div class="form-group">
                         <label>First Name</label>
-                        <input name="firstname" type="text" value="${listC.first_name}" class="form-control" required>
+                        <input name="firstname" type="text" value="${custom.first_name}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input name="lastname" type="text" value="${listC.last_name}" class="form-control" required>
+                        <input name="lastname" type="text" value="${custom.last_name}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
-                        <input name="gender" type="text" value="${listC.gender}" class="form-control" required>
+                        <input name="gender" type="text" value="${custom.gender}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Email <i class="far fa-envelope"></i></label>
-                        <input name="email" type="text" value="${listC.email}" class="form-control" required>
+                        <input name="email" type="text" value="${custom.email}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Tel <i class="fas fa-phone"></i>
                         </label>
-                        <input name="tel" type="text" value="${listC.tel}" class="form-control" required>
+                        <input name="tel" type="text" value="${custom.tel}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input name="user" type="text" value="${listC.username}" class="form-control" required>
+                        <input name="user" type="text" value="${custom.username}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input name="pass" type="text" value="${listC.password}" class="form-control" required>
+                        <input name="pass" type="text" value="${custom.password}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Age</label>
-                        <input name="age" type="text" value="${listC.age}" class="form-control" required>
+                        <input name="age" type="text" value="${custom.age}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input name="status" type="text" value="${listC.status}" class="form-control" required>
+                        <input name="status" type="text" value="${custom.status}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea name="address" value="${listC.address}" class="form-control" required></textarea>
+                        <input name="address" value="${custom.address}" class="form-control" required></input>
                     </div>
                     <div class="form-group">
                         <label>Role</label>
-                        <input name="role" type="text" value="${listC.role}" class="form-control" required>
+                        <input name="role" type="text" value="${custom.role}" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer" style="margin-top:30px;">
