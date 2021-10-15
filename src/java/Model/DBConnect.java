@@ -33,7 +33,7 @@ public class DBConnect {
     }
 
     public DBConnect() {
-        this("jdbc:sqlserver://localhost:1433;databaseName=swp391", "sa1", "botruong1234@");
+        this("jdbc:sqlserver://localhost:1433;databaseName=swp391", "sa", "123456");
     }
 
     public ResultSet getData(String sql) {
@@ -61,8 +61,8 @@ public class DBConnect {
     private final String dbName = "swp391";
     private final String portNumber = "1433";
     private final String instance="";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
-    private final String userID = "sa1";
-    private final String password = "botruong1234@";
+    private final String userID = "sa";
+    private final String password = "123456";
     public static void main(String[] args) {
         new DBConnect();
     }

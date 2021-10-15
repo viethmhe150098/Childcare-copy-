@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -67,14 +68,30 @@ public class DAOManager {
         }
         return arr;
     }
+        public List<Manager> getAllManager1() {
+        List<Manager> list = new ArrayList<>();
+        String query = "select * from Customer";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add( new Manager(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                        rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+     }
         
         public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOManager dao = new DAOManager(dbconn);
-        ArrayList<Manager> list = dao.getAllManager();
-//        for (Object o : list) {
-//            System.out.println(o);
-//        }
+        List<Manager> list = dao.getAllManager1();
+        for (Object o : list) {
+            System.out.println(o);
+        }
         
 //        if(dao.loginManager("thanh", "123456")==null){
 //            System.out.println("not ok");

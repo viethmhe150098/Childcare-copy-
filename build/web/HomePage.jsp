@@ -439,7 +439,7 @@
                 </ul>
 
             </div>
-            <form action="Searching" method="post">
+            <form action="Searching?service=searchByService" method="post">
                 <div class="search1">
                     <input type="text" value="${txtS}" name="txt" placeholder="Type your search :" />
                     <button  type="submit" style="background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);

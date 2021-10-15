@@ -35,9 +35,12 @@ public class searchUserControl1 extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             DAOCustomer dao = new DAOCustomer();
+            
             String txtSearch = request.getParameter("name");
+             request.setAttribute("txtS", txtSearch);
             List<Customer> list = dao.SearchCustomer(txtSearch, txtSearch);
             request.setAttribute("listUser", list);
+             request.setAttribute("txtS", txtSearch);
             request.getRequestDispatcher("UserList.jsp").forward(request, response);
         }
     }

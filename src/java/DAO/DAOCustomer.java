@@ -79,6 +79,24 @@ public class DAOCustomer {
         }
         return list;
      }
+     public List<Customer> searchByName(String txtSearch) {
+        List<Customer> list = new ArrayList<>();
+        String query = "select * from Customer\n"
+                + "where [last_name] like ?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),rs.getInt(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
      public int getTotalCustomer() {
         String sql = "select count(*) from Customer";
         try {
@@ -260,6 +278,10 @@ public class DAOCustomer {
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
+        List<Customer> list = dao.searchByName("a");
+         for(Customer o : list){
+            System.out.println(o);
+       }
 //       Customer a = dao.getCustomerByID("1");
 //        System.out.println(a);
 //        List<Customer> list = dao.getAllCustomer1();

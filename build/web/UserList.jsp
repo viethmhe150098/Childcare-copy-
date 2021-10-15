@@ -162,22 +162,31 @@
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>List User</h2>
-            </div>
+                 
+            
+            
             <div class="col-sm-6">
                 <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
                 <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
             </div>
-            <form method="post" style="margin-bottom:20px;" action="filterUserControl?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+            
+            <form method="post" style="margin-bottom:20px;" action="Searching?service=searchByName" class="form-inline" id="searchForm" name="searchObject">
 
                 <select class="form-control" id="trangThai" name="status">
                     <option  value="4">All</option>
-<!--                    <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
+                    <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
                     <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
-                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
                 <button style="color: red"  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
 
+            </form>
+                 <form action="searchUserControl1" method="post">
+                <div class="search1" style="width: 40% ;margin: 0 auto;">
+                    <input type="text" value="${txtS}" name="name" placeholder="Type your search :" />
+                    <button  type="submit" style=" background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
+                             background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
+                             </div>
             </form>
 
             <!-- end title -->
@@ -213,7 +222,7 @@
                             <td>${o.address}</td>
                             <td>${o.tel}</td>
                             <td>${o.status}</td>
-                            <td>${o.role}</td>
+                            <td>${o.role==1 ?"Customer": "Staff"}</td>
 
                             <td><a href="userDetailControl?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
                             <td >
@@ -222,6 +231,7 @@
                             </td>
 
                         </c:forEach>
+                            
                     </tr>
                 </tbody>
             </table> 

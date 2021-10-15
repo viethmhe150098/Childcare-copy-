@@ -45,6 +45,21 @@ public class Manager {
         this.address = address;
     }
 
+    public Manager(int mID, String first_name, int aID, String last_name, int age, int gender, String username, String password, String image, String address, int role) {
+        this.mID = mID;
+        this.first_name = first_name;
+        this.aID = aID;
+        this.last_name = last_name;
+        this.age = age;
+        this.gender = gender;
+        this.username = username;
+        this.password = password;
+        this.image = image;
+        this.address = address;
+        this.role = role;
+    }
+    
+
     public Manager(String username, String password) {
         this.username = username;
         this.password = password;

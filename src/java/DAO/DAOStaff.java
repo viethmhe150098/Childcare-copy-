@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +31,9 @@ public class DAOStaff {
         conn = dbconn.con;
         this.dbconn = dbconn;
     }
+     public DAOStaff() {
+    }
+
 
     public Staff loginStaff(String username, String password) {
         try {
@@ -68,11 +72,27 @@ public class DAOStaff {
         }
         return arr;
     }
+      public List<Staff> getAllStaff1() {
+        List<Staff> list = new ArrayList<>();
+        String query = "select * from Staff";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getInt(8), rs.getInt(9)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+     }
 
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOStaff dao = new DAOStaff(dbconn);
-        ArrayList<Staff> list = dao.getAllStaff();
+        List<Staff> list = dao.getAllStaff1();
         for (Object o : list) {
             System.out.println(o);
         }

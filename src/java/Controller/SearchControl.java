@@ -5,7 +5,9 @@
  */
 package Controller;
 
+import DAO.DAOCustomer;
 import DAO.DAOService;
+import Entity.Customer;
 import Entity.SerCate;
 import Entity.Service;
 import java.io.IOException;
@@ -37,7 +39,10 @@ public class SearchControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        request.setCharacterEncoding("UTF-8");
-        String txtSearch = request.getParameter("txt");
+       String service = request.getParameter("service");
+       String status = request.getParameter("status"); 
+       if(service.equals("searchByService")){
+            String txtSearch = request.getParameter("txt");
          DAOService dao = new DAOService();
         List<SerCate> listC = dao.getAllCateSer();
         List<Service> list = dao.searchByName(txtSearch);
@@ -45,6 +50,12 @@ public class SearchControl extends HttpServlet {
         request.setAttribute("listC", listC);
           request.setAttribute("txtS", txtSearch);
         request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+       }else if(service.equals("searchByName")){
+           
+         
+            request.getRequestDispatcher("UserList.jsp").forward(request, response);
+       }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
