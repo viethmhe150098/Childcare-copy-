@@ -43,6 +43,7 @@ public class searchUserControl extends HttpServlet {
              }else{
                  
              }
+           
               
              request.setAttribute("checkStatus",status);
              request.setAttribute("listUser",list1);
