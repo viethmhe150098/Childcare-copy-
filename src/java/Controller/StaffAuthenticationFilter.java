@@ -49,7 +49,7 @@ public class StaffAuthenticationFilter implements Filter {
 
         HttpSession session = httpRequest.getSession(false);
 
-        boolean isLoggedIn = (session != null && session.getAttribute("customer_account") != null);
+        boolean isLoggedIn = (session != null && session.getAttribute("staff_account") != null);
 
         String loginURI = httpRequest.getContextPath() + "/login";
         boolean isLoginRequest = httpRequest.getRequestURI().equals(loginURI);
