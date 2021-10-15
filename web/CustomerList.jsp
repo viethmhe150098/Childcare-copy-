@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- Site Metas -->
-    <title>Life Care - Responsive HTML5 Multi Page Template</title>
+    <title>Customer List</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logo_web.png" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -95,18 +95,20 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
+                <form action="searchCustomerControl" method="get">
+                    <div class="serch-bar">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input name="name" type="text" class="form-control input-lg" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="button">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </header>
@@ -129,86 +131,87 @@
         <!-- end container -->
     </div>
     <!-- end section -->
-    
+
     <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>List Customer</h2>
             </div>
-             <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
-                        </div>
-             <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+            <div class="col-sm-6">
+                <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+            </div>
+            <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
 
-        <select class="form-control" id="trangThai" name="status">
-            <option  value="4">All</option>
-            <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
-            <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
-            <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
-            <option ${checkStatus == 3?"selected":""} value="3">Name</option> 
-        </select>
-        <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
-        
-    </form>
-        
+                <select class="form-control" id="trangThai" name="status">
+                    <option  value="4">All</option>
+                    <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
+                    <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
+                    <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
+                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> 
+                </select>
+                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
+
+            </form>
+
             <!-- end title -->
-            
-           <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
-<thead>
-    
-<tr>
-    <th>ID</th>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Email</th>
-<th>Tuổi</th>
-<th>Địa chỉ</th>
-<th>Status</th>
-<th>Detail</th>
 
-</tr>
-</thead>
-<tbody>
-     <c:forEach items="${listC}" var="o">
-<tr>
-<td>${o.cID}</td>
-<td>${o.first_name}</td>
-<td>${o.first_name}</td>
+            <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
+                <thead>
 
-<td>${o.email}</td>
-<td>${o.age}</td>
-<td>${o.address}</td>
-<td>${o.status}</td>    
- 
-<td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
-<td >
-                                    <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Phone</th>
+                        <th>Detail</th>
 
- </c:forEach>
-</tr>
-</tbody>
-</table> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${listC}" var="o">
+                        <tr>
+                            <td>${o.cID}</td>
+                            <td>${o.first_name} ${o.last_name}</td>
+                            <td>${o.email}</td>
+                            <td>${o.gender ==1?"Male":"Female"}</td>
+                            <td>${o.age}</td>
+                            <td>${o.address}</td>
+                            <td>${o.status}</td>    
+                            <td>${o.tel}</td>    
+
+                            <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
+                            <td >
+                                <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
+
+                        </c:forEach>
+                    </tr>
+                </tbody>
+            </table> 
         </div>
         <div class="container text-center">
-<ul class="pagination">
-    <c:if test="${tag>1}">
-<li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
-    </c:if>
- <c:forEach begin="1" end="${endP}" var="i">
- 
-<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
-   </c:forEach>
- <c:if test="${tag<endP}">
+            <ul class="pagination">
+                <c:if test="${tag>1}">
+                    <li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
+                    </c:if>
+                    <c:forEach begin="1" end="${endP}" var="i">
+
+                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
+                    </c:forEach>
+                    <c:if test="${tag<endP}">
 
 
-<li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
- </c:if>
-</ul>
-</div>
+                    <li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
+                    </c:if>
+            </ul>
+        </div>
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -278,7 +281,7 @@
                 </div>
             </div>
         </div>
-            <div id="addEmployeeModal" class="modal fade">
+        <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form action="AddCustomer" method="post">
@@ -301,73 +304,73 @@
                             </div>
                             <div class="form-group">
                                 <label>Email <i class="far fa-envelope"></i></label>
-                                                               <input name="email" type="text" class="form-control" required>
+                                <input name="email" type="text" class="form-control" required>
 
                             </div>
                             <div class="form-group">
                                 <label>Tel <i class="fas fa-phone"></i>
 
-</label>
-                                                              <input name="tel" type="text" class="form-control" required>
+                                </label>
+                                <input name="tel" type="text" class="form-control" required>
 
                             </div>
                             <div class="form-group">
                                 <label>Username</label>
-                                                                <input name="user" type="text" class="form-control" required>
+                                <input name="user" type="text" class="form-control" required>
 
-                                
+
                             </div>
-                     <div class="form-group">
+                            <div class="form-group">
                                 <label>Password</label>
-                                                              <input name="pass" type="text" class="form-control" required>
+                                <input name="pass" type="text" class="form-control" required>
 
-                                
+
                             </div>
-                             
-                     <div class="form-group">
-                                <label>Age</label>
-                                                               <input name="age" type="text" class="form-control" required>
 
-                                
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input name="age" type="text" class="form-control" required>
+
+
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
-                                                              <input name="status" type="text" class="form-control" required>
+                                <input name="status" type="text" class="form-control" required>
 
-                                
+
                             </div>
-                     <div class="form-group">
+                            <div class="form-group">
                                 <label>Address</label>
                                 <textarea name="address" class="form-control" required></textarea>
-                                
-                            </div>
-                     <div class="form-group">
-                                <label>Role</label>
-                                                                <input name="role" type="text" class="form-control" required>
 
-                                
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <input name="role" type="text" class="form-control" required>
+
+
                             </div>
 
                         </div>
                         <div class="modal-footer" style="margin-top:30px;">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-success" value="Add">
+                            <input style="background-color: red; color: white" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        
+
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
-         <script>
-function disable() {
-  document.getElementById("trangThai").disabled=true;
-}
-function enable() {
-  document.getElementById("trangThai").disabled=false;
-}
-</script>
+        <script>
+            function disable() {
+                document.getElementById("trangThai").disabled = true;
+            }
+            function enable() {
+                document.getElementById("trangThai").disabled = false;
+            }
+        </script>
         <script src="js/all.js"></script>
         <!-- all plugins -->
         <script src="js/custom.js"></script>
