@@ -262,10 +262,10 @@ public class DAOCustomer {
         DAOCustomer dao = new DAOCustomer(dbconn);
 //       Customer a = dao.getCustomerByID("1");
 //        System.out.println(a);
-//        List<Customer> list = dao.getAllCustomer1();
-//        for(Customer o : list){
-//            System.out.println(o);
-//        }
+        List<Customer> list = dao.pagingCustomer(30);
+        for(Customer o : list){
+            System.out.println(o);
+        }
 //    List<Customer> list = dao.pagingCustomer(1);
 //    for(Customer o : list){
 //            System.out.println(o);
