@@ -144,7 +144,7 @@
             </div>
             <!--data-toggle="modal"-->
 
-            <form method="post" style="margin-bottom:20px;" action="SearchingUser?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+            <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
                 <select class="form-control" id="trangThai" name="status">
                     <option  value="4">All</option>
                     <option value="0">Status Active</option>
