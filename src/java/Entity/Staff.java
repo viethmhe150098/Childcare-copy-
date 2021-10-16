@@ -19,7 +19,9 @@ public class Staff {
     private String address;
     private int sID;
     private int role;
-    
+    private int isDoctor;
+    private int age;
+    private int gender;
     public Staff() {
     }
 
@@ -122,6 +124,30 @@ public class Staff {
 
     public void setsID(int sID) {
         this.sID = sID;
+    }
+
+    public int getIsDoctor() {
+        return isDoctor;
+    }
+
+    public void setIsDoctor(int isDoctor) {
+        this.isDoctor = isDoctor;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
 

@@ -14,7 +14,7 @@ public class ReservationDetail {
     private String reID;
     private int quantity;
     private float price;
-
+    private String slotID;
     public ReservationDetail() {
     }
 
