@@ -57,6 +57,14 @@ public class ReservationDetail {
         this.price = price;
     }
 
+    public String getSlotID() {
+        return slotID;
+    }
+
+    public void setSlotID(String slotID) {
+        this.slotID = slotID;
+    }
+    
     @Override
     public String toString() {
         return "ReservationDetail{" + "serID=" + serID + ", reID=" + reID + ", quantity=" + quantity + ", price=" + price + '}';
