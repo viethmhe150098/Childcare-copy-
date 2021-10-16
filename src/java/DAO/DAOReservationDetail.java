@@ -31,9 +31,21 @@ public class DAOReservationDetail {
     }
 
     public ResultSet searchByReID(String reID) {
-        ResultSet rs = dbconn.getData("select b.sname,a.quantity,a.price from ReservationDetail as a inner join Service as b on a.serID=b.sID where a.reID=" + reID);
+        ResultSet rs = dbconn.getData("select b.sname,a.quantity,a.price from ReservationDetail as a inner join Service as b on a.sID=b.sID where a.reID=" + reID);
         return rs;
     }
+    public void delete(String reID){
+        String sql = "delete from ReservationDetail where reid ="+reID; 
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public static void main(String[] args) {
 
+    }
   
 }

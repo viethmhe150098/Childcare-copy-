@@ -333,7 +333,7 @@
                     <div class="button">
                         <c:if test="${re.status==1}">
                             <button><i class="fas fa-pen" style="margin-right:10px ;"></i>UPDATE</button>
-                            <button><i class="far fa-trash-alt"style="margin-right:10px ;"></i><a href="/CancelReservation?reid=${re.reID}" style="text-decoration: none">CANCEL</a></button>
+                            <button><i class="far fa-trash-alt"style="margin-right:10px ;"></i><a href="CancelReservation?reid=${re.reID}" style="text-decoration: none; color: white">CANCEL</a></button>
                         </c:if>
                         <p style="background-color:rgba(0, 181, 204, 1) ;margin-top: 20px;padding: 10px; border-radius: 10px;"><i class="fas fa-exclamation-triangle"></i>You can only update or delete if reservation status is submitted</p>
                     </div>

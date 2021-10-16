@@ -51,8 +51,8 @@ public class ReservationInfo extends HttpServlet {
             String reID = request.getParameter("reID");
             if (dao.acceptAccess(cid, reID)) {
                 Reservation re = dao.searchbyID(reID);
-//                ResultSet rs = daoDE.searchByReID(reID);
-//                request.setAttribute("rs", rs);
+                ResultSet rs = daoDE.searchByReID(reID);
+                request.setAttribute("rs", rs);
                 request.setAttribute("re", re);
                 request.getRequestDispatcher("reinfo.jsp").forward(request, response);
             }else{

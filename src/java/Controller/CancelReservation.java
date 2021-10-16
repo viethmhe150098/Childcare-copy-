@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.DAOReservation;
+import DAO.DAOReservationDetail;
 import DAO.DAOSendEmail;
 import Model.DBConnect;
 import java.io.IOException;
@@ -39,8 +40,12 @@ public class CancelReservation extends HttpServlet {
             DAOSendEmail send = new DAOSendEmail();
             DAOReservation dao = new DAOReservation(dbconn);
             String reid = request.getParameter("reid");
+            String email = dao.getEmail(reid);
+            DAOReservationDetail daoDe = new DAOReservationDetail(dbconn);
+            
+            daoDe.delete(reid);
             dao.DeleteReservation(reid);
-            send.send(dao.getEmail(reid), "You just cancel your reserervation", "You just cancel your cancel your reservation(ID:"+reid+")if that wasn't you please contact with us");
+            send.send(email, "You just cancel your reserervation", "You just cancel your cancel your reservation(ID:"+reid+")if that wasn't you please contact with us");
             
         }
     }
