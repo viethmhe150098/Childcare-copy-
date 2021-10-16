@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import DAO.DAOReservation;
+import DAO.DAOSendEmail;
 import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,21 +14,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import DAO.DAOReservation;
-import DAO.DAOReservationDetail;
-import Entity.Customer;
-import Entity.Reservation;
-import Entity.ReservationDetail;
-import Entity.Result;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Viet
  */
-public class ReservationInfo extends HttpServlet {
+public class CancelReservation extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,21 +36,12 @@ public class ReservationInfo extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             DBConnect dbconn = new DBConnect();
+            DAOSendEmail send = new DAOSendEmail();
             DAOReservation dao = new DAOReservation(dbconn);
-            DAOReservationDetail daoDE = new DAOReservationDetail(dbconn);
-            HttpSession session = request.getSession();
-            Customer c = (Customer) session.getAttribute("customer_account");
-            String cid = String.valueOf(c.getcID());
-            String reID = request.getParameter("reID");
-            if (dao.acceptAccess(cid, reID)) {
-                Reservation re = dao.searchbyID(reID);
-//                ResultSet rs = daoDE.searchByReID(reID);
-//                request.setAttribute("rs", rs);
-                request.setAttribute("re", re);
-                request.getRequestDispatcher("reinfo.jsp").forward(request, response);
-            }else{
-                response.sendRedirect("404.html");
-            }
+            String reid = request.getParameter("reid");
+            dao.DeleteReservation(reid);
+            send.send(dao.getEmail(reid), "You just cancel your reserervation", "You just cancel your cancel your reservation(ID:"+reid+")if that wasn't you please contact with us");
+            
         }
     }
 

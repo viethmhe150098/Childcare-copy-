@@ -167,13 +167,32 @@ public class DAOReservation {
         }
         return false;
     }
-
+    public void DeleteReservation(String reid){
+        String sql = "delete from Reservation where reID="+reid;
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public String getEmail(String reid){
+        String sql = "select mail from Reservation where reid="+reid;
+        ResultSet rs = dbconn.getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOReservation dao = new DAOReservation(dbconn);
         
-        if(dao.acceptAccess("2", "123456")){
-            System.out.println("true");
-        }
+        System.out.println(dao.getEmail("123456"));
     }
 }
