@@ -138,6 +138,42 @@ public class DAOCustomer {
         } catch (Exception e) {
         }
     }
+     public void editCustomer(String firstname, String lastname, String gender, String email, String tel, String username, String password,
+            String age, String status, String address, String role,String cid) {
+        String query = "update Customer\n"
+                + "set [first_name] = ?,\n"
+                + "[last_name] = ?,\n"
+                + "gender = ?,\n"
+                + "email = ?,\n"
+                + "[tel] = ?,\n"
+                + "username = ?\n"
+                + "password = ?\n"
+                + "age = ?\n"
+                + "status = ?\n"
+                + "address = ?\n"
+                + "role = ?\n"
+                + "where cID = ?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, firstname);
+            ps.setString(2, lastname);
+            ps.setString(3, gender);
+            ps.setString(4, email);
+            ps.setString(5, tel);
+            ps.setString(6, username);
+            ps.setString(7, password);
+                        ps.setString(8, age);
+            ps.setString(9, status);
+            ps.setString(10, address);
+            ps.setString(11, role);
+                        ps.setString(12, cid);
+
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 
     public Customer getCustomerByID(String cid) {
         List<Customer> list = new ArrayList<>();
@@ -418,6 +454,7 @@ public class DAOCustomer {
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
+
 //        List<Customer> list = dao.searchByName("a");
 //        for (Customer o : list) {
 //            System.out.println(o);
@@ -425,5 +462,32 @@ public class DAOCustomer {
 
         Customer cus = dao.getCustomerByID("1");
         System.out.println(cus);
+        List<Customer> list = dao.searchByName("b");
+//         for(Customer o : list){
+//            System.out.println(o);
+//       }
+//       Customer a = dao.getCustomerByID("1");
+//        System.out.println(a);
+        
+//    List<Customer> list = dao.pagingCustomer(1);
+//    for(Customer o : list){
+//            System.out.println(o);
+//    }
+//    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJC", "1");
+    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJxzxcC", "1");
+//        }
+//List<Customer> list1 = dao.pagingCustomer(30);
+//        for (Customer o : list) {
+//            System.out.println(o);
+//        }
+//        int b= dao.getTotalCustomer();
+//        System.out.println(b);
+//        }
+//        System.out.println(dao.loginCustomer("trung", "12345678"));
+//        dao.insertCus(new Customer("gia", "phu", "1", "phu@gmail.com", "086342623", "phu", "12345678", "20", "1", "ha noi"));
+//        List<Customer> list = dao.SearchCustomer("t");
+//        for(Customer o : list){
+//            System.out.println(o);
+//        }
     }
 }

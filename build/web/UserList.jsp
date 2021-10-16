@@ -170,16 +170,15 @@
                 <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
             </div>
             
-            <form method="post" style="margin-bottom:20px;" action="Searching?service=searchByName" class="form-inline" id="searchForm" name="searchObject">
-
+              <form method="post" style="margin-bottom:20px;" action="SearchingUser?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
                 <select class="form-control" id="trangThai" name="status">
                     <option  value="4">All</option>
-                    <option ${checkStatus == 0?"selected":""} value="0">Status1</option>
-                    <option ${checkStatus == 1?"selected":""} value="1">Status2</option>
+                    <option value="0">Active</option>
+                    <option value="1">Inactive</option><!--
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
+                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
-                <button style="color: red"  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
-
+                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
             </form>
                  <form action="searchUserControl1" method="post">
                 <div class="search1" style="width: 40% ;margin: 0 auto;">
@@ -226,7 +225,7 @@
 
                             <td><a href="userDetailControl?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
                             <td >
-                                <a href="" style="color:#fff;" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="updateCustomerControl?cID=${o.cID}" style="color:#fff" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
 
