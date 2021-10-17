@@ -867,20 +867,13 @@
                     <h3>SUBSCRIBE</h3>
                     <p>Get healthy news, tip and solutions to your problems from our experts.</p>
                     <div class="subcriber-box">
-                        <form id="mc-form" class="mc-form">
+                        <form id="mc-form" class="mc-form" action="addSubcribe" method="post">
                             <div class="newsletter-form">
-                                <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
+                                <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="email">
                                 <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                                <div class="clearfix"></div>
+                                
                                 <!-- mailchimp-alerts Start -->
-                                <div class="mailchimp-alerts">
-                                    <div class="mailchimp-submitting"></div>
-                                    <!-- mailchimp-submitting end -->
-                                    <div class="mailchimp-success"></div>
-                                    <!-- mailchimp-success end -->
-                                    <div class="mailchimp-error"></div>
-                                    <!-- mailchimp-error end -->
-                                </div>
+                                
                                 <!-- mailchimp-alerts end -->
                             </div>
                         </form>
@@ -925,7 +918,11 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./js/main.js"></script>
-
+<script>
+     function alert(){
+         window.alert(${mess});
+     }
+</script>
 </body>
 </html>
 
