@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- Site Metas -->
-    <title>Life Care - Responsive HTML5 Multi Page Template</title>
+    <title>Customer List</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logo_web.png" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -95,18 +95,20 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
+                <form action="searchCustomerControl" method="get">
+                    <div class="serch-bar">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input name="name" type="text" class="form-control input-lg" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="button">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </header>
@@ -129,82 +131,88 @@
         <!-- end container -->
     </div>
     <!-- end section -->
-    
+
     <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>List Customer</h2>
             </div>
-             <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
-                        </div>
-             <form method="post" style="margin-bottom:20px;" action="BillController?service=searchByStatus" class="form-inline" id="searchForm" name="searchObject">
+            <div class="col-sm-6">
+                <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                <!--<a href="updateCustomerControl" class="btn btn-info" ><i class="material-icons">&#xE15C;</i> <span>Update</span></a>-->						
+            </div>
+            <!--data-toggle="modal"-->
 
-        <select class="form-control" id="trangThai" name="status">
-            <option  value="4">All</option>
-            <option ${checkStatus == 0?"selected":""} value="0">Gender</option>
-            <option ${checkStatus == 1?"selected":""} value="1">Role</option>
-            <option ${checkStatus == 2?"selected":""} value="2">Address</option>     
-            <option ${checkStatus == 3?"selected":""} value="3">PhoneNumber</option> 
-        </select>
-        <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Searching</button>
-        
-    </form>
-        
+            <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+                <select class="form-control" id="trangThai" name="status">
+                    <option  value="4">All</option>
+                    <option value="0">Status Active</option>
+                    <option value="1">Status Inactive</option><!--
+                    <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
+                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
+                </select>
+                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
+            </form>
+
             <!-- end title -->
-            
-           <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
-<thead>
-    
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Email</th>
-<th>Tuổi</th>
-<th>Địa chỉ</th>
-<th>Status</th>
-<th>Detail</th>
 
-</tr>
-</thead>
-<tbody>
-     <c:forEach items="${listC}" var="o">
-<tr>
-<td>${o.cID}</td>
-<td>${o.first_name}</td>
-<td>${o.email}</td>
-<td>${o.age}</td>
-<td>${o.address}</td>
-<td>${o.status}</td>
- <td>
-                                    <a href=""  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-<td><a href="CustomerDetail?sid=${o.cID}" style="color:fff;">Detail</td>
+            <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
+                <thead>
 
- </c:forEach>
-</tr>
-</tbody>
-</table> 
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Phone</th>
+                        <th>Detail</th>
+                        <th>Update</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${listC}" var="o">
+                        <tr>
+                            <td>${o.cID}</td>
+                            <td>${o.first_name} ${o.last_name}</td>
+                            <td>${o.email}</td>
+                            <td>${o.gender ==1?"Male":"Female"}</td>
+                            <td>${o.age}</td>
+                            <td>${o.address}</td>
+                            <td>${o.status ==1?"Active":"Inactive"}</td>    
+                            <td>${o.tel}</td>    
+
+                            <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
+                            <td >
+                                <a href="updateCustomerControl?cID=${o.cID}" style="color:#fff" class="edit">Update</a>
+                            </td>
+
+                        </c:forEach>
+                    </tr>
+                </tbody>
+            </table> 
         </div>
         <div class="container text-center">
-<ul class="pagination">
-    <c:if test="${tag>1}">
-<li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
-    </c:if>
- <c:forEach begin="1" end="${endP}" var="i">
- 
-<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
-   </c:forEach>
- <c:if test="${tag<endP}">
+            <ul class="pagination">
+                <c:if test="${tag>1}">
+                    <li class="page-item "><a class="page-link" href="CustomerControl?index=${tag-1}#about">Previous</a></li>
+                    </c:if>
+                    <c:forEach begin="1" end="${endP}" var="i">
+
+                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="CustomerControl?index=${i}#about">${i}</a></li>
+                    </c:forEach>
+                    <c:if test="${tag<endP}">
 
 
-<li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
- </c:if>
-</ul>
-</div>
+                    <li class="page-item"><a class="page-link" href="CustomerControl?index=${tag+1}#about">Next</a></li>
+                    </c:if>
+            </ul>
+        </div>
+
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -274,64 +282,97 @@
                 </div>
             </div>
         </div>
-            <div id="addEmployeeModal" class="modal fade">
+        
+        <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="add" method="post">
+                    <form action="AddCustomer" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Add Customer</h4>
+                            <h4 class="modal-title">Add Customer <i class="fas fa-user-friends"></i></h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" class="form-control" required>
+                                <label>First Name</label>
+                                <input name="firstname" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="file" class="form-control" required>
+                                <label>Last Name</label>
+                                <input name="lastname" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
+                                <label>Gender</label>
+                                <input name="gender" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
+                                <label>Email <i class="far fa-envelope"></i></label>
+                                <input name="email" type="text" class="form-control" required>
+
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
+                                <label>Tel <i class="fas fa-phone"></i>
+
+                                </label>
+                                <input name="tel" type="text" class="form-control" required>
+
                             </div>
                             <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listCC}" var="o">
-                                        <option value="${o.cid}">${o.cname}</option>
-                                    </c:forEach>
-                                </select>
+                                <label>Username</label>
+                                <input name="user" type="text" class="form-control" required>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="pass" type="text" class="form-control" required>
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input name="age" type="text" class="form-control" required>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <input name="status" type="text" class="form-control" required>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea name="address" class="form-control" required></textarea>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <input name="role" type="text" class="form-control" required>
+
+
                             </div>
 
                         </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <div class="modal-footer" style="margin-top:30px;">
                             <input type="submit" class="btn btn-success" value="Add">
+                            <input style="background-color: red; color: white" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        
+
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
-         <script>
-function disable() {
-  document.getElementById("trangThai").disabled=true;
-}
-function enable() {
-  document.getElementById("trangThai").disabled=false;
-}
-</script>
+        <script>
+            function disable() {
+                document.getElementById("trangThai").disabled = true;
+            }
+            function enable() {
+                document.getElementById("trangThai").disabled = false;
+            }
+        </script>
         <script src="js/all.js"></script>
         <!-- all plugins -->
         <script src="js/custom.js"></script>

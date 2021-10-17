@@ -11,6 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,8 +48,8 @@ public class DAOReservation {
     public String randomAlphaNumeric(int numberOfCharactor) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < numberOfCharactor; i++) {
-            int number = randomNumber(0, ALPHA_NUMERIC.length() - 1);
-            char ch = ALPHA_NUMERIC.charAt(number);
+            int number = randomNumber(0, digits.length() - 1);
+            char ch = digits.charAt(number);
             sb.append(ch);
         }
         return sb.toString();
@@ -69,6 +72,43 @@ public class DAOReservation {
             Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public int getTotalReservation() {
+        String sql = "select count(*) from reservation";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
+
+    public List<Reservation> pagingReservation(int index) {
+        List<Reservation> list = new ArrayList<>();
+        String sql = "select * from reservation\n"
+                + "order by cID\n"
+                + "offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3),
+                        rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getInt(10), rs.getString(11), rs.getString(12), rs.getInt(13)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
     }
 
 //    public int changeStatus(int reID, int status) {
@@ -114,9 +154,45 @@ public class DAOReservation {
         }
     }
 
+    public boolean acceptAccess(String cid, String reID) {
+        ResultSet rs1 = dbconn.getData("select cid from Reservation where reID = " + reID);
+        try {
+            while (rs1.next()) {                
+                if(rs1.getString(1).equals(cid)){
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    public void DeleteReservation(String reid){
+        String sql = "delete from Reservation where reID="+reid;
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public String getEmail(String reid){
+        String sql = "select mail from Reservation where reid="+reid;
+        ResultSet rs = dbconn.getData(sql);
+        try {
+            while (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
-        DAOReservation dao = new DAOReservation();
-        dao.AcceptReservation("1");
+        DAOReservation dao = new DAOReservation(dbconn);
+        
+        System.out.println(dao.getEmail("123456"));
     }
 }

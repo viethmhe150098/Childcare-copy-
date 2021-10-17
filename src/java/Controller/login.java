@@ -125,7 +125,7 @@ public class login extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("staff_account", daosta.loginStaff(username, password));
-                response.sendRedirect("ServiceControl");
+                response.sendRedirect("StaffController");
 //                response.sendRedirect("Susscess.jsp");
             }
         } else {

@@ -24,12 +24,11 @@ public class Customer {
     private String address;
     private int role;
 //    private String code;
-    
-       public Customer(String password) {
+
+    public Customer(String password) {
         this.password = password;
     }
-    
-    
+
     public Customer(String username, String password) {
         this.username = username;
         this.password = password;
@@ -46,7 +45,7 @@ public class Customer {
         this.age = age;
         this.address = address;
     }
-    
+
     public Customer(String first_name, String last_name, String gender, String email, String tel, String username, String password, String address) {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -72,7 +71,10 @@ public class Customer {
         this.address = address;
         this.role = role;
     }
-    
+
+    public int getRole() {
+        return role;
+    }
 
     public void setRole(int role) {
         this.role = role;
@@ -90,9 +92,10 @@ public class Customer {
         this.status = status;
         this.address = address;
     }
-       
-    
-    
+
+    public Customer() {
+    }
+
     public Customer(int cID, String first_name, String last_name, String gender, String email, String tel, String username, String password, String age, String status, String address) {
         this.cID = cID;
         this.first_name = first_name;
@@ -106,9 +109,7 @@ public class Customer {
         this.status = status;
         this.address = address;
     }
-    
-    
-    
+
     public int getcID() {
         return cID;
     }
@@ -202,10 +203,4 @@ public class Customer {
         return "Customer{" + "cID=" + cID + ", first_name=" + first_name + ", last_name=" + last_name + ", gender=" + gender + ", email=" + email + ", tel=" + tel + ", username=" + username + ", password=" + password + ", age=" + age + ", status=" + status + ", address=" + address + ", role=" + role + '}';
     }
 
-    
-    
-
-   
-    
-    
 }
