@@ -22,7 +22,7 @@ public class DAOFeedback {
     PreparedStatement ps = null;
     ResultSet rs = null;
     DBConnect dbconn = null;
-     public List<Feedback> pagingProduct(int index) {
+     public List<Feedback> pagingFeedback(int index) {
         List<Feedback> list = new ArrayList<>();
         String sql = "select * from feedback\n"
                 + "order by fID\n"
@@ -46,11 +46,27 @@ public class DAOFeedback {
         }
         return list;
     }
+     public int getTotalFeedback() {
+        String sql = "select count(*) from feedback";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
       public static void main(String[] args) {
           DAOFeedback  dao = new DAOFeedback();
-          List<Feedback> list = dao.pagingProduct(1);
+          List<Feedback> list = dao.pagingFeedback(1);
           for(Feedback o : list){
               System.out.println(o);
           }
+          int a=dao.getTotalFeedback();
+          System.out.println(a);
       }
 }

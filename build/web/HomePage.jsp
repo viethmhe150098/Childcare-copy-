@@ -48,31 +48,7 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<style>
-  span {
-  position: relative;
-  z-index: 1;
-}
 
-span::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: -0.25em;
-  right: -0.25em;
-  background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
-  transform-origin: bottom center;
-  transform: scaleY(0.1);
-  transition: all 0.1s ease-in-out;
-}
-
-span:hover::before {
-  transform: scaleY(1);
-   background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
-}
-</style>
 <body class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
