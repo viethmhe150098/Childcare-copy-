@@ -30,6 +30,8 @@ public class DAOManager {
         conn = dbconn.con;
         this.dbconn = dbconn;
     }
+     public DAOManager() {
+    }
     
         public Manager loginManager(String username, String password) {
         try {
@@ -70,7 +72,7 @@ public class DAOManager {
     }
         public List<Manager> getAllManager1() {
         List<Manager> list = new ArrayList<>();
-        String query = "select * from Customer";
+        String query = "select * from Manager";
         try {
             conn = new DBConnect().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);

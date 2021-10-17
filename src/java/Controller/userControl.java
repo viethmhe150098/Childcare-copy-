@@ -6,8 +6,10 @@
 package Controller;
 
 import DAO.DAOCustomer;
+import DAO.DAOManager;
 import DAO.DAOStaff;
 import Entity.Customer;
+import Entity.Manager;
 import Entity.Staff;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,6 +40,7 @@ public class userControl extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             DAOCustomer dao = new DAOCustomer();
             DAOStaff dao1 =new DAOStaff();
+            DAOManager dao2= new DAOManager();
             String indexPage = request.getParameter("index");
             if (indexPage == null) {
                 indexPage = "1";
@@ -52,10 +55,15 @@ public class userControl extends HttpServlet {
             }
             List <Staff> list1 = dao1.getAllStaff1();
             List<Customer> list = dao.pagingCustomer(index);
+            List<Manager> list2 =dao2.getAllManager1();
             request.setAttribute("endP", endPage);
             request.setAttribute("tag", index);
             request.setAttribute("listUser", list);
                         request.setAttribute("listStaff", list1);
+
+                        request.setAttribute("listStaff", list1);
+                                                request.setAttribute("listManager", list2);
+
 
             
 

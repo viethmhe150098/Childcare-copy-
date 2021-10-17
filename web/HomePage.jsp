@@ -48,6 +48,31 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
+<style>
+  span {
+  position: relative;
+  z-index: 1;
+}
+
+span::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -0.25em;
+  right: -0.25em;
+  background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
+  transform-origin: bottom center;
+  transform: scaleY(0.1);
+  transition: all 0.1s ease-in-out;
+}
+
+span:hover::before {
+  transform: scaleY(1);
+   background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
+}
+</style>
 <body class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
@@ -341,7 +366,7 @@
                                 <div class="serv-img" >
                                     <img class="ser-img-saleoff" src="https://cf.shopee.vn/file/d572d2eef9148fecdeaf56caf9917298" alt="" >
                                 </div>
-                                <h2 class="content-h2 text-center">${o.scCateName}</h2>
+                                <h2 class="content-h2 text-center"><span >${o.scCateName}</span></h2>
                                 <div class="service-price" style="background-color:#39b49a;color:white;width: 100%; ">
                                     <p style = "text-decoration: underline;
                                        text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 240$</p>
@@ -470,7 +495,22 @@
 
 
 
+<div class= "text-center">
+<ul class="pagination">
+    <c:if test="${tag>1}">
+<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
+    </c:if>
+ <c:forEach begin="1" end="${endP}" var="i">
+ 
+<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
+   </c:forEach>
+ <c:if test="${tag<endP}">
 
+
+<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
+ </c:if>
+</ul>
+</div>
 
                 </div>
 
@@ -554,22 +594,7 @@
               
               </div>
            </div>
-                      <div class="container text-left">
-<ul class="pagination">
-    <c:if test="${tag>1}">
-<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
-    </c:if>
- <c:forEach begin="1" end="${endP}" var="i">
- 
-<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
-   </c:forEach>
- <c:if test="${tag<endP}">
-
-
-<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
- </c:if>
-</ul>
-</div>
+                      
         </div>
     </div>
 </div>

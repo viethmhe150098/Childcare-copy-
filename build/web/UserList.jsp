@@ -189,7 +189,7 @@
             </form>
 
             <!-- end title -->
-
+            <h1>Customer</h1>
             <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
                 <thead>
 
@@ -234,8 +234,9 @@
                     </tr>
                 </tbody>
             </table> 
+                     
         </div>
-        <div class="container text-center">
+                       <div class="container text-center">
             <ul class="pagination">
                 <c:if test="${tag>1}">
                     <li class="page-item "><a class="page-link" href="userControl?index=${tag-1}#about">Previous</a></li>
@@ -250,7 +251,65 @@
                     <li class="page-item"><a class="page-link" href="userControl?index=${tag+1}#about">Next</a></li>
                     </c:if>
             </ul>
-        </div>
+        </div>  
+                    <h1 class="text-center">Staff</h1>
+                       <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                         <th>Address</th>                                 
+                        <th>Role</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${listStaff}" var="o">
+                        <tr>
+                              <td>${o.sID}</td>
+
+                            <td>${o.first_name} ${o.last_name}</td>
+                            <td>${o.username}</td>
+                            <td>${o.address}</td>
+                            <td>${o.role==1 ?"Staff": ""}</td>
+
+                        </c:forEach>
+                            
+                    </tr>
+                </tbody>
+            </table> 
+                    <h1 class="text-center">Manager</h1>
+                       <table class="table table-dark" style="background: #333;border-radius:10px;margin-top:30px;">
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                         <th>Address</th>                                 
+                        <th>Role</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${listManager}" var="o">
+                        <tr>
+                              <td>${o.mID}</td>
+
+                            <td>${o.first_name} ${o.last_name}</td>
+                            <td>${o.username}</td>
+                            <td>${o.address}</td>
+                            <td>${o.role==1 ?"Staff": ""}</td>
+
+                        </c:forEach>
+                            
+                    </tr>
+                </tbody>
+            </table> 
+                    
+     
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">

@@ -252,6 +252,7 @@ public class DAOCustomer {
         }
         return list;
     }
+    
 
     public List<Customer> SearchCustomer(String name, String phone) {
         List<Customer> list = new ArrayList<>();

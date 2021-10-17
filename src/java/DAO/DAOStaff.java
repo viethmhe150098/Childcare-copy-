@@ -55,6 +55,42 @@ public class DAOStaff {
         }
         return null;
     }
+     public int getTotalStaff() {
+        String sql = "select count(*) from Staff";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
+     public List<Staff> pagingStaff(int index) {
+        List<Staff> list = new ArrayList<>();
+        String sql = "select * from Staff\n"
+                + "order by sID\n"
+                + "offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getInt(8), rs.getInt(9)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+
 
     public ArrayList<Staff> getAllStaff() {
         ArrayList<Staff> arr = new ArrayList<Staff>();
