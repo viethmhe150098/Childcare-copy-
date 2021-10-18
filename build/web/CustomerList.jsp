@@ -147,8 +147,8 @@
             <form method="post" style="margin-bottom:20px;" action="SearchingCustomer?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
                 <select class="form-control" id="trangThai" name="status">
                     <option  value="4">All</option>
-                    <option value="0">Status Active</option>
-                    <option value="1">Status Inactive</option><!--
+                    <option value="0">Status Inactive</option>
+                    <option value="1">Status Active</option><!--
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
                     <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
