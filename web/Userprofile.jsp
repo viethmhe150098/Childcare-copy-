@@ -224,7 +224,7 @@
          <%  session = request.getSession(true);
             Customer a = (Customer) session.getAttribute("customer_account");
         %>
-                <a><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                <a href="ReserDetailforCus?cID=<%=a.getcID()%>"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
             
         </div>
     </header>
@@ -250,7 +250,7 @@
         <!-- end container -->
     </div>
     <div class="contain">
-        
+
         <div class="leftside_bar">
             <div>
                 <ul>

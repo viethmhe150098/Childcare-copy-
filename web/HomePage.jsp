@@ -6,9 +6,7 @@
 <%@page import="Entity.Customer"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%  session = request.getSession(true);
-    Customer test = (Customer) session.getAttribute("customer_account");
-%>
+
 <!DOCTYPE html>
 <html lang="en">
     <!-- Basic -->
@@ -50,31 +48,7 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<style>
-  span {
-  position: relative;
-  z-index: 1;
-}
 
-span::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: -0.25em;
-  right: -0.25em;
-  background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
-  transform-origin: bottom center;
-  transform: scaleY(0.1);
-  transition: all 0.1s ease-in-out;
-}
-
-span:hover::before {
-  transform: scaleY(1);
-   background: -webkit-gradient(linear, left top, right top, from(#39b49a), to(#1d86df));
-}
-</style>
 <body class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
@@ -106,7 +80,7 @@ span:hover::before {
 
                                 <c:choose>
                                     <c:when test= "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
+                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                     </c:when>
                                     <c:otherwise>
                                         <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
@@ -209,12 +183,7 @@ span:hover::before {
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-
-                <a><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
-=======
                 <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
->>>>>>> 0b91796a20d07634cdfd97ed30857728fad16a4c
 
             </div>
         </div>
@@ -524,31 +493,6 @@ span:hover::before {
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-<<<<<<< HEAD
-                <div class="appointment-form">
-                    =======
-                    background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
-                    </form>
-
-                </div>
-                <div class="row">
-
-                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                        <div class="inner-services">
-                            <c:forEach items="${listS}"  var ="o">
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="serv">
-                                        <span class="icon-service"><img  class="img-service"src="images/clinic_03.jpg" alt="#"  style="width: 220px;height:220px;border-radius: 10px;"/></span>            
-                                        <p class="card-title show_txt"><a class="name_service" href="ServiceDetail?sid=${o.sID}&&scID=${o.scID}" title="View Product">${o.sname}</a></p>
-                                        <p>${o.description}</p>   
-
-                                        <span class="service-price1">${o.sprice}$</span>
-                                        <span class="service-quantity">${o.maxquantity}</span>
-
-
-
-
-=======
                  <div class="appointment-form">
                     <h3><span>+</span> Book Appointment</h3>
                     <div class="form">
@@ -559,97 +503,61 @@ span:hover::before {
                                         <div class="form-group">
                                             <input type="text" id="name" placeholder="Your Name"  />
                                         </div>
->>>>>>> 0b91796a20d07634cdfd97ed30857728fad16a4c
                                     </div>
                                 </div>
-                            </c:forEach>
-
-
-
-
-
-                        </div>
-
-
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="email" placeholder="Email Address" id="email" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Day</option>
+                                                <option>Sunday</option>
+                                                <option>Monday</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Time</option>
+                                                <option>AM</option>
+                                                <option>PM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Doctor Name</option>
+                                                <option>Mr.XYZ</option>
+                                                <option>Mr.ABC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <textarea rows="4" id="textarea_message" class="form-control" placeholder="Your Message..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="center"><button type="submit">Submit</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
-
-
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="appointment-form">
-                            >>>>>>> 5269b2773fee45ca97466c47c70817ea413c810c
-                            <h3><span>+</span> Book Appointment</h3>
-                            <div class="form">
-                                <form action="index.html">
-                                    <fieldset>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <input type="text" id="name" placeholder="Your Name"  />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <input type="email" placeholder="Email Address" id="email" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>Day</option>
-                                                        <option>Sunday</option>
-                                                        <option>Monday</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>Time</option>
-                                                        <option>AM</option>
-                                                        <option>PM</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>Doctor Name</option>
-                                                        <option>Mr.XYZ</option>
-                                                        <option>Mr.ABC</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <textarea rows="4" id="textarea_message" class="form-control" placeholder="Your Message..."></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <div class="center"><button type="submit">Submit</button></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                            <<<<<<< HEAD
-                        </div>
-                    </div>
-<<<<<<< HEAD
-                    =======
-                </div>
-            </div>
-=======
 
                 </div>
 
@@ -663,27 +571,8 @@ span:hover::before {
               </div>
            </div>
                       
->>>>>>> 0b91796a20d07634cdfd97ed30857728fad16a4c
         </div>
-        <div class="container text-left">
-            <ul class="pagination">
-                <c:if test="${tag>1}">
-                    <li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
-                    </c:if>
-                    <c:forEach begin="1" end="${endP}" var="i">
-
-                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
-                    </c:forEach>
-                    <c:if test="${tag<endP}">
-
-
-                    <li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
-                    </c:if>
-            </ul>
-        </div>
-        >>>>>>> 5269b2773fee45ca97466c47c70817ea413c810c
     </div>
-</div>
 </div>
 <!-- end section -->
 
