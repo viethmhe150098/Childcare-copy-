@@ -56,12 +56,96 @@
 
                 margin: 0 auto;
                 overflow: scroll;
+                align-items: center;
+
             }
             .card{
                 margin-top: 5px;
-                height: 200px;
-                
+                height: 300px;
+
             }
+            .center{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            button{
+                width: 200px;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                font-weight: bolder;
+                background-color: #07B3F9;
+                color: white
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 8;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0, 0, 0);
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+            .modal-content {
+                margin: 50px auto;
+                border: 1px solid #999;
+                width: 60%;
+            }
+            form {
+                padding: 25px;
+                margin: 25px;
+                box-shadow: 0 2px 5px #f5f5f5;
+                background: #eee;
+            }
+            input,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #1c87c9;
+                outline: none;
+            }
+            .contact-form button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background: #1c87c9;
+                font-size: 16px;
+                font-weight: 400;
+                color: #fff;
+            }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            button.button {
+                background: none;
+                border-top: none;
+                outline: none;
+                border-right: none;
+                border-left: none;
+                border-bottom: #02274a 1px solid;
+                padding: 0 0 3px 0;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button.button:hover {
+                border-bottom: #a99567 1px solid;
+                color: #a99567;
+            }
+
         </style>
     </head>
 
@@ -130,7 +214,7 @@
         </div>
     </header>
 
-    <div style="margin-top: 200px; ">
+    <div style="margin-top: 200px;display: flex;">
         <div class="row display">
             <c:forEach var="o" items="${list}">
                 <div class="col-sm-6 card">
@@ -144,8 +228,60 @@
                 </div>
             </c:forEach>
         </div>
-
     </div>
+    <div class="center">
+        <button class="button" data-modal="modalOne" style="background-color: #07B3F9; margin: 20px 0px; ">ADD NEW MEDICINE</button>
+    </div>
+    <div id="modalOne" class="modal">
+        <div class="modal-content">
+            <div class="contact-form">
+                <a class="close">&times;</a>
+                <form action="AddMedicine">
+                    <div>
+                        <input class="fname" type="text" name="name" placeholder="MEDICINE NAME">
+                        <input type="text" name="quantity" placeholder="QUANTITY">
+                        <input type="text" name="price" placeholder="PRICE">
+                        <input type="text" name="des" placeholder="DESCRIPTION">
+                        <input type="file" name="img" accept="image/*" onchange="preview_image(event)">
+                        <img id="output_image"  style="display: block; margin-left: auto; margin-right: auto;margin-bottom: 20px; width: 200px; height: 200px">
+                    </div>
+                    <button type="submit" href="/">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        let modalBtns = [...document.querySelectorAll(".button")];
+        modalBtns.forEach(function (btn) {
+            btn.onclick = function () {
+                let modal = btn.getAttribute('data-modal');
+                document.getElementById(modal)
+                        .style.display = "block";
+            };
+        });
+        let closeBtns = [...document.querySelectorAll(".close")];
+        closeBtns.forEach(function (btn) {
+            btn.onclick = function () {
+                let modal = btn.closest('.modal');
+                modal.style.display = "none";
+            };
+        });
+        window.onclick = function (event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+            }
+        };
+        function preview_image(event)
+        {
+            var reader = new FileReader();
+            reader.onload = function ()
+            {
+                var output = document.getElementById('output_image');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </body>
 
 </html>
