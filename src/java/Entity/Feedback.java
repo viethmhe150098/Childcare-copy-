@@ -19,8 +19,11 @@ public class Feedback {
     private String gender;
     private String image;
     private int star_1;
+    private String description;
+    private String sName;
+    private String uFullName;
 
-    public Feedback(int fID, String content, int star, String email, String name, String mobile, String gender, String image, int star_1) {
+    public Feedback(int fID, String content, int star, String email, String name, String mobile, String gender, String image, int star_1,String description,String sName,String uFullName) {
         this.fID = fID;
         this.content = content;
         this.star = star;
@@ -30,6 +33,9 @@ public class Feedback {
         this.gender = gender;
         this.image = image;
         this.star_1 = star_1;
+         this.description = description;
+        this.sName = sName;
+        this.uFullName = uFullName;
     }
 
     public int getfID() {
@@ -103,6 +109,31 @@ public class Feedback {
     public void setStar_1(int star_1) {
         this.star_1 = star_1;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getsName() {
+        return sName;
+    }
+
+    public void setsName(String sName) {
+        this.sName = sName;
+    }
+
+    public String getuFullName() {
+        return uFullName;
+    }
+
+    public void setuFullName(String uFullName) {
+        this.uFullName = uFullName;
+    }
+    
 
     @Override
     public String toString() {

@@ -48,6 +48,13 @@ public class FeedbackControl extends HttpServlet {
             endPage++;
         }
          List<Feedback> list = dao.pagingFeedback(index);
+                 request.setAttribute("endP", endPage);
+         request.setAttribute("tag", index);
+                  request.setAttribute("listFeedback", list);
+
+
+                 request.getRequestDispatcher("FeedBackList.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

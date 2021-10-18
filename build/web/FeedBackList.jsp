@@ -3,6 +3,7 @@
     Created on : Oct 15, 2021, 8:34:44 PM
     Author     : ADMIN
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,6 +32,7 @@
     <link rel="stylesheet" href="css/versions.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
@@ -53,7 +55,7 @@
     </div>
     <!-- END LOADER -->
     <header>
-        <div class="header-top wow fadeIn">
+        <div class="header-top fadeIn">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
                 <div class="right-header">
@@ -74,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom wow fadeIn">
+        <div class="header-bottom fadeIn">
             <div class="container">
                 <nav class="main-menu">
                     <div class="navbar-header">
@@ -131,25 +133,32 @@
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                <h2>The Detail Service</h2>
+                <h2>The Feedback List</h2>
             </div>
             <!-- end title -->
+                             <c:forEach items="${listFeedback}" var="o">
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h4>What We Do</h4>
-                        <h2>Clinic Service</h2>
-                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                            <p style = "text-decoration: underline;
-                               text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                            <p style="text-align: center"> Sale :50$</p>
+                        <h4>${o.fID}</h4>
+                        <h2>${o.name}</h2>
+                        <div class="service-price" style="background-color:#39b49a;color:white;width: 10%; ">
+                            <p style="text-align:center;">${o.star} <i class="fas fa-star-half-alt"></i></p>
                         </div>
-                        <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
-                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                        <p class="lead">${o.description}</p>
+                                    </div>
+                         <button class="w3-left w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i
+                                        class="fa fa-thumbs-up"></i> Like</b></button></p>
+                            <button class="w3-right w3-button w3-black mtl" onclick="myFunction('demo3')"
+                                id="myBtn"><b>Replies
+                                    &nbsp;</b> <span class="w3-tag w3-white">1</span></button></p>
+                            <p class="w3-clear"></p>
+                            
+
                     </div>
                     <!-- end messagebox -->
-                </div>
+               
                 <!-- end col -->
                 <div class="col-md-6">
                     <div class="post-media wow fadeIn">
@@ -159,7 +168,25 @@
                     <!-- end media -->
                 </div>
                 <!-- end col -->
-            </div>
+                
+                                         </c:forEach>
+
+            <div class="container text-center">
+            <ul class="pagination">
+                <c:if test="${tag>1}">
+                    <li class="page-item "><a class="page-link" href="FeedbackControl?index=${tag-1}#about">Previous</a></li>
+                    </c:if>
+                    <c:forEach begin="1" end="${endP}" var="i">
+
+                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="FeedbackControl?index=${i}#about">${i}</a></li>
+                    </c:forEach>
+                    <c:if test="${tag<endP}">
+
+
+                    <li class="page-item"><a class="page-link" href="FeedbackControl?index=${tag+1}#about">Next</a></li>
+                    </c:if>
+            </ul>
+        </div>  
         </div>
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
@@ -241,5 +268,23 @@
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="./js/main.js"></script>
+         <script>
+        // Toggle between hiding and showing blog replies/comments
+       
+        document.getElementById(" myBtn").click(); function myFunction(id) {
+            var x = document.getElementById(id); if
+                (x.className.indexOf("w3-show") == -1) { x.className += " w3-show"; } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        } 
+                              
+   
+       function likeFunction(x) {
+         
+                x.style.fontWeight = "bold";
+                x.innerHTML = "&#10003; Liked";
+    
+            
+        }</script>
 </body>   
 </html>
