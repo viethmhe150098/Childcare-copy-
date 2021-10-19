@@ -8,14 +8,20 @@ package Controller;
 import DAO.DAOMedicine;
 import Entity.Medicines;
 import Model.DBConnect;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -38,7 +44,7 @@ public class Medicine extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
         }
     }
 
@@ -54,8 +60,14 @@ public class Medicine extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.getRequestDispatcher("AddMedicine.jsp").forward(request, response);
+        DBConnect dbconn = new DBConnect();
+        DAOMedicine dao = new DAOMedicine(dbconn);
+        String service = request.getParameter("service");
+        if (service == null) {
+            ArrayList<Medicines> list = dao.displayMe();
+            request.setAttribute("list", list);
+            request.getRequestDispatcher("displayMedicine.jsp").forward(request, response);
+        }
 
     }
 
@@ -70,17 +82,47 @@ public class Medicine extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         DBConnect dbconn = new DBConnect();
         DAOMedicine dao = new DAOMedicine(dbconn);
         String service = request.getParameter("service");
         if (service.equals("add")) {
+
             String meName = request.getParameter("name");
             int meQuantity = Integer.parseInt(request.getParameter("quantity"));
             float mePrice = Float.parseFloat(request.getParameter("price"));
             String meDes = request.getParameter("des");
             String img = request.getParameter("img");
-            Medicines me = new Medicines(meName, meQuantity, img, meDes, mePrice);
+            DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(fileItemFactory);
+            String fileImg="";
+            try {
+                List<FileItem> fileItems = upload.parseRequest(request);
+                for (FileItem fileItem : fileItems) {
+                    if (!fileItem.isFormField()) {
+                        // xử lý file
+                        String nameimg = fileItem.getName();
+                        if (!nameimg.equals("")) {
+                            String dirUrl = request.getServletContext()
+                                    .getRealPath("") + File.separator + "files";
+                            File dir = new File(dirUrl);
+                            if (!dir.exists()) {
+                                dir.mkdir();
+                            }
+                            fileImg = dirUrl + File.separator + nameimg;
+                            File file = new File(fileImg);
+                            try {
+                                fileItem.write(file);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            } catch (FileUploadException e) {
+                e.printStackTrace();
+            }
+            Medicines me = new Medicines(meName, meQuantity,fileImg , meDes, mePrice);
             dao.Add(me);
             request.getRequestDispatcher("displayMe").forward(request, response);
         }

@@ -236,7 +236,7 @@
         <div class="modal-content">
             <div class="contact-form">
                 <a class="close">&times;</a>
-                <form action="AddMedicine">
+                <form action="Medicine" enctype="multipart/form-data">
                     <div>
                         <input class="fname" type="text" name="name" placeholder="MEDICINE NAME">
                         <input type="text" name="quantity" placeholder="QUANTITY">

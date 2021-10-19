@@ -30,7 +30,7 @@ public class DAOMedicine {
     }
     
     public void Add(Medicines me){
-        String sql = "insert into medicine(meName, meQuantity, meImg, meDes, mePrice) values (?,?,?,?,?)";
+        String sql = "insert into medicine(meName, meQuantity, meImg, meDes, mePrice) values (N'?',?,?,N'?',?)";
         try {
             conn = dbconn.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
