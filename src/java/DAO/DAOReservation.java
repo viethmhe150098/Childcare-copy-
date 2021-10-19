@@ -193,6 +193,6 @@ public class DAOReservation {
         DBConnect dbconn = new DBConnect();
         DAOReservation dao = new DAOReservation(dbconn);
         
-        System.out.println(dao.getEmail("123456"));
+        System.out.println(dao.searchbyID("654321"));
     }
 }
