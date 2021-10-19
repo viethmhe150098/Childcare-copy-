@@ -72,26 +72,26 @@
                             <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                             <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
                         </div>
-                        <div class="info-inner">
-                            <ul class="list-main">
-                                <c:choose>
-                                    <c:when test= "${sessionScope.customer_account == null}">
-                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                        <div style="color: black;" class="info-inner">
+                        <ul class="list-main">
+                            <c:choose>
+                                <c:when test= "${sessionScope.customer_account == null}">
+                                    <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="fa fa-user-circle"></i> <a href="Userprofile.jsp"> ${sessionScope.customer_account.username} | </a>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose >
+                                <c:when test = "${sessionScope.customer_account == null}">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="login"> Login</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>
-                            </ul>
-                        </div>
+                                    <i class="fa fa-sign-in"></i><a href="validateCustomer"> Logout</a>
+                                    </c:otherwise>
+                                </c:choose>                            
+                        </ul>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -107,10 +107,10 @@
                         <ul class="nav navbar-nav">
                             <li><a class="active" href="ServiceControl">Home</a></li>
                             <li><a data-scroll href="#about">About us</a></li>
-                            <li><a data-scroll href="#service">Services</a></li>
+                            <li><a data-scroll href="ServiceControl">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
                             <li><a data-scroll href="#price">Price</a></li>
-                            <li><a data-scroll href="#testimonials">Testimonials</a></li>
+                            <li><a data-scroll href="BlogController">Blogs</a></li>
                             <li><a data-scroll href="#getintouch">Contact</a></li>
                         </ul>
                     </div>
@@ -128,6 +128,9 @@
                             </div>
                         </div>
                     </div>
+<!--                    <div class=" col-md-4">
+                        <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                    </div>-->
                 </form>
             </div>
         </div>
