@@ -36,6 +36,11 @@ public class Manager {
         this.address = address;
     }
 
+    public Manager() {
+    }
+
+    
+    
     public int getmID() {
         return mID;
     }
@@ -128,6 +133,8 @@ public class Manager {
     public String toString() {
         return "Manager{" + "mID=" + mID + ", aID=" + aID + ", first_name=" + first_name + ", last_name=" + last_name + ", age=" + age + ", gender=" + gender + ", username=" + username + ", password=" + password + ", image=" + image + ", role=" + role + ", address=" + address + '}';
     }
+
+    
 
 
   

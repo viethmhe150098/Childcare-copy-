@@ -138,15 +138,11 @@ public class Staff {
         this.isDoctor = isDoctor;
     }
 
-    
-
-   
-    
-
     @Override
     public String toString() {
-        return "Staff{" + "first_name=" + first_name + ", aID=" + aID + ", last_name=" + last_name + ", role=" + role + ", username=" + username + ", password=" + password + ", image=" + image + ", address=" + address + '}';
+        return "Staff{" + "stID=" + stID + ", first_name=" + first_name + ", aID=" + aID + ", last_name=" + last_name + ", age=" + age + ", gender=" + gender + ", username=" + username + ", password=" + password + ", image=" + image + ", address=" + address + ", role=" + role + ", isDoctor=" + isDoctor + '}';
     }
+
     
     
 }

@@ -52,9 +52,8 @@ public class DAOCustomer {
             while (rs.next()) {
 //                Customer cus = new Customer(rs.getString(1), rs.getString(2));
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6),
-                        rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getString(11), rs.getString(10));
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 return cus;
             }
         } catch (SQLException ex) {
@@ -203,9 +202,8 @@ public class DAOCustomer {
 
             while (rs.next()) {
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6),
-                        rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getString(10), rs.getString(11));
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 return cus;
             }
         } catch (SQLException ex) {
@@ -222,7 +220,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 arr.add(cus);
             }
         } catch (SQLException ex) {
@@ -459,8 +457,9 @@ public class DAOCustomer {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
 
-        List<Customer> list = dao.pagingCustomer(1);
-        System.out.println(list);
+//        List<Customer> list = dao.pagingCustomer(1);
+//        System.out.println(list);
 
+        System.out.println(dao.getAllCustomer1());
     }
 }
