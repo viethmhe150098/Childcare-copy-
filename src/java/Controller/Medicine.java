@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author Viet
  */
+@MultipartConfig
 @WebServlet(name = "Medicine", urlPatterns = {"/Medicine"})
 public class Medicine extends HttpServlet {
 
@@ -89,8 +91,8 @@ public class Medicine extends HttpServlet {
         if (service.equals("add")) {
 
             String meName = request.getParameter("name");
-            int meQuantity = Integer.parseInt(request.getParameter("quantity"));
-            float mePrice = Float.parseFloat(request.getParameter("price"));
+            int meQuantity = Integer.parseInt(request.getParameter("quan"));
+            double mePrice = Double.parseDouble(request.getParameter("price"));
             String meDes = request.getParameter("des");
             String img = request.getParameter("img");
             DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
@@ -124,7 +126,7 @@ public class Medicine extends HttpServlet {
             }
             Medicines me = new Medicines(meName, meQuantity,fileImg , meDes, mePrice);
             dao.Add(me);
-            request.getRequestDispatcher("displayMe").forward(request, response);
+            response.sendRedirect("Medicine");
         }
     }
 

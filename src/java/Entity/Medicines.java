@@ -15,12 +15,12 @@ public class Medicines {
     private int meQuantity;
     private String meImg;
     private String meDes;
-    private float mePrice;
+    private double mePrice;
 
     public Medicines() {
     }
 
-    public Medicines(int meID, String meName, int meQuantity, String meImg, String meDes, float mePrice) {
+    public Medicines(int meID, String meName, int meQuantity, String meImg, String meDes, double mePrice) {
         this.meID = meID;
         this.meName = meName;
         this.meQuantity = meQuantity;
@@ -29,7 +29,7 @@ public class Medicines {
         this.mePrice = mePrice;
     }
 
-    public Medicines(String meName, int meQuantity, String meImg, String meDes, float mePrice) {
+    public Medicines(String meName, int meQuantity, String meImg, String meDes, double mePrice) {
         this.meName = meName;
         this.meQuantity = meQuantity;
         this.meImg = meImg;
@@ -77,11 +77,11 @@ public class Medicines {
         this.meDes = meDes;
     }
 
-    public float getMePrice() {
+    public double getMePrice() {
         return mePrice;
     }
 
-    public void setMePrice(float mePrice) {
+    public void setMePrice(double mePrice) {
         this.mePrice = mePrice;
     }
 

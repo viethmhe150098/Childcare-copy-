@@ -236,16 +236,16 @@
         <div class="modal-content">
             <div class="contact-form">
                 <a class="close">&times;</a>
-                <form action="Medicine" enctype="multipart/form-data">
+                <form action="Medicine?service=add" enctype="multipart/form-data" method="post">
                     <div>
                         <input class="fname" type="text" name="name" placeholder="MEDICINE NAME">
-                        <input type="text" name="quantity" placeholder="QUANTITY">
+                        <input type="text" name="quan" placeholder="QUANTITY">
                         <input type="text" name="price" placeholder="PRICE">
                         <input type="text" name="des" placeholder="DESCRIPTION">
-                        <input type="file" name="img" accept="image/*" onchange="preview_image(event)">
+                        <input type="file" name="img" onchange="preview_image(event)">
                         <img id="output_image"  style="display: block; margin-left: auto; margin-right: auto;margin-bottom: 20px; width: 200px; height: 200px">
                     </div>
-                    <button type="submit" href="/">Submit</button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>

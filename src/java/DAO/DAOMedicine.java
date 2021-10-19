@@ -30,7 +30,7 @@ public class DAOMedicine {
     }
     
     public void Add(Medicines me){
-        String sql = "insert into medicine(meName, meQuantity, meImg, meDes, mePrice) values (N'?',?,?,N'?',?)";
+        String sql = "insert into medicine(meName, meQuantity, meImg, meDes, mePrice) values (?,?,?,?,?)";
         try {
             conn = dbconn.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class DAOMedicine {
             ps.setInt(2, me.getMeQuantity());
             ps.setString(3, me.getMeImg());
             ps.setString(4, me.getMeDes());
-            ps.setFloat(5, me.getMePrice());
+            ps.setDouble(5, me.getMePrice());
             ps.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(DAOMedicine.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,8 +61,8 @@ public class DAOMedicine {
         DBConnect dbconn = new DBConnect();
         DAOMedicine d = new DAOMedicine(dbconn);
         ArrayList<Medicines> list = d.displayMe();
-        for (Medicines me: list) {
-            System.out.println(me);
-        }
+        Medicines me = new Medicines("cikan", 32, "demo", "viên nén bao phim", 32.59);
+        d.Add(me);
+        
     }
 }
