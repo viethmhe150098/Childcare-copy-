@@ -46,6 +46,7 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/service.css">
+        <link rel="stylesheet" href="./css/servicedetail.css">
         <!-- [if lt IE 9] -->
     </head>
 
@@ -81,8 +82,8 @@
                                     <c:choose>
                                         <c:when test= "${sessionScope.customer_account == null}">
                                             <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
-                                            </c:when>
-                                            <c:otherwise>
+                                        </c:when>
+                                        <c:otherwise>
                                             <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.customer_account.username}</a></li>
                                             </c:otherwise>
                                         </c:choose>
@@ -205,125 +206,174 @@
             <!-- end container -->
         </div>
         <!-- end section -->
-        <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
+        <!--        <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
+                    <div class="container">
+                        <div class="heading">
+                            <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+                            <h2>The Detail Service</h2>
+                        </div>
+                         end title 
+        
+        <%--<c:forEach items="${Sdetail1}"  var ="o">--%>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4>What We Do</h4>
+                    <h2>Category: ${Sdetail2.scCateName}</h2>
+                    <h1>Service ID: ${Sdetail1.sID}</h1>
+                    <h1>Name: ${Sdetail1.sname}</h1>
+                    <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                        <p style = "text-decoration: underline;
+                           text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
+                        <p style="text-align: center">Sale Price</p>
+                    </div>
+                    <p style="color: black" class="lead">max quantity: ${Sdetail1.maxquantity} people/turn</p>
+                    <p style="color: black">Description: ${Sdetail1.description}</p>
+                    <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Service List" style="margin:0;background-color: orange;margin-left:190px;">
+
+                </div>
+                 end messagebox 
+            </div>
+             end col 
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="images/${Sdetail1.ser_image}" alt="" class="img-responsive">
+                    <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                </div>
+                 end media 
+            </div>
+             end col 
+        </div>
+        <%--</c:forEach>--%>        
+
+    </div>-->
+
+        <link rel="stylesheet" href="servicedetail.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+        <div class="container">
+            <div class="heading">
+                <span  class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+                <h2>The Detail Service</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="project-info-box mt-0">
+                        <h5>SERVICE CATEGORY: ${Sdetail2.scCateName}</h5>
+                        <p class="mb-0">Description: ${Sdetail1.description}</p>
+                    </div><!-- / project-info-box -->
+
+                    <div class="project-info-box">
+                        <p><b>Service ID:</b> ${Sdetail1.sID}</p>
+                        <p><b>Name:</b> ${Sdetail1.sname}</p>
+                        <p><b>Max quantity:</b> ${Sdetail1.maxquantity} people/turn</p>
+                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                            <p style = "text-decoration: underline; color: black;
+                               text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
+                            <p style="text-align: center; color: red;">Sale Price</p>
+                        </div>
+                        <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Service List" style="margin:0;background-color: orange; margin-top: 10px">
+                    </div><!-- / project-info-box -->
+
+                    <!--                        <div class="project-info-box mt-0 mb-0">
+                                                <p class="mb-0">
+                                                    <span class="fw-bold mr-10 va-middle hide-mobile">Share:</span>
+                                                    <a href="#x" class="btn btn-xs btn-facebook btn-circle btn-icon mr-5 mb-0"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="#x" class="btn btn-xs btn-twitter btn-circle btn-icon mr-5 mb-0"><i class="fab fa-twitter"></i></a>
+                                                    <a href="#x" class="btn btn-xs btn-pinterest btn-circle btn-icon mr-5 mb-0"><i class="fab fa-pinterest"></i></a>
+                                                    <a href="#x" class="btn btn-xs btn-linkedin btn-circle btn-icon mr-5 mb-0"><i class="fab fa-linkedin-in"></i></a>
+                                                </p>
+                                            </div> / project-info-box -->
+                </div><!-- / column -->
+
+                <div class="col-md-7">
+                    <img style="padding-top: 20px; height: 450px" src="images/${Sdetail1.ser_image}" alt="project-image" class="rounded">
+                    <!--                        <div class="project-info-box">
+                                                <p><b>Categories:</b> Design, Illustration</p>
+                                                <p><b>Skills:</b> Illustrator</p>
+                                            </div> / project-info-box -->
+                </div><!-- / column -->
+            </div>
+        </div>
+
+        <!-- end row -->
+        <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
-                <div class="heading">
-                    <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                    <h2>The Detail Service</h2>
-                </div>
-                <!-- end title -->
-
-                <%--<c:forEach items="${Sdetail1}"  var ="o">--%>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="message-box">
-                            <!--<h4>What We Do</h4>-->
-                            <h1>${Sdetail2.scCateName}</h1>
-                            <h2>${Sdetail1.sname}</h2>
-                            <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                                <p style = "text-decoration: underline;
-                                   text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
-                                <p style="text-align: center">Sale Price</p>
-                            </div>
-                            <p class="lead">max quantity: ${Sdetail1.maxquantity} people/turn</p>
-                            <p>${Sdetail1.description}</p>
-                            <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Contact</a>
+                    <div class="col-md-4">
+                        <div class="logo padding">
+                            <a href=""><img src="images/logo.png" alt=""></a>
+                            <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
                         </div>
-                        <!-- end messagebox -->
                     </div>
-                    <!-- end col -->
-                    <div class="col-md-6">
-                        <div class="post-media wow fadeIn">
-                            <img src="images/${Sdetail1.ser_image}" alt="" class="img-responsive">
-                            <!--<a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>-->
+                    <div class="col-md-4">
+                        <div class="footer-info padding">
+                            <h3>CONTACT US</h3>
+                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
+                            <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
+                            <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
                         </div>
-                        <!-- end media -->
                     </div>
-                    <!-- end col -->
-                </div>
-                <%--</c:forEach>--%>        
-
-            </div>
-            <!-- end row -->
-            <footer id="footer" class="footer-area wow fadeIn">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="logo padding">
-                                <a href=""><img src="images/logo.png" alt=""></a>
-                                <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="footer-info padding">
-                                <h3>CONTACT US</h3>
-                                <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                                <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
-                                <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="subcriber-info">
-                                <h3>SUBSCRIBE</h3>
-                                <p>Get healthy news, tip and solutions to your problems from our experts.</p>
-                                <div class="subcriber-box">
-                                    <form id="mc-form" class="mc-form">
-                                        <div class="newsletter-form">
-                                            <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
-                                            <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                                            <div class="clearfix"></div>
-                                            <!-- mailchimp-alerts Start -->
-                                            <div class="mailchimp-alerts">
-                                                <div class="mailchimp-submitting"></div>
-                                                <!-- mailchimp-submitting end -->
-                                                <div class="mailchimp-success"></div>
-                                                <!-- mailchimp-success end -->
-                                                <div class="mailchimp-error"></div>
-                                                <!-- mailchimp-error end -->
-                                            </div>
-                                            <!-- mailchimp-alerts end -->
+                    <div class="col-md-4">
+                        <div class="subcriber-info">
+                            <h3>SUBSCRIBE</h3>
+                            <p>Get healthy news, tip and solutions to your problems from our experts.</p>
+                            <div class="subcriber-box">
+                                <form id="mc-form" class="mc-form">
+                                    <div class="newsletter-form">
+                                        <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
+                                        <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
+                                        <div class="clearfix"></div>
+                                        <!-- mailchimp-alerts Start -->
+                                        <div class="mailchimp-alerts">
+                                            <div class="mailchimp-submitting"></div>
+                                            <!-- mailchimp-submitting end -->
+                                            <div class="mailchimp-success"></div>
+                                            <!-- mailchimp-success end -->
+                                            <div class="mailchimp-error"></div>
+                                            <!-- mailchimp-error end -->
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <div class="copyright-area wow fadeIn">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="footer-text">
-                                <p>© 2018 Lifecare. All Rights Reserved.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="social">
-                                <ul class="social-links">
-                                    <li><a href=""><i class="fa fa-rss"></i></a></li>
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                                </ul>
+                                        <!-- mailchimp-alerts end -->
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-            <!-- all js files -->
-            <script src="js/all.js"></script>
-            <!-- all plugins -->
-            <script src="js/custom.js"></script>
-            <!-- map -->
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
+        </footer>
+        <div class="copyright-area wow fadeIn">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="footer-text">
+                            <p>© 2018 Lifecare. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="social">
+                            <ul class="social-links">
+                                <li><a href=""><i class="fa fa-rss"></i></a></li>
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                                <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+        <!-- all js files -->
+        <script src="js/all.js"></script>
+        <!-- all plugins -->
+        <script src="js/custom.js"></script>
+        <!-- map -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
 
-            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-            <script src="https://unpkg.com/scrollreveal"></script>
-            <script src="./js/main.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="./js/main.js"></script>
     </body>
 </html>
 

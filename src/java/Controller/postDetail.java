@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import DAO.DAOReservation;
+import DAO.DAOPost;
 import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DO THANH TRUNG
  */
-public class reservationDetail extends HttpServlet {
+public class postDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,30 +38,26 @@ public class reservationDetail extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             DBConnect dbconn = new DBConnect();
-            String reID = request.getParameter("reID");
+            String pid = request.getParameter("pid");
+            String sql = "select title, date_create, a.image, status, pID, PCateName, first_name, last_name\n"
+                    + "from Post as a join PostCategory as b on a.pCateID=b.pCateID\n"
+                    + "join Manager as c on a.author=c.mID\n"
+                    + "where pID=" + pid;
+            ResultSet rs4 = dbconn.getData(sql);
+            request.setAttribute("postDetail", rs4);
             
-//            DAOReservation dao = new DAOReservation(dbconn);
-            String sql = "select b.reID, b.date, b.fullname, b.mail, b.phone, b.receive_name, b.receive_tel, b.receive_gender, \n"
-                    + "b.receive_mail, b.totalprice, b.status, d.sname\n"
-                    + "from Customer as a join Reservation as b on a.cID=b.cid\n"
-                    + "join ReservationDetail as c on b.reID=c.reID\n"
-                    + "join Service as d on c.sID=d.sID\n"
-                    + "where b.reID = " + reID;
-            ResultSet rs3 = dbconn.getData(sql);
-            request.setAttribute("reserDetail", rs3);
-            
-            dispatch(request, response, "/ReservationDetail.jsp");
+            dispatch(request, response, "/PostDetail.jsp");
         }
     }
-
+    
     private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
         RequestDispatcher dis = request.getRequestDispatcher(URL);
         try {
             dis.forward(request, response);
         } catch (ServletException ex) {
-            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(postDetail.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(reservationDetail.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(postDetail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

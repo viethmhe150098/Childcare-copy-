@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ReservationDetail
-    Created on : Oct 10, 2021, 5:41:45 PM
+    Document   : PostDetail
+    Created on : Oct 18, 2021, 9:23:04 PM
     Author     : DO THANH TRUNG
 --%>
 
@@ -20,7 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- Site Metas -->
-        <title>Reservation Detail</title>
+        <title>Post Detail</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -42,120 +42,7 @@
         <!-- Modernizer for Portfolio -->
         <script src="js/modernizer.js"></script>
         <!-- [if lt IE 9] -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <style>
-            .contain {
-                margin: 10px 0px;
-                width: 100vw;
-                height: 80vh;
-                display: flex;
-
-            }
-
-            .leftside_bar {
-                flex: 1;
-                background-color: azure;
-
-            }
-
-            .leftside_bar ul {
-                list-style: none;
-                margin: 20px;
-            }
-
-            .leftside_bar li {
-                margin: 10px;
-                cursor: pointer;
-                font-size: 20px;
-                padding: 10px;
-            }
-            .leftside_bar li:hover{
-                background-color: rgba(232, 232, 232, 1);
-            }
-            .reservation {
-                padding: 20px;
-                flex: 3;
-                justify-content: center;
-                align-items: center;
-                color: white;
-            }
-
-            h1 {
-                font-weight: bolder;
-            }
-
-            tr:first-child td {
-                color: white;
-                background-color: rgba(0, 181, 204, 1);
-            }
-
-            table {
-                border: 1px solid rgba(0, 181, 204, 1);
-                text-align: center;
-
-            }
-
-            td {
-                color: rgba(0, 181, 204, 1);
-            }
-
-            td:first-child {
-                width: 35%;
-            }
-
-            td:nth-child(2) {
-                width: 20%;
-            }
-
-            td:nth-child(3) {
-                width: 10%;
-            }
-
-            td:nth-child(4) {
-                width: 25%;
-
-            }
-
-            .wrapper2 {
-                margin: 40px 0px;
-            }
-
-            .wrapper3 {
-                height: 40vh;
-                display: flex;
-
-            }
-
-            .left_table {
-                padding: 10px;
-                flex: 1;
-                justify-content: center;
-                align-items: center;
-
-            }
-
-            .right_table {
-                padding: 10px;
-                flex: 1;
-
-            }
-
-            .content {
-                width: 90%;
-                background-color: rgba(243, 241, 239, 1);
-                padding: 20px;
-                color: rgba(0, 181, 204, 1);
-                height: 60%;
-            }
-
-            p {
-                font-weight: 3000q;
-            }
-
-            .content h2 {
-                color: rgba(0, 181, 204, 1);
-            }
-        </style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">        
     </head>
 
     <body class="clinic_version">
@@ -262,154 +149,35 @@
         </div>
         <div class="contain">
 
-            <!--            <div class="leftside_bar">
-                            <div>
-                                <ul>
-                                    <li>
-                                        <i class='fas fa-user-circle'></i>
-                                        <a>MY ACCOUNT</a>
-                                    </li>
-                                    <li>
-                                        <i class='fas fa-user-edit'></i>
-                                        <a>MY PROFILE</a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-history" aria-hidden="true"></i>
-                                        <a>RESERVATION HISTORY</a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                                        <a>ADDRESS</a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
-                                        <a>LOG OUT</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>-->
-
             <div class="reservation">
-                <%ResultSet rs1 = (ResultSet) request.getAttribute("reserDetail");%>
-                <%while (rs1.next()) {%>
-                <h1>Reservation ID : <%=rs1.getString(1)%></h1>
-                <div class="wrapper1">
-                    <h2>RESERVATION DETAIL</h2>
-                    <table>
-                        <tr>
-                            <td>RESERVATION ID</td>
-                            <td>STATUS</td>
-                            <td>DATE</td>
-                            <td>SERVICE CATEGORY</td>
-                            <td>TOTAL PRICE</td>
-                        </tr>
-                        <tr>
-                            <td><%=rs1.getString(1)%></td>
-                            <td>
-                                <%=(rs1.getInt(11) == 1) ? "Shipped" : "Waiting"%>
+                <%ResultSet rs4 = (ResultSet) request.getAttribute("postDetail");%>
+                <%while (rs4.next()) {%>
 
-                        <a href="request?action=accept&ida=<%=rs1.getInt(1)%>">Accept</a>
-                        <a href="request?action=reject&idr=<%=rs1.getInt(1)%>">Reject</a>
-                        <!--<a href="request?action=accept&ida=<%=rs1.getInt(11)%>">Accept</a>
-                        <a href="request?action=reject&idr=<%=rs1.getInt(11)%>">Reject</a>-->
-                            </td>
-                            <td><%=rs1.getDate(2)%></td>
-                            <td><%=rs1.getString(12)%></td>
-                            <td><%=rs1.getDouble(10)%></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="wrapper2">
-                    <!--                    <h2>RESERVATION SUMMARY</h2>
-                                        <table>
-                                            <tr>
-                                                <td>SERVICE</td>
-                                                <td>QUANTITY </td>
-                                                <td>VALUE </td>
-                                            </tr>
-                                            <tr>
-                                                <td>KHÁM PHỔI </td>
-                                                <td>1</td>
-                                                <td>40$</td>
-                                            </tr>
-                                        </table>-->
-                </div>
-                <div class="wrapper3">
-                    <div class="left_table">
-                        <h1>CUSTOMER INFORMATION</h1>
-                        <div class="content">
-                            <h2>Full Name: <%=rs1.getString(3)%></h2>
-                            <div>
-                                Gmail: <%=rs1.getString(4)%><br>
-                                Tel: <%=rs1.getString(5)%>
+                <div class="content">
+                    <h1>${rs4.pCateName}</h1>
+                    <div class="container1">
+                        <h2>${rs4.title}</h2>
+                        <div class="product">
+                            <div class="product-image">
+                                <img src="images/${rs4.image}" alt="post detail">
                             </div>
-                        </div>
-                    </div>
-                    <div class="right_table">
-                        <h1>RECEIVER INFORMATION</h1>
-                        <div class="content">
-                            <h2>Full Name: <%=rs1.getString(6)%></h2>
+                            <div class="product-info">
+                                <p><span>Date Create</span>${rs4.date_create}</p>
+                                <p><span>Author</span>${rs4.first_name} ${rs4.last_name}</p>
+                                <p><span>Status</span>${rs4.status==1?"Active":"Inactive"}</p>
+                                <p><span>Description</span>Post detail with abcdefg</p>
+                            </div>
+                            <div class="clear"></div>
                             <div>
-                                Gender: <%=(rs1.getString(8) == "1") ? "Male" : "Female"%><br>
-                                Gmail: <%=rs1.getString(9)%><br>
-                                Tel: <%=rs1.getString(7)%>
+                                <a href="updatePostControl?pID=${rs4.pID}" style="color:#fff" class="edit">Update</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <%}%>
             </div>
         </div>
-
-        <!--        <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
-                    <div class="container">
-                        <div class="heading">
-                            <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                            <h2>Get in Touch</h2>
-                        </div>
-                    </div>
-                            <div class="contact-section">
-                                <div class="form-contant">
-                                    <form id="ajax-contact" action="assets/mailer.php" method="post">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group in_name">
-                                                    <input type="text" class="form-control" placeholder="Name" required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group in_email">
-                                                    <input type="email" class="form-control" placeholder="E-mail" required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group in_email">
-                                                    <input type="tel" class="form-control" id="phone" placeholder="Phone"
-                                                        required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group in_email">
-                                                    <input type="text" class="form-control" id="subject" placeholder="Subject"
-                                                        required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group in_message">
-                                                    <textarea class="form-control" id="message" rows="5" placeholder="Message"
-                                                        required="required"></textarea>
-                                                </div>
-                                                <div class="actions">
-                                                    <input type="submit" value="Send Message" name="submit" id="submitButton"
-                                                        class="btn small" title="Submit Your Message!">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div id="googleMap" style="width:100%;height:450px;"></div>
-                            </div>
-                </div>-->
 
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">

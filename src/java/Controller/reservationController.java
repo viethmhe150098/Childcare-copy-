@@ -65,10 +65,10 @@ public class reservationController extends HttpServlet {
 //                    + "join ReservationDetail as c on b.reID=c.reID\n"
 //                    + "join Service as d on c.serID=d.sID order by b.fullname";
             
-            String sql = "select b.reID, b.date, b.fullname, b.recceive_name, b.totalprice, b.status, b.recceive_tel, d.sname\n"
+            String sql = "select b.reID, b.date, b.fullname, b.receive_name, b.totalprice, b.status, b.receive_tel, d.sname\n"
                     + "from Customer as a join Reservation as b on a.cID=b.cid\n"
                     + "join ReservationDetail as c on b.reID=c.reID\n"
-                    + "join Service as d on c.serID=d.sID order by b.fullname "
+                    + "join Service as d on c.sID=d.sID order by b.fullname "
                     + "offset " + (index - 1) * 3 + " rows fetch next 3 rows only";
             ResultSet rs1 = dbconn.getData(sql);
             request.setAttribute("ketQua1", rs1);

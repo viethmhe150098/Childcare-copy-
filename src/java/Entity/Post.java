@@ -19,6 +19,7 @@ public class Post {
     private String status;
     private int pcateID;
     private int pID;
+    private String image;
 
     public Post() {
     }
@@ -32,6 +33,27 @@ public class Post {
         this.pcateID = pcateID;
         this.pID = pID;
     }
+
+    public Post(String title, int mID, Date date_create, Date updata_date, String status, int pcateID, int pID, String image) {
+        this.title = title;
+        this.mID = mID;
+        this.date_create = date_create;
+        this.updata_date = updata_date;
+        this.status = status;
+        this.pcateID = pcateID;
+        this.pID = pID;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
+    
 
     public int getpID() {
         return pID;
@@ -87,6 +109,11 @@ public class Post {
 
     public void setPcateID(int pcateID) {
         this.pcateID = pcateID;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" + "title=" + title + ", mID=" + mID + ", date_create=" + date_create + ", updata_date=" + updata_date + ", status=" + status + ", pcateID=" + pcateID + ", pID=" + pID + ", image=" + image + '}';
     }
     
     
