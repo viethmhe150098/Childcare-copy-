@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- Site Metas -->
-    <title>Customer List</title>
+    <title>Customer List Page</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -71,6 +71,26 @@
                         <div class="info-inner">
                             <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                             <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
+                        </div>
+                        <div class="info-inner">
+                            <ul class="list-main">
+                                <c:choose>
+                                    <c:when test= "${sessionScope.customer_account == null}">
+                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose >
+                                        <c:when test = "${sessionScope.customer_account == null}">
+                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -152,7 +172,7 @@
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
                     <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
-                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
+                <button  type="submit" class="btn btn-success" id="btnDuyetDonHang">Filter</button>
             </form>
 
             <!-- end title -->
