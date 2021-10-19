@@ -16,7 +16,7 @@
 <header>
     <div class="header-top fadeIn" >
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
+            <a class="navbar-brand" href="ServiceControl"><img src="images/logo.png" alt="image"></a>
             <div class="right-header">
                 <div class="header-info">
                     <div class="info-inner">
@@ -41,17 +41,17 @@
                                     <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                 </c:when>
                                 <c:otherwise>
-                                    <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
+                                    <i class="fa fa-user-circle"></i> <a href="Userprofile.jsp"> ${sessionScope.customer_account.username}</a>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose >
+                                <c:when test = "${sessionScope.customer_account == null}">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="login"> Login</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                    <i class="fa fa-sign-in"></i><a href="validateCustomer"> Logout</a>
                                     </c:otherwise>
-                                </c:choose>
-                                <c:choose >
-                                    <c:when test = "${sessionScope.customer_account == null}">
-                                    <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                    <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                        </c:otherwise>
-                                    </c:choose>                            
+                                </c:choose>                            
                         </ul>
                     </div>
                 </div>
@@ -60,37 +60,42 @@
     </div>
     <div class="header-bottom fadeIn" >
         <div class="container">
-            <nav class="main-menu">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                </div>
+            <div class="row">
+                
+                <nav class="main-menu ">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                    </div>
 
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a class="active" href="index.html">Home</a></li>
-                        <li><a data-scroll href="#about">About us</a></li>
-                        <li><a data-scroll href="#service">Services</a></li>
-                        <li><a data-scroll href="#doctors">Doctors</a></li>
-                        <li><a data-scroll href="#price">Price</a></li>
-                        <li><a data-scroll href="BlogController">Blogs</a></li>
-                        <li><a data-scroll href="#getintouch">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="serch-bar">
-                <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg" placeholder="Search" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="button">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </span>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a class="active" href="ServiceControl">Home</a></li>
+                            <li><a data-scroll href="#about">About us</a></li>
+                            <li><a data-scroll href="ServiceControl">Services</a></li>
+                            <li><a data-scroll href="#doctors">Doctors</a></li>
+                            <li><a data-scroll href="#price">Price</a></li>
+                            <li><a data-scroll href="BlogController">Blogs</a></li>
+                            <li><a data-scroll href="#getintouch">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                
+                <div class="serch-bar ">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
 
+                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+
+            </div>
         </div>
     </div>
 </header>
