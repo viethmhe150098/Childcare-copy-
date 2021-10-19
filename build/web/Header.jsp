@@ -58,7 +58,7 @@
     <div class="header-bottom fadeIn" >
         <div class="container">
             <div class="row">
-                
+
                 <nav class="main-menu ">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
@@ -76,21 +76,26 @@
                         </ul>
                     </div>
                 </nav>
-                
+
                 <div class="serch-bar ">
-                    <div id="custom-search-input">
+                    <div class="col-md-8" id="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
+                            <input type="text" class="form-control input-lg" placeholder="Search Here" />
+<!--                            <span class="input-group-btn">
                                 <button class="btn btn-info btn-lg" type="button">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
-                            </span>
+                            </span>-->
                         </div>
+                        
                     </div>
+                    <div class=" col-md-4">
+                        <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                    </div>
+
                 </div>
 
-                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                <!--                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>-->
 
             </div>
         </div>
