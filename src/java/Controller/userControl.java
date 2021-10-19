@@ -59,7 +59,6 @@ public class userControl extends HttpServlet {
             request.setAttribute("endP", endPage);
             request.setAttribute("tag", index);
             request.setAttribute("listUser", list);
-                        request.setAttribute("listStaff", list1);
 
                         request.setAttribute("listStaff", list1);
                                                 request.setAttribute("listManager", list2);

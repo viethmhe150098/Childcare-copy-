@@ -11,58 +11,29 @@ package Entity;
  */
 public class Manager {
     private int mID;
-    private String first_name;
     private int aID;
+    private String first_name;
     private String last_name;
     private int age;
     private int gender;
     private String username;
     private String password;
     private String image;
-    private String address;
     private int role;
+        private String address;
 
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-    public Manager() {
-    }
-
-    public Manager(int mID, String first_name, int aID, String last_name, int age, int gender, String username, String password, String image, String address) {
+    public Manager(int mID, int aID, String first_name, String last_name, int age, int gender, String username, String password, String image, int role, String address) {
         this.mID = mID;
-        this.first_name = first_name;
         this.aID = aID;
+        this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;
         this.gender = gender;
         this.username = username;
         this.password = password;
         this.image = image;
-        this.address = address;
-    }
-
-    public Manager(int mID, String first_name, int aID, String last_name, int age, int gender, String username, String password, String image, String address, int role) {
-        this.mID = mID;
-        this.first_name = first_name;
-        this.aID = aID;
-        this.last_name = last_name;
-        this.age = age;
-        this.gender = gender;
-        this.username = username;
-        this.password = password;
-        this.image = image;
-        this.address = address;
         this.role = role;
-    }
-    
-
-    public Manager(String username, String password) {
-        this.username = username;
-        this.password = password;
+        this.address = address;
     }
 
     public int getmID() {
@@ -73,20 +44,20 @@ public class Manager {
         this.mID = mID;
     }
 
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
     public int getaID() {
         return aID;
     }
 
     public void setaID(int aID) {
         this.aID = aID;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
     public String getLast_name() {
@@ -137,6 +108,14 @@ public class Manager {
         this.image = image;
     }
 
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -147,9 +126,10 @@ public class Manager {
 
     @Override
     public String toString() {
-        return "Manager{" + "mID=" + mID + ", first_name=" + first_name + ", aID=" + aID + ", last_name=" + last_name + ", age=" + age + ", gender=" + gender + ", username=" + username + ", password=" + password + ", image=" + image + ", address=" + address + '}';
+        return "Manager{" + "mID=" + mID + ", aID=" + aID + ", first_name=" + first_name + ", last_name=" + last_name + ", age=" + age + ", gender=" + gender + ", username=" + username + ", password=" + password + ", image=" + image + ", role=" + role + ", address=" + address + '}';
     }
-    
-    
+
+
+  
     
 }

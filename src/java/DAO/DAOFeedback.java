@@ -35,10 +35,53 @@ public class DAOFeedback {
             while (rs.next()) {
                 list.add(new Feedback(rs.getInt(1),
                         rs.getString(2),
-                        rs.getInt(3),
+                        rs.getInt(3),                    
                         rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6), rs.getString(7),rs.getString(8),rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12)));
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+     public List<Feedback> pagingProduct(int index) {
+        List<Feedback> list = new ArrayList<>();
+        String sql = "select * from feedback\n"
+                + "order by fID\n"
+                + "offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+      public List<Feedback> getAllFeedback() {
+        List<Feedback> list = new ArrayList<>();
+        String sql = "select * from feedback";
+               
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
             }
 
         } catch (Exception e) {

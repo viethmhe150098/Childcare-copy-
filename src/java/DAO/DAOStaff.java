@@ -45,9 +45,9 @@ public class DAOStaff {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Staff sta = new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getInt(8), rs.getInt(9));
+                Staff sta = new Staff(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                        rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12));
                 return sta;
             }
         } catch (SQLException ex) {
@@ -80,9 +80,9 @@ public class DAOStaff {
             ps.setInt(1, (index - 1) * 3);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getInt(8), rs.getInt(9)));
+                list.add(new Staff(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                        rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12)));
             }
 
         } catch (Exception e) {
@@ -98,9 +98,9 @@ public class DAOStaff {
         ResultSet rs = dbconn.getData(sql);
         try {
             while (rs.next()) {
-                Staff sta = new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getInt(8), rs.getInt(9));
+                Staff sta = new Staff(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                        rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12));
                 arr.add(sta);
             }
         } catch (SQLException ex) {
@@ -116,9 +116,9 @@ public class DAOStaff {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Staff(rs.getString(1), rs.getInt(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getInt(8), rs.getInt(9)));
+                list.add(new Staff(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                        rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12)));
             }
         } catch (Exception e) {
         }

@@ -220,7 +220,7 @@
                             <td>${o.age}</td>
                             <td>${o.address}</td>
                             <td>${o.tel}</td>
-                            <td>${o.status}</td>
+                            <td>${o.status ==1 ?"Active" : "Inactive"}</td>
                             <td>${o.role==1 ?"Customer": "Staff"}</td>
 
                             <td><a href="userDetailControl?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
@@ -260,20 +260,32 @@
                         <th>ID</th>
                         <th>Full Name</th>
                         <th>Username</th>
-                         <th>Address</th>                                 
+                         <th>Address</th>   
+                          <th>Gender</th>
                         <th>Role</th>
+                        <th>is Doctor</th>
+                                                 <th>Detail</th>
+
+
 
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach items="${listStaff}" var="o">
                         <tr>
-                              <td>${o.sID}</td>
+                              <td>${o.stID}</td>
 
                             <td>${o.first_name} ${o.last_name}</td>
                             <td>${o.username}</td>
                             <td>${o.address}</td>
+                              <td>${o.gender}</td>
                             <td>${o.role==1 ?"Staff": ""}</td>
+                                <td>${o.isDoctor ==1?"Doctor" : ""}</td>
+                                 <td><a href="userDetailControl?cid=${o.stID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
+                                  <td >
+                                    <a href="updateCustomerControl?cID=${o.stID}" style="color:#fff" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
 
                         </c:forEach>
                             
@@ -290,6 +302,7 @@
                         <th>Username</th>
                          <th>Address</th>                                 
                         <th>Role</th>
+                                                 <th>Detail</th>
 
                     </tr>
                 </thead>
@@ -297,11 +310,15 @@
                     <c:forEach items="${listManager}" var="o">
                         <tr>
                               <td>${o.mID}</td>
-
                             <td>${o.first_name} ${o.last_name}</td>
                             <td>${o.username}</td>
                             <td>${o.address}</td>
                             <td>${o.role==1 ?"Staff": ""}</td>
+                                 <td><a href="userDetailControl?cid=${o.mID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
+                                  <td >
+                                    <a href="updateCustomerControl?cID=${o.mID}" style="color:#fff" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href=""  style="color:#fff;" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
 
                         </c:forEach>
                             

@@ -12,30 +12,26 @@ package Entity;
 public class Feedback {
     private int fID;
     private String content;
-    private int star;
+    private int sID;
     private String email;
     private String name;
     private String mobile;
     private String gender;
     private String image;
-    private int star_1;
+    private int star;
     private String description;
-    private String sName;
-    private String uFullName;
 
-    public Feedback(int fID, String content, int star, String email, String name, String mobile, String gender, String image, int star_1,String description,String sName,String uFullName) {
+    public Feedback(int fID, String content, int sID, String email, String name, String mobile, String gender, String image, int star ,String description) {
         this.fID = fID;
         this.content = content;
-        this.star = star;
+        this.sID = sID;
         this.email = email;
         this.name = name;
         this.mobile = mobile;
         this.gender = gender;
         this.image = image;
-        this.star_1 = star_1;
-         this.description = description;
-        this.sName = sName;
-        this.uFullName = uFullName;
+        this.star = star;
+        this.description = description;
     }
 
     public int getfID() {
@@ -60,6 +56,14 @@ public class Feedback {
 
     public void setStar(int star) {
         this.star = star;
+    }
+
+    public int getsID() {
+        return sID;
+    }
+
+    public void setsID(int sID) {
+        this.sID = sID;
     }
 
     public String getEmail() {
@@ -102,14 +106,6 @@ public class Feedback {
         this.image = image;
     }
 
-    public int getStar_1() {
-        return star_1;
-    }
-
-    public void setStar_1(int star_1) {
-        this.star_1 = star_1;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -118,26 +114,18 @@ public class Feedback {
         this.description = description;
     }
 
-    public String getsName() {
-        return sName;
-    }
 
-    public void setsName(String sName) {
-        this.sName = sName;
-    }
 
-    public String getuFullName() {
-        return uFullName;
-    }
-
-    public void setuFullName(String uFullName) {
-        this.uFullName = uFullName;
-    }
-    
+   
 
     @Override
     public String toString() {
-        return "Feedback{" + "fID=" + fID + ", content=" + content + ", star=" + star + ", email=" + email + ", name=" + name + ", mobile=" + mobile + ", gender=" + gender + ", image=" + image + ", star_1=" + star_1 + '}';
+        return "Feedback{" + "fID=" + fID + ", content=" + content + ", star=" + star + ", sID=" + sID + ", email=" + email + ", name=" + name + ", mobile=" + mobile + ", gender=" + gender + ", image=" + image + ", description=" + description + '}';
     }
+
+   
+    
+
+   
     
 }

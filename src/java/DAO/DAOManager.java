@@ -43,9 +43,9 @@ public class DAOManager {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Manager mana = new Manager(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                Manager mana = new Manager(rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10));
+                        rs.getString(8), rs.getString(9), rs.getInt(10),rs.getString(11));
                 return mana;
             }
         } catch (SQLException ex) {
@@ -60,9 +60,9 @@ public class DAOManager {
         ResultSet rs = dbconn.getData(sql);
         try {
             while (rs.next()) {
-                Manager mana = new Manager(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                Manager mana = new Manager(rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10));
+                        rs.getString(8), rs.getString(9), rs.getInt(10),rs.getString(11));
                 arr.add(mana);
             }
         } catch (SQLException ex) {
@@ -78,9 +78,9 @@ public class DAOManager {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add( new Manager(rs.getInt(1), rs.getString(2), rs.getInt(3),
+                list.add( new Manager(rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11)));
+                        rs.getString(8), rs.getString(9), rs.getInt(10),rs.getString(11)));
             }
         } catch (Exception e) {
         }
@@ -100,6 +100,6 @@ public class DAOManager {
 //        }else{
 //            System.out.println("ok");
 //        }
-            System.out.println(dao.loginManager("thanh@m", "12345678"));
+//            System.out.println(dao.loginManager("thanh@m", "12345678"));
     }
 }
