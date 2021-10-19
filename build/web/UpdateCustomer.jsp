@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/service.css">
+    
     <!-- [if lt IE 9] -->
 </head>
 
@@ -160,8 +161,8 @@
         <div class="modal-content">
             <form action="updateCustomerControl" method="post">
                 <div class="modal-header">						
-                    <h4 class="modal-title">Update Customer<i class="fas fa-user-friends"></i></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Update Customer <i class="fas fa-user-friends"></i></h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
                 </div>
                 <div class="modal-body">					
                     <div class="form-group">
@@ -215,8 +216,8 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="margin-top:30px;">
-                    <input type="submit" class="btn btn-success" value="Update">
-                    <input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input style="margin-top: 5px" type="submit" class="btn btn-success" value="Update">
+                    <!--<input style="background-color: red" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">-->
                 </div>
             </form>
         </div>
