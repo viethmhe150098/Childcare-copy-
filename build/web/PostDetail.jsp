@@ -168,6 +168,9 @@
                                 <p><span>Description</span>Post detail with abcdefg</p>
                             </div>
                             <div class="clear"></div>
+                            <div>
+                                <a href="updatePostControl?pID=${rs4.pID}" style="color:#fff" class="edit">Update</a>
+                            </div>
                         </div>
                     </div>
                 </div>
