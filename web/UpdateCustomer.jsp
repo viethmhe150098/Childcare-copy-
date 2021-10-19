@@ -47,10 +47,14 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/service.css">
     
+<!--    <link rel="stylesheet" href="./css/register.css">-->
     <!-- [if lt IE 9] -->
 </head>
 
-<body class="clinic_version">
+<body style="background: -webkit-linear-gradient(to top, #52a0b8, #8DC26F);
+    background: -moz-linear-gradient(to top, #52a0b8, #8DC26F);
+    background: -o-linear-gradient(to top, #52a0b8, #8DC26F);
+    background: linear-gradient(to top, #52a0b8, #8DC26F);" class="clinic_version">
     <!-- LOADER -->
     <div id="preloader">
         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
