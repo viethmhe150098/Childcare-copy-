@@ -90,7 +90,7 @@ public class DAOMedicine {
     }
 
     public void DeleteMedicine(int meid) {
-        String sqlDe = "delete from Medicine where meid="+meid;
+        String sqlDe = "delete from Medicine where meid=?";
         String sqlCheck ="select * from Prescription where meID="+meid;
         ResultSet rs = dbconn.getData(sqlCheck);
         try {
@@ -110,8 +110,7 @@ public class DAOMedicine {
         DBConnect dbconn = new DBConnect();
         DAOMedicine d = new DAOMedicine(dbconn);
         ArrayList<Medicines> list = d.displayMe();
-        d.UpdateMedicine(new Medicines(42, "cikan", 320, "https://firebasestorage.googleapis.com/v0/b/childcare-52082.appspot.com/o/vien-van-mach-cikan-anvy-4x10.png?alt=media&token=470df417-04db-4c8f-99b1-8f1944525646",
-                "day thuoc dieu tri da day", 45600));
+        d.DeleteMedicine(42);
 
     }
 }

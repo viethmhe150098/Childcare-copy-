@@ -113,7 +113,9 @@ public class Medicine extends HttpServlet {
             response.sendRedirect("Medicine");
         }
         if(service.equals("delete")){
-            
+            int meid = Integer.parseInt(request.getParameter("meid"));
+            dao.DeleteMedicine(meid);
+            response.sendRedirect("Medicine");
         }
 
     }

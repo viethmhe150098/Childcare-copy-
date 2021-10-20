@@ -223,8 +223,8 @@
                     <p><b>QUANTITY:</b>${o.meQuantity}</p>
                     <p><b>PRICE:</b>${o.mePrice}</p>
                     <img src=${o.meImg} style="height: 100px; width: 100px;"></br>
-                    <a href="#"><i class="far fa-trash-alt button" style="font-size: 20px"></i></a>
-                    <a href="#"><i class="fas fa-pen button" data-modal="modalTwo" style="font-size: 20px"></i></a>
+                    <a href="Medicine?service=delete&meid=${o.meID}" class="delete" data-confirm="Are you sure to delete this item?"><i class="far fa-trash-alt button" style="font-size: 20px"></i></a>
+                    <a ><i class="fas fa-pen button" data-modal="modalTwo" style="font-size: 20px"></i></a>
                 </div>
                 <div id="modalTwo" class="modal">
                     <div class="modal-content">
@@ -289,7 +289,19 @@
                 event.target.style.display = "none";
             }
         };
+        var deleteLinks = document.querySelectorAll('.delete');
 
+        for (var i = 0; i < deleteLinks.length; i++) {
+            deleteLinks[i].addEventListener('click', function (event) {
+                event.preventDefault();
+
+                var choice = confirm(this.getAttribute('data-confirm'));
+
+                if (choice) {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        }
     </script>
 </body>
 
