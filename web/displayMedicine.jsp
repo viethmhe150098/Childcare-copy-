@@ -222,7 +222,7 @@
                     <p><b>DESC:</b>${o.meDes}</p>
                     <p><b>QUANTITY:</b>${o.meQuantity}</p>
                     <p><b>PRICE</b>${o.mePrice}</p>
-                    <img src=${o.meImg} style="height: 100px; width: 10px;"></br>
+                    <img src=${o.meImg} style="height: 100px; width: 100px;"></br>
                     <a href="#"><i class="far fa-trash-alt" style="font-size: 20px"></i></a>
                     <a href="#"><i class="fas fa-pen" style="font-size: 20px"></i></a>
                 </div>
@@ -242,8 +242,7 @@
                         <input type="text" name="quan" placeholder="QUANTITY">
                         <input type="text" name="price" placeholder="PRICE">
                         <input type="text" name="des" placeholder="DESCRIPTION">
-                        <input type="file" name="img" onchange="preview_image(event)">
-                        <img id="output_image"  style="display: block; margin-left: auto; margin-right: auto;margin-bottom: 20px; width: 200px; height: 200px">
+                        <input type="text" name="img" placeholder="PASTE HERE FIREBASE LINK">
                     </div>
                     <button type="submit">Submit</button>
                 </form>

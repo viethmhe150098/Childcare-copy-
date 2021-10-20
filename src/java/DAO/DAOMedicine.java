@@ -50,7 +50,7 @@ public class DAOMedicine {
         ResultSet rs = dbconn.getData("select * from Medicine");
         try {
             while (rs.next()) {
-                list.add(new Medicines(rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getFloat(6)));
+                list.add(new Medicines(rs.getString(2), rs.getInt(3), rs.getString(6), rs.getString(4), rs.getFloat(5)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOMedicine.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,8 +61,9 @@ public class DAOMedicine {
         DBConnect dbconn = new DBConnect();
         DAOMedicine d = new DAOMedicine(dbconn);
         ArrayList<Medicines> list = d.displayMe();
-        Medicines me = new Medicines("cikan", 32, "demo", "viên nén bao phim", 32.59);
-        d.Add(me);
+        for (Medicines medicines : list) {
+            System.out.println(medicines);
+        }
         
     }
 }
