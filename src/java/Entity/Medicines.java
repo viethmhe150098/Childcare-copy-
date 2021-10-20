@@ -16,10 +16,20 @@ public class Medicines {
     private String meImg;
     private String meDes;
     private double mePrice;
-
+    private int meStatus;
     public Medicines() {
     }
 
+    public Medicines(int meID, String meName, int meQuantity, String meImg, String meDes, double mePrice, int meStatus) {
+        this.meID = meID;
+        this.meName = meName;
+        this.meQuantity = meQuantity;
+        this.meImg = meImg;
+        this.meDes = meDes;
+        this.mePrice = mePrice;
+        this.meStatus = meStatus;
+    }
+    
     public Medicines(int meID, String meName, int meQuantity, String meImg, String meDes, double mePrice) {
         this.meID = meID;
         this.meName = meName;
@@ -37,6 +47,14 @@ public class Medicines {
         this.mePrice = mePrice;
     }
 
+    public int getMeStatus() {
+        return meStatus;
+    }
+
+    public void setMeStatus(int meStatus) {
+        this.meStatus = meStatus;
+    }
+    
     public int getMeID() {
         return meID;
     }

@@ -50,20 +50,37 @@ public class DAOMedicine {
         ResultSet rs = dbconn.getData("select * from Medicine");
         try {
             while (rs.next()) {
-                list.add(new Medicines(rs.getString(2), rs.getInt(3), rs.getString(6), rs.getString(4), rs.getFloat(5)));
+                list.add(new Medicines(rs.getInt(1),rs.getString(2), rs.getInt(3), rs.getString(6), rs.getString(4), rs.getFloat(5)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOMedicine.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
+    public void UpdateMedicine(Medicines me){
+        String sql = "update medicine set meName=?, meDes=?,meImg=?,mePrice=?,meQuantity=? where meID=?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, me.getMeName());
+            pre.setString(2, me.getMeDes());
+            pre.setString(3, me.getMeImg());
+            pre.setDouble(4, me.getMePrice());
+            pre.setInt(5, me.getMeQuantity());
+            pre.setInt(6, me.getMeID());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOMedicine.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void DeleteMedicine(int meid){
+       
+    }
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOMedicine d = new DAOMedicine(dbconn);
         ArrayList<Medicines> list = d.displayMe();
-        for (Medicines medicines : list) {
-            System.out.println(medicines);
-        }
+        d.UpdateMedicine(new Medicines(42, "cikan", 320,"https://firebasestorage.googleapis.com/v0/b/childcare-52082.appspot.com/o/vien-van-mach-cikan-anvy-4x10.png?alt=media&token=470df417-04db-4c8f-99b1-8f1944525646",
+                "day thuoc dieu tri da day" , 45600));
         
     }
 }

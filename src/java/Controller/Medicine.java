@@ -31,13 +31,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author Viet
  */
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
-        maxFileSize = 1024 * 1024 * 50, // 50MB
-        maxRequestSize = 1024 * 1024 * 50) // 50MB
 @WebServlet(name = "Medicine", urlPatterns = {"/Medicine"})
 public class Medicine extends HttpServlet {
-
-    private final String UPLOAD_DIRECTORY = "C:/uploads";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -106,17 +101,21 @@ public class Medicine extends HttpServlet {
             dao.Add(me);
             response.sendRedirect("Medicine");
         }
-
-    }
-
-    private static String getSubmittedFileName(Part part) {
-        for (String cd : part.getHeader("content-disposition").split(";")) {
-            if (cd.trim().startsWith("filename")) {
-                String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
-            }
+        if (service.equals("update")) {
+            int meID  = Integer.parseInt(request.getParameter("meid"));
+            String meName = request.getParameter("name");
+            int meQuantity = Integer.parseInt(request.getParameter("quan"));
+            double mePrice = Double.parseDouble(request.getParameter("price"));
+            String meDes = request.getParameter("des");
+            String img = request.getParameter("img");
+            Medicines me = new Medicines(meID,meName, meQuantity, img, meDes, mePrice);
+            dao.UpdateMedicine(me);
+            response.sendRedirect("Medicine");
         }
-        return null;
+        if(service.equals("delete")){
+            
+        }
+
     }
 
     /**

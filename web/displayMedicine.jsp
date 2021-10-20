@@ -221,10 +221,27 @@
                     <h1><b>NAME:</b>${o.meName}</h1>
                     <p><b>DESC:</b>${o.meDes}</p>
                     <p><b>QUANTITY:</b>${o.meQuantity}</p>
-                    <p><b>PRICE</b>${o.mePrice}</p>
+                    <p><b>PRICE:</b>${o.mePrice}</p>
                     <img src=${o.meImg} style="height: 100px; width: 100px;"></br>
-                    <a href="#"><i class="far fa-trash-alt" style="font-size: 20px"></i></a>
-                    <a href="#"><i class="fas fa-pen" style="font-size: 20px"></i></a>
+                    <a href="#"><i class="far fa-trash-alt button" style="font-size: 20px"></i></a>
+                    <a href="#"><i class="fas fa-pen button" data-modal="modalTwo" style="font-size: 20px"></i></a>
+                </div>
+                <div id="modalTwo" class="modal">
+                    <div class="modal-content">
+                        <div class="contact-form">
+                            <a class="close">&times;</a>
+                            <form action="Medicine?service=update&meid=${o.meID}" method="post">
+                                <div>
+                                    <input class="fname" type="text" name="name" value="${o.meName}">
+                                    <input type="text" name="quan" value="${o.meQuantity}">
+                                    <input type="text" name="price" value="${o.mePrice}">
+                                    <input type="text" name="des" value="${o.meDes}">
+                                    <input type="text" name="img" value="${o.meImg}">
+                                </div>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </c:forEach>
         </div>
@@ -236,12 +253,12 @@
         <div class="modal-content">
             <div class="contact-form">
                 <a class="close">&times;</a>
-                <form action="Medicine?service=add" enctype="multipart/form-data" method="post">
+                <form action="Medicine?service=add"  method="post">
                     <div>
                         <input class="fname" type="text" name="name" placeholder="MEDICINE NAME">
                         <input type="text" name="quan" placeholder="QUANTITY">
                         <input type="text" name="price" placeholder="PRICE">
-                        <input type="text" name="des" placeholder="DESCRIPTION">
+                        <input type="text" name="des" placeholder="DESCRIPTION（UP TO 50 CHARACTERS）">
                         <input type="text" name="img" placeholder="PASTE HERE FIREBASE LINK">
                     </div>
                     <button type="submit">Submit</button>
@@ -249,7 +266,9 @@
             </div>
         </div>
     </div>
+
     <script>
+
         let modalBtns = [...document.querySelectorAll(".button")];
         modalBtns.forEach(function (btn) {
             btn.onclick = function () {
@@ -270,16 +289,7 @@
                 event.target.style.display = "none";
             }
         };
-        function preview_image(event)
-        {
-            var reader = new FileReader();
-            reader.onload = function ()
-            {
-                var output = document.getElementById('output_image');
-                output.src = reader.result;
-            }
-            reader.readAsDataURL(event.target.files[0]);
-        }
+
     </script>
 </body>
 
