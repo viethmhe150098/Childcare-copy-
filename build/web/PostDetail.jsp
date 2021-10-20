@@ -88,6 +88,7 @@
                                 <p><span>Author</span>${rs4.first_name} ${rs4.last_name}</p>
                                 <p><span>Status</span>${rs4.status==1?"Active":"Inactive"}</p>
                                 <p><span>Description</span>Post detail with abcdefg</p>
+                                <!--<p><span>Description</span>Post detail with abcdefg</p>-->
                             </div>
                             <div class="clear"></div>
                             <div>
