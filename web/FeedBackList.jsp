@@ -48,7 +48,8 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<body class="clinic_version">
+<body class="clinic_version" style="background:
+#EEEEEE">
     <!-- LOADER -->
     <div id="preloader">
         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
@@ -135,18 +136,48 @@
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>The Feedback List</h2>
             </div>
+            <div class="handleform" style="margin-bottom:20px;">
+                <form method="post" style="margin-bottom:20px; text-align: center" action="SearchingFeedback?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+                <select class="form-control" id="trangThai" name="status">
+                    <option  value="4">All</option>
+                    <option value="0">Name <i class="fas fa-male"></i></option>
+                    <option value="1">Star <i class="fas fa-star-half-alt"></i></option><!--
+                    <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
+                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
+                </select>
+                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
+            </form>
+                 <form action="searchFeedback" method="post">
+                <div class="search1" style="width: 40% ;margin: 0 auto;">
+                    <input type="text" value="${txtS}" name="name" placeholder="Type your search :" />
+                    <button  type="submit" style=" background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
+                             background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
+                             </div>
+            </form>
+            </div>
+                 
+           
+           
             <!-- end title -->
                              <c:forEach items="${listFeedback}" var="o">
 
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h4>${o.fID}</h4>
+                        <div style="padding:15px ; background:#fff;">
+                             <h4>${o.fID}</h4>
                         <h2>${o.name}</h2>
-                        <div class="service-price" style="background-color:#39b49a;color:white;width: 10%; ">
-                            <p style="text-align:center;">${o.star} <i class="fas fa-star-half-alt"></i></p>
+                        </div>
+                        <div style="background:#fff;padding:15px;margin-bottom: 20px;">
+                            <div class="service-price" style="margin-top:10px; background-color:#39b49a;color:white;width: 10%; ">
+                               
+                                                                <p style="text-align:center;">${o.star} <i class="fas fa-star-half-alt"></i></p>
+
+                               
                         </div>
                         <p class="lead">${o.description}</p>
+                        </div>
+                        
                                     </div>
                          <button class="w3-left w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i
                                         class="fa fa-thumbs-up"></i> Like</b></button></p>
