@@ -123,18 +123,18 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="project-info-box mt-0">
-                        <h5>SERVICE CATEGORY: ${Sdetail2.scCateName}</h5>
-                        <p class="mb-0">Description: ${Sdetail1.description}</p>
+                        <h2>SERVICE CATEGORY: ${Sdetail2.scCateName}</h2>
+                        <p style="font-size: medium" class="mb-0">Description: ${Sdetail1.description}</p>
                     </div><!-- / project-info-box -->
 
                     <div class="project-info-box">
-                        <p><b>Service ID:</b> ${Sdetail1.sID}</p>
-                        <p><b>Name:</b> ${Sdetail1.sname}</p>
-                        <p><b>Max quantity:</b> ${Sdetail1.maxquantity} people/turn</p>
-                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                        <p style="font-size: medium"><b>Service ID:</b> ${Sdetail1.sID}</p>
+                        <p style="font-size: medium"><b>Name:</b> ${Sdetail1.sname}</p>
+                        <p style="font-size: medium"><b>Max quantity:</b> ${Sdetail1.maxquantity} people/turn</p>
+                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%;">
                             <p style = "text-decoration: underline; color: black;
-                               text-underline-offset: -2px; text-decoration: line-through;text-align: center">$${Sdetail1.sprice}</p>
-                            <p style="text-align: center; color: red;">Sale Price</p>
+                               text-underline-offset: -2px; text-decoration: line-through;text-align: center; font-size: medium;">$${Sdetail1.sprice}</p>
+                            <p style="text-align: center; color: red; font-size: medium;">Sale Price</p>
                         </div>
                         <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Service List" style="margin:0;background-color: orange; margin-top: 10px">
                     </div><!-- / project-info-box -->

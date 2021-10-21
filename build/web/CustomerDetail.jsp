@@ -116,16 +116,16 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="project-info-box mt-0">
-                    <h5>CUSTOMER NAME: ${listC.first_name} ${listC.last_name}</h5>
-                    <p class="mb-0">CUSTOMER ID: ${listC.cID}</p>
+                    <h2>CUSTOMER NAME: ${listC.first_name} ${listC.last_name}</h2>
+                    <p style="font-size: medium" class="mb-0">CUSTOMER ID: ${listC.cID}</p>
                 </div><!-- / project-info-box -->
 
                 <div class="project-info-box">
-                    <p><b>Age:</b> ${listC.age}</p>
-                    <p><b>Gender:</b> ${listC.gender ==1?"Male":"Female"}</p>
-                    <p><b>Status:</b> ${listC.status ==1?"Active":"Inactive"}</p>
-                    <p><b>Address:</b> ${listC.address}</p>
-                    <p><b>Tel:</b> ${listC.tel}</p>
+                    <p style="font-size: medium"><b>Age:</b> ${listC.age}</p>
+                    <p style="font-size: medium"><b>Gender:</b> ${listC.gender ==1?"Male":"Female"}</p>
+                    <p style="font-size: medium"><b>Status:</b> ${listC.status ==1?"Active":"Inactive"}</p>
+                    <p style="font-size: medium"><b>Address:</b> ${listC.address}</p>
+                    <p style="font-size: medium"><b>Tel:</b> ${listC.tel}</p>
                     
                     <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Customer List" style="margin:0;background-color: orange; margin-top: 10px">
                 </div><!-- / project-info-box -->
