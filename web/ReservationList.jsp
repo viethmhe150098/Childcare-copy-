@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
     <!-- Basic -->
@@ -87,7 +88,6 @@
                         <ul class="list-main">
                             <c:choose>
                                 <c:when test= "${sessionScope.customer_account == null}">
-                                    <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
                                 </c:when>
                                 <c:otherwise>
                                     <i class="fa fa-user-circle"></i> <a href="Userprofile.jsp"> ${sessionScope.customer_account.username} | </a>
