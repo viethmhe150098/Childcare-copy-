@@ -132,11 +132,11 @@
                     </div>
                 </nav>
 
-                <form action="" method="get">
+                <form action="searchBlog" method="get">
                     <div class="serch-bar">
                         <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input name="pname" type="text" class="form-control input-lg" placeholder="Search" />
+                                <input name="name" type="text" class="form-control input-lg" placeholder="Search" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-lg" type="submit">
                                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -175,61 +175,42 @@
         <h2>Blog List</h2>
     </div>
 
-    <!--<div class="container  ">-->
-    <div class="container">
-        <!--<div class="row blog">-->
-
-            <%ResultSet rs1 = (ResultSet) request.getAttribute("ketQua1");%>
-            <%while (rs1.next()) {%>
-
-            <!--                <div  class="col-md-12">
-                                <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
-                                     Carousel items 
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">-->
-            <div class="row">
-                <div class="col-md-4" >
-                    <div class="item-box-blog">
-                        <div class="item-box-blog-image">
-                            <figure> <img alt="" src="images/<%=rs1.getString(4)%>"> </figure>
-                        </div>
-                        <div class="item-box-blog-body">
-                            <!--Heading-->
-                            <div class="item-box-blog-heading">
-                                <a href="#" tabindex="0">
-                                    <h5><%=rs1.getString(1)%></h5>
-                                </a>
-                            </div>
-                            <!--Data-->
-                            <div class="item-box-blog-data" style="padding: px 15px;">
-                                <p>Post Category: <%=rs1.getString(6)%></p>
-                                <p>Author: <%=rs1.getString(7)%> <%=rs1.getString(8)%></p>
-                            </div>
-                            <!--Text-->
-                            <div class="item-box-blog-text">
-                                <p>This content is extremely beneficial for you.</p>
-                            </div>
-                            <div class="item-box-blog-text">
-                                <p>Create Date: <%=rs1.getDate(2)%></p>
-                            </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
-                            <!--Read More Button-->
-                        </div>
+    <div  class="container">
+        <%ResultSet rs1 = (ResultSet) request.getAttribute("ketQua1");%>
+        <%while (rs1.next()) {%>
+        <div class="row col-md-4">
+            <div >
+                <div style="margin-right: 20px; height: 500px" class="item-box-blog">
+                    <div class="item-box-blog-image">
+                        <figure> <img alt="" style="width: 100%; height: 250px" src="images/<%=rs1.getString(4)%>"> </figure>
                     </div>
-                </div>                                 
-            </div>
-            <!--.row-->
-            <!--                            </div>
-                                        .item
-                                    </div>
-                                    .carousel-inner
-                                </div>
-                                .Carousel
-                            </div>-->
-            <%}%>
+                    <div class="item-box-blog-body">
+                        <!--Heading-->
+                        <div class="item-box-blog-heading">
+                            <a href="#" tabindex="0">
+                                <h2><%=rs1.getString(1)%></h2>
+                            </a>
+                        </div>
+                        <!--Data-->
+                        <div class="item-box-blog-data" style="padding: px 15px; color: black">
+                            <p>Post Category: <%=rs1.getString(6)%></p>
+                            <p>Author: <%=rs1.getString(7)%> <%=rs1.getString(8)%></p>
+                        </div>
+                        <!--Text-->
+                        <div class="item-box-blog-text" style="color: black">
+                            <p>This content is extremely beneficial for you.</p>
+                        </div>
+                        <div class="item-box-blog-text" style="color: black">
+                            <p>Create Date: <%=rs1.getDate(2)%></p>
+                        </div>
+                        <div class="mt"> <a href="blogDetail?pID=<%=rs1.getInt(9)%>" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
+                        <!--Read More Button-->
+                    </div>
+                </div>
+            </div>                                 
         </div>
-    <!--</div>-->
-    <!--</div>-->
+        <%}%>
+    </div>
 
 
 
