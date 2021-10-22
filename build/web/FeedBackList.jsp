@@ -160,11 +160,11 @@
            
             <!-- end title -->
                              <c:forEach items="${listFeedback}" var="o">
-
-            <div class="row">
+                                 <div class="container">
+                                          <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <div style="padding:15px ; background:#fff;">
+                        <div style="padding:15px ; background:#fff;border-radius:5px;">
                              <h4>${o.fID}</h4>
                         <h2>${o.name}</h2>
                         </div>
@@ -179,8 +179,7 @@
                         </div>
                         
                                     </div>
-                         <button class="w3-left w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i
-                                        class="fa fa-thumbs-up"></i> Like</b></button></p>
+                         <button class="w3-left w3-button w3-white w3-border" onclick="likeFunction(this)"><b>&#10003 Like</b></button></p>
                             <button class="w3-right w3-button w3-black mtl" onclick="myFunction('demo3')"
                                 id="myBtn"><b>Replies
                                     &nbsp;</b> <span class="w3-tag w3-white">1</span></button></p>
@@ -219,6 +218,8 @@
             </ul>
         </div>  
         </div>
+                                 </div>
+       
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -311,7 +312,7 @@
         const isPlaying = false;
          function likeFunction(x) {
             if(this.isPlaying){
-                x.style.fontWeight = "bold"; x.innerHTML = "&#10003; Liked";
+                x.style.fontWeight = "bold"; x.innerHTML = "&#10003; Like";
                 this.isPlaying=false;
             }else {
                 x.style.fontWeight = "bold"; x.innerHTML = "&times; UnLike";
