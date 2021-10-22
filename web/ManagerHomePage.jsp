@@ -233,7 +233,7 @@
                 <div class="card card_1st">
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center; color: white;">RESERVATION</h5>
-                        <p class="card-text card-content">1000</p>
+                        <p class="card-text card-content">${totalRe}</p>
 
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                 <div class="card card_1st">
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center; color: white;">INCOME</h5>
-                        <p class="card-text card-content">10000$</p>
+                        <p class="card-text card-content">${income}$</p>
 
                     </div>
                 </div>
@@ -250,8 +250,8 @@
             <div class="col-sm-4">
                 <div class="card card_1st">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center; color: white;">NEW ACCOUNT THIS MONTH</h5>
-                        <p class="card-text card-content">1000</p>
+                        <h5 class="card-title" style="text-align: center; color: white;">TOTAL ACCOUNT </h5>
+                        <p class="card-text card-content">${totalCu}</p>
 
                     </div>
                 </div>
@@ -262,24 +262,10 @@
                 <div class="card Card_2th">
                     <h5 style="text-align: center;">PENDING RESERVATION</h5>
                     <div class="card_content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
                             at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-                            consequat gravida libero rhoncus ut.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
-                            at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-                            consequat gravida libero rhoncus ut.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
-                            at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-                            consequat gravida libero rhoncus ut.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
-                            at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-                            consequat gravida libero rhoncus ut.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
-                            at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-                            consequat gravida libero rhoncus ut.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
-                            at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-                            consequat gravida libero rhoncus ut.</p>
+                            consequat gravida libero rhoncus ut.</div>
+
                             
                     </div>
                 </div>

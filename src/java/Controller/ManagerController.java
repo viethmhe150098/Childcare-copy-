@@ -5,6 +5,10 @@
  */
 package Controller;
 
+import DAO.DAOCustomer;
+import DAO.DAOReservation;
+import DAO.DAOReservationDetail;
+import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,8 +36,18 @@ public class ManagerController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            DBConnect dbconn = new DBConnect();
             String service = request.getParameter("service");
+            DAOReservation daoRe = new DAOReservation(dbconn);
+            DAOReservationDetail daoDe = new DAOReservationDetail(dbconn);
+            DAOCustomer daoCu = new DAOCustomer(dbconn);
             if(service==null){
+                int totalRe = daoRe.getTotalRe();
+                request.setAttribute("totalRe", totalRe);
+                double income = daoRe.getIncome();
+                request.setAttribute("income", income);
+                int totalCu = daoCu.getTotalCus();
+                request.setAttribute("totalCu", totalCu);
                 request.getRequestDispatcher("ManagerHomePage.jsp").forward(request, response);
             }
         }

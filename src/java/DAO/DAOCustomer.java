@@ -452,6 +452,18 @@ public class DAOCustomer {
         }
         return null;
     }
+    public int getTotalCus(){
+        ResultSet rs = dbconn.getData("select count(*) from Customer");
+        int total= 0;
+        try {
+            while(rs.next()){
+                total = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+    }
 
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
