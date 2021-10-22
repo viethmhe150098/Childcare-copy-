@@ -61,10 +61,6 @@
         <servlet-class>Controller.confirmAcc</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>adminview</servlet-name>
-        <servlet-class>Controller.adminview</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>reservationController</servlet-name>
         <servlet-class>Controller.reservationController</servlet-class>
     </servlet>
@@ -174,7 +170,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ManagerController</servlet-name>
-        <url-pattern>/manager/ManagerController</url-pattern>
+        <url-pattern>/ManagerController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StaffController</servlet-name>
@@ -195,10 +191,6 @@
     <servlet-mapping>
         <servlet-name>confirmAcc</servlet-name>
         <url-pattern>/confirmAcc</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminview</servlet-name>
-        <url-pattern>/admin/adminview</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>reservationController</servlet-name>
