@@ -34,7 +34,7 @@ public class ManagerController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String service = request.getParameter("service");
             if(service==null){
-                
+                request.getRequestDispatcher("ManagerHomePage.jsp").forward(request, response);
             }
         }
     }
