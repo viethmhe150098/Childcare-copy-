@@ -130,6 +130,25 @@ public class DAOFeedback {
         }
         return list;
     }
+      public Feedback getFeedbackByID(String fid) {
+        List<Feedback> list = new ArrayList<>();
+        String query = "select * from feedback where fID=?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, fid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
         public List<Feedback> SearchFeedback(String name, String phone) {
         List<Feedback> list = new ArrayList<>();
         String sql = "select * from feedback where name like ? or mobile=?";

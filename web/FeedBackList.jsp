@@ -164,20 +164,20 @@
                                           <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <div style="padding:15px ; background:#fff;border-radius:5px;">
+                        <div style="padding:15px ; background:#fff;border-radius:5px;margin-bottom: 15px;">
                              <h4>${o.fID}</h4>
-                        <h2>${o.name}</h2>
-                        </div>
-                        <div style="background:#fff;padding:15px;margin-bottom: 20px;">
+                             <h2><a href="FeedbackDetailControl?fID=${o.fID}#about" style="margin:0 auto;">${o.name}</a></h2>
+                       
+                   
                             <div class="service-price" style="margin-top:10px; background-color:#39b49a;color:white;width: 10%; ">
                                
                                                                 <p style="text-align:center;">${o.star} <i class="fas fa-star-half-alt"></i></p>
 
                                
                         </div>
-                        <p class="lead">${o.description}</p>
-                        </div>
-                        
+                        <p class="lead">${o.content}</p>
+                       
+                         </div>
                                     </div>
                          <button class="w3-left w3-button w3-white w3-border" onclick="likeFunction(this)"><b>&#10003 Like</b></button></p>
                             <button class="w3-right w3-button w3-black mtl" onclick="myFunction('demo3')"
@@ -191,15 +191,15 @@
                
                 <!-- end col -->
                 <div class="col-md-6">
-                    <div class="post-media wow fadeIn">
-                        <img src="images/about_03.jpg" alt="" class="img-responsive">
-                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                    <div class="post-media wow fadeIn" >
+                        <img src="images/anhyte.png" alt="" class="img-responsive" style="height:280px; margin-bottom: 25px;">
                     </div>
                     <!-- end media -->
                 </div>
                 <!-- end col -->
                 
                                          </c:forEach>
+                  </div>
 
             <div class="container text-center">
             <ul class="pagination">
@@ -217,7 +217,7 @@
                     </c:if>
             </ul>
         </div>  
-        </div>
+      
                                  </div>
        
         <!-- end row -->
@@ -319,7 +319,12 @@
                 this.isPlaying = true;
 
             }
-        }</script>
+            
+        }
+          function dieu_huong(){
+            location.assign("http://localhost:63270/ChildCare/ServiceControl");
+        }
+            </script>
 
 </body>   
 </html>
