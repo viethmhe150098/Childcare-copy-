@@ -118,16 +118,19 @@
                 <h2>News Feed</h2>
             </div>
             <div class="row dev-list text-center">
-                <c:forEach items="${blogs}" var="l">
+                <c:forEach items="${post}" var="l">
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
                         <div class="widget clearfix">
                             <img src="${l.image}" alt="" class="img-responsive img-rounded">
                             <div class="widget-title">
                                 <h3>${l.title}</h3>
-                                <small>${l.author}</small>
+                                <small>ID: ${l.pID}</small>
+                                <small>Author: ${l.mID}</small>
                             </div>
                             <!-- end title -->
-                            <p>${l.content}</p>
+                            <p>${l.status}</p>
+                            <p>${l.date_create}</p>
+                            <p>${l.updata_date}</p>
                             <div class="footer-social">
                                 <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
                                 <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>

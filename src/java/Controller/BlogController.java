@@ -6,7 +6,9 @@
 package Controller;
 
 import DAO.DAOBlog;
+import DAO.DAOPost;
 import Entity.Blog;
+import Entity.Post;
 import Model.DBConnect;
 import java.io.IOException;
 import java.util.List;
@@ -27,9 +29,9 @@ public class BlogController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
               DBConnect bConnect = new DBConnect();
-        DAOBlog dao = new DAOBlog(bConnect);
-        List<Blog> blogs =dao.getListBlog();
-        request.setAttribute("blogs", blogs);
+        DAOPost dao = new DAOPost(bConnect);
+        List<Post> post =dao.getListPost();
+        request.setAttribute("post", post);
         request.getRequestDispatcher("Blog.jsp").forward(request, response);
     }
 

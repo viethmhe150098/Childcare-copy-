@@ -35,6 +35,28 @@ public class DAOPost {
     public DAOPost() {
     }
 
+    public List<Post> getListPost() {
+        List<Post> Post = new ArrayList<>();
+        try {
+            String sql = "Select * from Post";
+
+            try {
+                conn = new DBConnect().getConnection();//mo ket noi voi sql
+            } catch (Exception ex) {
+                Logger.getLogger(DAOPost.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Post.add(new Post(rs.getString(1), rs.getInt(2), rs.getDate(3),
+                        rs.getDate(4), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(5)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Post;
+    }
+
     public Post getPostBypID(String pID) {
         String sql = "select * from Post where pID = ?";
         try {
@@ -73,5 +95,10 @@ public class DAOPost {
         } catch (Exception ex) {
             Logger.getLogger(DAOPost.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void main(String[] args) {
+        DAOPost dao = new DAOPost();
+        System.out.println(dao.getListPost());;
     }
 }
