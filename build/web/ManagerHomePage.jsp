@@ -210,24 +210,34 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
+                <div class="serch-bar ">
+                    <div class="col-md-7" id="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
+                            <input type="text" class="form-control input-lg" placeholder="Search Here" />
+                            <!--                            <span class="input-group-btn">
+                                                            <button class="btn btn-info btn-lg" type="button">
+                                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                                            </button>
+                                                        </span>-->
                         </div>
+
                     </div>
-<!--                    <div class="serch-bar col-md-6">
-                        <div class="input-group col-md-12">
-                            <i class="far fa-user"></i>
-                            <i class="fas fa-sign-in-alt"></i>
-                            <i class="fas fa-sign-out-alt"></i>
-                        </div>
-                    </div>-->
+                    <c:choose>
+                        <c:when test= "${sessionScope.manager_account == null}">
+                            <div class="col-md-1">
+                                <a href="Userprofile.jsp"><span class="glyphicon glyphicon-user align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span>
+                            </div>
+                            <div class="col-md-1">
+                                <a href="validateCustomer"><span class="glyphicon glyphicon-log-out align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                            </div>
+
+                        </c:when>
+                        <c:otherwise>
+                            <div class="col-md-1">
+                                <a href="login"><span class="glyphicon glyphicon-log-in align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
