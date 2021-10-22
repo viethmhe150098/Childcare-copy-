@@ -137,6 +137,7 @@
                             <p style="text-align: center; color: red; font-size: medium;">Sale Price</p>
                         </div>
                         <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Service List" style="margin:0;background-color: orange; margin-top: 10px">
+                        <div><a href="updateServiceControl?sID=${Sdetail1.sID}" style="margin-top: 5px" class="btn btn-success" class="edit">Update</a></div>
                     </div><!-- / project-info-box -->
 
                     <!--                        <div class="project-info-box mt-0 mb-0">
