@@ -20,10 +20,23 @@ public class Post {
     private int pcateID;
     private int pID;
     private String image;
-
+    private String content;
     public Post() {
     }
 
+    public Post(String title, int mID, Date date_create, Date updata_date, String status, int pcateID, int pID, String image, String content) {
+        this.title = title;
+        this.mID = mID;
+        this.date_create = date_create;
+        this.updata_date = updata_date;
+        this.status = status;
+        this.pcateID = pcateID;
+        this.pID = pID;
+        this.image = image;
+        this.content = content;
+    }
+    
+    
     public Post(String title, int mID, Date date_create, Date updata_date, String status, int pcateID, int pID) {
         this.title = title;
         this.mID = mID;

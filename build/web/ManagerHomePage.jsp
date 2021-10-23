@@ -202,7 +202,7 @@
                         <ul class="nav navbar-nav">
                             <li><a  href="index.html">HOME</a></li>
                             <li><a  href="">RESERVATION</a></li>
-                            <li><a data-scroll href="#about">POST</a></li>
+                            <li><a data-scroll href="ManagerController?service=post">POST</a></li>
                             <li><a data-scroll href="#service">SLOT</a></li>
                             <li><a data-scroll href="Medicine">MEDICINE</a></li>
                             <li><a data-scroll href="#price">FEEDBACK</a></li>
