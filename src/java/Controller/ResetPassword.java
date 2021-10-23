@@ -76,7 +76,14 @@ public class ResetPassword extends HttpServlet {
         DAOCustomer dao = new DAOCustomer(dbconn);
         String password = request.getParameter("password");
         String username = request.getParameter("username");
-        response.sendRedirect("login");
+        if(dao.getCustomerByUser(username)){
+            dao.resetPass(password, username);
+            response.sendRedirect("login");
+        }else{
+            request.setAttribute("mess", "PLEASE CHECK YOUR USERNAME");
+            request.getRequestDispatcher("ResetPassword.jsp").forward(request, response);
+        }
+        
     }
 
     /**

@@ -484,8 +484,8 @@ public class DAOCustomer {
         return total;
     }
 
-    public boolean resetPass(String pass, String user) {
-        if (getCustomerByUser(user)) {
+    public void resetPass(String pass, String user) {
+        
             String sql = "update Customer set password = ? where username=?";
             try {
                 conn = dbconn.getConnection();
@@ -496,9 +496,7 @@ public class DAOCustomer {
             } catch (Exception ex) {
                 Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
             }
-            return true;
-        }
-        return false;
+         
     }
 
     public static void main(String[] args) {
