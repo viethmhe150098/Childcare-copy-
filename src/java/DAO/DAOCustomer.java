@@ -137,8 +137,9 @@ public class DAOCustomer {
         } catch (Exception e) {
         }
     }
-     public void editCustomer(String firstname, String lastname, String gender, String email, String tel, String username, String password,
-            String age, String status, String address, String role,String cid) {
+
+    public void editCustomer(String firstname, String lastname, String gender, String email, String tel, String username, String password,
+            String age, String status, String address, String role, String cid) {
         String query = "update Customer\n"
                 + "set [first_name] = ?,\n"
                 + "[last_name] = ?,\n"
@@ -162,12 +163,11 @@ public class DAOCustomer {
             ps.setString(5, tel);
             ps.setString(6, username);
             ps.setString(7, password);
-                        ps.setString(8, age);
+            ps.setString(8, age);
             ps.setString(9, status);
             ps.setString(10, address);
             ps.setString(11, role);
-                        ps.setString(12, cid);
-
+            ps.setString(12, cid);
 
             ps.executeUpdate();
         } catch (Exception e) {
@@ -251,7 +251,6 @@ public class DAOCustomer {
         }
         return list;
     }
-    
 
     public List<Customer> SearchCustomer(String name, String phone) {
         List<Customer> list = new ArrayList<>();
@@ -404,9 +403,9 @@ public class DAOCustomer {
             Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void updateCustomer1(String fname, String lname, String gender, String email, String tel
-    , String username, String password, String age, String status, String address, int role, int cID) {
+
+    public void updateCustomer1(String fname, String lname, String gender, String email, String tel,
+             String username, String password, String age, String status, String address, int role, int cID) {
         try {
             String sql = "update Customer set first_name=?, last_name=?, gender=?, "
                     + "email=?, tel=?, username=?, \n"
@@ -452,11 +451,31 @@ public class DAOCustomer {
         }
         return null;
     }
-    public int getTotalCus(){
-        ResultSet rs = dbconn.getData("select count(*) from Customer");
-        int total= 0;
+
+    public boolean getCustomerByUser(String user) {
+        String sql = "select username from Customer where username = ?";
         try {
-            while(rs.next()){
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public int getTotalCus() {
+        ResultSet rs = dbconn.getData("select count(*) from Customer");
+        int total = 0;
+        try {
+            while (rs.next()) {
                 total = rs.getInt(1);
             }
         } catch (SQLException ex) {
@@ -465,13 +484,29 @@ public class DAOCustomer {
         return total;
     }
 
+    public boolean resetPass(String pass, String user) {
+        if (getCustomerByUser(user)) {
+            String sql = "update Customer set password = ? where username=?";
+            try {
+                conn = dbconn.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, pass);
+                ps.setString(2, user);
+                ps.executeUpdate();
+            } catch (Exception ex) {
+                Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
 
 //        List<Customer> list = dao.pagingCustomer(1);
 //        System.out.println(list);
-
         System.out.println(dao.getAllCustomer1());
     }
 }
