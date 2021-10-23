@@ -96,9 +96,24 @@ public class DAOPost {
             Logger.getLogger(DAOPost.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public int getTotalPost() {
+        String sql = "select count(*) from Post";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
         DAOPost dao = new DAOPost();
-        System.out.println(dao.getListPost());;
+        System.out.println(dao.getTotalPost());;
     }
 }
