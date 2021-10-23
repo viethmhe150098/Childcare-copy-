@@ -145,7 +145,7 @@
 
                 </div>
                 <c:choose>
-                    <c:when test= "${sessionScope.manager_account == null}">
+                    <c:when test= "${sessionScope.manager_account != null}">
                         <div class="col-md-1">
                             <a href="Userprofile.jsp"><span class="glyphicon glyphicon-user align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span>
                         </div>
@@ -166,18 +166,18 @@
 </header>
 
 
-<div  class="container">
+    <div  class="container" style="margin-top: 200px">
     <%ResultSet rs1 = (ResultSet) request.getAttribute("ketQua1");%>
     <%while (rs1.next()) {%>
     <div class="row col-md-4">
         <div >
-            <div style="margin-right: 20px; height: 500px" class="item-box-blog">
+            <div style="margin-right: 20px; height: 510px" class="item-box-blog">
                 <div class="item-box-blog-image">
                     <figure> <img alt="" style="width: 100%; height: 250px" src="images/<%=rs1.getString(4)%>"> </figure>
                 </div>
                 <div class="item-box-blog-body">
                     <!--Heading-->
-                    <div class="item-box-blog-heading">
+                    <div class="item-box-blog-heading" style="height: 40px; margin-bottom: 10px">
                         <a href="#" tabindex="0">
                             <h2><%=rs1.getString(1)%></h2>
                         </a>
@@ -189,12 +189,12 @@
                     </div>
                     <!--Text-->
                     <div class="item-box-blog-text" style="color: black">
-                        <p>This content is extremely beneficial for you.</p>
+                        <p style="text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; "><%=rs1.getString(10)%></p>
                     </div>
                     <div class="item-box-blog-text" style="color: black">
                         <p>Create Date: <%=rs1.getDate(2)%></p>
                     </div>
-                    <div class="mt"> <a href="blogDetail?pID=<%=rs1.getInt(9)%>" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
+                    <div class="mt"> <a href="postDetail?pID=<%=rs1.getInt(9)%>" tabindex="0" class="btn bg-blue-ui white read">read more</a> </div>
                     <!--Read More Button-->
                 </div>
             </div>
