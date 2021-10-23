@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class DAOSendEmail {
 
-    public static void send(String m, String sub, String messg) {
+    public void send(String m, String sub, String messg) {
 
         final String user = "luutrufile00@gmail.com";
 
