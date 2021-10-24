@@ -165,7 +165,7 @@
     <body class="clinic_version">
         
         <div id="header">
-            <jsp:include page="nav.jsp"></jsp:include>
+            <jsp:include page="Header.jsp"></jsp:include>
             </div>
         
         
