@@ -47,7 +47,8 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<body class="clinic_version">
+<body class="clinic_version" style="background:
+#EEEEEE">
     <!-- LOADER -->
     <div id="preloader">
         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
@@ -162,9 +163,9 @@
                 <div class="col-md-6">
                     <div class="message-box">
                         <h2 class="project-info-box mt-0" style="width:80%;padding:20px;
-                            border-radius:20px;
-                            background: grey;margin-bottom: 15px;   ">User ID: ${listUser.cID}</h2>
-                        <div class="service-price" style="background-color:#39b49a;color:white;padding:20px;width: 80%; border-radius:20px; margin-bottom: 15px; ">
+                            border-radius:10px;
+                            background: #fff;margin-bottom: 15px;   ">ID: ${listUser.cID}</h2>
+                        <div class="service-price" style="background-color:#fff;color:black;padding:20px;width: 80%; border-radius:10px; margin-bottom: 15px; ">
                             <h4>Full Name: ${listUser.first_name} ${listUser.last_name}</h4>
                             <h4>Age: ${listUser.age}</h4>
                             <h4>Gender: ${listUser.gender==1?"Male":"Female"}</h4>
