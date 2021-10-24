@@ -221,7 +221,7 @@
                                  </div>
        
         <!-- end row -->
-        <footer id="footer" class="footer-area wow fadeIn">
+                  <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -289,6 +289,8 @@
                 </div>
             </div>
         </div>
+        </div>
+  
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
         <!-- all js files -->
         <script src="js/all.js"></script>

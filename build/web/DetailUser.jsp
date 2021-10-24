@@ -46,7 +46,8 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<body class="clinic_version">
+<body class="clinic_version" style="background:
+#EEEEEE">
     <!-- LOADER -->
     <div id="preloader">
         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
