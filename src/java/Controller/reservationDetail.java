@@ -41,11 +41,11 @@ public class reservationDetail extends HttpServlet {
             String reID = request.getParameter("reID");
             
 //            DAOReservation dao = new DAOReservation(dbconn);
-            String sql = "select b.reID, b.date, b.fullname, b.mail, b.phone, b.recceive_name, b.recceive_tel, b.recceive_gender, \n"
-                    + "b.recceive_mail, b.totalprice, b.status, d.sname\n"
+            String sql = "select b.reID, b.date, b.fullname, b.mail, b.phone, b.receive_name, b.receive_tel, b.receive_gender, \n"
+                    + "b.receive_mail, b.totalprice, b.status, d.sname\n"
                     + "from Customer as a join Reservation as b on a.cID=b.cid\n"
                     + "join ReservationDetail as c on b.reID=c.reID\n"
-                    + "join Service as d on c.serID=d.sID\n"
+                    + "join Service as d on c.sID=d.sID\n"
                     + "where b.reID = " + reID;
             ResultSet rs3 = dbconn.getData(sql);
             request.setAttribute("reserDetail", rs3);

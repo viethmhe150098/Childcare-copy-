@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- Site Metas -->
-    <title>Customer List</title>
+    <title>Customer List Page</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -72,6 +72,26 @@
                             <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                             <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
                         </div>
+                        <div style="color: black;" class="info-inner">
+                        <ul class="list-main">
+                            <c:choose>
+                                <c:when test= "${sessionScope.customer_account == null}">
+                                    <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="fa fa-user-circle"></i> <a href="Userprofile.jsp"> ${sessionScope.customer_account.username} | </a>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose >
+                                <c:when test = "${sessionScope.customer_account == null}">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="login"> Login</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                    <i class="fa fa-sign-in"></i><a href="validateCustomer"> Logout</a>
+                                    </c:otherwise>
+                                </c:choose>                            
+                        </ul>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -87,10 +107,10 @@
                         <ul class="nav navbar-nav">
                             <li><a class="active" href="ServiceControl">Home</a></li>
                             <li><a data-scroll href="#about">About us</a></li>
-                            <li><a data-scroll href="#service">Services</a></li>
+                            <li><a data-scroll href="ServiceControl">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
                             <li><a data-scroll href="#price">Price</a></li>
-                            <li><a data-scroll href="#testimonials">Testimonials</a></li>
+                            <li><a data-scroll href="BlogController">Blogs</a></li>
                             <li><a data-scroll href="#getintouch">Contact</a></li>
                         </ul>
                     </div>
@@ -108,6 +128,9 @@
                             </div>
                         </div>
                     </div>
+<!--                    <div class=" col-md-4">
+                        <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                    </div>-->
                 </form>
             </div>
         </div>
@@ -152,7 +175,7 @@
                     <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
                     <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
                 </select>
-                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
+                <button  type="submit" class="btn btn-success" id="btnDuyetDonHang">Filter</button>
             </form>
 
             <!-- end title -->
@@ -187,7 +210,7 @@
                             <td>${o.tel}</td>    
 
                             <td><a href="CustomerDetail?cid=${o.cID}#about" style="color:#fff; opacity: 0.8;">Detail</td>
-                            <td >
+                            <td>
                                 <a href="updateCustomerControl?cID=${o.cID}" style="color:#fff" class="edit">Update</a>
                             </td>
 
@@ -213,75 +236,7 @@
             </ul>
         </div>
 
-        <!-- end row -->
-        <footer id="footer" class="footer-area wow fadeIn">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="logo padding">
-                            <a href=""><img src="images/logo.png" alt=""></a>
-                            <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="footer-info padding">
-                            <h3>CONTACT US</h3>
-                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                            <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
-                            <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="subcriber-info">
-                            <h3>SUBSCRIBE</h3>
-                            <p>Get healthy news, tip and solutions to your problems from our experts.</p>
-                            <div class="subcriber-box">
-                                <form id="mc-form" class="mc-form">
-                                    <div class="newsletter-form">
-                                        <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
-                                        <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                                        <div class="clearfix"></div>
-                                        <!-- mailchimp-alerts Start -->
-                                        <div class="mailchimp-alerts">
-                                            <div class="mailchimp-submitting"></div>
-                                            <!-- mailchimp-submitting end -->
-                                            <div class="mailchimp-success"></div>
-                                            <!-- mailchimp-success end -->
-                                            <div class="mailchimp-error"></div>
-                                            <!-- mailchimp-error end -->
-                                        </div>
-                                        <!-- mailchimp-alerts end -->
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <div class="copyright-area wow fadeIn">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="footer-text">
-                            <p>© 2018 Lifecare. All Rights Reserved.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="social">
-                            <ul class="social-links">
-                                <li><a href=""><i class="fa fa-rss"></i></a></li>
-                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <jsp:include page="Footer.jsp"/>
         
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">

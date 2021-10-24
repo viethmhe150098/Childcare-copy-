@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -50,6 +52,7 @@ public class DAOService {
         }
         return list;
     }
+
     public int getTotalService() {
         String sql = "select count(*) from Service";
         try {
@@ -64,6 +67,7 @@ public class DAOService {
         }
         return 0;
     }
+
     public List<Service> pagingService(int index) {
         List<Service> list = new ArrayList<>();
         String sql = "select * from Service\n"
@@ -110,7 +114,7 @@ public class DAOService {
         }
         return list;
     }
-    
+
     public Service getServiceByCID1(String cid) {
         String query = "select * from Service\n"
                 + "where sID = ?";
@@ -131,7 +135,7 @@ public class DAOService {
         }
         return null;
     }
-    
+
     public SerCate getSerCateByscID(String scID) {
         String query = "select * from SerCate\n"
                 + "where scID = ?";
@@ -211,6 +215,24 @@ public class DAOService {
         return list;
     }
 
+    public void updateService(String sname, double sprice, String description, int maxquantity, String image, int sID) {
+        try {
+            String sql = "update Service set sname=?, sprice=?, description=?, "
+                    + "maxquantity=?, ser_image=? where sID=?";
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, sname);
+            ps.setDouble(2, sprice);
+            ps.setString(3, description);
+            ps.setInt(4, maxquantity);
+            ps.setString(5, image);
+            ps.setInt(6, sID);
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public static void main(String[] args) {
         DAOService dao = new DAOService();
         List<Service> list = dao.getAllProduct();
@@ -218,8 +240,11 @@ public class DAOService {
         List<Service> list2 = dao.getServiceByCID("1");
         List<SerCate> listC = dao.getAllCateSer();
         List<Service> list4 = dao.searchByName("khám");
-        for (Service o : list4) {
-            System.out.println(o);
-        }
+//        for (Service o : list4) {
+//            System.out.println(o);
+//        }
+//        System.out.println(dao.getServiceByCID1("3"));
+        dao.updateService("kham da lieu", 250, "kham da lieu", 20, "khamdalieu.jpg", 3);
+        System.out.println(dao.getServiceByCID1("3"));
     }
 }

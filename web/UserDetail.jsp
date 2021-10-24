@@ -152,7 +152,7 @@
     </div>
     <!-- end section -->
     <div id="about" class="section wow fadeIn" style="padding:0; margin:0;">
-        <div class="container">
+        <div class="container bg-secondary">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
                 <h2>The User Detail</h2>
@@ -161,8 +161,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h2>User ID: ${listUser.cID}</h2>
-                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
+                        <h2 class="project-info-box mt-0" style="width:80%;padding:20px;
+                            border-radius:20px;
+                            background: grey;margin-bottom: 15px;   ">User ID: ${listUser.cID}</h2>
+                        <div class="service-price" style="background-color:#39b49a;color:white;padding:20px;width: 80%; border-radius:20px; margin-bottom: 15px; ">
                             <h4>Full Name: ${listUser.first_name} ${listUser.last_name}</h4>
                             <h4>Age: ${listUser.age}</h4>
                             <h4>Gender: ${listUser.gender==1?"Male":"Female"}</h4>
@@ -173,7 +175,7 @@
                         </div>
 <!--                        <p class="lead">${listUser.address}</p>
                         <p> ${listUser.tel} </p>-->
-                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1 " style="margin-bottom: 15px;">Contact with</a>
                     </div>
                     <!-- end messagebox -->
                 </div>

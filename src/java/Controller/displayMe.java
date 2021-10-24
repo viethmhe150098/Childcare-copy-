@@ -5,9 +5,14 @@
  */
 package Controller;
 
+import DAO.DAOMedicine;
+import Entity.Medicines;
+import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Viet
  */
-public class adminview extends HttpServlet {
+@WebServlet(name = "displayMe", urlPatterns = {"/displayMe"})
+public class displayMe extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,16 +37,14 @@ public class adminview extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet adminview</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet adminview at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+            DBConnect dbconn = new DBConnect();
+
+            DAOMedicine dao = new DAOMedicine(dbconn);
+            ArrayList<Medicines> list = dao.displayMe();
+            request.setAttribute("list", list);
+            request.getRequestDispatcher("displayMedicine.jsp").forward(request, response);
+
         }
     }
 

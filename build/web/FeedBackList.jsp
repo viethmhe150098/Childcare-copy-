@@ -3,6 +3,7 @@
     Created on : Oct 15, 2021, 8:34:44 PM
     Author     : ADMIN
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,6 +32,7 @@
     <link rel="stylesheet" href="css/versions.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizer for Portfolio -->
@@ -46,14 +48,15 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<body class="clinic_version">
+<body class="clinic_version" style="background:
+#EEEEEE">
     <!-- LOADER -->
     <div id="preloader">
         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
     </div>
     <!-- END LOADER -->
     <header>
-        <div class="header-top wow fadeIn">
+        <div class="header-top fadeIn">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
                 <div class="right-header">
@@ -74,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom wow fadeIn">
+        <div class="header-bottom fadeIn">
             <div class="container">
                 <nav class="main-menu">
                     <div class="navbar-header">
@@ -131,36 +134,92 @@
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                <h2>The Detail Service</h2>
+                <h2>The Feedback List</h2>
             </div>
+            <div class="handleform" style="margin-bottom:20px;">
+                <form method="post" style="margin-bottom:20px; text-align: center" action="SearchingFeedback?service=searchBy" class="form-inline" id="searchForm" name="searchObject">
+                <select class="form-control" id="trangThai" name="status">
+                    <option  value="4">All</option>
+                    <option value="0">Name <i class="fas fa-male"></i></option>
+                    <option value="1">Star <i class="fas fa-star-half-alt"></i></option><!--
+                    <option ${checkStatus == 2?"selected":""} value="2">Status2</option>     
+                    <option ${checkStatus == 3?"selected":""} value="3">Name</option> -->
+                </select>
+                <button  type="submit" class="bg-secondary" id="btnDuyetDonHang">Filter</button>
+            </form>
+                 <form action="searchFeedback" method="post">
+                <div class="search1" style="width: 40% ;margin: 0 auto;">
+                    <input type="text" value="${txtS}" name="name" placeholder="Type your search :" />
+                    <button  type="submit" style=" background: -webkit-linear-gradient(left, #39b49a 0%, #1d86df 100%);
+                             background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);">Search</button>
+                             </div>
+            </form>
+            </div>
+                 
+           
+           
             <!-- end title -->
-            <div class="row">
+                             <c:forEach items="${listFeedback}" var="o">
+                                 <div class="container">
+                                          <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h4>What We Do</h4>
-                        <h2>Clinic Service</h2>
-                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                            <p style = "text-decoration: underline;
-                               text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                            <p style="text-align: center"> Sale :50$</p>
+                        <div style="padding:15px ; background:#fff;border-radius:5px;margin-bottom: 15px;">
+                             <h4>${o.fID}</h4>
+                             <h2><a href="FeedbackDetailControl?fID=${o.fID}#about" style="margin:0 auto;">${o.name}</a></h2>
+                       
+                   
+                            <div class="service-price" style="margin-top:10px; background-color:#39b49a;color:white;width: 10%; ">
+                               
+                                                                <p style="text-align:center;">${o.star} <i class="fas fa-star-half-alt"></i></p>
+
+                               
                         </div>
-                        <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
-                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                        <p class="lead">${o.content}</p>
+                       
+                         </div>
+                                    </div>
+                         <button class="w3-left w3-button w3-white w3-border" onclick="likeFunction(this)"><b>&#10003 Like</b></button></p>
+                            <button class="w3-right w3-button w3-black mtl" onclick="myFunction('demo3')"
+                                id="myBtn"><b>Replies
+                                    &nbsp;</b> <span class="w3-tag w3-white">1</span></button></p>
+                            <p class="w3-clear"></p>
+                            
+
                     </div>
                     <!-- end messagebox -->
-                </div>
+               
                 <!-- end col -->
                 <div class="col-md-6">
-                    <div class="post-media wow fadeIn">
-                        <img src="images/about_03.jpg" alt="" class="img-responsive">
-                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                    <div class="post-media wow fadeIn" >
+                        <img src="images/anhyte.png" alt="" class="img-responsive" style="height:280px; margin-bottom: 25px;">
                     </div>
                     <!-- end media -->
                 </div>
                 <!-- end col -->
-            </div>
-        </div>
+                
+                                         </c:forEach>
+                  </div>
+
+            <div class="container text-center">
+            <ul class="pagination">
+                <c:if test="${tag>1}">
+                    <li class="page-item "><a class="page-link" href="FeedbackControl?index=${tag-1}#about">Previous</a></li>
+                    </c:if>
+                    <c:forEach begin="1" end="${endP}" var="i">
+
+                    <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="FeedbackControl?index=${i}#about">${i}</a></li>
+                    </c:forEach>
+                    <c:if test="${tag<endP}">
+
+
+                    <li class="page-item"><a class="page-link" href="FeedbackControl?index=${tag+1}#about">Next</a></li>
+                    </c:if>
+            </ul>
+        </div>  
+      
+                                 </div>
+       
         <!-- end row -->
         <footer id="footer" class="footer-area wow fadeIn">
             <div class="container">
@@ -241,5 +300,31 @@
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="./js/main.js"></script>
+        <script>
+        // Toggle between hiding and showing blog replies/comments
+        document.getElementById(" myBtn").click(); function myFunction(id) {
+            var x = document.getElementById(id); if
+                (x.className.indexOf("w3-show") == -1) { x.className += " w3-show"; } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+           
+        }
+        const isPlaying = false;
+         function likeFunction(x) {
+            if(this.isPlaying){
+                x.style.fontWeight = "bold"; x.innerHTML = "&#10003; Like";
+                this.isPlaying=false;
+            }else {
+                x.style.fontWeight = "bold"; x.innerHTML = "&times; UnLike";
+                this.isPlaying = true;
+
+            }
+            
+        }
+          function dieu_huong(){
+            location.assign("http://localhost:63270/ChildCare/ServiceControl");
+        }
+            </script>
+
 </body>   
 </html>

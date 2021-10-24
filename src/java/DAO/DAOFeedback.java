@@ -35,10 +35,136 @@ public class DAOFeedback {
             while (rs.next()) {
                 list.add(new Feedback(rs.getInt(1),
                         rs.getString(2),
-                        rs.getInt(3),
+                        rs.getInt(3),                    
                         rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6), rs.getString(7),rs.getString(8),rs.getInt(9)));
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+
+     public List<Feedback> searchByName(String txtSearch) {
+        List<Feedback> list = new ArrayList<>();
+        String query = "select * from Feedback\n"
+                + "where [name] like ?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+      public List<Feedback> getByName() {
+        List<Feedback> list = new ArrayList<>();
+        String sql = "select * from feedback order by name;";
+               
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+    
+      public List<Feedback> getByStar() {
+        List<Feedback> list = new ArrayList<>();
+        String sql = "select * from feedback order by star";
+               
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+       public List<Feedback> getAllFeedback() {
+        List<Feedback> list = new ArrayList<>();
+        String sql = "select * from feedback order by fID";
+               
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+      public Feedback getFeedbackByID(String fid) {
+        List<Feedback> list = new ArrayList<>();
+        String query = "select * from feedback where fID=?";
+        try {
+            conn = new DBConnect().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, fid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+        public List<Feedback> SearchFeedback(String name, String phone) {
+        List<Feedback> list = new ArrayList<>();
+        String sql = "select * from feedback where name like ? or mobile=?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + name + "%");
+            ps.setString(2, phone);
+//            ps.setString(2, phone);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Feedback(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),                    
+                        rs.getString(4),
+                        rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
             }
 
         } catch (Exception e) {
@@ -62,7 +188,7 @@ public class DAOFeedback {
     }
       public static void main(String[] args) {
           DAOFeedback  dao = new DAOFeedback();
-          List<Feedback> list = dao.pagingFeedback(1);
+          List<Feedback> list = dao.getByStar();
           for(Feedback o : list){
               System.out.println(o);
           }

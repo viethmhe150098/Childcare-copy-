@@ -10,48 +10,44 @@ package Entity;
  * @author Viet
  */
 public class Staff {
+    private int stID;
     private String first_name;
     private int aID;
     private String last_name;
+     private int age;
+     private String gender;
     private String username;
     private String password;
     private String image;
     private String address;
-    private int sID;
     private int role;
     private int isDoctor;
-    private int age;
-    private int gender;
+   
+
     public Staff() {
     }
 
-    public Staff(String first_name, int aID, String last_name, String username, String password, String image, String address, int sID, int role) {
+    public Staff(int stID, String first_name, int aID, String last_name, int age, String gender, String username, String password, String image, String address, int role, int isDoctor) {
+        this.stID = stID;
         this.first_name = first_name;
         this.aID = aID;
         this.last_name = last_name;
+        this.age = age;
+        this.gender = gender;
         this.username = username;
         this.password = password;
         this.image = image;
         this.address = address;
-        this.sID = sID;
         this.role = role;
-    }
-    
-
-    public Staff(String first_name, int aID, String last_name, int role, String username, String password, String image, String address) {
-        this.first_name = first_name;
-        this.aID = aID;
-        this.last_name = last_name;
-        this.role = role;
-        this.username = username;
-        this.password = password;
-        this.image = image;
-        this.address = address;
+        this.isDoctor = isDoctor;
     }
 
-    public Staff(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public int getStID() {
+        return stID;
+    }
+
+    public void setStID(int stID) {
+        this.stID = stID;
     }
 
     public String getFirst_name() {
@@ -78,12 +74,20 @@ public class Staff {
         this.last_name = last_name;
     }
 
-    public int getRole() {
-        return role;
+    public int getAge() {
+        return age;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getUsername() {
@@ -118,12 +122,12 @@ public class Staff {
         this.address = address;
     }
 
-    public int getsID() {
-        return sID;
+    public int getRole() {
+        return role;
     }
 
-    public void setsID(int sID) {
-        this.sID = sID;
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public int getIsDoctor() {
@@ -134,29 +138,11 @@ public class Staff {
         this.isDoctor = isDoctor;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getGender() {
-        return gender;
-    }
-
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
-
-
-    
-
     @Override
     public String toString() {
-        return "Staff{" + "first_name=" + first_name + ", aID=" + aID + ", last_name=" + last_name + ", role=" + role + ", username=" + username + ", password=" + password + ", image=" + image + ", address=" + address + '}';
+        return "Staff{" + "stID=" + stID + ", first_name=" + first_name + ", aID=" + aID + ", last_name=" + last_name + ", age=" + age + ", gender=" + gender + ", username=" + username + ", password=" + password + ", image=" + image + ", address=" + address + ", role=" + role + ", isDoctor=" + isDoctor + '}';
     }
+
     
     
 }

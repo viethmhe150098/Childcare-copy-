@@ -189,10 +189,34 @@ public class DAOReservation {
         }
         return null;
     }
+    public int getTotalRe(){
+        ResultSet rs = dbconn.getData("select count(*) from Reservation");
+        int total = 0;
+        try {
+            while(rs.next()){
+                total = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+    }
+    public  double getIncome(){
+        ResultSet rs = dbconn.getData("select sum(price) from ReservationDetail");
+        double income = 0;
+        try {
+            while(rs.next()){
+                income = rs.getDouble(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return income;
+    }
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOReservation dao = new DAOReservation(dbconn);
         
-        System.out.println(dao.getEmail("123456"));
+        System.out.println(dao.searchbyID("654321"));
     }
 }

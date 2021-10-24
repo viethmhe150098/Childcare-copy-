@@ -50,144 +50,10 @@
 </head>
 
 <body class="clinic_version">
-    <!-- LOADER -->
-    <div id="preloader">
-        <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
-    </div>
-    <!-- END LOADER -->
-    <header>
-        <div class="header-top fadeIn" >
-            <div class="container">
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
-                <div class="right-header">
-                    <div class="header-info">
-                        <div class="info-inner">
-                            <span class="icontop"><img src="images/phone-icon.png" alt="#"></span>
-                            <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>	
-                        </div>
-                        <div class="info-inner">
-                            <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                            <span class="iconcont"><a data-scroll href="mailto:info@yoursite.com">info@Lifecare.com</a></span>	
-                        </div>
-                        <div class="info-inner">
-                            <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                            <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
-                        </div>
-                        <div class="info-inner">
-                            <ul class="list-main">
-                                <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
-                                <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>-->
 
-                                <c:choose>
-                                    <c:when test= "${sessionScope.customer_account == null}">
-                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
-                                    </c:when>
-                                    <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>
+    <jsp:include page="Header.jsp"/>
 
 
-                                <%--<c:choose>
-                                    <c:when test= "${sessionScope.admin_account == null}">
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.admin_account.name}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.admin_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>--%>
-
-                                <%--<c:choose>
-                                    <c:when test= "${sessionScope.manager_account == null}">
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.manager_account.username}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.manager_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>--%>
-
-                                <%--<c:choose>
-                                    <c:when test= "${sessionScope.staff_account == null}">
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="#">${sessionScope.staff_account.first_name}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.staff_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>--%>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom fadeIn" >
-            <div class="container">
-                <nav class="main-menu">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                    </div>
-
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.html">Home</a></li>
-                            <li><a data-scroll href="#about">About us</a></li>
-                            <li><a data-scroll href="#service">Services</a></li>
-                            <li><a data-scroll href="#doctors">Doctors</a></li>
-                            <li><a data-scroll href="#price">Price</a></li>
-                            <li><a data-scroll href="BlogController">Blogs</a></li>
-                            <li><a data-scroll href="#getintouch">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
-
-            </div>
-        </div>
-    </header>
     <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');">
         <div class="container">
             <div class="row">
@@ -471,29 +337,29 @@
 
 
 
-<div class= "text-center">
-<ul class="pagination">
-    <c:if test="${tag>1}">
-<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
-    </c:if>
- <c:forEach begin="1" end="${endP}" var="i">
- 
-<li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
-   </c:forEach>
- <c:if test="${tag<endP}">
+                    <div class= "text-center">
+                        <ul class="pagination">
+                            <c:if test="${tag>1}">
+                                <li class="page-item"><a class="page-link" href="ServiceControl?index=${tag-1}#Apply">Previous</a></li>
+                                </c:if>
+                                <c:forEach begin="1" end="${endP}" var="i">
+
+                                <li class="page-item ${tag== i? "active" :""}"><a class="page-link" href="ServiceControl?index=${i}#Apply">${i}</a></li>
+                                </c:forEach>
+                                <c:if test="${tag<endP}">
 
 
-<li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
- </c:if>
-</ul>
-</div>
+                                <li class="page-item"><a class="page-link" href="ServiceControl?index=${tag+1}#Apply">Next</a></li>
+                                </c:if>
+                        </ul>
+                    </div>
 
                 </div>
 
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                 <div class="appointment-form">
+                <div class="appointment-form">
                     <h3><span>+</span> Book Appointment</h3>
                     <div class="form">
                         <form action="index.html">
@@ -561,18 +427,18 @@
 
                 </div>
 
-                 </div>
-     
-    
-      </div>
-                          
-         
-              
-              </div>
-           </div>
-                      
+            </div>
+
+
         </div>
+
+
+
     </div>
+</div>
+
+</div>
+</div>
 </div>
 <!-- end section -->
 
@@ -846,67 +712,9 @@
         <div id="googleMap" style="width:100%;height:450px;"></div>
     </div>
 </div>
-<footer id="footer" class="footer-area wow fadeIn">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="logo padding">
-                    <a href=""><img src="images/logo.png" alt=""></a>
-                    <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="footer-info padding">
-                    <h3>CONTACT US</h3>
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                    <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
-                    <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="subcriber-info">
-                    <h3>SUBSCRIBE</h3>
-                    <p>Get healthy news, tip and solutions to your problems from our experts.</p>
-                    <div class="subcriber-box">
-                        <form id="mc-form" class="mc-form" action="addSubcribe" method="post">
-                            <div class="newsletter-form">
-                                <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="email">
-                                <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                                
-                                <!-- mailchimp-alerts Start -->
-                                
-                                <!-- mailchimp-alerts end -->
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<div class="copyright-area wow fadeIn">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="footer-text">
-                    <p>© 2018 Lifecare. All Rights Reserved.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="social">
-                    <ul class="social-links">
-                        <li><a href=""><i class="fa fa-rss"></i></a></li>
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                        <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+    <jsp:include page="Footer.jsp"/>
+
 <!-- end copyrights -->
 <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 <!-- all js files -->
@@ -920,9 +728,9 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./js/main.js"></script>
 <script>
-     function alert(){
-         window.alert(${mess});
-     }
+    function alert() {
+        window.alert(${mess});
+    }
 </script>
 </body>
 </html>

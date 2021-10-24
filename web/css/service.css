@@ -55,7 +55,7 @@
 .dropdown__item {
   width: 100%;
   padding: 2rem;
-  background-color: var(--primary);
+  background-color : var(--primary);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,7 +93,7 @@
 }
 
 .dropdown__item:first-child:hover:before {
-  border-bottom-color: var(--secondary);
+  border-bottom-color : var(--secondary);
 }
 
 .dropdown__item:last-child {
@@ -101,7 +101,7 @@
 }
 
 .dropdown__item:hover {
-  background-color: var(--secondar);
+  background-color : var(--secondar);
 }
 
 * {
@@ -376,7 +376,7 @@
 .next-btn {
   z-index: 999;
   font-size: 1.1em;
-  color: var(--white-color);
+  color : var(--white-color);
   background: red;
   width: 25px;
   height: 150px;

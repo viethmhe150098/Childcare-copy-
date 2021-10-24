@@ -6,10 +6,17 @@
 package Controller;
 
 import DAO.DAOBlog;
+import DAO.DAOPost;
 import Entity.Blog;
+import Entity.Post;
 import Model.DBConnect;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,11 +33,44 @@ public class BlogController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-              DBConnect bConnect = new DBConnect();
-        DAOBlog dao = new DAOBlog(bConnect);
-        List<Blog> blogs =dao.getListBlog();
-        request.setAttribute("blogs", blogs);
-        request.getRequestDispatcher("Blog.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            DBConnect dbconn = new DBConnect();
+
+            DAOPost dao = new DAOPost();
+            String indexPage = request.getParameter("index");
+            if (indexPage == null) {
+                indexPage = "1";
+            }
+            int index = Integer.parseInt(indexPage);
+            int count = dao.getTotalPost();
+            int endPage = count / 3;
+            if (count % 3 != 0) {
+                endPage++;
+            }
+            request.setAttribute("endP", endPage);
+            request.setAttribute("tag", index);
+
+            String sql = "select title, date_create, updata_date, a.image, a.status, PCateName, first_name, last_name, a.pID\n"
+                    + "from Post as a join PostCategory as b on a.pCateID=b.pCateID\n"
+                    + "join Manager as c on a.author=c.mID\n"
+                    + "order by updata_date\n"
+                    + "offset " + (index - 1) * 3 + " rows fetch next 3 rows only";
+            ResultSet rs1 = dbconn.getData(sql);
+            request.setAttribute("ketQua1", rs1);
+            dispatch(request, response, "/Blog.jsp");
+        }
+
+    }
+
+    private void dispatch(HttpServletRequest request, HttpServletResponse response, String URL) {
+        RequestDispatcher dis = request.getRequestDispatcher(URL);
+        try {
+            dis.forward(request, response);
+        } catch (ServletException ex) {
+            Logger.getLogger(reservationController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(reservationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

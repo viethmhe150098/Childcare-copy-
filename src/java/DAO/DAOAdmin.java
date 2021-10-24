@@ -41,7 +41,7 @@ public class DAOAdmin {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Admin ad = new Admin(rs.getInt(4), rs.getString(1), rs.getString(2), rs.getString(3));
+                Admin ad = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
                 return ad;
             }
         } catch (SQLException ex) {
@@ -56,8 +56,7 @@ public class DAOAdmin {
         ResultSet rs = dbconn.getData(sql);
         try {
             while (rs.next()) {
-                Admin ad = new Admin(rs.getInt(4), rs.getString(1),
-                        rs.getString(2), rs.getString(3));
+                Admin ad = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
                 arr.add(ad);
             }
         } catch (SQLException ex) {
@@ -79,6 +78,7 @@ public class DAOAdmin {
 //        }else{
 //            System.out.println("ok");
 //        }
-        System.out.println(dao.loginAdmin("trung@a", "12345678"));
+//        System.out.println(dao.loginAdmin("trung@a", "12345678"));
+        System.out.println(dao.getAllAdmin());
     }
 }

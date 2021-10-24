@@ -5,8 +5,14 @@
  */
 package Controller;
 
+import DAO.DAOCustomer;
+import DAO.DAOPost;
+import DAO.DAOReservation;
+import DAO.DAOReservationDetail;
+import Model.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,9 +38,43 @@ public class ManagerController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            DBConnect dbconn = new DBConnect();
             String service = request.getParameter("service");
-            if(service==null){
-                response.sendRedirect("404.html");
+            DAOReservation daoRe = new DAOReservation(dbconn);
+            DAOReservationDetail daoDe = new DAOReservationDetail(dbconn);
+            DAOCustomer daoCu = new DAOCustomer(dbconn);
+            DAOPost daoP = new DAOPost(dbconn);
+            if (service == null) {
+                int totalRe = daoRe.getTotalRe();
+                request.setAttribute("totalRe", totalRe);
+                double income = daoRe.getIncome();
+                request.setAttribute("income", income);
+                int totalCu = daoCu.getTotalCus();
+                request.setAttribute("totalCu", totalCu);
+                request.getRequestDispatcher("ManagerHomePage.jsp").forward(request, response);
+            }
+            if (service.equals("post")) {
+                String indexPage = request.getParameter("index");
+                if (indexPage == null) {
+                    indexPage = "1";
+                }
+                int index = Integer.parseInt(indexPage);
+                int count = daoP.getTotalPost();
+                int endPage = count / 3;
+                if (count % 3 != 0) {
+                    endPage++;
+                }
+                request.setAttribute("endP", endPage);
+                request.setAttribute("tag", index);
+
+                String sql = "select title, date_create, updata_date, a.image, a.status, PCateName, first_name, last_name, a.pID,a.content\n"
+                        + "from Post as a join PostCategory as b on a.pCateID=b.pCateID\n"
+                        + "join Manager as c on a.author=c.mID\n"
+                        + "order by updata_date\n"
+                        + "offset " + (index - 1) * 3 + " rows fetch next 3 rows only";
+                ResultSet rs1 = dbconn.getData(sql);
+                request.setAttribute("ketQua1", rs1);
+                request.getRequestDispatcher("Post.jsp").forward(request, response);
             }
         }
     }

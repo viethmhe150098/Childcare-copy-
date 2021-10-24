@@ -7,6 +7,7 @@ package DAO;
 
 import Entity.Admin;
 import Entity.Customer;
+
 import java.util.regex.Pattern;
 
 /**
@@ -24,6 +25,9 @@ public class DAOauth {
         }
         return false;
         //if return false -> user
+    }
+    public static void main(String[] args) {
+        System.out.println(System.getProperty("user.dir"));
     }
 
 }

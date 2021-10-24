@@ -10,370 +10,411 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- Site Metas -->
-    <title>Life Care - Responsive HTML5 Multi Page Template</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Colors CSS -->
-    <link rel="stylesheet" href="css/colors.css">
-    <!-- ALL VERSION CSS -->
-    <link rel="stylesheet" href="css/versions.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-    <!-- Modernizer for Portfolio -->
-    <script src="js/modernizer.js"></script>
-    <!-- [if lt IE 9] -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <style>
-        .contain {
-            margin: 10px 0px;
-            width: 100vw;
-            height: 80vh;
-            display: flex;
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- Site Metas -->
+        <title>Life Care - Responsive HTML5 Multi Page Template</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Site Icons -->
+        <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Site CSS -->
+        <link rel="stylesheet" href="style.css">
+        <!-- Colors CSS -->
+        <link rel="stylesheet" href="css/colors.css">
+        <!-- ALL VERSION CSS -->
+        <link rel="stylesheet" href="css/versions.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/custom.css">
+        <!-- Modernizer for Portfolio -->
+        <script src="js/modernizer.js"></script>
+        <!-- [if lt IE 9] -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <style>
+            .contain {
+                margin: 10px 0px;
+                width: 100vw;
+                height: 80vh;
+                display: flex;
 
-        }
+            }
 
-        .leftside_bar {
-            flex: 1;
-            background-color: azure;
-            
-        }
+            .leftside_bar {
+                flex: 1;
+                background-color: azure;
 
-        .leftside_bar ul {
-            list-style: none;
-            margin: 20px;
-        }
+            }
 
-        .leftside_bar li {
-            margin: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            padding: 10px;
-        }
-        .leftside_bar li:hover{
-            background-color: rgba(232, 232, 232, 1);
-        }
-        .reservation {
-            padding: 20px;
-            flex: 3;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-    
-        h1 {
-            font-weight: bolder;
-        }
+            .leftside_bar ul {
+                list-style: none;
+                margin: 20px;
+            }
 
-        tr:first-child td {
-            color: white;
-            background-color: rgba(0, 181, 204, 1);
-        }
+            .leftside_bar li {
+                margin: 10px;
+                cursor: pointer;
+                font-size: 20px;
+                padding: 10px;
+            }
+            .leftside_bar li:hover{
+                background-color: rgba(232, 232, 232, 1);
+            }
+            .reservation {
+                padding: 20px;
+                flex: 3;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
 
-        table {
-            border: 1px solid rgba(0, 181, 204, 1);
-            text-align: center;
+            h1 {
+                font-weight: bolder;
+            }
 
-        }
+            tr:first-child td {
+                color: white;
+                background-color: rgba(0, 181, 204, 1);
+            }
 
-        td {
-            color: rgba(0, 181, 204, 1);
-        }
+            table {
+                border: 1px solid rgba(0, 181, 204, 1);
+                text-align: center;
 
-        td:first-child {
-            width: 35%;
-        }
+            }
 
-        td:nth-child(2) {
-            width: 20%;
-        }
+            td {
+                color: rgba(0, 181, 204, 1);
+            }
 
-        td:nth-child(3) {
-            width: 10%;
-        }
+            td:first-child {
+                width: 35%;
+            }
 
-        td:nth-child(4) {
-            width: 25%;
+            td:nth-child(2) {
+                width: 20%;
+            }
 
-        }
+            td:nth-child(3) {
+                width: 10%;
+            }
 
-        .wrapper2 {
-            margin: 40px 0px;
-        }
+            td:nth-child(4) {
+                width: 25%;
 
-        .wrapper3 {
-            height: 40vh;
-            display: flex;
+            }
 
-        }
+            .wrapper2 {
+                margin: 40px 0px;
+            }
 
-        .left_table {
-            padding: 10px;
-            flex: 1;
-            justify-content: center;
-            align-items: center;
+            .wrapper3 {
+                height: 40vh;
+                display: flex;
 
-        }
+            }
 
-        .right_table {
-            padding: 10px;
-            flex: 1;
+            .left_table {
+                padding: 10px;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
 
-        }
+            }
 
-        .content {
-            width: 90%;
-            background-color: rgba(243, 241, 239, 1);
-            padding: 20px;
-            color: rgba(0, 181, 204, 1);
-            height: 40%;
-        }
+            .right_table {
+                padding: 10px;
+                flex: 1;
 
-        p {
-            font-weight: 3000q;
-        }
+            }
 
-        .content h2 {
-            color: rgba(0, 181, 204, 1);
-        }
-        .container{
-            flex:3
-        }
-    </style>
-</head>
+            .content {
+                width: 90%;
+                background-color: rgba(243, 241, 239, 1);
+                padding: 20px;
+                color: rgba(0, 181, 204, 1);
+                height: 40%;
+            }
 
-<body class="clinic_version">
+            p {
+                font-weight: 3000q;
+            }
 
-    <header>
-        <div class="header-top wow fadeIn">
-            <div class="container">
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
-                <div class="right-header">
-                    <div class="header-info">
-                        <div class="info-inner">
-                            <span class="icontop"><img src="images/phone-icon.png" alt="#"></span>
-                            <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>
-                        </div>
-                        <div class="info-inner">
-                            <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                            <span class="iconcont"><a data-scroll
-                                    href="mailto:info@yoursite.com">info@Lifecare.com</a></span>
-                        </div>
-                        <div class="info-inner">
-                            <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                            <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>
+            .content h2 {
+                color: rgba(0, 181, 204, 1);
+            }
+            .container{
+                flex:3
+            }
+        </style>
+    </head>
+
+    <body class="clinic_version">
+        <header>
+            <div class="header-top fadeIn" >
+                <div class="container">
+                    <a class="navbar-brand" href="ServiceControl"><img src="images/logo.png" alt="image"></a>
+                    <div class="right-header">
+                        <div class="header-info">
+                            <div class="info-inner">
+                                <span class="icontop"><img src="images/phone-icon.png" alt="#"></span>
+                                <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>	
+                            </div>
+                            <div class="info-inner">
+                                <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                <span class="iconcont"><a data-scroll href="mailto:info@yoursite.com">info@Lifecare.com</a></span>	
+                            </div>
+                            <div class="info-inner">
+                                <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
+                            </div>
+                            <div style="color: black;" class="info-inner">
+                                <ul class="list-main">
+                                    <c:choose>
+                                        <c:when test= "${sessionScope.customer_account == null}">
+                                            <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                                        </c:when>
+                                        <c:otherwise>
+                                            <i class="fa fa-user-circle"></i> <a href="Userprofile.jsp"> ${sessionScope.customer_account.username} | </a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose >
+                                        <c:when test = "${sessionScope.customer_account == null}">
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="login"> Login</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <i class="fa fa-sign-in"></i><a href="validateCustomer"> Logout</a>
+                                            </c:otherwise>
+                                        </c:choose>                            
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="header-bottom wow fadeIn">
-            <div class="container">
-                <nav class="main-menu">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars"
-                                aria-hidden="true"></i></button>
-                    </div>
+            <div class="header-bottom fadeIn" >
+                <div class="container">
+                    <div class="row">
 
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.html">Home</a></li>
-                            <li><a data-scroll href="#about">About us</a></li>
-                            <li><a data-scroll href="#service">Services</a></li>
-                            <li><a data-scroll href="#doctors">Doctors</a></li>
-                            <li><a data-scroll href="#price">Price</a></li>
-                            <li><a data-scroll href="#testimonials">Testimonials</a></li>
-                            <li><a data-scroll href="#getintouch">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="serch-bar">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </span>
+                        <nav class="main-menu ">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                            </div>
+
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a class="active" href="ServiceControl">Home</a></li>
+                                    <li><a data-scroll href="#about">About us</a></li>
+                                    <li><a data-scroll href="ServiceControl">Services</a></li>
+                                    <li><a data-scroll href="#doctors">Doctors</a></li>
+                                    <li><a data-scroll href="#price">Price</a></li>
+                                    <li><a data-scroll href="BlogController">Blogs</a></li>
+                                    <li><a data-scroll href="#getintouch">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+
+                        <div class="serch-bar ">
+                            <div class="col-md-7" id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-lg" placeholder="Search Here" />
+                                    <!--                            <span class="input-group-btn">
+                                                                    <button class="btn btn-info btn-lg" type="button">
+                                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                                    </button>
+                                                                </span>-->
+                                </div>
+
+                            </div>
+                            <c:choose>
+                                <c:when test= "${sessionScope.customer_account != null}">
+                                    <div class=" col-md-1">
+                                        <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="Userprofile.jsp"><span class="glyphicon glyphicon-user align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="validateCustomer"><span class="glyphicon glyphicon-log-out align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
+                                    </div>
+
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="col-md-1">
+                                        <a href="login"><span class="glyphicon glyphicon-log-in align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
+
+                        <!--                <a href="#"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>-->
+
                     </div>
                 </div>
-                
-         <%  session = request.getSession(true);
+            </div>
+        </header>
+        <%  session = request.getSession(true);
             Customer a = (Customer) session.getAttribute("customer_account");
         %>
-                <a href="ReserDetailforCus?cID=<%=a.getcID()%>"><span class="glyphicon glyphicon-shopping-cart align-self-center" style="color: white!important; display: inline-block; top: 17px; height: 40px"></span></a>
-            
-        </div>
-    </header>
-    <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4"
-        style="background-image:url('images/slider-bg.png');">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="text-contant">
-                        <h2>
-                            <span class="center"><span class="icon"><img src="images/icon-logo.png"
-                                        alt="#" /></span></span>
-                            <a href="" class="typewrite" data-period="2000"
-                                data-type='[ "Welcome to Life Care", "We Care Your Health", "We are Expert!" ]'>
-                                <span class="wrap"></span>
-                            </a>
-                        </h2>
+        <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4"
+             style="background-image:url('images/slider-bg.png');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="text-contant">
+                            <h2>
+                                <span class="center"><span class="icon"><img src="images/icon-logo.png"
+                                                                             alt="#" /></span></span>
+                                <a href="" class="typewrite" data-period="2000"
+                                   data-type='[ "Welcome to Life Care", "We Care Your Health", "We are Expert!" ]'>
+                                    <span class="wrap"></span>
+                                </a>
+                            </h2>
+                        </div>
                     </div>
                 </div>
+                <!-- end row -->
             </div>
-            <!-- end row -->
+            <!-- end container -->
         </div>
-        <!-- end container -->
-    </div>
-    <div class="contain">
+        <div class="contain">
 
-        <div class="leftside_bar">
-            <div>
-                <ul>
-                    <li>
-                        <i class='fas fa-user-circle'></i>
-                        <a>MY ACCOUNT</a>
-                    </li>
-                    <li>
-                        <i class='fas fa-user-edit'></i>
-                        <a>MY PROFILE</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-history" aria-hidden="true"></i>
-                        <a>RESERVATION HISTORY</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                        <a>ADDRESS</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                        <a href = "ReserDetailforCus?cID=<%=a.getcID()%>"> RESERVATION DETAIL</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
-                        <a>LOG OUT</a>
-                    </li>
-                </ul>
+            <div class="leftside_bar">
+                <div>
+                    <ul>
+                        <li>
+                            <i class='fas fa-user-circle'></i>
+                            <a>MY ACCOUNT</a>
+                        </li>
+                        <li>
+                            <i class='fas fa-user-edit'></i>
+                            <a>MY PROFILE</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-history" aria-hidden="true"></i>
+                            <a>RESERVATION HISTORY</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                            <a>ADDRESS</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                            <a href = "ReserDetailforCus?cID=<%=a.getcID()%>"> RESERVATION DETAIL</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+                            <a>LOG OUT</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-             
-        <div class="container">
-            <div class="main-body">
-                <br>
 
-                <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                                    <div class="mt-3">
-                                        <h4><%=a.getFirst_name() + " " + a.getLast_name()%></h4>
+            <div class="container">
+                <div class="main-body">
+                    <br>
 
-                                        
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                        <div class="mt-3">
+                                            <h4><%=a.getFirst_name() + " " + a.getLast_name()%></h4>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Full Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <%=a.getFirst_name() + " " + a.getLast_name()%>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Gender</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">                                     
+                                            <% if (a.getGender().equals("1")) {
+                                                    out.println("Male");
+                                                } else {
+                                                    out.println("Female");
+                                                }%>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <%=a.getEmail()%>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">   
+                                            <h6 class="mb-0">Phone</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <%=a.getTel()%>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Address</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <%= a.getAddress()%>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-md-8">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getFirst_name() + " " + a.getLast_name()%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Gender</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">                                     
-                                          <% if (a.getGender().equals("1")) {
-                                                out.println("Male");
-                                            } else {
-                                                out.println("Female");
-                                            }%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getEmail()%>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">   
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%=a.getTel()%>
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <%= a.getAddress() %>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-  
-        
-        
-        
-    
+
+
+
+
+
     </div>
     <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
         <div class="container">
@@ -410,7 +451,7 @@
                             <form id="mc-form" class="mc-form">
                                 <div class="newsletter-form">
                                     <input type="email" autocomplete="off" id="mc-email" placeholder="Email address"
-                                        class="form-control" name="EMAIL">
+                                           class="form-control" name="EMAIL">
                                     <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button>
                                     <div class="clearfix"></div>
                                     <!-- mailchimp-alerts Start -->
@@ -462,10 +503,10 @@
     <script src="js/custom.js"></script>
     <!-- map -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
 </body> 
 
-    
-    
+
+
 
 </html>

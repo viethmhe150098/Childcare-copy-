@@ -1,6 +1,6 @@
 <%-- 
-    Document   : BlogDetail
-    Created on : Oct 10, 2021, 9:22:28 PM
+    Document   : FeedBackDetail
+    Created on : Oct 22, 2021, 12:29:38 PM
     Author     : ADMIN
 --%>
 
@@ -46,14 +46,15 @@
     <link rel="stylesheet" href="./css/service.css">
     <!-- [if lt IE 9] -->
 </head>
-<body class="clinic_version">
+<body class="clinic_version" style="background:
+#EEEEEE">
     <!-- LOADER -->
     <div id="preloader">
         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
     </div>
     <!-- END LOADER -->
     <header>
-        <div class="header-top wow fadeIn">
+        <div class="header-top  fadeIn">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
                 <div class="right-header">
@@ -74,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom wow fadeIn">
+        <div class="header-bottom  fadeIn">
             <div class="container">
                 <nav class="main-menu">
                     <div class="navbar-header">
@@ -131,22 +132,31 @@
         <div class="container">
             <div class="heading">
                 <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-                <h2>The Detail Service</h2>
+                <h2>The Detail Feedback</h2>
             </div>
             <!-- end title -->
             <div class="row">
                 <div class="col-md-6">
-                    <div class="message-box">
-                        <h4>What We Do</h4>
-                        <h2>Clinic Service</h2>
-                        <div class="service-price" style="background-color:#39b49a;color:white;width: 50%; ">
-                            <p style = "text-decoration: underline;
-                               text-underline-offset: -2px; text-decoration: line-through;text-align: center"> 120$</p>
-                            <p style="text-align: center"> Sale :50$</p>
+                    <div class="message-box" style="padding:15px ; background:#fff;border-radius:5px;margin-bottom: 15px;">
+                                                                                       <p>${feedback.content}</p>
+
+                        <h2>${feedback.name}</h2>
+                         <div class="service-price" style="margin-top:10px; background-color:#39b49a;color:white;width: 10%; ">
+                               
+                                                                <p style="text-align:center;">${feedback.star} <i class="fas fa-star-half-alt"></i></p>
+
+                               
                         </div>
-                        <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
-                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
+                                                                 <div class="service-price" style="margin:10px 0;padding:10px; background-color:#EEEEEE;color:#000;width: 100%; ">
+                        <p>Email: ${feedback.email}</p>
+                        <p>Giới tính : ${feedback.gender==1 ? "Male" : "FeMale"}</p>                         
+                        <p>Phone: ${feedback.mobile}</p>
+                          </div>
+                                                  <p>Phone: ${feedback.description}</p>
+
+                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Reply</a>
+                         <input class="btn btn-default  check_out" type="button" onclick="history.back()" value="Back to Feedback List" style="margin:0;background-color: orange;margin-left:190px;">
+                                                               
                     </div>
                     <!-- end messagebox -->
                 </div>

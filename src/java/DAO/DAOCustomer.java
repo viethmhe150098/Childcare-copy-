@@ -52,9 +52,8 @@ public class DAOCustomer {
             while (rs.next()) {
 //                Customer cus = new Customer(rs.getString(1), rs.getString(2));
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6),
-                        rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getString(11), rs.getString(10));
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 return cus;
             }
         } catch (SQLException ex) {
@@ -73,7 +72,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
         } catch (Exception e) {
         }
@@ -92,7 +91,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
         } catch (Exception e) {
         }
@@ -138,8 +137,9 @@ public class DAOCustomer {
         } catch (Exception e) {
         }
     }
-     public void editCustomer(String firstname, String lastname, String gender, String email, String tel, String username, String password,
-            String age, String status, String address, String role,String cid) {
+
+    public void editCustomer(String firstname, String lastname, String gender, String email, String tel, String username, String password,
+            String age, String status, String address, String role, String cid) {
         String query = "update Customer\n"
                 + "set [first_name] = ?,\n"
                 + "[last_name] = ?,\n"
@@ -163,12 +163,11 @@ public class DAOCustomer {
             ps.setString(5, tel);
             ps.setString(6, username);
             ps.setString(7, password);
-                        ps.setString(8, age);
+            ps.setString(8, age);
             ps.setString(9, status);
             ps.setString(10, address);
             ps.setString(11, role);
-                        ps.setString(12, cid);
-
+            ps.setString(12, cid);
 
             ps.executeUpdate();
         } catch (Exception e) {
@@ -186,7 +185,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 return new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
             }
         } catch (Exception e) {
         }
@@ -203,9 +202,8 @@ public class DAOCustomer {
 
             while (rs.next()) {
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6),
-                        rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getString(10), rs.getString(11));
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 return cus;
             }
         } catch (SQLException ex) {
@@ -222,7 +220,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 arr.add(cus);
             }
         } catch (SQLException ex) {
@@ -231,6 +229,7 @@ public class DAOCustomer {
         return arr;
     }
 
+    //
     public List<Customer> pagingCustomer(int index) {
         List<Customer> list = new ArrayList<>();
         String sql = "select * from Customer\n"
@@ -244,7 +243,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
 
         } catch (Exception e) {
@@ -252,7 +251,6 @@ public class DAOCustomer {
         }
         return list;
     }
-    
 
     public List<Customer> SearchCustomer(String name, String phone) {
         List<Customer> list = new ArrayList<>();
@@ -267,7 +265,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
 
         } catch (Exception e) {
@@ -290,7 +288,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
 
         } catch (Exception e) {
@@ -343,6 +341,7 @@ public class DAOCustomer {
         return n;
     }
 
+    //
     public List<Customer> getStatusActive(int status) {
         List<Customer> list = new ArrayList<>();
         String query = "select * from Customer where status = ?";
@@ -354,13 +353,14 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
         } catch (Exception e) {
         }
         return list;
     }
 
+    //
     public List<Customer> getStatusInactive(int status) {
         List<Customer> list = new ArrayList<>();
         String query = "select * from Customer where status = ?";
@@ -372,7 +372,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 list.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12)));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11)));
             }
         } catch (Exception e) {
         }
@@ -403,9 +403,9 @@ public class DAOCustomer {
             Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void updateCustomer1(String fname, String lname, String gender, String email, String tel
-    , String username, String password, String age, String status, String address, int role, int cID) {
+
+    public void updateCustomer1(String fname, String lname, String gender, String email, String tel,
+             String username, String password, String age, String status, String address, int role, int cID) {
         try {
             String sql = "update Customer set first_name=?, last_name=?, gender=?, "
                     + "email=?, tel=?, username=?, \n"
@@ -441,7 +441,7 @@ public class DAOCustomer {
             while (rs.next()) {
                 Customer cus = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12));
+                        rs.getString(8), rs.getString(9), rs.getString(12), rs.getString(10), rs.getInt(11));
                 return cus;
             }
         } catch (SQLException ex) {
@@ -452,43 +452,59 @@ public class DAOCustomer {
         return null;
     }
 
+    public boolean getCustomerByUser(String user) {
+        String sql = "select username from Customer where username = ?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public int getTotalCus() {
+        ResultSet rs = dbconn.getData("select count(*) from Customer");
+        int total = 0;
+        try {
+            while (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+    }
+
+    public void resetPass(String pass, String user) {
+        
+            String sql = "update Customer set password = ? where username=?";
+            try {
+                conn = dbconn.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, pass);
+                ps.setString(2, user);
+                ps.executeUpdate();
+            } catch (Exception ex) {
+                Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+    }
+
     public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         DAOCustomer dao = new DAOCustomer(dbconn);
 
-//        List<Customer> list = dao.searchByName("a");
-//        for (Customer o : list) {
-//            System.out.println(o);
-//        }
-
-        Customer cus = dao.getCustomerByID("1");
-        System.out.println(cus);
-        List<Customer> list = dao.searchByName("b");
-//         for(Customer o : list){
-//            System.out.println(o);
-//       }
-//       Customer a = dao.getCustomerByID("1");
-//        System.out.println(a);
-        
-//    List<Customer> list = dao.pagingCustomer(1);
-//    for(Customer o : list){
-//            System.out.println(o);
-//    }
-//    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJC", "1");
-    dao.addCustomer("abc", "bcv", "1", "zxc", "12312","asd", "zxczxc", "20", "1", "TTJxzxcC", "1");
-//        }
-//List<Customer> list1 = dao.pagingCustomer(30);
-//        for (Customer o : list) {
-//            System.out.println(o);
-//        }
-//        int b= dao.getTotalCustomer();
-//        System.out.println(b);
-//        }
-//        System.out.println(dao.loginCustomer("trung", "12345678"));
-//        dao.insertCus(new Customer("gia", "phu", "1", "phu@gmail.com", "086342623", "phu", "12345678", "20", "1", "ha noi"));
-//        List<Customer> list = dao.SearchCustomer("t");
-//        for(Customer o : list){
-//            System.out.println(o);
-//        }
+//        List<Customer> list = dao.pagingCustomer(1);
+//        System.out.println(list);
+        System.out.println(dao.getAllCustomer1());
     }
 }

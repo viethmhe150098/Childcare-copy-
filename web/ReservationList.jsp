@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
     <!-- Basic -->
@@ -64,11 +65,7 @@
     <!-- [if lt IE 9] -->
 </head>
 <body class="clinic_version">
-    <!-- LOADER -->
-    <!--    <div id="preloader">
-            <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
-        </div>-->
-    <!-- END LOADER -->
+    
     <header>
         <div class="header-top wow fadeIn">
             <div class="container">
@@ -87,26 +84,25 @@
                             <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                             <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
                         </div>
-                        <div class="info-inner">
-                            <ul class="list-main">
-                                <c:choose>
-                                    <c:when test= "${sessionScope.customer_account == null}">
-                                        <!--<li><i class="fa fa-user-circle"></i> <a href="#">My account</a></li>-->
+                        <div style="color: black;" class="info-inner">
+                        <ul class="list-main">
+                            <c:choose>
+                                <c:when test= "${sessionScope.customer_account == null}">
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="fa fa-user-circle"></i> <a href="Userprofile.jsp"> ${sessionScope.customer_account.username} | </a>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose >
+                                <c:when test = "${sessionScope.customer_account == null}">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="login"> Login</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <li><i class="fa fa-user-circle"></i> <a href="Userprofile.jsp">${sessionScope.customer_account.username}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose >
-                                        <c:when test = "${sessionScope.customer_account == null}">
-                                        <li><i class="fa fa-sign-in"></i><a href="login">Login</a></li>
-                                            </c:when>
-                                            <c:otherwise>
-                                        <li><i class="fa fa-sign-in"></i><a href="validateCustomer">Logout</a></li>
-                                            </c:otherwise>
-                                        </c:choose>
-                            </ul>
-                        </div>
+                                    <i class="fa fa-sign-in"></i><a href="validateCustomer"> Logout</a>
+                                    </c:otherwise>
+                                </c:choose>                            
+                        </ul>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -120,13 +116,12 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.html">Home</a></li>
-                            <li><a data-scroll href="#about">About us</a></li
-                            <li><a data-scroll href="#blogs">Blogs</a></li>
-                            <li><a data-scroll href="#service">Services</a></li>
+                            <li><a class="active" href="ServiceControl">Home</a></li>
+                            <li><a data-scroll href="#about">About us</a></li>
+                            <li><a data-scroll href="ServiceControl">Services</a></li>
                             <li><a data-scroll href="#doctors">Doctors</a></li>
                             <li><a data-scroll href="#price">Price</a></li>
-                            <li><a data-scroll href="#testimonials">Testimonials</a></li>
+                            <li><a data-scroll href="BlogController">Blogs</a></li>
                             <li><a data-scroll href="#getintouch">Contact</a></li>
                         </ul>
                     </div>
@@ -242,75 +237,7 @@
         </ul>
     </div>
 
-    <footer id="footer" class="footer-area wow fadeIn">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="logo padding">
-                        <a href=""><img src="images/logo.png" alt=""></a>
-                        <p>Locavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="footer-info padding">
-                        <h3>CONTACT US</h3>
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                        <p><i class="fa fa-paper-plane" aria-hidden="true"></i> info@gmail.com</p>
-                        <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 800 123 456</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="subcriber-info">
-                        <h3>SUBSCRIBE</h3>
-                        <p>Get healthy news, tip and solutions to your problems from our experts.</p>
-                        <div class="subcriber-box">
-                            <form id="mc-form" class="mc-form">
-                                <div class="newsletter-form">
-                                    <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
-                                    <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                                    <div class="clearfix"></div>
-                                    <!-- mailchimp-alerts Start -->
-                                    <div class="mailchimp-alerts">
-                                        <div class="mailchimp-submitting"></div>
-                                        <!-- mailchimp-submitting end -->
-                                        <div class="mailchimp-success"></div>
-                                        <!-- mailchimp-success end -->
-                                        <div class="mailchimp-error"></div>
-                                        <!-- mailchimp-error end -->
-                                    </div>
-                                    <!-- mailchimp-alerts end -->
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class="copyright-area wow fadeIn">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="footer-text">
-                        <p>© 2018 Lifecare. All Rights Reserved.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="social">
-                        <ul class="social-links">
-                            <li><a href=""><i class="fa fa-rss"></i></a></li>
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                            <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end copyrights -->
+    <jsp:include page="Footer.jsp"/>
     <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
     <!-- all js files -->
     <script src="js/all.js"></script>
