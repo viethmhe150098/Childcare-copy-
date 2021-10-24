@@ -44,6 +44,28 @@ public class DAOReservation {
     private static final String ALPHA_NUMERIC = alpha + alphaUpperCase + digits;
     private static final String ALL = alpha + alphaUpperCase + digits + specials;
     private static Random generator = new Random();
+    
+    public List<Reservation> getReverbycid(String cid){
+        List<Reservation> list = new ArrayList<>();
+        String sql = "select b.reID, b.date, b.totalprice,b.phone, b.mail, b.status, b.fullname, b.receive_name, b.receive_gender, b.receive_mail, b.receive_tel, d.sname\n"
+                    + "from Customer as a join Reservation as b on a.cID=b.cid\n"
+                    + "join ReservationDetail as c on b.reID=c.reID\n"
+                    + "join Service as d on c.sID=d.sID\n"
+                    + "where a.cID = " + cid;
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getString(4), rs.getString(5),
+                        rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(11), rs.getString(12)));
+            }
+
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
 
     public String randomAlphaNumeric(int numberOfCharactor) {
         StringBuilder sb = new StringBuilder();

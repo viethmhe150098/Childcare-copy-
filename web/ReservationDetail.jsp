@@ -216,7 +216,7 @@
                 <%while (rs1.next()) {%>
                 <h1>Reservation ID : <%=rs1.getString(1)%></h1>
                 <div class="wrapper1">
-                    <h2>RESERVATION DETAIL</h2>
+                    <h2>MY RESERVATION</h2>
                     <table>
                         <tr>
                             <td>RESERVATION ID</td>
