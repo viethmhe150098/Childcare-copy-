@@ -67,7 +67,7 @@ public class ManagerController extends HttpServlet {
                 request.setAttribute("endP", endPage);
                 request.setAttribute("tag", index);
 
-                String sql = "select title, date_create, updata_date, a.image, a.status, PCateName, first_name, last_name, a.pID,a.content\n"
+                String sql = "select title,Convert(varchar(10),date_create,103) as 'DD/MM/YYYY', updata_date, a.image, a.status, PCateName, first_name, last_name, a.pID,a.content\n"
                         + "from Post as a join PostCategory as b on a.pCateID=b.pCateID\n"
                         + "join Manager as c on a.author=c.mID\n"
                         + "order by updata_date\n"
