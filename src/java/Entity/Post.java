@@ -126,8 +126,9 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post{" + "title=" + title + ", mID=" + mID + ", date_create=" + date_create + ", updata_date=" + updata_date + ", status=" + status + ", pcateID=" + pcateID + ", pID=" + pID + ", image=" + image + '}';
+        return "Post{" + "title=" + title + ", mID=" + mID + ", date_create=" + date_create + ", updata_date=" + updata_date + ", status=" + status + ", pcateID=" + pcateID + ", pID=" + pID + ", image=" + image + ", content=" + content + '}';
     }
+
     
     
 }

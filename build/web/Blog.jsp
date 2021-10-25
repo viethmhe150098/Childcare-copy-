@@ -198,7 +198,7 @@
                         </div>
                         <!--Text-->
                         <div class="item-box-blog-text" style="color: black">
-                            <p>This content is extremely beneficial for you.</p>
+                            <p><%=rs1.getString(10)%></p>
                         </div>
                         <div class="item-box-blog-text" style="color: black">
                             <p>Create Date: <%=rs1.getDate(2)%></p>
