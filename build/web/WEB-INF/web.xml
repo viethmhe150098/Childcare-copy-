@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter>
         <filter-name>ManagerAuthenticationFilter</filter-name>
-        <filter-class>Controller.ManagerAuthenticationFilter</filter-class>
+        <filter-class>Controller.Filter.ManagerAuthenticationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>ManagerAuthenticationFilter</filter-name>
@@ -34,15 +34,15 @@
     </servlet>
     <servlet>
         <servlet-name>AdminController</servlet-name>
-        <servlet-class>Controller.AdminController</servlet-class>
+        <servlet-class>Controller.Admin.AdminController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManagerController</servlet-name>
-        <servlet-class>Controller.ManagerController</servlet-class>
+        <servlet-class>Controller.Manager.ManagerController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StaffController</servlet-name>
-        <servlet-class>Controller.StaffController</servlet-class>
+        <servlet-class>Controller.Staff.StaffController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChangePass</servlet-name>
@@ -126,11 +126,11 @@
     </servlet>
     <servlet>
         <servlet-name>postDetail</servlet-name>
-        <servlet-class>Controller.postDetail</servlet-class>
+        <servlet-class>Controller.Customer.postDetail</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>updatePostDetail</servlet-name>
-        <servlet-class>Controller.updatePostDetail</servlet-class>
+        <servlet-class>Controller.Manager.updatePostDetail</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>updateServiceControl</servlet-name>
@@ -142,11 +142,11 @@
     </servlet>
     <servlet>
         <servlet-name>ReserDetailforCus</servlet-name>
-        <servlet-class>Controller.ReserDetailforCus</servlet-class>
+        <servlet-class>Controller.Customer.ReserDetailforCus</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MyResevation</servlet-name>
-        <servlet-class>Controller.MyResevation</servlet-class>
+        <servlet-class>Controller.Customer.MyResevation</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>blogDetail</servlet-name>
