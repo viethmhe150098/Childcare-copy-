@@ -245,7 +245,8 @@ public class DAOReservation {
 
     public ArrayList<Reservation> getSubmitted() {
         ArrayList<Reservation> list = new ArrayList<>();
-        ResultSet rs = dbconn.getData("select reID,Convert(varchar(10),date,103) as 'DD/MM/YYYY', totalprice,phone,mail,status from Reservation where status = 1");
+        ResultSet rs = dbconn.getData("select reID,Convert(varchar(10),date,103) as 'DD/MM/YYYY', totalprice,phone,mail,status from Reservation where status = 1\n" +
+"order by date");
         try {
             while (rs.next()) {
                 list.add(new Reservation(rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getString(4), rs.getString(5), rs.getInt(6)));
